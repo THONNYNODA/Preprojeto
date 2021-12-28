@@ -1,10 +1,9 @@
-import { Button } from "@mui/material";
 import React from "react";
 import * as yup from "yup";
 import Formularios from "../../components/Formulario";
 import InputField from "../../components/Input";
-import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import {
   BoxText,
   ContainerFilter,
@@ -52,9 +51,25 @@ function Login() {
             <Formularios
               validationSchema={validationSchema}
               initialValues={inicial}
+              submit={(values, { setSubmitting }) => {
+                setTimeout(async() => {
+                  await alert(JSON.stringify(values, null, 2));
+                  setSubmitting(false);
+                }, 400);
+              }}
             >
-              <InputField icon={<PersonRoundedIcon fontSize="large"/>} name="cpf" placeholder="Insira o seu login" />
-              <InputField icon={<VpnKeyIcon fontSize="large"/>} name="senha" placeholder="Insira a sua senha" />
+              <InputField
+                label="CPF"
+                icon={<PersonRoundedIcon fontSize="large" />}
+                name="cpf"
+                placeholder="Insira o seu login"
+              />
+              <InputField
+                label="Senha"
+                icon={<VpnKeyIcon fontSize="large" />}
+                name="senha"
+                placeholder="Insira a sua senha"
+              />
               <Buttons type="submit">Entrar</Buttons>
             </Formularios>
           </BoxForm>

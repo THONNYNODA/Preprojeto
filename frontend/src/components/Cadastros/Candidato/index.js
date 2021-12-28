@@ -8,13 +8,15 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import Card from "../../Card";
-import { CadastroStyles} from "./styles";
+import { CadastroStyles } from "./styles";
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-mui";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Formularios from "../../Formulario";
+import { InputField } from "../../Input/styles";
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -46,7 +48,7 @@ const validationSchema = yup.object().shape({
 
 function Candidato() {
   const classes = CadastroStyles();
-  const [view, setView ] = useState();
+  const [view, setView] = useState();
 
   const Genero = ["Masculino", "Feminino", "Outros"];
   const civil = ["Solteiro(a)", "Casado(a)", "Viúvo(a)"];
@@ -92,7 +94,24 @@ function Candidato() {
     <>
       <Grid className={classes.boxCenter} container sx={12}>
         <Card>
-          <Box className={classes.containerForm}>
+          <Formularios
+            validationSchema={validationSchema}
+            initialValues={inicial}
+            submit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 400);
+            }}
+          >
+            <InputField
+              label="Nome"
+              name="nome"
+              placeholder="Insira o seu nome"
+              height="2rem"
+            />
+          </Formularios>
+          {/* <Box className={classes.containerForm}>
             <Formik
               validationSchema={validationSchema}
               initialValues={inicial}
@@ -107,7 +126,6 @@ function Candidato() {
                 <Form>
                   <Box className={classes.containerField}>
                     <Box className={classes.boxField}>
-                      
                       <Field
                         className={classes.field}
                         name="nome"
@@ -308,7 +326,7 @@ function Candidato() {
                 </Form>
               )}
             </Formik>
-          </Box>
+          </Box> */}
         </Card>
       </Grid>
     </>
