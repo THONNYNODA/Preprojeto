@@ -3,7 +3,8 @@ import React from "react";
 import * as yup from "yup";
 import Formularios from "../../components/Formulario";
 import InputField from "../../components/Input";
-
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import {
   BoxText,
   ContainerFilter,
@@ -13,6 +14,7 @@ import {
   Title,
   ContainerForm,
   Buttons,
+  BoxForm,
 } from "./styles";
 
 const validationSchema = yup.object().shape({
@@ -42,7 +44,7 @@ function Login() {
           </BoxText>
         </ContainerImg>
         <ContainerForm width="40%">
-          <BoxText>
+          <BoxForm>
             <Title color="#e32727">Login</Title>
             <Text color="#32a852">
               Faça o seu login para verificar as vagas disponivel
@@ -51,11 +53,11 @@ function Login() {
               validationSchema={validationSchema}
               initialValues={inicial}
             >
-              <InputField name="cpf" placeholder="Insira o seu login" />
-              <InputField name="senha" placeholder="Insira a sua senha" />
-              <Buttons type="submit">testee</Buttons>
+              <InputField icon={<PersonRoundedIcon fontSize="large"/>} name="cpf" placeholder="Insira o seu login" />
+              <InputField icon={<VpnKeyIcon fontSize="large"/>} name="senha" placeholder="Insira a sua senha" />
+              <Buttons type="submit">Entrar</Buttons>
             </Formularios>
-          </BoxText>
+          </BoxForm>
         </ContainerForm>
       </ContainerLogin>
     </>
