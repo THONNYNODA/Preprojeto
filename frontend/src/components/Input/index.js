@@ -1,19 +1,20 @@
 import React from "react";
-import { BoxField, BoxIcon, InputField, TextLabel, BoxLabel } from "./styles";
+import { BoxField, BoxIcon, InputField, TextLabel, BoxLabel, ContainerField } from "./styles";
+import { TextField } from "formik-mui";
 
 function InputFields(props) {
   return (
-    <>
+    <ContainerField>
       {props.label ? (
         <BoxLabel>
-          <TextLabel>{props.label}</TextLabel>
+          <TextLabel fontSizeLabel={props.fontSizeLabel} color={props.color} >{props.label}</TextLabel>
         </BoxLabel>
       ) : null}
       <BoxField>
         {props.icon ? <BoxIcon>{props.icon}</BoxIcon> : null}
-        <InputField name={props.name} label={props.label} />
+        <InputField width={props.width} placeholder={props.placeholder} fontSizeLabel={props.fontSizeLabel} fontSize={props.fontSize}type={props.type} components={TextField} height={props.height} name={props.name} label={props.label} />
       </BoxField>
-    </>
+    </ContainerField>
   );
 }
 

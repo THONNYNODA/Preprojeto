@@ -1,7 +1,7 @@
 import React from "react";
 import * as yup from "yup";
 import Formularios from "../../components/Formulario";
-import InputField from "../../components/Input";
+import InputFields from "../../components/Input";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import {
@@ -58,14 +58,23 @@ function Login() {
                 }, 400);
               }}
             >
-              <InputField
+              <InputFields
                 label="CPF"
                 icon={<PersonRoundedIcon fontSize="large" />}
                 name="cpf"
                 placeholder="Insira o seu login"
+                fontSize="1.2rem"
+                fontSizeLabel="1.2rem"
+                height="3.5rem"
+                width="100%"
               />
-              <InputField
+              <InputFields
                 label="Senha"
+                type="password"
+                height="3.5rem"
+                fontSize="1.2rem"
+                fontSizeLabel="1.2rem"
+                width="100%"
                 icon={<VpnKeyIcon fontSize="large" />}
                 name="senha"
                 placeholder="Insira a sua senha"
