@@ -3,12 +3,12 @@ import { styled } from "@mui/system";
 export const ContainerCadastro = styled("div")`
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
   height: 100vh;
-  border: 2px solid green;
+  
 `;
 
 // export const ContainerFilter = styled("div")`
@@ -23,10 +23,8 @@ export const ContainerForm = styled("div")`
   height: 100%;
   position: relative;
   display: flex;
-  
   align-items: center;
-  padding: 1.5rem;
-  border: 2px solid blue;
+  //padding: 1.5rem;
 `;
 
 export const BoxText = styled("div")`
@@ -41,13 +39,12 @@ export const BoxText = styled("div")`
 
 export const BoxForm = styled("div")`
   width: 100%;
-  border: 2px solid green;
-  max-width: 480px;
+  max-width: 560px;
+  display: flex;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
 `;
 
 export const Title = styled("h2")`

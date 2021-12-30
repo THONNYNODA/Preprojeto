@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
 import { Field } from "formik";
-import { TextField } from "formik-mui";
+import { Select } from "formik-mui";
 import Formularios from "../../Formulario";
 import InputFields from "../../Input";
 import { BoxForm, ContainerCadastro, ContainerForm } from "./styles";
+import { InputSelect } from "../../Input/styles";
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -96,15 +97,90 @@ function Candidato(props) {
             <InputFields
               label="Nome"
               name="nome"
-              placeholder="Insira o seu nome"
+              placeholder="Insira o seu Nome"
               color="#fff"
               width="100%"
+            />
+          </BoxForm>
+          <BoxForm>
+            <InputFields
+              label="Nome Social"
+              name="nomeSocial"
+              placeholder="Insira o seu Nome Social"
+              width="100%"
+              color="#fff"
+            />
+          </BoxForm>
+          <BoxForm>
+            <InputFields
+              label="CPF"
+              name="cpf"
+              placeholder="Insira o seu CPF"
+              width="100%"
+              color="#fff"
+            />
+            <InputFields
+              label="RG"
+              name="rg"
+              placeholder="Insira o seu RG"
+              width="100%"
+              color="#fff"
             />
             <InputFields
               label="Data de Nascimento"
               name="dataNascimento"
               type="date"
               color="#fff"
+              width="100%"
+            />
+          </BoxForm>
+          <BoxForm>
+            <InputFields
+              label="Nacionalidade"
+              name="nacionalidade"
+              placeholder="Insira o seu Nacionalidade"
+              width="100%"
+              color="#fff"
+              select
+            />
+            <InputFields
+              label="Estado Civil"
+              name="estadoCivil"
+              placeholder="Insira o seu Estado Civil"
+              width="100%"
+              color="#fff"
+            />
+            <InputFields
+              label="Genero"
+              name="genero"
+              placeholder="Insira o seu Genero"
+              color="#fff"
+              width="100%"
+            />
+          </BoxForm>
+          <BoxForm>
+            <InputFields
+              label="Celular"
+              name="celular"
+              placeholder="Insira o seu Celular"
+              width="100%"
+              color="#fff"
+            />
+            <InputFields
+              label="Email"
+              name="emailString"
+              placeholder="Insira o seu Email"
+              width="100%"
+              color="#fff"
+            />
+            <InputFields
+              label="Genero"
+              name="genero"
+              placeholder="Insira o seu Genero"
+              color="#fff"
+              width="100%"
+              type="select"
+              component={Select}
             />
           </BoxForm>
         </Formularios>

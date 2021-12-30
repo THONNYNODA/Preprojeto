@@ -1,5 +1,6 @@
 import { styled } from "@mui/system";
 import { Field } from "formik";
+import { TextField,Select } from "formik-mui";
 
 
 export const InputField = styled(Field)`
@@ -14,6 +15,11 @@ export const InputField = styled(Field)`
     outline: 2px solid green;
   };
 `;
+export const InputSelect = styled(TextField)`
+  & .MuiTextField-root {
+    background-color: blue;
+  }
+`;
 
 export const TextLabel = styled("label")`
   color: ${(props) => props.color || "rgb(48, 150, 96)"};
@@ -27,7 +33,7 @@ export const BoxField = styled("div")`
 export const ContainerField = styled("div")`
   display: block;
   width: 100%;
-  margin: 10px;
+  margin: ${props => props.margin || "5px"};
 `;
 
 export const BoxLabel = styled("div")`

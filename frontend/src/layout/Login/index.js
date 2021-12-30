@@ -67,6 +67,7 @@ function Login() {
                 fontSizeLabel="1.2rem"
                 height="3.5rem"
                 width="100%"
+                margin="0"
               />
               <InputFields
                 label="Senha"
@@ -78,6 +79,7 @@ function Login() {
                 icon={<VpnKeyIcon fontSize="large" />}
                 name="senha"
                 placeholder="Insira a sua senha"
+                margin="0"
               />
               <Buttons type="submit">Entrar</Buttons>
             </Formularios>
