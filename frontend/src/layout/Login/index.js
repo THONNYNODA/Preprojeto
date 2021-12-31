@@ -1,5 +1,6 @@
 import React from "react";
 import * as yup from "yup";
+import { Form, Formik } from "formik";
 import Formularios from "../../components/Formulario";
 import InputFields from "../../components/Input";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
@@ -14,7 +15,9 @@ import {
   ContainerForm,
   Buttons,
   BoxForm,
+  TitleLogin,
 } from "./styles";
+import { ContainerField, TextErrors } from "../../components/Input/styles";
 
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
@@ -32,57 +35,70 @@ function Login() {
   return (
     <>
       <ContainerLogin>
-        <ContainerImg width="60%">
+        <ContainerImg width="70%">
           <ContainerFilter />
           <BoxText>
-            <Title color="#e32727">Bem-Vindo ao Vagas Cemil</Title>
+            <Title color="#FD5956">Bem-Vindo ao Vagas Cemil</Title>
             <Text color="#ffffff">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               at urna augue. Fusce et sapien in nibh interdum facilisis.
             </Text>
           </BoxText>
         </ContainerImg>
-        <ContainerForm width="40%">
+        <ContainerForm width="30%">
           <BoxForm>
-            <Title color="#e32727">Login</Title>
-            <Text color="#32a852">
+            <TitleLogin>Login</TitleLogin>
+           
+            <Text color="#fff">
               Faça o seu login para verificar as vagas disponivel
             </Text>
-            <Formularios
+            <Formik
               validationSchema={validationSchema}
               initialValues={inicial}
-              submit={(values, { setSubmitting }) => {
-                setTimeout(async() => {
-                  await alert(JSON.stringify(values, null, 2));
+              onSubmit={(values, { setSubmitting }) => {
+                setTimeout( () => {
+                  alert(JSON.stringify(values, null, 2))
                   setSubmitting(false);
                 }, 400);
               }}
             >
-              <InputFields
-                label="CPF"
-                icon={<PersonRoundedIcon fontSize="large" />}
-                name="cpf"
-                placeholder="Insira o seu login"
-                fontSize="1.2rem"
-                fontSizeLabel="1.2rem"
-                height="3.5rem"
-                width="100%"
-                margin="0"
-              />
-              <InputFields
-                label="Senha"
-                type="password"
-                height="3.5rem"
-                fontSize="1.2rem"
-                fontSizeLabel="1.2rem"
-                width="100%"
-                icon={<VpnKeyIcon fontSize="large" />}
-                name="senha"
-                placeholder="Insira a sua senha"
-                margin="0"
-              />
-              <Buttons type="submit">Entrar</Buttons>
-            </Formularios>
+              {({ errors, touched, isSubmitting, values }) => (
+                <Form>
+                  <ContainerField padding="30px" >
+                    <InputFields
+                      label="CPF"
+                      icon={<PersonRoundedIcon fontSize="large" />}
+                      name="cpf"
+                      placeholder="Insira o seu login"
+                      fontSize="1.2rem"
+                      fontSizeLabel="1.2rem"
+                      //height="3.5rem"
+                      width="100%"
+                      margin="0"
+                    />
+                    {errors.cpf && touched.cpf ? (
+                      <TextErrors>{errors.cpf}</TextErrors>
+                    ) : null}
+                    <InputFields
+                      label="Senha"
+                      type="password"
+                      //height="2.5rem"
+                      fontSize="1.2rem"
+                      fontSizeLabel="1.2rem"
+                      width="100%"
+                      icon={<VpnKeyIcon fontSize="large" />}
+                      name="senha"
+                      placeholder="Insira a sua senha"
+                      margin="0"
+                    />
+                    {errors.senha && touched.senha ? (
+                      <TextErrors>{errors.senha}</TextErrors>
+                    ) : null}
+                    <Buttons type="submit">Entrar</Buttons>
+                  </ContainerField>
+                </Form>
+              )}
+            </Formik>
           </BoxForm>
         </ContainerForm>
       </ContainerLogin>

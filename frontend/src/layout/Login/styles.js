@@ -25,15 +25,15 @@ export const ContainerImg = styled(Box)`
 export const ContainerFilter = styled("div")`
   width: 100%;
   height: 100%;
-  background-color: rgba(48, 150, 96, 0.8);
+  background-color: rgba(31, 99, 87, 0.8);
   position: absolute;
 `;
 
 export const ContainerForm = styled("div")`
   width: ${(props) => props.width};
-  background-color: #cccccc;
+  background-color: #95A3A6;
   position: relative;
-  padding: 2rem;  
+  padding: 2rem;
   @media (max-width: 780px) {
     width: 100%;
   } ;
@@ -59,6 +59,13 @@ export const Title = styled("h2")`
   padding: 15px 0;
   color: ${(props) => props.color};
 `;
+export const TitleLogin = styled("h2")`
+  position: relative;
+  padding: 15px 0;
+  color: ${(props) => props.color};
+  font-size: 48px;
+  color:#1f6357;
+`;
 
 export const Text = styled("p")`
   position: relative;
@@ -69,11 +76,11 @@ export const Buttons = styled("button")`
   font-size: 1.5rem;
   padding: 10px;
   color: #fff;
-  background-color:  rgb(48, 150, 96);
+  background-color: #1f6357;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   &:hover {
-    background-color:  rgba(48, 150, 96, 0.9);
+    background-color: rgba(31, 99, 87, 0.9);
     //color: blue;
   }
 `;

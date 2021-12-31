@@ -1,6 +1,6 @@
 import { styled } from "@mui/system";
 import { Field } from "formik";
-import { TextField,Select } from "formik-mui";
+
 
 
 export const InputField = styled(Field)`
@@ -14,15 +14,21 @@ export const InputField = styled(Field)`
   &:focus {
     outline: 2px solid green;
   };
+ 
 `;
-export const InputSelect = styled(TextField)`
-  & .MuiTextField-root {
-    background-color: blue;
-  }
+
+export const InputOption = styled("option")`
+    color:#343837;   
+
+    }
 `;
 
 export const TextLabel = styled("label")`
-  color: ${(props) => props.color || "rgb(48, 150, 96)"};
+  color: ${(props) => props.color || "#1f6357"};
+  font-size: ${props => props.fontSizeLabel || "0.9rem"};
+`;
+export const TextErrors = styled("span")`
+  color: #FD5956;
   font-size: ${props => props.fontSizeLabel || "0.9rem"};
 `;
 
@@ -33,7 +39,9 @@ export const BoxField = styled("div")`
 export const ContainerField = styled("div")`
   display: block;
   width: 100%;
-  margin: ${props => props.margin || "5px"};
+  margin: ${props => props.margin || "0 5px"};
+  padding: ${props => props.padding};
+ 
 `;
 
 export const BoxLabel = styled("div")`
@@ -45,8 +53,8 @@ export const BoxIcon = styled("span")`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 70px;
-  height: 3.5rem;
+  width: 50px;
+  height: 2rem;
   background-color: #fff;
-  color: rgb(48, 150, 96);
+  color: #1f6357;
 `;

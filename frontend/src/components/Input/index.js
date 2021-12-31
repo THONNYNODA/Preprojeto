@@ -5,13 +5,13 @@ import {
   InputField,
   TextLabel,
   BoxLabel,
-  ContainerField,
+
 } from "./styles";
-import { TextField} from "formik-mui";
+import { TextField } from "formik-mui";
 
 function InputFields(props) {
   return (
-    <ContainerField margin={props.margin}>
+    <>
       {props.label ? (
         <BoxLabel>
           <TextLabel fontSizeLabel={props.fontSizeLabel} color={props.color}>
@@ -22,20 +22,25 @@ function InputFields(props) {
       <BoxField>
         {props.icon ? <BoxIcon>{props.icon}</BoxIcon> : null}
         <InputField
-          
+          as={props.as}
           width={props.width}
           placeholder={props.placeholder}
           fontSizeLabel={props.fontSizeLabel}
           fontSize={props.fontSize}
           type={props.type}
-          //component={props.component || TextField }
+          // component={props.component || TextField }
           height={props.height}
           name={props.name}
           label={props.label}
-        />
+          component={props.component}
+        >
+          {props.children}
+        </InputField>
       </BoxField>
-    </ContainerField>
+      {props.errors && props.touched ? <div>{props.errors}</div> : null} 
+    </>
   );
 }
+
 
 export default InputFields;

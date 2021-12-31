@@ -1,13 +1,14 @@
 import { styled } from "@mui/system";
 
 export const ContainerCadastro = styled("div")`
-  display: flex;
-  flex-wrap: nowrap;
+  /* display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   position: relative;
   width: 100%;
-  height: 100vh;
+  //height: 100vh;
+  padding: 2.5rem;
   
 `;
 
@@ -19,36 +20,53 @@ export const ContainerCadastro = styled("div")`
 // `;
 
 export const ContainerForm = styled("div")`
-  width: 50%;
+  width: 100%;
   height: 100%;
   position: relative;
   display: flex;
-  align-items: center;
-  //padding: 1.5rem;
+  justify-content:space-between;
+  align-items: stretch;
+  margin-top: 1.5rem;
+  @media (max-width: 780px) {
+    display: block;
+  };
 `;
 
 export const BoxText = styled("div")`
   width: 100%;
-  max-width: 450px;
+  //max-width: 450px;
+  display: inline-block;
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   text-align: center;
+`;
+
+export const Divisorio = styled("div")`
+  width: ${(props) => props.width || "2px"};
+  height: ${(props) => props.height};
+  min-height: ${(props) => props.minHeight || "100%"};
+  margin: ${(props) => props.margin};
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(149, 163, 166, 1) 100%
+  );
 `;
 
 export const BoxForm = styled("div")`
   width: 100%;
   max-width: 560px;
   display: flex;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @media (max-width: 780px){
+    max-width:none;
+  }
 `;
 
 export const Title = styled("h2")`
   position: relative;
+  font-size: ${(props) => props.fontSize};
+  font-weight: lighter;
   padding: 15px 0;
   color: ${(props) => props.color};
 `;
@@ -60,13 +78,13 @@ export const Text = styled("p")`
 export const Buttons = styled("button")`
   width: 100%;
   font-size: 1.5rem;
-  //padding: 10px;
+  padding: 10px;
   color: #fff;
-  background-color: rgb(48, 150, 96);
+  background-color: #1f6357;
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: rgba(48, 150, 96, 0.9);
+    background-color: rgba(31, 99, 87, 0.9);
     //color: blue;
   }
 `;

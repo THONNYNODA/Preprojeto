@@ -11,7 +11,8 @@ export const GlobalStyle = createGlobalStyle `
     html,body{
         width: 100%;
         height:100%;
-        background-color: #31668A;
+        position: relative;
+        background-color: #95A3A6;
         
     }
 
