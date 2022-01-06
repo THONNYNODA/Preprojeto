@@ -7,9 +7,13 @@ import {
   BoxLabel,
 
 } from "./styles";
-import { TextField } from "formik-mui";
+
 
 function InputFields(props) {
+
+
+
+
   return (
     <>
       {props.label ? (
@@ -25,10 +29,8 @@ function InputFields(props) {
           as={props.as}
           width={props.width}
           placeholder={props.placeholder}
-          fontSizeLabel={props.fontSizeLabel}
           fontSize={props.fontSize}
           type={props.type}
-          // component={props.component || TextField }
           height={props.height}
           name={props.name}
           label={props.label}
@@ -36,6 +38,7 @@ function InputFields(props) {
         >
           {props.children}
         </InputField>
+        {props.iconShow  ? props.iconShow : null}
       </BoxField>
       {props.errors && props.touched ? <div>{props.errors}</div> : null} 
     </>

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
-import Formularios from "../../components/Formulario";
 import InputFields from "../../components/Input";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
@@ -17,7 +16,11 @@ import {
   BoxForm,
   TitleLogin,
 } from "./styles";
-import { ContainerField, TextErrors } from "../../components/Input/styles";
+import {
+  BoxIconShow,
+  ContainerField,
+  TextErrors,
+} from "../../components/Input/styles";
 
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
@@ -28,6 +31,11 @@ const validationSchema = yup.object().shape({
 });
 
 function Login() {
+  const [showPass, setShowPass] = useState(true);
+
+  const handleShowPass = () => {
+    setShowPass(!showPass);
+  };
   const inicial = {
     cpf: "",
     senha: "",
@@ -48,7 +56,6 @@ function Login() {
         <ContainerForm width="30%">
           <BoxForm>
             <TitleLogin>Login</TitleLogin>
-           
             <Text color="#fff">
               Faça o seu login para verificar as vagas disponivel
             </Text>
@@ -56,22 +63,21 @@ function Login() {
               validationSchema={validationSchema}
               initialValues={inicial}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout( () => {
-                  alert(JSON.stringify(values, null, 2))
+                setTimeout(() => {
+                  alert(JSON.stringify(values, null, 2));
                   setSubmitting(false);
                 }, 400);
               }}
             >
               {({ errors, touched, isSubmitting, values }) => (
                 <Form>
-                  <ContainerField padding="30px" >
+                  <ContainerField padding="30px">
                     <InputFields
                       label="CPF"
                       icon={<PersonRoundedIcon fontSize="large" />}
                       name="cpf"
-                      placeholder="Insira o seu login"
+                      placeholder="CPF"
                       fontSize="1.2rem"
-                      fontSizeLabel="1.2rem"
                       //height="3.5rem"
                       width="100%"
                       margin="0"
@@ -81,15 +87,23 @@ function Login() {
                     ) : null}
                     <InputFields
                       label="Senha"
-                      type="password"
+                      type={showPass ? "password" : "text"}
                       //height="2.5rem"
                       fontSize="1.2rem"
-                      fontSizeLabel="1.2rem"
                       width="100%"
                       icon={<VpnKeyIcon fontSize="large" />}
                       name="senha"
-                      placeholder="Insira a sua senha"
+                      placeholder="******"
                       margin="0"
+                      onChange={handleShowPass}
+                      iconShow={
+                        <BoxIconShow
+                          onChange={handleShowPass}
+                          onMouseDown={handleShowPass}
+                        >
+                          {showPass ? <VpnKeyIcon /> : <PersonRoundedIcon />}
+                        </BoxIconShow>
+                      }
                     />
                     {errors.senha && touched.senha ? (
                       <TextErrors>{errors.senha}</TextErrors>

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { listasPaises } from "../../../services/listaPaises";
+import { listasPaises } from "../../../layout/services/listaPaises";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
 import InputFields from "../../Input";
 import {
   BoxForm,
+  BoxSingleInput,
   BoxText,
   Buttons,
   ContainerCadastro,
@@ -96,14 +97,8 @@ function Candidato(props) {
         >
           {({ errors, touched, values }) => (
             <Form>
-              <BoxText>
-                <Title fontSize="48px" color="#1f6357">
-                  Cadastrar
-                </Title>
-                  <Divisorio width="100%" minHeight="2px" margin="0" />
-              </BoxText>
               <ContainerForm>
-                <div>
+                <BoxSingleInput>
                   <BoxForm>
                     <ContainerField>
                       <InputFields
@@ -257,84 +252,85 @@ function Candidato(props) {
                       ) : null}
                     </ContainerField>
                   </BoxForm>
-                </div>
-                
-                <div>
-                  <BoxForm>
-                    <ContainerField>
-                      <InputFields
-                        label="CEP"
-                        name="cep"
-                        placeholder="Ex: 87501-000"
-                        width="100%"
-                      />
-                      {errors.cep && touched.cep ? (
-                        <TextErrors>{errors.cep}</TextErrors>
-                      ) : null}
-                    </ContainerField>
-                  </BoxForm>
-                  <BoxForm>
-                    <ContainerField>
-                      <InputFields
-                        label="Endereço"
-                        name="logradouro"
-                        placeholder="Endereço"
-                        width="100%"
-                      />
-                      {errors.logradouro && touched.logradouro ? (
-                        <TextErrors>{errors.logradouro}</TextErrors>
-                      ) : null}
-                    </ContainerField>
-                  </BoxForm>
-
-                  <BoxForm>
-                    <ContainerField>
-                      <InputFields
-                        label="Bairro"
-                        name="bairro"
-                        placeholder="Ex: bairro"
-                        width="100%"
-                      />
-                      {errors.bairro && touched.bairro ? (
-                        <TextErrors>{errors.bairro}</TextErrors>
-                      ) : null}
-                    </ContainerField>
-                    <ContainerField>
-                      <InputFields
-                        label="Estado"
-                        name="estado"
-                        placeholder="Ex: Paraná"
-                        width="100%"
-                      />
-                      {errors.estado && touched.estado ? (
-                        <TextErrors>{errors.estado}</TextErrors>
-                      ) : null}
-                    </ContainerField>
-                    <ContainerField>
-                      <InputFields
-                        label="Complemento"
-                        name="complemento"
-                        //placeholder="Ex: estado cd"
-
-                        width="100%"
-                      />
-                      {errors.complemento && touched.complemento ? (
-                        <TextErrors>{errors.complemento}</TextErrors>
-                      ) : null}
-                    </ContainerField>
-                    <ContainerField>
-                      <InputFields
-                        label="Cidade"
-                        name="cidade"
-                        placeholder="Ex: Umuarama"
-                        width="100%"
-                      />
-                      {errors.cidade && touched.cidade ? (
-                        <TextErrors>{errors.cidade}</TextErrors>
-                      ) : null}
-                    </ContainerField>
-                  </BoxForm>
-                  <Divisorio width="100%" minHeight="2px"  margin=" 20px 0"/>
+                </BoxSingleInput>
+                <BoxSingleInput>
+                  <div>
+                    <BoxForm>
+                      <ContainerField>
+                        <InputFields
+                          label="CEP"
+                          name="cep"
+                          placeholder="Ex: 87501-000"
+                          width="100%"
+                        />
+                        {errors.cep && touched.cep ? (
+                          <TextErrors>{errors.cep}</TextErrors>
+                        ) : null}
+                      </ContainerField>
+                    </BoxForm>
+                    <BoxForm>
+                      <ContainerField>
+                        <InputFields
+                          label="Endereço"
+                          name="logradouro"
+                          placeholder="Endereço"
+                          width="100%"
+                        />
+                        {errors.logradouro && touched.logradouro ? (
+                          <TextErrors>{errors.logradouro}</TextErrors>
+                        ) : null}
+                      </ContainerField>
+                    </BoxForm>
+                    <BoxForm>
+                      <ContainerField>
+                        <InputFields
+                          label="Bairro"
+                          name="bairro"
+                          placeholder="Ex: bairro"
+                          width="100%"
+                        />
+                        {errors.bairro && touched.bairro ? (
+                          <TextErrors>{errors.bairro}</TextErrors>
+                        ) : null}
+                      </ContainerField>
+                      <ContainerField>
+                        <InputFields
+                          label="Complemento"
+                          name="complemento"
+                          //placeholder="Ex: estado cd"
+                          width="100%"
+                        />
+                        {errors.complemento && touched.complemento ? (
+                          <TextErrors>{errors.complemento}</TextErrors>
+                        ) : null}
+                      </ContainerField>
+                    </BoxForm>
+                    <BoxForm>
+                      <ContainerField>
+                        <InputFields
+                          label="Estado"
+                          name="estado"
+                          placeholder="Ex: Paraná"
+                          width="100%"
+                        />
+                        {errors.estado && touched.estado ? (
+                          <TextErrors>{errors.estado}</TextErrors>
+                        ) : null}
+                      </ContainerField>
+                      <ContainerField>
+                        <InputFields
+                          label="Cidade"
+                          name="cidade"
+                          placeholder="Ex: Umuarama"
+                          width="100%"
+                        />
+                        {errors.cidade && touched.cidade ? (
+                          <TextErrors>{errors.cidade}</TextErrors>
+                        ) : null}
+                      </ContainerField>
+                    </BoxForm>
+                  </div>
+                  <Divisorio width="90%" minHeight="2px" margin=" 20px 0" />
                   <BoxForm>
                     <ContainerField>
                       <InputFields
@@ -359,9 +355,9 @@ function Candidato(props) {
                       ) : null}
                     </ContainerField>
                   </BoxForm>
-                  <Buttons type="submit">Cadastrar-se</Buttons>
-                </div>
+                </BoxSingleInput>
               </ContainerForm>
+              <Buttons type="submit">Cadastrar-se</Buttons>
             </Form>
           )}
         </Formik>

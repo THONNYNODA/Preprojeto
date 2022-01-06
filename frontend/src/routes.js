@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
   
 import Cadastro from './layout/Cadastro';
+import Dashbord from './layout/Dashbord';
 import Login from './layout/Login'
 
 //   const PrivateRouter = ({ component: Component, ...rest }) => (
@@ -27,6 +28,7 @@ const MainRoutes = () => {
               <Routes>           
                     <Route path="/" element={ <Login/>} />                             
                     <Route path="/cadastro" element={ <Cadastro/>} />                             
+                    <Route path="/dashbord" element={ <Dashbord/>} />                             
               </Routes>
             </Router>
           )

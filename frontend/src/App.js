@@ -1,10 +1,13 @@
-import React from 'react';
-import MainRoutes from './routes'
-
+import React from "react";
+import { Provider } from "react-redux";
+import store from './store'
+import MainRoutes from "./routes";
 
 function App() {
   return (
-    <MainRoutes />
+    <Provider store={store}>
+      <MainRoutes />
+    </Provider>
   );
 }
 

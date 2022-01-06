@@ -31,17 +31,30 @@ export const ContainerForm = styled("div")`
     display: block;
   };
 `;
+export const BoxSingleInput = styled("div")`
+  width: 100%;
+  //max-width:580px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: stretch;
+  //margin-top: 1.5rem;
+  @media (max-width: 780px) {
+    display: block;
+  };
+`;
 
 export const BoxText = styled("div")`
   width: 100%;
   //max-width: 450px;
   display: inline-block;
   position: relative;
-
   text-align: center;
 `;
 
 export const Divisorio = styled("div")`
+position: relative;
   width: ${(props) => props.width || "2px"};
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
@@ -76,13 +89,17 @@ export const Text = styled("p")`
   color: ${(props) => props.color};
 `;
 export const Buttons = styled("button")`
-  width: 100%;
+  width: 50%;
   font-size: 1.5rem;
+  margin-top:30px;
   padding: 10px;
   color: #fff;
   background-color: #1f6357;
   border: none;
   cursor: pointer;
+  @media (max-width: 780px){
+    width: 100%;
+  }
   &:hover {
     background-color: rgba(31, 99, 87, 0.9);
     //color: blue;
