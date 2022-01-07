@@ -14,26 +14,39 @@ export const ContainerHeader = styled("header")`
 `;
 
 export const BoxHeader = styled("div")`
-  flex-grow: 1;
-  &:nth-of-type(1) {
-    flex-grow: 3;
-  }
+  display: flex;
+  align-items: center;
+  flex:1;
+
   &:nth-of-type(2) {
-    display: flex;
+    flex-grow: 3;
     flex-direction: row-reverse;
   }
+  &:nth-of-type(3) {
+    flex-direction: row-reverse;
+  }
+`;
+
+export const ContainerPerfil = styled("div")`
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f6357;
 `;
 
 export const BoxPerfil = styled("div")`
   width: 50px;
   height: 50px;
   position: relative;
-  cursor: pointer;
+  cursor: ${(props) => props.cursor};
   background-size: 100% 100%;
   background-image: url("${(props) => props.img}");
 `;
 export const BoxMenuPerfil = styled("menu")`
-  width: 150px;
+  width: 100%;
+  max-width: 200px;
   min-height: 100%;
   position: absolute;
   top: 60px;
@@ -51,6 +64,7 @@ export const MenuPerfil = styled("ul")`
 export const ItemMenuPerfil = styled("li")`
   padding: 10px;
   position: relative;
+  border-bottom: 1px outset rgba(255, 255, 255, 1);
   &:hover {
     background-color: #1f6357;
     transition: 0.5s;
@@ -64,30 +78,69 @@ export const LinkMenu = styled(Link)`
 export const BoxIconPerfil = styled("div")`
   color: #fff;
   display: flex;
-  justify-content:center;
-  align-items:center;
-  margin-right:10px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
   width: 50px;
   height: 50px;
+  cursor: pointer;
 `;
 
 export const BoxSeach = styled("div")`
   width: 100%;
+  //max-width: 200px;
   position: relative;
-
-`
+`;
 export const InputSeach = styled("input")`
   width: 100%;
-  height: 34px;
+  position: relative;
+  min-height: 45px;
+  padding-left: 17px;
   border: none;
   border-radius: 20px;
   background-color: #fff;
-`
+  &:focus {
+    outline: none;
+  }
+`;
 export const IconSeach = styled("buttom")`
-  display:inline-block;
+  display: inline-block;
   position: absolute;
-  padding-top: 5px;
+  padding-top: 10px;
   right: 15px;
   color: #95a3a6;
   cursor: pointer;
-`
+`;
+
+export const Title = styled("h2")`
+  position: relative;
+  font-size: 1rem;
+  padding: 15px 0 5px 0;
+  color: #fff;
+`;
+export const TitleLogo = styled("h2")`
+  position: relative;
+  padding: 15px 0;
+  font-size: 32px;
+  font-weight: lighter;
+  color: #fff;
+`;
+
+export const Text = styled("p")`
+  position: relative;
+  color: #fff;
+`;
+
+export const Divisorio = styled("div")`
+  position: relative;
+  width: ${(props) => props.width || "2px"};
+  height: ${(props) => props.height};
+  min-height: ${(props) => props.minHeight || "100%"};
+  margin: ${(props) => props.margin};
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(149, 163, 166, 1) 100%
+  );
+`;

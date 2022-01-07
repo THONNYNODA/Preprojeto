@@ -16,9 +16,7 @@ export const InputField = styled(Field)`
 `;
 
 export const InputOption = styled("option")`
-    color:#343837;   
-
-    }
+  color: #343837;
 `;
 
 export const TextLabel = styled("label")`
@@ -62,12 +60,11 @@ export const BoxIconShow = styled("span")`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
   height: 2rem;
   color: #1f6357;
   cursor: pointer;
   position: absolute;
-  right: 10%;
-  background-color: rgba(255, 255, 255, 0);
+  right: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
   z-index: 999;
 `;

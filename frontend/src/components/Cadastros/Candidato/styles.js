@@ -69,9 +69,9 @@ position: relative;
 
 export const BoxForm = styled("div")`
   width: 100%;
-  max-width: 560px;
   display: flex;
   @media (max-width: 780px){
+    display: block;
     max-width:none;
   }
 `;
@@ -89,7 +89,7 @@ export const Text = styled("p")`
   color: ${(props) => props.color};
 `;
 export const Buttons = styled("button")`
-  width: 50%;
+  width: 100%;
   font-size: 1.5rem;
   margin-top:30px;
   padding: 10px;
@@ -97,11 +97,16 @@ export const Buttons = styled("button")`
   background-color: #1f6357;
   border: none;
   cursor: pointer;
+  transition: 0.2s;
   @media (max-width: 780px){
     width: 100%;
   }
   &:hover {
-    background-color: rgba(31, 99, 87, 0.9);
-    //color: blue;
+    background-color: #fff;
+    color:#1f6357;
+    border: 2px solid #1f6357;
+    transition: 0.2s;
+
+ 
   }
 `;

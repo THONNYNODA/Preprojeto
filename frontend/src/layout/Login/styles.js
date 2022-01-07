@@ -17,7 +17,7 @@ export const ContainerImg = styled(Box)`
   background-size: 100% 100%;
   position: relative;
   z-index: 2;
-  @media (max-width: 780px) {
+  @media (max-width: 980px) {
     display: none;
   } ;
 `;
@@ -34,7 +34,7 @@ export const ContainerForm = styled("div")`
   background-color: #95A3A6;
   position: relative;
   padding: 2rem;
-  @media (max-width: 780px) {
+  @media (max-width: 980px) {
     width: 100%;
   } ;
 `;
@@ -79,8 +79,11 @@ export const Buttons = styled("button")`
   background-color: #1f6357;
   border: none;
   cursor: pointer;
+  transition: 0.2s;
   &:hover {
-    background-color: rgba(31, 99, 87, 0.9);
-    //color: blue;
+    background-color: #fff;
+    color:#1f6357;
+    border: 2px solid #1f6357;
+    transition: 0.2s;
   }
 `;

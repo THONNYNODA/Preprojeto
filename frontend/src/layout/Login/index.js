@@ -4,6 +4,8 @@ import { Form, Formik } from "formik";
 import InputFields from "../../components/Input";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {
   BoxText,
   ContainerFilter,
@@ -101,7 +103,7 @@ function Login() {
                           onChange={handleShowPass}
                           onMouseDown={handleShowPass}
                         >
-                          {showPass ? <VpnKeyIcon /> : <PersonRoundedIcon />}
+                          {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
                         </BoxIconShow>
                       }
                     />

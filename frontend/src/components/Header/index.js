@@ -11,8 +11,14 @@ import {
   BoxSeach,
   IconSeach,
   InputSeach,
+  ContainerPerfil,
+  Text,
+  Title,
+  Divisorio,
+  TitleLogo,
 } from "./styles";
 import PerfilMan from "../../assets/PerfilMan.svg";
+import Logo from "../../assets/logo-footer.png";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -24,10 +30,30 @@ function Header() {
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
+  const handleCloseMenu = () => {
+    setOpenMenu(null);
+  };
+
+  function SeacherHeader() {
+    return (
+      <BoxSeach>
+        <InputSeach placeholder="Pesquisar..." />
+        <IconSeach>
+          <SearchIcon />
+        </IconSeach>
+      </BoxSeach>
+    );
+  }
 
   function MenuPerfilHeader() {
     return (
       <BoxMenuPerfil>
+        <ContainerPerfil>
+          <BoxPerfil img={PerfilMan} />
+          <Title>Tony Takeharo Noda</Title>
+          <Text>Aux TI</Text>
+        </ContainerPerfil>
+        <Divisorio width="100%" minHeight="2px" />
         <MenuPerfil>
           <ItemMenuPerfil>
             <LinkMenu to="/edtarperfil">Perfil</LinkMenu>
@@ -46,15 +72,16 @@ function Header() {
   return (
     <ContainerHeader>
       <BoxHeader>
-        <BoxSeach>
-          <InputSeach/>
-          <IconSeach>
-            <SearchIcon />
-          </IconSeach>
-        </BoxSeach>
+        <BoxPerfil img={Logo}/>
+        <TitleLogo>Cemil</TitleLogo>
       </BoxHeader>
       <BoxHeader>
+        <SeacherHeader />
+      </BoxHeader>
+
+      <BoxHeader>
         <BoxPerfil
+          cursor="pointer"
           img={PerfilMan}
           onChange={handleOpenMenu}
           onClick={handleOpenMenu}

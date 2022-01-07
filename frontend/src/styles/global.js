@@ -14,7 +14,9 @@ export const GlobalStyle = createGlobalStyle `
         position: relative;
         background-color: #95A3A6;
         
-    }
+    };
+
+
 
 `
 

@@ -1,44 +1,36 @@
 import { styled } from "@mui/system";
 
 export const ContainerCadastro = styled("div")`
-  text-align:center;
   position: relative;
+  max-width: 1280px;
   width: 100%;
-  
+  padding: 0 2%;
+  margin: 0 auto;
 `;
-
-// export const ContainerFilter = styled("div")`
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(48, 150, 96, 0.8);
-//   position: absolute;
-// `;
 
 export const ContainerForm = styled("div")`
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: stretch;
   margin-top: 1.5rem;
   @media (max-width: 780px) {
     display: block;
-  };
+  } ;
 `;
 
 export const BoxText = styled("div")`
   width: 100%;
-  max-width: 450px;
   display: inline-block;
   position: relative;
-
   text-align: center;
 `;
 
 export const Divisorio = styled("div")`
   width: ${(props) => props.width || "2px"};
-  
+
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
@@ -54,8 +46,8 @@ export const BoxForm = styled("div")`
   width: 100%;
   max-width: 560px;
   display: flex;
-  @media (max-width: 780px){
-    max-width:none;
+  @media (max-width: 780px) {
+    max-width: none;
   }
 `;
 
