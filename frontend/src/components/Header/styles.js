@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const ContainerHeader = styled("header")`
   width: 100%;
-  min-height: 3.5rem;
+  max-height: 3.5rem;
   background-color: #1f6357;
   position: relative;
   display: flex;
@@ -16,8 +16,11 @@ export const ContainerHeader = styled("header")`
 export const BoxHeader = styled("div")`
   display: flex;
   align-items: center;
-  flex:1;
-
+  padding: 0 10px;
+  flex: 1;
+  &:nth-of-type(1){
+    align-items: center;
+  }
   &:nth-of-type(2) {
     flex-grow: 3;
     flex-direction: row-reverse;
@@ -94,8 +97,8 @@ export const BoxSeach = styled("div")`
 export const InputSeach = styled("input")`
   width: 100%;
   position: relative;
-  min-height: 45px;
-  padding-left: 17px;
+  height: 35px;
+  padding-left: 20px;
   border: none;
   border-radius: 20px;
   background-color: #fff;
@@ -106,7 +109,7 @@ export const InputSeach = styled("input")`
 export const IconSeach = styled("buttom")`
   display: inline-block;
   position: absolute;
-  padding-top: 10px;
+  top: 5px;
   right: 15px;
   color: #95a3a6;
   cursor: pointer;
@@ -114,9 +117,10 @@ export const IconSeach = styled("buttom")`
 
 export const Title = styled("h2")`
   position: relative;
-  font-size: 1rem;
+  font-size: 14px;
   padding: 15px 0 5px 0;
   color: #fff;
+  
 `;
 export const TitleLogo = styled("h2")`
   position: relative;
@@ -124,10 +128,12 @@ export const TitleLogo = styled("h2")`
   font-size: 32px;
   font-weight: lighter;
   color: #fff;
+  user-select:none;
 `;
 
 export const Text = styled("p")`
   position: relative;
+  font-size: 14px;
   color: #fff;
 `;
 

@@ -37,7 +37,7 @@ function Header() {
   function SeacherHeader() {
     return (
       <BoxSeach>
-        <InputSeach placeholder="Pesquisar..." />
+        <InputSeach type="text" placeholder="Pesquisar..." />
         <IconSeach>
           <SearchIcon />
         </IconSeach>
