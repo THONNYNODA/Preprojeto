@@ -21,17 +21,21 @@ import PerfilMan from "../../assets/PerfilMan.svg";
 import Logo from "../../assets/logo-footer.png";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import Badge from "@mui/material/Badge";
+import { BoxIcon } from "../Menu/styles";
+import { Desktop, Mobile } from "../Menu";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
+  const [openMenuPerfil, setOpenMenuPerfil] = useState(false);
 
   const handleOpenMenu = () => {
-    setOpenMenu(!openMenu);
+    setOpenMenu(true);
   };
-  const handleCloseMenu = () => {
-    setOpenMenu(null);
+  const handleOpenMenuPerfil = () => {
+    setOpenMenuPerfil(!openMenuPerfil);
   };
 
   function SeacherHeader() {
@@ -70,30 +74,38 @@ function Header() {
   }
 
   return (
-    <ContainerHeader>
-      <BoxHeader>
-        <BoxPerfil img={Logo}/>
-        <TitleLogo>Cemil</TitleLogo>
-      </BoxHeader>
-      <BoxHeader>
-        <SeacherHeader />
-      </BoxHeader>
-
-      <BoxHeader>
-        <BoxPerfil
-          cursor="pointer"
-          img={PerfilMan}
-          onChange={handleOpenMenu}
-          onClick={handleOpenMenu}
-        />
-        {openMenu ? <MenuPerfilHeader /> : null}
-        <BoxIconPerfil>
-          <Badge badgeContent={2} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </BoxIconPerfil>
-      </BoxHeader>
-    </ContainerHeader>
+    <>
+      <ContainerHeader>
+        <BoxHeader>
+          <BoxIcon
+            onChange={handleOpenMenu}
+            onClick={handleOpenMenu}
+            color="#fff"
+            cursor="pointer"
+          >
+            <MenuIcon />
+          </BoxIcon>
+        </BoxHeader>
+        <BoxHeader>
+          <SeacherHeader />
+        </BoxHeader>
+        <BoxHeader>
+          <BoxPerfil
+            cursor="pointer"
+            img={PerfilMan}
+            onChange={handleOpenMenuPerfil}
+            onClick={handleOpenMenuPerfil}
+          />
+          {openMenuPerfil ? <MenuPerfilHeader /> : null}
+          <BoxIconPerfil>
+            <Badge badgeContent={2} color="error">
+              <NotificationsIcon />
+            </Badge>
+          </BoxIconPerfil>
+        </BoxHeader>
+      </ContainerHeader>
+      {openMenu ? <Mobile {...{ openMenu, setOpenMenu }} /> : null}
+    </>
   );
 }
 
