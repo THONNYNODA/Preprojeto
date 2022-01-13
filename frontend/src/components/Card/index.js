@@ -1,14 +1,14 @@
-import React from 'react';
-import { BoxCard } from './styles';
-
+import React from "react";
+import { BoxCard, BoxTitleCard, ContainerCard, TitleCard } from "./styles";
 
 function Card(props) {
-
-
   return (
-      <BoxCard>
-        {props.children}
-      </BoxCard>
+    <BoxCard>
+      <BoxTitleCard>
+        <TitleCard>{props.title}</TitleCard>
+      </BoxTitleCard>
+      <ContainerCard>{props.children}</ContainerCard>
+    </BoxCard>
   );
 }
 

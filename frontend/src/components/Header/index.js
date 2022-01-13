@@ -15,17 +15,15 @@ import {
   Text,
   Title,
   Divisorio,
-  TitleLogo,
 } from "./styles";
 import PerfilMan from "../../assets/PerfilMan.svg";
-import Logo from "../../assets/logo-footer.png";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import Badge from "@mui/material/Badge";
 import { BoxIcon } from "../Menu/styles";
-import { Desktop, Mobile, DesktopMui } from "../Menu";
+import { Mobile } from "../Menu";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -47,7 +45,7 @@ function Header() {
         </IconSeach>
       </BoxSeach>
     );
-  }
+  };
 
   function MenuPerfilHeader() {
     return (
@@ -71,8 +69,7 @@ function Header() {
         </MenuPerfil>
       </BoxMenuPerfil>
     );
-  }
-
+  };
 
   return (
     <>
@@ -105,7 +102,9 @@ function Header() {
           </BoxIconPerfil>
         </BoxHeader>
       </ContainerHeader>
-      {openMenu ? <Mobile {...{ openMenu, setOpenMenu,handleOpenMenu }} /> : null}
+      {openMenu ? (
+        <Mobile {...{ openMenu, setOpenMenu, handleOpenMenu }} />
+      ) : null}
     </>
   );
 }
