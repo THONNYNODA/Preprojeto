@@ -31,7 +31,7 @@ export const ContainerMenu = styled("div")`
 export const ContainerMenuMobile = styled(ContainerMenu)`
   width: 35%;
   height: 100%;
-  animation-name: ${MenuAnimation};
+  animation-name: ${props => props.animation};
   animation-duration: 1s;
   position: relative;
   

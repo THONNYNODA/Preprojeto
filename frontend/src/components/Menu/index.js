@@ -9,11 +9,11 @@ import {
   LinkMenu,
   LinkMenuMobile,
   ListaMenu,
-  MenuAnimationReverso,
 } from "./styles";
 
 import HomeIcon from "@mui/icons-material/Home";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
+
 
 export function Desktop() {
   return (
@@ -36,7 +36,7 @@ export function Desktop() {
             <BoxIcon>
               <HomeIcon />
             </BoxIcon>
-            <LinkMenu to="/dashboard">Pagina Principal</LinkMenu>
+            <LinkMenu to="/candidato">Candidato</LinkMenu>
           </ItemsMenu>
         </ListaMenu>
       </BoxMenu>
@@ -45,18 +45,10 @@ export function Desktop() {
 }
 
 export function Mobile(props) {
-
-  const handleClouseMenu = () => {
-    props.setOpenMenu(false);
-  };
-
-  console.log(props.openMenu);
-  
   return (
     <DrownMenuMobile
-      onClick={handleClouseMenu}
-      onChange={handleClouseMenu}
-      animate={props.openMenu ? "MenuAnimation" : "MenuAnimationReverso"}
+      onClick={props.handleOpenMenu}
+      onChange={props.handleOpenMenu}
     >
       <ContainerMenuMobile>
         <BoxMenu>
@@ -68,7 +60,7 @@ export function Mobile(props) {
               <LinkMenuMobile to="/vagas">Vagas</LinkMenuMobile>
             </ItemsMenu>
             <ItemsMenu>
-              <LinkMenuMobile to="/dashboard">Pagina Principal</LinkMenuMobile>
+              <LinkMenuMobile to="/candidato">Candidato</LinkMenuMobile>
             </ItemsMenu>
           </ListaMenu>
         </BoxMenu>

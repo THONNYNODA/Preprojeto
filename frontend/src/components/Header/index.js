@@ -25,14 +25,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import Badge from "@mui/material/Badge";
 import { BoxIcon } from "../Menu/styles";
-import { Desktop, Mobile } from "../Menu";
+import { Desktop, Mobile, DesktopMui } from "../Menu";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
   const [openMenuPerfil, setOpenMenuPerfil] = useState(false);
 
   const handleOpenMenu = () => {
-    setOpenMenu(true);
+    setOpenMenu(!openMenu);
   };
   const handleOpenMenuPerfil = () => {
     setOpenMenuPerfil(!openMenuPerfil);
@@ -73,6 +73,7 @@ function Header() {
     );
   }
 
+
   return (
     <>
       <ContainerHeader>
@@ -104,7 +105,7 @@ function Header() {
           </BoxIconPerfil>
         </BoxHeader>
       </ContainerHeader>
-      {openMenu ? <Mobile {...{ openMenu, setOpenMenu }} /> : null}
+      {openMenu ? <Mobile {...{ openMenu, setOpenMenu,handleOpenMenu }} /> : null}
     </>
   );
 }
