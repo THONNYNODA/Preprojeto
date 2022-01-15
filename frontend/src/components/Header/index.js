@@ -15,11 +15,13 @@ import {
   Text,
   Title,
   Divisorio,
+  BoxIconClouse,
 } from "./styles";
 import PerfilMan from "../../assets/PerfilMan.svg";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 import Badge from "@mui/material/Badge";
 import { BoxIcon } from "../Menu/styles";
@@ -33,7 +35,7 @@ function Header() {
     setOpenMenu(!openMenu);
   };
   const handleOpenMenuPerfil = () => {
-    setOpenMenuPerfil(!openMenuPerfil);
+    setOpenMenuPerfil(true);
   };
 
   function SeacherHeader() {
@@ -45,11 +47,18 @@ function Header() {
         </IconSeach>
       </BoxSeach>
     );
-  };
+  }
 
-  function MenuPerfilHeader() {
+  function MenuPerfilHeader(props) {
+    const handleCloseMenu = () => {
+      props.setOpenMenuPerfil(false);
+    };
+
     return (
       <BoxMenuPerfil>
+        <BoxIconClouse onClick={handleCloseMenu} onClose={handleCloseMenu}>
+          <CloseIcon />
+        </BoxIconClouse>
         <ContainerPerfil>
           <BoxPerfil img={PerfilMan} />
           <Title>Tony Takeharo Noda</Title>
@@ -69,7 +78,7 @@ function Header() {
         </MenuPerfil>
       </BoxMenuPerfil>
     );
-  };
+  }
 
   return (
     <>
@@ -94,7 +103,9 @@ function Header() {
             onChange={handleOpenMenuPerfil}
             onClick={handleOpenMenuPerfil}
           />
-          {openMenuPerfil ? <MenuPerfilHeader /> : null}
+          {openMenuPerfil ? (
+            <MenuPerfilHeader {...{ setOpenMenuPerfil }} />
+          ) : null}
           <BoxIconPerfil>
             <Badge badgeContent={2} color="error">
               <NotificationsIcon />

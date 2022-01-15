@@ -18,7 +18,7 @@ export const BoxHeader = styled("div")`
   align-items: center;
   padding: 0 10px;
   flex: 1;
-  &:nth-of-type(1){
+  &:nth-of-type(1) {
     align-items: center;
   }
   &:nth-of-type(2) {
@@ -56,6 +56,7 @@ export const BoxMenuPerfil = styled("menu")`
   right: 40px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   background: #95a3a6;
+  z-index: 999;
 `;
 
 export const MenuPerfil = styled("ul")`
@@ -86,6 +87,19 @@ export const BoxIconPerfil = styled("div")`
   margin-right: 10px;
   width: 50px;
   height: 50px;
+  cursor: pointer;
+`;
+export const BoxIconClouse = styled("button")`
+  color: #fff;
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+  border:none;
+  background: none;
+  &:hover{
+    color: red;
+  }
+
   cursor: pointer;
 `;
 
@@ -120,7 +134,6 @@ export const Title = styled("h2")`
   font-size: 14px;
   padding: 15px 0 5px 0;
   color: #fff;
-  
 `;
 export const TitleLogo = styled("h2")`
   position: relative;
@@ -128,7 +141,7 @@ export const TitleLogo = styled("h2")`
   font-size: 32px;
   font-weight: lighter;
   color: #fff;
-  user-select:none;
+  user-select: none;
 `;
 
 export const Text = styled("p")`

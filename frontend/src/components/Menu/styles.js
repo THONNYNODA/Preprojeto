@@ -34,7 +34,7 @@ export const ContainerMenuMobile = styled(ContainerMenu)`
   animation-name: ${props => props.animation};
   animation-duration: 1s;
   position: relative;
-  index:999;
+  
   
 `;
 export const DrownMenuMobile = styled("div")`
@@ -42,7 +42,7 @@ export const DrownMenuMobile = styled("div")`
   height: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.45);
-  
+  z-index:999;  
 `;
 
 export const BoxMenu = styled("nav")`

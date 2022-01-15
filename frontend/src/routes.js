@@ -1,13 +1,10 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-  
-import Cadastro from './layout/Cadastro';
-import Dashbord from './layout/Dashbord';
-import Login from './layout/Login'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Cadastro from "./layout/Cadastro";
+import Dashbord from "./layout/Dashbord";
+import Login from "./layout/Login";
+import Vagas from "./layout/Vagas";
 
 //   const PrivateRouter = ({ component: Component, ...rest }) => (
 //     <Route
@@ -23,15 +20,16 @@ import Login from './layout/Login'
 //   );
 
 const MainRoutes = () => {
-          return(
-            <Router>
-              <Routes>           
-                    <Route path="/" element={ <Login/>} />                             
-                    <Route path="/cadastro" element={ <Cadastro/>} />                             
-                    <Route path="/dashbord" element={ <Dashbord/>} />                             
-              </Routes>
-            </Router>
-          )
-      }
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/dashbord" element={<Dashbord />} />
+        <Route path="/vagas" element={<Vagas />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default MainRoutes;
