@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RecrutamentoApplication<recrutamento>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.com.recrutamento.RecrutamentoApplication",
+            "projectName": "recrutamento",
+            "args": ""
+        }
+    ]
+}

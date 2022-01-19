@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { listasPaises } from "../../../layout/services/listaPaises";
+import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
 import InputFields from "../../Input";
@@ -14,6 +14,8 @@ import {
   Title,
 } from "./styles";
 import { ContainerField, TextErrors } from "../../Input/styles";
+import api from '../../../services/api'
+
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -81,6 +83,10 @@ function Candidato(props) {
     senha: "",
     confirmacaoSenha: "",
   };
+
+  const teste =  api.get((res) => {
+
+  })
 
   return (
     <>
