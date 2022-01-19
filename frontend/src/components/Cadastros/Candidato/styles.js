@@ -89,7 +89,7 @@ export const Text = styled("p")`
   color: ${(props) => props.color};
 `;
 export const Buttons = styled("button")`
-  width: 100%;
+  width: ${props => props.width || "100%"};
   font-size: 1.5rem;
   margin-top:30px;
   padding: 10px;

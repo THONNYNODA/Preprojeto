@@ -140,7 +140,7 @@ export const ContainerDetalhe = styled("div")`
 
 export const BoxDetalhe = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   display: flex;
 `;
 
@@ -148,7 +148,14 @@ export const TitleDetalhe = styled("h2")`
   font-weight: lighter;
 `;
 export const TextDetalhe = styled("p")`
-  &:nth-of-type(1) {
-    margin-right: 10px;
+  text-decoration:none;
+  margin-right: 10px;
+`;
+export const LinkDetalhe = styled("a")`
+  color: black ;
+  text-decoration:none;
+  margin-right: 10px;
+  &:hover{
+    color:#1f6357;
   }
 `;

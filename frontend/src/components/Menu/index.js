@@ -60,7 +60,7 @@ export function Mobile(props) {
               <LinkMenuMobile to="/vagas">Vagas</LinkMenuMobile>
             </ItemsMenu>
             <ItemsMenu>
-              <LinkMenuMobile to="/candidato">Candidato</LinkMenuMobile>
+              <LinkMenuMobile to="/candidatos">Candidatos</LinkMenuMobile>
             </ItemsMenu>
           </ListaMenu>
         </BoxMenu>

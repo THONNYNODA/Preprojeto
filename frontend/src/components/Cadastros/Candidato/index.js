@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { listasPaises } from "../../../layout/services/listaPaises";
+import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
 import { Form, Formik } from "formik";
 import InputFields from "../../Input";
