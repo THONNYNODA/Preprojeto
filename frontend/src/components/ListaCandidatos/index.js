@@ -16,7 +16,7 @@ import {
   LinhaTitle,
   ContainerDetalhe,
   BoxDetalhe,
-  TitleDetalhe,
+  LinkDetalhe,
   TextDetalhe,
   ModalDetalhe,
 } from "./styles";
@@ -25,7 +25,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Buttons } from "../Cadastros/Candidato/styles";
 import CloseIcon from "@mui/icons-material/Close";
 
-function ListaVagas(props) {
+function ListaCandidatos(props) {
   const [lista, setLista] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
   const [searchResult, setSearchResult] = useState("");
@@ -48,15 +48,29 @@ function ListaVagas(props) {
   const handleOpen = (id) => {
     setIdAtual(id);
     setOpen(true);
-    console.log(id);
   };
 
-  function DetalheVagas(props) {
+  function DetalheCandidato(props) {
     const handleClose = () => props.setOpen(false);
     const handleCandidatar = () => {
       alert("Inscrito!!");
       props.setOpen(false);
     };
+
+    const calculoIdade = (nascimento, hoje) => {
+      var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
+      if (
+        new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
+        new Date(
+          hoje.getFullYear(),
+          nascimento.getMonth(),
+          nascimento.getDate()
+        )
+      )
+        diferencaAnos--;
+      return console.log(diferencaAnos);
+    };
+    calculoIdade();
 
     return (
       <>
@@ -70,21 +84,39 @@ function ListaVagas(props) {
               title={props.lista[idAtual].name}
             >
               <BoxDetalhe>
-                <TextDetalhe>Período:</TextDetalhe>
+                <TextDetalhe>Nome Completo:</TextDetalhe>
+                <TextDetalhe>{props.lista[idAtual].name}</TextDetalhe>
+              </BoxDetalhe>
+              <BoxDetalhe>
+                <TextDetalhe>Idade:</TextDetalhe>
+                <TextDetalhe>22 anos</TextDetalhe>
+              </BoxDetalhe>
+              <BoxDetalhe>
+                <TextDetalhe>Formação:</TextDetalhe>
+                <TextDetalhe>Técnico de Enfermagem</TextDetalhe>
+              </BoxDetalhe>
+              <BoxDetalhe>
+                <TextDetalhe>Cargo Requerido: </TextDetalhe>
+                <TextDetalhe>Técnico de Enfermagem</TextDetalhe>
+              </BoxDetalhe>
+              <BoxDetalhe>
+                <TextDetalhe>Periodo: </TextDetalhe>
                 <TextDetalhe>Noturno</TextDetalhe>
               </BoxDetalhe>
               <BoxDetalhe>
-                <TextDetalhe>Salário:</TextDetalhe>
+                <TextDetalhe>Telefone: </TextDetalhe>
                 <TextDetalhe>
-                  R$ 1.200,00 + Vale Alimentação + Insalubridade
+                  <LinkDetalhe href="tel:(44) 9 9999-9999">
+                    (44) 9 9999-9999
+                  </LinkDetalhe>
                 </TextDetalhe>
               </BoxDetalhe>
               <BoxDetalhe>
-                <TextDetalhe>Detalhe: </TextDetalhe>{" "}
+                <TextDetalhe>E-mail: </TextDetalhe>
                 <TextDetalhe>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
-                  ligula blandit faucibus. Aliquam congue id velit a facilisis.
+                  <LinkDetalhe href={`mailto:${props.lista[idAtual].email}`}>
+                    {props.lista[idAtual].email}
+                  </LinkDetalhe>
                 </TextDetalhe>
               </BoxDetalhe>
               <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
@@ -96,7 +128,9 @@ function ListaVagas(props) {
   }
   return (
     <ContainerListaVagas>
-      {open ? <DetalheVagas {...{ open, setOpen, lista, idAtual }} /> : null}
+      {open ? (
+        <DetalheCandidato {...{ open, setOpen, lista, idAtual }} />
+      ) : null}
       <BoxSeach>
         <InputSeach
           value={pesquisa}
@@ -112,8 +146,8 @@ function ListaVagas(props) {
 
       <ContainerTabela>
         <BoxTabelaTitle>
-          <LinhaTitle>Cargo</LinhaTitle>
-          <LinhaTitle>Inscrever</LinhaTitle>
+          <LinhaTitle>Nome</LinhaTitle>
+          <LinhaTitle>Detalhe</LinhaTitle>
         </BoxTabelaTitle>
         <BoxColuna>
           {Object.keys(searchResult)
@@ -142,4 +176,4 @@ function ListaVagas(props) {
   );
 }
 
-export default ListaVagas;
+export default ListaCandidatos;
