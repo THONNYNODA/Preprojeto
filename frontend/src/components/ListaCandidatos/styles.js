@@ -52,14 +52,14 @@ export const LinhaTabela = styled("div")`
   align-items: center;
   padding: 10px;
   width: 10%;
-
-  &:nth-of-type(1) {
-    flex-grow: 1;
-    border-right: 1px solid #ccc;
-  }
-  &:nth-of-type(2) {
+  flex-grow: 1;
+  border-right: 1px solid #ccc;
+  &:nth-last-of-type(1) {
+   flex-grow: 0;
+    border-left: 2px solid #ccc;
     justify-content: center;
   }
+  
 `;
 export const LinhaTitle = styled(LinhaTabela)`
   width: 10%;\

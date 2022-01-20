@@ -39,8 +39,12 @@ function ListaCandidatos(props) {
   }, []);
 
   useEffect(() => {
-    const result = lista.filter((person) =>
-      person.name.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+    const result = lista.filter(
+      (person) =>
+        person.name
+          .toLocaleLowerCase()
+          .includes(pesquisa.toLocaleLowerCase()) ||
+        person.id.toString().includes(pesquisa.toLocaleLowerCase()) 
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
@@ -57,8 +61,11 @@ function ListaCandidatos(props) {
       props.setOpen(false);
     };
 
-    const calculoIdade = (nascimento, hoje) => {
+    const calculoIdade = (dataNascimento) => {
+      var hoje = new Date();
+      var nascimento = new Date(dataNascimento);
       var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
+
       if (
         new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
         new Date(
@@ -68,9 +75,9 @@ function ListaCandidatos(props) {
         )
       )
         diferencaAnos--;
-      return console.log(diferencaAnos);
+
+      return diferencaAnos;
     };
-    calculoIdade();
 
     return (
       <>
@@ -147,6 +154,7 @@ function ListaCandidatos(props) {
       <ContainerTabela>
         <BoxTabelaTitle>
           <LinhaTitle>Nome</LinhaTitle>
+          <LinhaTitle>Idade</LinhaTitle>
           <LinhaTitle>Detalhe</LinhaTitle>
         </BoxTabelaTitle>
         <BoxColuna>
@@ -158,6 +166,7 @@ function ListaCandidatos(props) {
               <>
                 <BoxTabela>
                   <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                  <LinhaTabela>{searchResult[e].id}</LinhaTabela>
                   <LinhaTabela>
                     <BoxIcon
                       onClick={() => handleOpen(e)}

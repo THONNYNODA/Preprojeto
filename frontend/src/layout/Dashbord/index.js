@@ -1,19 +1,15 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import Header from "../../components/Header";
-
-
-
-
 import { ContainerDashbord } from "./styles";
 
 
-function Dashbord() {
+function Dashbord(props) {
   return (
     <Grid container>
       <Header />
       <ContainerDashbord>
-        teste
+        {props.children}
       </ContainerDashbord>
     </Grid>
   );
