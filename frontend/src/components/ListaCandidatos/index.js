@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../../services/api";
 import Card from "../Card";
 import {
   BoxIcon,
@@ -25,12 +26,19 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Buttons } from "../Cadastros/Candidato/styles";
 import CloseIcon from "@mui/icons-material/Close";
 
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+
 function ListaCandidatos(props) {
   const [lista, setLista] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
   const [searchResult, setSearchResult] = useState("");
   const [open, setOpen] = useState(false);
   const [idAtual, setIdAtual] = useState("");
+ 
 
   useEffect(() => {
     axios
@@ -44,7 +52,7 @@ function ListaCandidatos(props) {
         person.name
           .toLocaleLowerCase()
           .includes(pesquisa.toLocaleLowerCase()) ||
-        person.id.toString().includes(pesquisa.toLocaleLowerCase()) 
+        person.id.toString().includes(pesquisa.toLocaleLowerCase())
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
@@ -54,12 +62,35 @@ function ListaCandidatos(props) {
     setOpen(true);
   };
 
+  function Teste(props) {
+    const [valor, setValor] = useState("")
+    console.log(valor)
+    return (
+      <FormControl>
+        <FormLabel >idade</FormLabel>
+        <RadioGroup
+          defaultValue="menor18"
+          name={valor}
+          onChange={(e) => setValor(e.target.value)}
+        >
+          <FormControlLabel
+            value="menor18"
+            control={<Radio />}
+            label="Menor de 18 anos"
+          />
+          <FormControlLabel value="18a25" control={<Radio />} label="18 a 25 anos" />
+          <FormControlLabel value="25maior" control={<Radio />} label="maior de 25" />
+        </RadioGroup>
+      </FormControl>
+    );
+  }
+
   function DetalheCandidato(props) {
     const handleClose = () => props.setOpen(false);
     const handleCandidatar = () => {
       alert("Inscrito!!");
       props.setOpen(false);
-    };
+    };   
 
     const calculoIdade = (dataNascimento) => {
       var hoje = new Date();
@@ -150,6 +181,7 @@ function ListaCandidatos(props) {
           <SearchIcon />
         </IconSeach>
       </BoxSeach>
+      <Teste {...{ open, setOpen, lista, idAtual,  }} />
 
       <ContainerTabela>
         <BoxTabelaTitle>
