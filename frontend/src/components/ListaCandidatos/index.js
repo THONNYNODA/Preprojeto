@@ -38,7 +38,6 @@ function ListaCandidatos(props) {
   const [searchResult, setSearchResult] = useState("");
   const [open, setOpen] = useState(false);
   const [idAtual, setIdAtual] = useState("");
- 
 
   useEffect(() => {
     axios
@@ -63,23 +62,56 @@ function ListaCandidatos(props) {
   };
 
   function Teste(props) {
-    const [valor, setValor] = useState("")
-    console.log(valor)
+    const [valor, setValor] = useState();
+
+    const handleValor = (valor) => {
+      
+      // switch (testeItem) {
+      //   case "menor18":
+      //     var arr1 = props.lista.filter((e) => e.id <= 5);
+      //     const resultado = () => props.setSearchResult(arr1)
+      //     return resultado;
+      //     break;
+      //   case "18a25":
+      //     var arr2 = props.lista.filter((e) => e.id > 5 && e.id <= 8);
+      //     props.setSearchResult(arr2);
+      //     break;
+      //   case "25maior":
+      //     var arr3 = props.lista.filter((e) => e.id > 8);
+      //     props.setSearchResult(arr3);
+      //     break;
+
+      //   default:
+      //     console.log("nao foi selecionado");
+      //     break;
+      // }
+    };
+
     return (
       <FormControl>
-        <FormLabel >idade</FormLabel>
+        <FormLabel>idade</FormLabel>
+
         <RadioGroup
-          defaultValue="menor18"
+          //defaultValue="menor18"
           name={valor}
-          onChange={(e) => setValor(e.target.value)}
+          onChange={handleValor(valor)}
+          
         >
           <FormControlLabel
             value="menor18"
             control={<Radio />}
             label="Menor de 18 anos"
           />
-          <FormControlLabel value="18a25" control={<Radio />} label="18 a 25 anos" />
-          <FormControlLabel value="25maior" control={<Radio />} label="maior de 25" />
+          <FormControlLabel
+            value="18a25"
+            control={<Radio />}
+            label="18 a 25 anos"
+          />
+          <FormControlLabel
+            value="25maior"
+            control={<Radio />}
+            label="maior de 25"
+          />
         </RadioGroup>
       </FormControl>
     );
@@ -90,7 +122,7 @@ function ListaCandidatos(props) {
     const handleCandidatar = () => {
       alert("Inscrito!!");
       props.setOpen(false);
-    };   
+    };
 
     const calculoIdade = (dataNascimento) => {
       var hoje = new Date();
@@ -181,7 +213,9 @@ function ListaCandidatos(props) {
           <SearchIcon />
         </IconSeach>
       </BoxSeach>
-      <Teste {...{ open, setOpen, lista, idAtual,  }} />
+      <Teste
+        {...{ open, setOpen, lista, idAtual, searchResult, setSearchResult }}
+      />
 
       <ContainerTabela>
         <BoxTabelaTitle>
