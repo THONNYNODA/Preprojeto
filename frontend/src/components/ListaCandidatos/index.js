@@ -66,25 +66,25 @@ function ListaCandidatos(props) {
 
     const handleValor = (valor) => {
       
-      // switch (testeItem) {
-      //   case "menor18":
-      //     var arr1 = props.lista.filter((e) => e.id <= 5);
-      //     const resultado = () => props.setSearchResult(arr1)
-      //     return resultado;
-      //     break;
-      //   case "18a25":
-      //     var arr2 = props.lista.filter((e) => e.id > 5 && e.id <= 8);
-      //     props.setSearchResult(arr2);
-      //     break;
-      //   case "25maior":
-      //     var arr3 = props.lista.filter((e) => e.id > 8);
-      //     props.setSearchResult(arr3);
-      //     break;
+      switch (valor) {
+        case "menor18":
+          var arr1 = props.lista.filter((e) => e.id <= 5);
+          const resultado = () => props.setSearchResult(arr1)
+          return resultado;
+          break;
+        case "18a25":
+          var arr2 = props.lista.filter((e) => e.id > 5 && e.id <= 8);
+          props.setSearchResult(arr2);
+          break;
+        case "25maior":
+          var arr3 = props.lista.filter((e) => e.id > 8);
+          props.setSearchResult(arr3);
+          break;
 
-      //   default:
-      //     console.log("nao foi selecionado");
-      //     break;
-      // }
+        default:
+          console.log("nao foi selecionado");
+          break;
+      }
     };
 
     return (
@@ -94,7 +94,7 @@ function ListaCandidatos(props) {
         <RadioGroup
           //defaultValue="menor18"
           name={valor}
-          onChange={handleValor(valor)}
+          onChange={(e) => {setValor(e.target.value); handleValor(valor)}}
           
         >
           <FormControlLabel
