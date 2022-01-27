@@ -11,9 +11,6 @@ import {
 
 function InputFields(props) {
 
-
-
-
   return (
     <>
       {props.label ? (
