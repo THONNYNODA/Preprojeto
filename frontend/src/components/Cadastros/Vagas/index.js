@@ -6,7 +6,7 @@ import { ModalDetalhe, ContainerDetalhe, Buttons, BoxInput } from "./styles";
 
 function CadastrarVagas(props) {
   const initialValues = {
-    nome: "",
+    name: props.lista[props.idAtual].name,
     descricao: "",
     horasSemanais: "",
     diasSemana: "",
@@ -35,12 +35,13 @@ function CadastrarVagas(props) {
               }, 400);
             }}
           >
+            <p>{props.lista[props.idAtual].name}</p>
             <BoxInput>
               <InputFields
                 bgColor="#cccccc"
                 width="100%"
                 label="Nome"
-                name="nome"
+                name="name"
               />
               <InputFields
                 bgColor="#cccccc"
@@ -105,7 +106,7 @@ function CadastrarVagas(props) {
               type="radio"
               value="desativado"
             />
-           
+
             <Buttons type="submit">Cadastrar</Buttons>
           </Formularios>
         </Card>
