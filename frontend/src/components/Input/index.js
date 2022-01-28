@@ -32,6 +32,8 @@ function InputFields(props) {
           name={props.name}
           label={props.label}
           component={props.component}
+          bgColor={props.bgColor}
+          value={props.value}
         >
           {props.children}
         </InputField>

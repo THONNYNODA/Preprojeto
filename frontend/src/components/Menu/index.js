@@ -2,18 +2,27 @@ import React from "react";
 import {
   BoxIcon,
   BoxMenu,
+  BoxSubMenu,
   ContainerMenu,
   ContainerMenuMobile,
+  ContainerSubMenu,
   DrownMenuMobile,
   ItemsMenu,
+  ItemsSubMenu,
   LinkMenu,
   LinkMenuMobile,
   ListaMenu,
+  TitleSubMenu,
 } from "./styles";
 
 import HomeIcon from "@mui/icons-material/Home";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export function Desktop() {
   return (
@@ -46,10 +55,8 @@ export function Desktop() {
 
 export function Mobile(props) {
   return (
-    <DrownMenuMobile
-      onClick={props.handleOpenMenu}
-      onChange={props.handleOpenMenu}
-    >
+    <>
+      <DrownMenuMobile onClick={props.handleOpenMenu} />
       <ContainerMenuMobile>
         <BoxMenu>
           <ListaMenu>
@@ -62,12 +69,25 @@ export function Mobile(props) {
             <ItemsMenu>
               <LinkMenuMobile to="/candidatos">Candidatos</LinkMenuMobile>
             </ItemsMenu>
-            <ItemsMenu>
-              <LinkMenuMobile to="/cadastros">Cadastros</LinkMenuMobile>
-            </ItemsMenu>
+            <ContainerSubMenu>
+              <ItemsMenu>
+                <LinkMenuMobile to="/cadastros">Cadastros</LinkMenuMobile>
+              </ItemsMenu>
+              <BoxSubMenu>
+                <ItemsSubMenu>
+                  <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
+                </ItemsSubMenu>
+                <ItemsSubMenu>
+                  <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
+                </ItemsSubMenu>
+                <ItemsSubMenu>
+                  <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
+                </ItemsSubMenu>
+              </BoxSubMenu>
+            </ContainerSubMenu>
           </ListaMenu>
         </BoxMenu>
       </ContainerMenuMobile>
-    </DrownMenuMobile>
+    </>
   );
 }

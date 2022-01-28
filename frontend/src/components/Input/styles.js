@@ -10,9 +10,11 @@ export const InputField = styled(Field)`
   padding-left: 10px;
   color: #343837;
   z-index: 2;
+  background-color: ${props => props.bgColor};
   &:focus {
     outline: 2px solid #1f6357;
   }
+ 
 `;
 
 export const InputOption = styled("option")`
