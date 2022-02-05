@@ -6,7 +6,7 @@ import { ModalDetalhe, ContainerDetalhe, Buttons, BoxInput } from "./styles";
 
 function CadastrarVagas(props) {
   const initialValues = {
-    name: props.lista[props.idAtual].name,
+    name: props.dados.dados.name,
     descricao: "",
     horasSemanais: "",
     diasSemana: "",
@@ -17,6 +17,7 @@ function CadastrarVagas(props) {
     regime: "",
     status: "",
   };
+
   const handleClouse = () => {
     props.setOpen(false);
   };
@@ -35,7 +36,6 @@ function CadastrarVagas(props) {
               }, 400);
             }}
           >
-            <p>{props.lista[props.idAtual].name}</p>
             <BoxInput>
               <InputFields
                 bgColor="#cccccc"
@@ -43,6 +43,7 @@ function CadastrarVagas(props) {
                 label="Nome"
                 name="name"
               />
+
               <InputFields
                 bgColor="#cccccc"
                 width="100%"
@@ -63,12 +64,18 @@ function CadastrarVagas(props) {
                 label="Dias Semanal"
                 name="diasSemana"
               />
+
               <InputFields
                 bgColor="#cccccc"
                 width="100%"
                 label="Turno Trabalho"
                 name="turnoTrabalho"
-              />
+                component="select"
+              >
+                <option value="Diurno">Diurno</option>
+                <option value="Matiturno">Matiturno</option>
+                <option value="Noturno">Noturno</option>
+              </InputFields>
             </BoxInput>
             <BoxInput>
               <InputFields
@@ -90,23 +97,18 @@ function CadastrarVagas(props) {
                 name="regime"
               />
             </BoxInput>
-            <InputFields
-              bgColor="#cccccc"
-              //width="100%"
-              label="Ativo"
-              name="status"
-              type="radio"
-              value="ativo"
-            />
-            <InputFields
-              bgColor="#cccccc"
-              //width="100%"
-              label="Desativado"
-              name="status"
-              type="radio"
-              value="desativado"
-            />
-
+            <BoxInput>
+              <InputFields
+                bgColor="#cccccc"
+                width="100%"
+                label="Status"
+                name="status"
+                component="select"
+              >
+                <option value="ativo">Ativo</option>
+                <option value="desativado">Desativado</option>
+              </InputFields>
+            </BoxInput>
             <Buttons type="submit">Cadastrar</Buttons>
           </Formularios>
         </Card>

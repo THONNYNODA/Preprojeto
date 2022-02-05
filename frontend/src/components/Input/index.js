@@ -5,6 +5,7 @@ import {
   InputField,
   TextLabel,
   BoxLabel,
+  ContainerField,
 
 } from "./styles";
 
@@ -12,7 +13,7 @@ import {
 function InputFields(props) {
 
   return (
-    <>
+    <ContainerField>
       {props.label ? (
         <BoxLabel>
           <TextLabel fontSizeLabel={props.fontSizeLabel} color={props.color}>
@@ -40,7 +41,7 @@ function InputFields(props) {
         {props.iconShow  ? props.iconShow : null}
       </BoxField>
       {props.errors && props.touched ? <div>{props.errors}</div> : null} 
-    </>
+    </ContainerField>
   );
 }
 

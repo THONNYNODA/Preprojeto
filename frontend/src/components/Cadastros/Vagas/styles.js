@@ -30,6 +30,7 @@ export const BoxInput = styled("div")`
   width: 100%;
   flex: 1;
   display: flex;
+  justify-content: space-between;
 `;
 
 export const TitleDetalhe = styled("h2")`

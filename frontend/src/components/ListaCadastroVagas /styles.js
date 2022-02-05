@@ -3,15 +3,12 @@ import { styled } from "@mui/system";
 export const ContainerListaVagas = styled("div")`
   width: 100%;
   height: 100%;
-  max-height: 500px;
-  margin-top: 2rem;
   position: relative;
 `;
 
 export const ContainerTabela = styled("div")`
   width: 100%;
   position: relative;
-  //padding: 5px;
   background: #fff;
 `;
 export const BoxTabela = styled("div")`
@@ -24,7 +21,7 @@ export const BoxTabela = styled("div")`
     border-bottom: none;
   }
   &:hover {
-    background: rgba(31, 99, 87, 0.9);
+    background: rgba(31, 99, 87, 0.8);
     color: #fff !important;
   }
 `;
@@ -44,7 +41,7 @@ export const BoxTabelaTitle = styled("div")`
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  //max-height: 400px;
+  max-height: 250px;
 `;
 
 export const LinhaTabela = styled("div")`
@@ -52,7 +49,6 @@ export const LinhaTabela = styled("div")`
   align-items: center;
   padding: 10px;
   width: 10%;
-
   &:nth-of-type(1) {
     flex-grow: 1;
     border-right: 1px solid #ccc;
@@ -62,7 +58,7 @@ export const LinhaTabela = styled("div")`
   }
 `;
 export const LinhaTitle = styled(LinhaTabela)`
-  width: 10%;\
+  width: 10%;
 `;
 
 export const BoxIcon = styled("div")`
@@ -72,9 +68,11 @@ export const BoxIcon = styled("div")`
   align-items: center;
   padding: 5px;
   cursor: pointer;
-  /* &:hover {
+  &:hover {
     color: ${(props) => props.color || "rgba(31, 99, 87,0.6)"};
-  } */
+    background-color: rgba(200, 200, 200, 0.6);
+    border-radius: 30px;
+  }
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;

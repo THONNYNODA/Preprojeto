@@ -3,7 +3,6 @@ import axios from "axios";
 import Card from "../Card";
 import {
   BoxIcon,
-  BoxIconClose,
   BoxTabela,
   ContainerTabela,
   LinhaTabela,
@@ -14,16 +13,10 @@ import {
   BoxTabelaTitle,
   BoxColuna,
   LinhaTitle,
-  ContainerDetalhe,
-  BoxDetalhe,
-  TitleDetalhe,
-  TextDetalhe,
-  ModalDetalhe,
+  
 } from "./styles";
 
 import SearchIcon from "@mui/icons-material/Search";
-import { Buttons } from "../Cadastros/Candidato/styles";
-import CloseIcon from "@mui/icons-material/Close";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import CadastrarVagas from "../Cadastros/Vagas";
@@ -50,55 +43,15 @@ function ListaCadastroVagas(props) {
   }, [lista, pesquisa]);
 
   const handleOpen = (id) => {
-    setIdAtual(id);
-    console.log(idAtual);
-    setDados({...dados, dados:lista[idAtual]});
+    setDados({ dados: lista[id-1] });
     setOpen(true);
+    
   };
+  const handleDelete = () => {
+    alert("Deletado")
 
-  function DetalheVagas(props) {
-    const handleClose = () => props.setOpen(false);
-    const handleCandidatar = () => {
-      alert("Inscrito!!");
-      props.setOpen(false);
-    };
-
-    return (
-      <>
-        <ModalDetalhe>
-          <ContainerDetalhe>
-            <BoxIconClose onClick={handleClose} onChange={handleClose}>
-              <CloseIcon />
-            </BoxIconClose>
-            <Card
-              key={props.lista[idAtual].id}
-              title={props.lista[idAtual].name}
-            >
-              <BoxDetalhe>
-                <TextDetalhe>Período:</TextDetalhe>
-                <TextDetalhe>Noturno</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Salário:</TextDetalhe>
-                <TextDetalhe>
-                  R$ 1.200,00 + Vale Alimentação + Insalubridade
-                </TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Detalhe: </TextDetalhe>{" "}
-                <TextDetalhe>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
-                  ligula blandit faucibus. Aliquam congue id velit a facilisis.
-                </TextDetalhe>
-              </BoxDetalhe>
-              <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
-            </Card>
-          </ContainerDetalhe>
-        </ModalDetalhe>
-      </>
-    );
   }
+
   return (
     <ContainerListaVagas>
       {open ? (
@@ -119,30 +72,28 @@ function ListaCadastroVagas(props) {
 
       <ContainerTabela>
         <BoxTabelaTitle>
-          <LinhaTitle>Cargo</LinhaTitle>
-          <LinhaTitle>Inscrever</LinhaTitle>
+          <LinhaTitle>Vagas</LinhaTitle>
+          <LinhaTitle>Ação</LinhaTitle>
         </BoxTabelaTitle>
         <BoxColuna>
           {Object.keys(searchResult)
-            .sort((a, b) =>
-              searchResult[a].name < searchResult[b].name ? -1 : 0
-            )
+            // .sort((a, b) =>
+            //   searchResult[a].name < searchResult[b].name ? -1 : 0
+            // )
             .map((e) => (
               <>
                 <BoxTabela key={searchResult[e].id}>
                   <LinhaTabela>{searchResult[e].name}</LinhaTabela>
                   <LinhaTabela>
                     <BoxIcon
-                      onClick={() => handleOpen(e)}
-                      key={searchResult[e].id}
+                      onClick={() => handleOpen(searchResult[e].id)}
                       onChange={handleOpen}
                       color="#FEDA15"
                     >
                       <EditIcon />
                     </BoxIcon>
                     <BoxIcon
-                      onClick={() => handleOpen(e)}
-                      key={searchResult[e].id}
+                      onClick={handleDelete}
                       onChange={handleOpen}
                       color="#8f1402"
                     >
