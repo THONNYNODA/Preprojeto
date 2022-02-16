@@ -6,7 +6,7 @@ import Dashbord from "./layout/Dashbord";
 import Login from "./layout/Login";
 import Vagas from "./layout/Vagas";
 import Candidatos from "./layout/Candidatos";
-import Cadastros from "./layout/Cadastros";
+import CadastrosVagas from "./layout/CadastrosVagas";
 
 //   const PrivateRouter = ({ component: Component, ...rest }) => (
 //     <Route
@@ -30,7 +30,7 @@ const MainRoutes = () => {
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/vagas" element={<Vagas />} />
         <Route path="/candidatos" element={<Candidatos/>} />
-        <Route path="/cadastros" element={<Cadastros/>} />
+        <Route path="/cadastros/vagas" element={<CadastrosVagas/>} />
       </Routes>
     </Router>
   );

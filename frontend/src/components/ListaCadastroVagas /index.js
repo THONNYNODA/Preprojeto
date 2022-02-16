@@ -77,9 +77,9 @@ function ListaCadastroVagas(props) {
         </BoxTabelaTitle>
         <BoxColuna>
           {Object.keys(searchResult)
-            // .sort((a, b) =>
-            //   searchResult[a].name < searchResult[b].name ? -1 : 0
-            // )
+            .sort((a, b) =>
+              searchResult[a].name < searchResult[b].name ? -1 : 0
+            )
             .map((e) => (
               <>
                 <BoxTabela key={searchResult[e].id}>

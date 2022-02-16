@@ -71,11 +71,11 @@ export function Mobile(props) {
             </ItemsMenu>
             <ContainerSubMenu>
               <ItemsMenu>
-                <LinkMenuMobile to="/cadastros">Cadastros</LinkMenuMobile>
+                <LinkMenuMobile to="">Cadastros</LinkMenuMobile>
               </ItemsMenu>
               <BoxSubMenu>
                 <ItemsSubMenu>
-                  <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
+                  <LinkMenuMobile to="/cadastros/vagas">Vagas</LinkMenuMobile>
                 </ItemsSubMenu>
                 <ItemsSubMenu>
                   <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
