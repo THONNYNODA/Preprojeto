@@ -18,14 +18,14 @@ public class Vaga implements Serializable {
 	private Long id;
 	private String nome;
 	private String descricao;
-	// private String horasSemanais;
-	// private String diasSemana;
-	// private String turnoTrabalho;
-	// private String remuneracao;
-	// private String endereco;
-	// private String requisitos;
-	// private String regime;
-	// private String status;
+	private String horasSemanais;
+	private String diasSemana;
+	private String turnoTrabalho;
+	private String remuneracao;
+	private String endereco;
+	private String requisitos;
+	private String regime;
+	private String status;
 	
 	@JsonIgnore
 	@OneToMany (mappedBy = "vaga")
