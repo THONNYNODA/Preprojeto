@@ -60,37 +60,30 @@ function ListaVagas(props) {
 
     return (
       <>
-        <ModalDetalhe>
-          <ContainerDetalhe>
-            <BoxIconClose onClick={handleClose} onChange={handleClose}>
-              <CloseIcon />
-            </BoxIconClose>
-            <Card
-              key={props.lista[idAtual].id}
-              title={props.lista[idAtual].name}
-            >
-              <BoxDetalhe>
-                <TextDetalhe>Período:</TextDetalhe>
-                <TextDetalhe>Noturno</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Salário:</TextDetalhe>
-                <TextDetalhe>
-                  R$ 1.200,00 + Vale Alimentação + Insalubridade
-                </TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Detalhe: </TextDetalhe>{" "}
-                <TextDetalhe>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
-                  ligula blandit faucibus. Aliquam congue id velit a facilisis.
-                </TextDetalhe>
-              </BoxDetalhe>
-              <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
-            </Card>
-          </ContainerDetalhe>
-        </ModalDetalhe>
+        <ModalDetalhe onClick={handleClose} />
+        <ContainerDetalhe>
+          <Card key={props.lista[idAtual].id} title={props.lista[idAtual].name}>
+            <BoxDetalhe>
+              <TextDetalhe>Período:</TextDetalhe>
+              <TextDetalhe>Noturno</TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Salário:</TextDetalhe>
+              <TextDetalhe>
+                R$ 1.200,00 + Vale Alimentação + Insalubridade
+              </TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Detalhe: </TextDetalhe>{" "}
+              <TextDetalhe>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
+                ligula blandit faucibus. Aliquam congue id velit a facilisis.
+              </TextDetalhe>
+            </BoxDetalhe>
+            <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
+          </Card>
+        </ContainerDetalhe>
       </>
     );
   }

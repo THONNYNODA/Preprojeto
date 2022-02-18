@@ -126,12 +126,12 @@ export const ModalDetalhe = styled("div")`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.45);
-  z-index: 99;
+  z-index: 999;
 `;
 
 export const ContainerDetalhe = styled("div")`
   max-width: 480px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

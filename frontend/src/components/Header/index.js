@@ -93,9 +93,7 @@ function Header() {
             <MenuIcon />
           </BoxIcon>
         </BoxHeader>
-        <BoxHeader>
-          <SeacherHeader />
-        </BoxHeader>
+       
         <BoxHeader>
           <BoxPerfil
             cursor="pointer"

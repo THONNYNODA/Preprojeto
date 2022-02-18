@@ -41,7 +41,7 @@ export const BoxTabelaTitle = styled("div")`
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  max-height: 250px;
+  //max-height: 250px;
 `;
 
 export const LinhaTabela = styled("div")`

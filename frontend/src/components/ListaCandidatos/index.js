@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import api from "../../services/api";
 import Card from "../Card";
 import {
   BoxIcon,
@@ -65,11 +64,10 @@ function ListaCandidatos(props) {
     const [valor, setValor] = useState();
 
     const handleValor = (valor) => {
-      
       switch (valor) {
         case "menor18":
           var arr1 = props.lista.filter((e) => e.id <= 5);
-          const resultado = () => props.setSearchResult(arr1)
+          const resultado = () => props.setSearchResult(arr1);
           return resultado;
           break;
         case "18a25":
@@ -94,8 +92,10 @@ function ListaCandidatos(props) {
         <RadioGroup
           //defaultValue="menor18"
           name={valor}
-          onChange={(e) => {setValor(e.target.value); handleValor(valor)}}
-          
+          onChange={(e) => {
+            setValor(e.target.value);
+            handleValor(valor);
+          }}
         >
           <FormControlLabel
             value="menor18"
@@ -144,55 +144,48 @@ function ListaCandidatos(props) {
 
     return (
       <>
-        <ModalDetalhe>
-          <ContainerDetalhe>
-            <BoxIconClose onClick={handleClose} onChange={handleClose}>
-              <CloseIcon />
-            </BoxIconClose>
-            <Card
-              key={props.lista[idAtual].id}
-              title={props.lista[idAtual].name}
-            >
-              <BoxDetalhe>
-                <TextDetalhe>Nome Completo:</TextDetalhe>
-                <TextDetalhe>{props.lista[idAtual].name}</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Idade:</TextDetalhe>
-                <TextDetalhe>22 anos</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Formação:</TextDetalhe>
-                <TextDetalhe>Técnico de Enfermagem</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Cargo Requerido: </TextDetalhe>
-                <TextDetalhe>Técnico de Enfermagem</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Periodo: </TextDetalhe>
-                <TextDetalhe>Noturno</TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>Telefone: </TextDetalhe>
-                <TextDetalhe>
-                  <LinkDetalhe href="tel:(44) 9 9999-9999">
-                    (44) 9 9999-9999
-                  </LinkDetalhe>
-                </TextDetalhe>
-              </BoxDetalhe>
-              <BoxDetalhe>
-                <TextDetalhe>E-mail: </TextDetalhe>
-                <TextDetalhe>
-                  <LinkDetalhe href={`mailto:${props.lista[idAtual].email}`}>
-                    {props.lista[idAtual].email}
-                  </LinkDetalhe>
-                </TextDetalhe>
-              </BoxDetalhe>
-              <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
-            </Card>
-          </ContainerDetalhe>
-        </ModalDetalhe>
+        <ModalDetalhe onClick={handleClose} />
+        <ContainerDetalhe>
+          <Card key={props.lista[idAtual].id} title={props.lista[idAtual].name}>
+            <BoxDetalhe>
+              <TextDetalhe>Nome Completo:</TextDetalhe>
+              <TextDetalhe>{props.lista[idAtual].name}</TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Idade:</TextDetalhe>
+              <TextDetalhe>22 anos</TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Formação:</TextDetalhe>
+              <TextDetalhe>Técnico de Enfermagem</TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Cargo Requerido: </TextDetalhe>
+              <TextDetalhe>Técnico de Enfermagem</TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Periodo: </TextDetalhe>
+              <TextDetalhe>Noturno</TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>Telefone: </TextDetalhe>
+              <TextDetalhe>
+                <LinkDetalhe href="tel:(44) 9 9999-9999">
+                  (44) 9 9999-9999
+                </LinkDetalhe>
+              </TextDetalhe>
+            </BoxDetalhe>
+            <BoxDetalhe>
+              <TextDetalhe>E-mail: </TextDetalhe>
+              <TextDetalhe>
+                <LinkDetalhe href={`mailto:${props.lista[idAtual].email}`}>
+                  {props.lista[idAtual].email}
+                </LinkDetalhe>
+              </TextDetalhe>
+            </BoxDetalhe>
+            <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
+          </Card>
+        </ContainerDetalhe>
       </>
     );
   }
