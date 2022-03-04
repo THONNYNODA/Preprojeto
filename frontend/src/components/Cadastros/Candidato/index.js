@@ -84,9 +84,6 @@ function Candidato(props) {
     confirmacaoSenha: "",
   };
 
-  const teste =  api.get((res) => {
-
-  })
 
   return (
     <>

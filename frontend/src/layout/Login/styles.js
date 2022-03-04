@@ -31,7 +31,6 @@ export const ContainerFilter = styled("div")`
 
 export const ContainerForm = styled("div")`
   width: ${(props) => props.width};
-  background-color: #95A3A6;
   position: relative;
   padding: 2rem;
   @media (max-width: 980px) {

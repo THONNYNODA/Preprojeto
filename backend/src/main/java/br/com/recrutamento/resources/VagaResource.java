@@ -18,38 +18,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.recrutamento.entities.Vaga;
 import br.com.recrutamento.repositories.VagaRepository;
+import br.com.recrutamento.services.VagaService;
 
 @RestController
 @RequestMapping(value = "/vaga")
 public class VagaResource {
 
 	@Autowired
-	private VagaRepository vagaRepository;
+	private VagaService vagaService;
 
 	@PostMapping("/vaga")
 	@ResponseBody
 	public Vaga salvar(@RequestBody Vaga vaga) {
-		return vagaRepository.save(vaga);
+		return vagaService.salvar(vaga);
 	}
 
 	@GetMapping("/vagas")
 	public List<Vaga> listarVagar() {
-		return vagaRepository.findAll();
+		return vagaService.findAll();
 	}
 
 	@GetMapping("/vaga/{id}")
 	public Optional<Vaga> listarVagaId(@PathVariable(value = "id") long id) {
-		return vagaRepository.findById(id);
+		return vagaService.findById(id);
 	}
 	
 	@DeleteMapping ("/vaga")
 	public void deleteVaga(@RequestBody Vaga vaga) {
-		vagaRepository.delete(vaga);
+		vagaService.deleteVaga(vaga);
 	}
 	
 	@PutMapping ("/vaga")
 	public Vaga atualizarVaga(@RequestBody Vaga vaga) {
-		return vagaRepository.save(vaga);
+		return atualizarVaga(vaga);
 	}
 
 }

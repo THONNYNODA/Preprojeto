@@ -52,17 +52,17 @@ export const LinhaTabela = styled("div")`
   align-items: center;
   padding: 10px;
   width: 10%;
-
-  &:nth-of-type(1) {
-    flex-grow: 1;
-    border-right: 1px solid #ccc;
-  }
-  &:nth-of-type(2) {
+  flex-grow: 1;
+  border-right: 1px solid #ccc;
+  &:nth-last-of-type(1) {
+   flex-grow: 0;
+    border-left: 2px solid #ccc;
     justify-content: center;
   }
+  
 `;
 export const LinhaTitle = styled(LinhaTabela)`
-  width: 10%;
+  width: 10%;\
 `;
 
 export const BoxIcon = styled("div")`
@@ -126,12 +126,12 @@ export const ModalDetalhe = styled("div")`
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.45);
-  z-index: 99;
+  z-index: 999;
 `;
 
 export const ContainerDetalhe = styled("div")`
   max-width: 480px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -140,7 +140,7 @@ export const ContainerDetalhe = styled("div")`
 
 export const BoxDetalhe = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   display: flex;
 `;
 
@@ -148,7 +148,14 @@ export const TitleDetalhe = styled("h2")`
   font-weight: lighter;
 `;
 export const TextDetalhe = styled("p")`
-  &:nth-of-type(1) {
-    margin-right: 10px;
+  text-decoration:none;
+  margin-right: 10px;
+`;
+export const LinkDetalhe = styled("a")`
+  color: black ;
+  text-decoration:none;
+  margin-right: 10px;
+  &:hover{
+    color:#1f6357;
   }
 `;

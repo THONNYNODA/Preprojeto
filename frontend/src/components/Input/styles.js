@@ -1,5 +1,5 @@
 import { styled } from "@mui/system";
-import { Field } from "formik";
+import { Field,ErrorMessage } from "formik";
 
 export const InputField = styled(Field)`
   position: relative;
@@ -24,8 +24,8 @@ export const TextLabel = styled("label")`
   color: ${(props) => props.color || "#1f6357"};
   font-size: ${(props) => props.fontSizeLabel || "0.9rem"};
 `;
-export const TextErrors = styled("span")`
-  color: #fd5956;
+export const TextErrors = styled(ErrorMessage)`
+  color: #fd5956  ;
   font-size: 0.9rem;
   margin: 10px;
 `;

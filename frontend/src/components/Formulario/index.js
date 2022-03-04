@@ -10,8 +10,8 @@ function Formularios(props) {
       initialValues={props.initialValues}
       onSubmit={props.submit}
     >
-      {({ errors, touched, isSubmitting, values }) => (
-        <Formulario>{props.children}</Formulario>
+      {({ errors, touched, isSubmitting, values, handleSubmit }) => (
+        <Formulario onSubmit={handleSubmit}>{props.children}</Formulario>
       )}
     </Formik>
   );

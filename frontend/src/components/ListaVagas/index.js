@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../Card";
+import DetalheVagas from "../DetalheVaga";
 import {
   BoxIcon,
   BoxIconClose,
@@ -24,6 +25,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
 import { Buttons } from "../Cadastros/Candidato/styles";
 import CloseIcon from "@mui/icons-material/Close";
+import { Box } from "@mui/material";
 
 function ListaVagas(props) {
   const [lista, setLista] = useState([]);
@@ -51,42 +53,7 @@ function ListaVagas(props) {
     console.log(id);
   };
 
-  function DetalheVagas(props) {
-    const handleClose = () => props.setOpen(false);
-    const handleCandidatar = () => {
-      alert("Inscrito!!");
-      props.setOpen(false);
-    };
-
-    return (
-      <>
-        <ModalDetalhe onClick={handleClose} />
-        <ContainerDetalhe>
-          <Card key={props.lista[idAtual].id} title={props.lista[idAtual].name}>
-            <BoxDetalhe>
-              <TextDetalhe>Período:</TextDetalhe>
-              <TextDetalhe>Noturno</TextDetalhe>
-            </BoxDetalhe>
-            <BoxDetalhe>
-              <TextDetalhe>Salário:</TextDetalhe>
-              <TextDetalhe>
-                R$ 1.200,00 + Vale Alimentação + Insalubridade
-              </TextDetalhe>
-            </BoxDetalhe>
-            <BoxDetalhe>
-              <TextDetalhe>Detalhe: </TextDetalhe>{" "}
-              <TextDetalhe>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
-                ligula blandit faucibus. Aliquam congue id velit a facilisis.
-              </TextDetalhe>
-            </BoxDetalhe>
-            <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
-          </Card>
-        </ContainerDetalhe>
-      </>
-    );
-  }
+  
   return (
     <ContainerListaVagas>
       {open ? <DetalheVagas {...{ open, setOpen, lista, idAtual }} /> : null}

@@ -1,13 +1,13 @@
-// package br.com.recrutamento;
+package br.com.recrutamento;
 
-// import org.junit.jupiter.api.Test;
-// import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-// @SpringBootTest
-// class RecrutamentoApplicationTests {
+@SpringBootTest
+class RecrutamentoApplicationTests {
 
-// 	@Test
-// 	void contextLoads() {
-// 	}
+	@Test
+	void contextLoads() {
+	}
 
-// }
+}

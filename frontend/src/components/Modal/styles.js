@@ -131,7 +131,7 @@ export const ModalDetalhe = styled("div")`
 
 export const ContainerDetalhe = styled("div")`
   max-width: 480px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

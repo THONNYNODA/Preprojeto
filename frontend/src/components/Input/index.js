@@ -6,44 +6,41 @@ import {
   TextLabel,
   BoxLabel,
   ContainerField,
-
+  TextErrors,
 } from "./styles";
+import { useField } from "formik";
 
-
-function InputFields(props) {
+function InputFields({ label, ...props }) {
+  const [field, meta, helpers] = useField(props);
 
   return (
     <ContainerField>
-      {props.label ? (
+      {label ? (
         <BoxLabel>
           <TextLabel fontSizeLabel={props.fontSizeLabel} color={props.color}>
-            {props.label}
+            {label}
           </TextLabel>
         </BoxLabel>
       ) : null}
       <BoxField>
         {props.icon ? <BoxIcon>{props.icon}</BoxIcon> : null}
         <InputField
-          as={props.as}
           width={props.width}
-          placeholder={props.placeholder}
           fontSize={props.fontSize}
-          type={props.type}
           height={props.height}
-          name={props.name}
           label={props.label}
-          component={props.component}
-          bgColor={props.bgColor}
-          value={props.value}
+          bgColor={props.bgColor}          
+          {...field}
+          {...props}
         >
           {props.children}
         </InputField>
-        {props.iconShow  ? props.iconShow : null}
+        {props.iconShow ? props.iconShow : null}
       </BoxField>
-      {props.errors && props.touched ? <div>{props.errors}</div> : null} 
+      {meta.errors && meta.touched ? <div>{meta.errors}</div> : null}      
+      {props.nameError? (<TextErrors component="div" name={props.nameError} />): null}
     </ContainerField>
   );
 }
-
 
 export default InputFields;

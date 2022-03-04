@@ -18,38 +18,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.recrutamento.entities.Experiencia;
 import br.com.recrutamento.repositories.ExperienciaRepository;
+import br.com.recrutamento.services.ExperienciaService;
 
 @RestController
 @RequestMapping(value = "/experiencia")
 public class ExperienciaResource {
 
 	@Autowired
-	private ExperienciaRepository experienciaRepository;
+	private ExperienciaService experienciaService;
 
 	@PostMapping("/experiencia")
 	@ResponseBody
 	public Experiencia salvar(@RequestBody Experiencia experiencia) {
-		return experienciaRepository.save(experiencia);
+		return experienciaService.salvar(experiencia);
 	}
 
 	@GetMapping("/experiencias")
 	public List<Experiencia> listarExperienciar() {
-		return experienciaRepository.findAll();
+		return experienciaService.findAll();
 	}
 
 	@GetMapping("/experiencia/{id}")
 	public Optional<Experiencia> listarExperienciaId(@PathVariable(value = "id") long id) {
-		return experienciaRepository.findById(id);
+		return experienciaService.findById(id);
 	}
 	
 	@DeleteMapping ("/experiencia")
 	public void deleteExperiencia(@RequestBody Experiencia experiencia) {
-		experienciaRepository.delete(experiencia);
+		experienciaService.deleteExperiencia(experiencia);
 	}
 	
 	@PutMapping ("/experiencia")
 	public Experiencia atualizarExperiencia(@RequestBody Experiencia experiencia) {
-		return experienciaRepository.save(experiencia);
+		return experienciaService.atualizarExperiencia(experiencia);
 	}
 
 }

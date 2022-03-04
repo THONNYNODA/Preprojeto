@@ -18,35 +18,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.recrutamento.entities.Candidatar;
 import br.com.recrutamento.repositories.CandidatarRepository;
+import br.com.recrutamento.services.CandidatarService;
 
 @RestController
 @RequestMapping(value = "/candidatar")
 public class CandidatarResource {
 	@Autowired
-	private CandidatarRepository candidatarRepository;
+	private CandidatarService candidatarService;
+	
 	@PostMapping("/candidatar")
 	@ResponseBody
 	public Candidatar salvar(@RequestBody Candidatar candidatar) {
-		return candidatarRepository.save(candidatar);
+		return candidatarService.salvar(candidatar);
 	}
-	@GetMapping("/candidatars")
-	public List<Candidatar> listarCandidatarr() {
-		return candidatarRepository.findAll();
+	@GetMapping("/listacandidatar")
+	public List<Candidatar> listarCandidatar() {
+		return candidatarService.findAll();
 	}
 
 	@GetMapping("/candidatar/{id}")
 	public Optional<Candidatar> listarCandidatarId(@PathVariable(value = "id") long id) {
-		return candidatarRepository.findById(id);
+		return candidatarService.findById(id);
 	}
 	
 	@DeleteMapping ("/candidatar")
 	public void deleteCandidatar(@RequestBody Candidatar candidatar) {
-		candidatarRepository.delete(candidatar);
+		candidatarService.deleteCandidatar(candidatar);
 	}
 	
 	@PutMapping ("/candidatar")
 	public Candidatar atualizarCandidatar(@RequestBody Candidatar candidatar) {
-		return candidatarRepository.save(candidatar);
+		return candidatarService.salvar(candidatar);
 	}
 
 }

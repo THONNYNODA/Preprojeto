@@ -18,38 +18,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.recrutamento.entities.Escolaridade;
 import br.com.recrutamento.repositories.EscolaridadeRepository;
+import br.com.recrutamento.services.EscolaridadeService;
 
 @RestController
 @RequestMapping(value = "/escolaridade")
 public class EscolaridadeResource {
 
 	@Autowired
-	private EscolaridadeRepository escolaridadeRepository;
+	private EscolaridadeService escolaridadeService;
 
 	@PostMapping("/escolaridade")
 	@ResponseBody
 	public Escolaridade salvar(@RequestBody Escolaridade escolaridade) {
-		return escolaridadeRepository.save(escolaridade);
+		return escolaridadeService.salvar(escolaridade);
 	}
 
 	@GetMapping("/escolaridades")
 	public List<Escolaridade> listarEscolaridader() {
-		return escolaridadeRepository.findAll();
+		return escolaridadeService.findAll();
 	}
 
 	@GetMapping("/escolaridade/{id}")
 	public Optional<Escolaridade> listarEscolaridadeId(@PathVariable(value = "id") long id) {
-		return escolaridadeRepository.findById(id);
+		return escolaridadeService.findById(id);
 	}
 	
 	@DeleteMapping ("/escolaridade")
 	public void deleteEscolaridade(@RequestBody Escolaridade escolaridade) {
-		escolaridadeRepository.delete(escolaridade);
+		escolaridadeService.deleteEscolaridade(escolaridade);
 	}
 	
 	@PutMapping ("/escolaridade")
 	public Escolaridade atualizarEscolaridade(@RequestBody Escolaridade escolaridade) {
-		return escolaridadeRepository.save(escolaridade);
+		return escolaridadeService.atualizarEscolaridade(escolaridade);
 	}
 
 }

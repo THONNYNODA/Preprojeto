@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "../Card";
 import {
   BoxIcon,
   BoxTabela,
@@ -13,7 +12,6 @@ import {
   BoxTabelaTitle,
   BoxColuna,
   LinhaTitle,
-  
 } from "./styles";
 
 import SearchIcon from "@mui/icons-material/Search";
@@ -43,14 +41,12 @@ function ListaCadastroVagas(props) {
   }, [lista, pesquisa]);
 
   const handleOpen = (id) => {
-    setDados({ dados: lista[id-1] });
+    setDados({ dados: lista[id - 1] });
     setOpen(true);
-    
   };
   const handleDelete = () => {
-    alert("Deletado")
-
-  }
+    alert("Deletado");
+  };
 
   return (
     <ContainerListaVagas>

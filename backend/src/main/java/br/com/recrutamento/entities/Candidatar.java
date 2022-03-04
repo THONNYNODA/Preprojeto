@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-public class Candidatar implements Serializable {c
+public class Candidatar implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
