@@ -7,7 +7,7 @@ import TitlePage from "../../components/TitlePage";
 function Cadastro() {
   return (
     <ContainerCadastro>
-      <TitlePage Title="Cadastrar" />
+      <TitlePage title="Cadastrar" />
       <Candidato />
     </ContainerCadastro>
   );

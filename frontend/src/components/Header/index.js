@@ -70,9 +70,6 @@ function Header() {
             <LinkMenu to="/edtarperfil">Perfil</LinkMenu>
           </ItemMenuPerfil>
           <ItemMenuPerfil>
-            <LinkMenu to="/config">Configurar</LinkMenu>
-          </ItemMenuPerfil>
-          <ItemMenuPerfil>
             <LinkMenu to="/">Sair</LinkMenu>
           </ItemMenuPerfil>
         </MenuPerfil>
