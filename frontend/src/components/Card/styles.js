@@ -7,7 +7,6 @@ export const BoxCard = styled(Paper)`
   background-color: #ffff;
   border-radius: 0.7rem;
   margin-top: 20px;
-  
 `;
 export const BoxTitleCard = styled("div")`
   width: 100%;
@@ -19,6 +18,7 @@ export const BoxTitleCard = styled("div")`
 `;
 export const ContainerCard = styled("div")`
   width: 100%;
+  heigth: 100%;
   padding: 20px;
 `;
 

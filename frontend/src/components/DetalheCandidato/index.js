@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import api from "../../services/api";
 
 import Modal from "../Modal";
 import { BoxDetalhe, LinkDetalhe, TextDetalhe } from "./styles";
@@ -10,6 +11,12 @@ function DetalheCandidato(props) {
     alert("Inscrito!!");
     props.setOpen(false);
   };
+
+  // useEffect(() => {
+  //   api.get("vaga/vagas").then((res) => {
+  //     console.log(res.data);
+  //   });
+  // }, []);
 
   const calculoIdade = (dataNascimento) => {
     var hoje = new Date();

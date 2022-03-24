@@ -1,4 +1,8 @@
 import { styled } from "@mui/system";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormLabel from "@mui/material/FormLabel";
+import { Radio } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
 
 export const ContainerListaVagas = styled("div")`
   width: 100%;
@@ -55,14 +59,13 @@ export const LinhaTabela = styled("div")`
   flex-grow: 1;
   border-right: 1px solid #ccc;
   &:nth-last-of-type(1) {
-   flex-grow: 0;
+    flex-grow: 0;
     border-left: 2px solid #ccc;
     justify-content: center;
   }
-  
 `;
 export const LinhaTitle = styled(LinhaTabela)`
-  width: 10%;\
+  width: 10%;
 `;
 
 export const BoxIcon = styled("div")`
@@ -116,46 +119,41 @@ export const IconSeach = styled("span")`
   right: 15px;
   color: #1f6357;
 `;
+export const ContainerRadio = styled(FormControl)`
+  position:relative;
+`;
 
-//Detalhe Stylo
+export const BoxRadio = styled(RadioGroup)`
+  //display: block;
+  position: relative;
+  color: black;
+  
+`;
+export const SeachRadio = styled(Radio)`
+  &.MuiRadio-colorPrimary {
+    color: #1f6357;
+    
+  }
+`;
+export const TitleRadio = styled(FormLabel)`
+  color: black;
+  &.Mui-focused {
+    color: #1f6357;
+  }
+`;
 
-export const ModalDetalhe = styled("div")`
+// pesquisa avançado
+
+export const ContainerAvancado = styled("div")`
   width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.45);
-  z-index: 999;
 `;
 
-export const ContainerDetalhe = styled("div")`
-  max-width: 480px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-`;
-
-export const BoxDetalhe = styled("div")`
+export const BoxAvancado = styled("div")`
   width: 100%;
-  padding: 5px;
-  display: flex;
-`;
-
-export const TitleDetalhe = styled("h2")`
-  font-weight: lighter;
-`;
-export const TextDetalhe = styled("p")`
-  text-decoration:none;
-  margin-right: 10px;
-`;
-export const LinkDetalhe = styled("a")`
-  color: black ;
-  text-decoration:none;
-  margin-right: 10px;
-  &:hover{
-    color:#1f6357;
+  height: 20px;
+  background-color: red;
+  transition: height 0.4s;
+  &:hover {
+    height: 100%;
   }
 `;

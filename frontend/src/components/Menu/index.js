@@ -61,7 +61,7 @@ export function Mobile(props) {
         <BoxMenu>
           <ListaMenu>
             <ItemsMenu>
-              <LinkMenuMobile to="/dashbord">Pagina Principal</LinkMenuMobile>
+              <LinkMenuMobile to="/pagina_principal">Pagina Principal</LinkMenuMobile>
             </ItemsMenu>
             <ItemsMenu>
               <LinkMenuMobile to="/vagas">Vagas</LinkMenuMobile>
@@ -71,7 +71,7 @@ export function Mobile(props) {
             </ItemsMenu>
             <ContainerSubMenu>
               <ItemsMenu>
-                <LinkMenuMobile to="">Cadastros</LinkMenuMobile>
+                <LinkMenuMobile to="#">Cadastros</LinkMenuMobile>
               </ItemsMenu>
               <BoxSubMenu>
                 <ItemsSubMenu>
