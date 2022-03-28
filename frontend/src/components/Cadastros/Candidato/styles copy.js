@@ -1,13 +1,16 @@
 import { styled } from "@mui/system";
 
 export const ContainerCadastro = styled("div")`
-  width: 100%;
-  border: 2px solid;
   position: relative;
+  width: 100%;
+  
+  //padding: 2.5rem;
+  border: 2px solid;
 `;
 
 export const ContainerFilter = styled("div")`
   width: 100%;
+  
   height: 400px;
   background-color: #cccc;
   position: relative;
@@ -33,7 +36,7 @@ export const BoxSingleInput = styled("div")`
   //max-width:580px;
   position: relative;
   display: flex;
-  //flex-direction: column;
+  flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   //margin-top: 1.5rem;

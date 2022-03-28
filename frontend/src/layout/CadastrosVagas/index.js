@@ -18,9 +18,7 @@ function CadastrosVagas() {
   return (
     <Dashbord>
       <TitlePage title="Cadastros Vagas " />
-      <ContainerCadastros>
-        <ListaCadastroVagas />
-      </ContainerCadastros>
+      <ListaCadastroVagas />
       {open ? <CadastrarVagas {...{ open, setOpen }} /> : null}
     </Dashbord>
   );

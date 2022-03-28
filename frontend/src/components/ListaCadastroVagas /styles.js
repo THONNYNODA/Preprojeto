@@ -2,8 +2,8 @@ import { styled } from "@mui/system";
 
 export const ContainerListaVagas = styled("div")`
   width: 100%;
-  height: 100%;
   position: relative;
+  padding: 25px;
 `;
 
 export const ContainerTabela = styled("div")`
@@ -41,7 +41,7 @@ export const BoxTabelaTitle = styled("div")`
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  //max-height: 250px;
+  max-height: 300px;
 `;
 
 export const LinhaTabela = styled("div")`

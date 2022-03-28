@@ -14,6 +14,8 @@ export const ContainerCadastros = styled("div")`
 
 export const BoxCadastros = styled("div")`
   width: 100%;
+  
+  margin: 30px;
   display: flex;
   flex-direction: column;
   //justify-content: center;

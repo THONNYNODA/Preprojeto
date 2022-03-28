@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import DetalheVagas from "../DetalheVaga";
+
+import DetalheCandidato from "../DetalheCandidato";
 import {
   BoxIcon,
-  BoxIconClose,
   BoxTabela,
   ContainerTabela,
   LinhaTabela,
@@ -14,29 +14,32 @@ import {
   BoxTabelaTitle,
   BoxColuna,
   LinhaTitle,
+  BoxRadio,
+  SeachRadio,
+  TitleRadio,
   ContainerAvancado,
   BoxAvancado,
   ButtonAvancado,
   ContainerRadio,
-  BoxRadio,
-  SeachRadio,
-  TitleRadio,
+  PortalAvancado,
 } from "./styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
-import { Box, Portal } from "@mui/material";
-
 import FormControlLabel from "@mui/material/FormControlLabel";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-function ListaVagas(props) {
+import Portal from "@mui/material/Portal";
+import Box from "@mui/material/Box";
+
+function Search(props) {
   const [lista, setLista] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
-  const [searchResult, setSearchResult] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
   const [open, setOpen] = useState(false);
   const [idAtual, setIdAtual] = useState("");
   const [valor, setValor] = useState();
+
   const [show, setShow] = React.useState(false);
 
   const container = React.useRef(null);
@@ -52,16 +55,15 @@ function ListaVagas(props) {
   }, []);
 
   useEffect(() => {
-    const result = lista.filter((person) =>
-      person.name.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+    const result = lista.filter(
+      (person) =>
+        person.name
+          .toLocaleLowerCase()
+          .includes(pesquisa.toLocaleLowerCase()) ||
+        person.id.toString().includes(pesquisa.toLocaleLowerCase())
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
-
-  const handleOpen = (id) => {
-    setIdAtual(id - 1);
-    setOpen(true);
-  };
 
   useEffect(() => {
     var resultado = [];
@@ -81,7 +83,11 @@ function ListaVagas(props) {
 
   return (
     <ContainerListaVagas>
-      {open ? <DetalheVagas {...{ open, setOpen, lista, idAtual }} /> : null}
+      {open ? (
+        <DetalheCandidato
+          {...{ open, setOpen, lista, idAtual, searchResult }}
+        />
+      ) : null}
       <BoxSeach>
         <InputSeach
           value={pesquisa}
@@ -139,37 +145,8 @@ function ListaVagas(props) {
         </Box>
         <Box ref={container} />
       </ContainerAvancado>
-
-      <ContainerTabela>
-        <BoxTabelaTitle>
-          <LinhaTitle>Cargo</LinhaTitle>
-          <LinhaTitle>Inscrever</LinhaTitle>
-        </BoxTabelaTitle>
-        <BoxColuna>
-          {Object.keys(searchResult)
-            .sort((a, b) =>
-              searchResult[a].name < searchResult[b].name ? -1 : 0
-            )
-            .map((e) => (
-              <>
-                <BoxTabela>
-                  <LinhaTabela>{searchResult[e].name}</LinhaTabela>
-                  <LinhaTabela>
-                    <BoxIcon
-                      onClick={() => handleOpen(searchResult[e].id)}
-                      key={searchResult[e].id}
-                      onChange={handleOpen}
-                    >
-                      <PersonAddIcon />
-                    </BoxIcon>
-                  </LinhaTabela>
-                </BoxTabela>
-              </>
-            ))}
-        </BoxColuna>
-      </ContainerTabela>
     </ContainerListaVagas>
   );
 }
 
-export default ListaVagas;
+export default Search;

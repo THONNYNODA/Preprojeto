@@ -3,7 +3,7 @@ import { Field,ErrorMessage } from "formik";
 
 export const InputField = styled(Field)`
   position: relative;
-  width: ${(props) => props.width || null};
+  width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "2rem"};
   font-size: ${(props) => props.fontSize || "0.8rem"};
   border: none;
@@ -27,6 +27,7 @@ export const TextLabel = styled("label")`
 export const TextErrors = styled(ErrorMessage)`
   color: #fd5956  ;
   font-size: 0.9rem;
+  text-align: center;
   margin: 10px;
 `;
 
@@ -37,7 +38,7 @@ export const BoxField = styled("div")`
 export const ContainerField = styled("div")`
   display: block;
   width: 100%;
-  margin: ${(props) => props.margin || "0 5px"};
+  margin: ${(props) => props.margin || null};
   padding: ${(props) => props.padding};
 `;
 

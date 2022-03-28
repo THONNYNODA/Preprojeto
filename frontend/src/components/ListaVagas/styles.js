@@ -1,17 +1,19 @@
 import { styled } from "@mui/system";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormLabel from "@mui/material/FormLabel";
+import { Radio } from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const ContainerListaVagas = styled("div")`
   width: 100%;
-  height: 100%;
-  max-height: 500px;
-  margin-top: 2rem;
+  padding: 25px;
   position: relative;
 `;
 
 export const ContainerTabela = styled("div")`
   width: 100%;
   position: relative;
-  //padding: 5px;
   background: #fff;
 `;
 export const BoxTabela = styled("div")`
@@ -44,7 +46,7 @@ export const BoxTabelaTitle = styled("div")`
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  //max-height: 400px;
+  max-height: 300px;
 `;
 
 export const LinhaTabela = styled("div")`
@@ -150,5 +152,58 @@ export const TitleDetalhe = styled("h2")`
 export const TextDetalhe = styled("p")`
   &:nth-of-type(1) {
     margin-right: 10px;
+  }
+`;
+
+export const ContainerRadio = styled(FormControl)`
+  position: relative;
+`;
+
+export const BoxRadio = styled(RadioGroup)`
+  //display: block;
+  position: relative;
+  color: black;
+  font-weight: lighter;
+`;
+export const SeachRadio = styled(Radio)`
+  &.MuiRadio-colorPrimary {
+    color: #1f6357;
+  }
+`;
+export const TitleRadio = styled(FormLabel)`
+  color: black;
+  font-weight: lighter;
+  &.Mui-focused {
+    color: #1f6357;
+  }
+`;
+export const TextRadio = styled(FormControlLabel)`
+  &.MuiFormControlLabel-root {
+    color: blue;
+    font-weight: lighter;
+  }
+`;
+
+// pesquisa avançado
+
+export const ContainerAvancado = styled("div")`
+  width: 100%;
+  padding: 10px;
+`;
+
+export const BoxAvancado = styled("div")`
+  width: 100%;
+  text-align: center;
+`;
+
+export const ButtonAvancado = styled("button")`
+  height: 27px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: 1px solid;
+  background: none;
+  cursor: pointer;
+  &:hover {
+    color: #1f6357;
   }
 `;

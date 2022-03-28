@@ -5,12 +5,13 @@ export const ContainerHeader = styled("header")`
   width: 100%;
   max-height: 3.5rem;
   background-color: #1f6357;
-  position: relative;
+  position: sticky;
   display: flex;
   padding: 0.5rem;
   justify-content: space-between;
   align-items: stretch;
   align-content: stretch;
+  z-index: 999;
 `;
 
 export const BoxHeader = styled("div")`
