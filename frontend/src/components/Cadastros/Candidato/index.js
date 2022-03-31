@@ -12,6 +12,9 @@ import {
   ContainerFilter,
   ContainerForm,
   Divisorio,
+  SubBoxForm,
+  SubText,
+  Text,
   Title,
 } from "./styles";
 import { ContainerField, TextErrors } from "../../Input/styles";
@@ -53,7 +56,7 @@ function Candidato(props) {
 
   const listaGenero = Genero.map((e) => <option value={e}>{e}</option>);
   const listaCivil = civil.map((e) => <option value={e}>{e}</option>);
-  const Nacionalidade = listasPaises.map((e) => (
+  const listaNacionalidade = listasPaises.map((e) => (
     <option value={e.gentilico}>{e.gentilico}</option>
   ));
 
@@ -87,6 +90,11 @@ function Candidato(props) {
   return (
     <>
       <ContainerCadastro>
+        <BoxText>
+          <Title color="#fd5956">Cadastre-se</Title>
+          <Text>Faça o seu cadastro para acessar o nosso sistema de vagas</Text>
+        </BoxText>
+        <Divisorio height="1px" />
         <Formulario
           validationSchema={validationSchema}
           initialValues={inicial}
@@ -97,21 +105,111 @@ function Candidato(props) {
             }, 400);
           }}
         >
-          <BoxSingleInput>
-            <InputFields
-              name="nome"
-              label="Nome"
-              padding="10px"
-              nameError="nome"
-            />
-            <InputFields
-              name="nome"
-              label="Nome"
-              padding="10px"
-              nameError="nome"
-            />
-           
-          </BoxSingleInput>
+          <BoxForm>
+            <BoxSingleInput>
+              <InputFields
+                name="nome"
+                label="Nome:"
+                padding=" 0 10px"
+                nameError="nome"
+                //color="#fff"
+              />
+            </BoxSingleInput>
+            <BoxSingleInput>
+              <InputFields
+                name="nomeSocial"
+                label="Nome Social:"
+                padding=" 0 10px"
+                nameError="nomeSocial"
+                //color="#fff"
+              />
+            </BoxSingleInput>
+            <BoxSingleInput>
+              <InputFields
+                name="cpf"
+                label="CPF:"
+                padding=" 0 10px"
+                nameError="cpf"
+                //color="#fff"
+              />
+              <InputFields
+                name="rg"
+                label="RG:"
+                padding=" 0 10px"
+                nameError="rg"
+                //color="#fff"
+              />
+            </BoxSingleInput>
+            <BoxSingleInput>
+              <InputFields
+                name="dataNascimento"
+                label="Data Nascimento:"
+                padding=" 0 10px"
+                nameError="dataNascimento"
+                //color="#fff"
+                type="date"
+              />
+              <InputFields
+                name="estadoCivil"
+                label="Estado Civil:"
+                padding=" 0 10px"
+                //color="#fff"
+                nameError="estadoCivil"
+                component="select"
+              >
+                {listaCivil}
+              </InputFields>
+              <InputFields
+                name="nacionalidade"
+                label="Nacionalidade:"
+                padding=" 0 10px"
+                //color="#fff"
+                component="select"
+                nameError="nacionalidade"
+              >
+                {listaNacionalidade}
+              </InputFields>
+            </BoxSingleInput>
+            <SubBoxForm>
+              <SubText>Contato</SubText>
+              <BoxSingleInput>
+              <InputFields
+                name="celular"
+                label="Celular:"
+                padding=" 0 10px"
+                nameError="celular"
+                //color="#fff"
+              />
+              <InputFields
+                name="emailString"
+                label="E-mail:"
+                padding=" 0 10px"
+                nameError="emailString"
+                //color="#fff"
+              />
+            </BoxSingleInput>
+            </SubBoxForm>
+            <SubBoxForm>
+              <SubText>Rede Sociais</SubText>
+              <BoxSingleInput>
+              <InputFields
+                name="facebook"
+                label="Facebook:"
+                padding=" 0 10px"
+                nameError="celular"
+                //color="#fff"
+              />
+              <InputFields
+                name="instagram"
+                label="Instagram:"
+                padding=" 0 10px"
+                nameError="instagram"
+                //color="#fff"
+              />
+            </BoxSingleInput>
+            </SubBoxForm>
+          </BoxForm>
+          <Buttons>Cadastrar</Buttons>
         </Formulario>
       </ContainerCadastro>
     </>

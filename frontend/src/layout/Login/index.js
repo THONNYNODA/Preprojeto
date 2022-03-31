@@ -17,6 +17,8 @@ import {
   Buttons,
   BoxForm,
   TitleLogin,
+  BoxFilter,
+  Divisorio,
 } from "./styles";
 import { BoxIconShow, ContainerField } from "../../components/Input/styles";
 
@@ -44,8 +46,8 @@ function Login(props) {
         <ContainerImg width="60%">
           <ContainerFilter />
           <BoxText>
-            <Title color="#FD5956">Bem-Vindo ao Vagas Cemil</Title>
-            <Text color="#ffffff">
+            <Title color="#FD5956">Vagas ao Cemil</Title>
+            <Text color="#000000">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               at urna augue. Fusce et sapien in nibh interdum facilisis.
             </Text>
@@ -54,9 +56,10 @@ function Login(props) {
         <ContainerForm width="40%">
           <BoxForm>
             <TitleLogin>Login</TitleLogin>
-            <Text color="#fff">
+            <Text color="#585858" margin="0px 0 15px 0 ">
               Faça o seu login para verificar as vagas disponivel
             </Text>
+            <Divisorio height="1px" />
             <Formularios
               validationSchema={validationSchema}
               initialValues={inicial}
@@ -76,6 +79,7 @@ function Login(props) {
                   fontSize="1.2rem"
                   //height="3.5rem"
                   width="100%"
+                  height="2rem"
                   margin="0"
                   nameError="cpf"
                 />
@@ -86,6 +90,7 @@ function Login(props) {
                   //height="2.5rem"
                   fontSize="1.2rem"
                   width="100%"
+                  height="2rem"
                   icon={<VpnKeyIcon fontSize="large" />}
                   name="senha"
                   placeholder="******"
@@ -100,9 +105,8 @@ function Login(props) {
                     </BoxIconShow>
                   }
                 />
-
-                <Buttons type="submit">Entrar</Buttons>
               </ContainerField>
+              <Buttons type="submit">Entrar</Buttons>
             </Formularios>
           </BoxForm>
         </ContainerForm>

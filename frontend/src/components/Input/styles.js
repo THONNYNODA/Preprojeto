@@ -4,7 +4,7 @@ import { Field,ErrorMessage } from "formik";
 export const InputField = styled(Field)`
   position: relative;
   width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "2rem"};
+  height: ${(props) => props.height || "1.5rem"};
   font-size: ${(props) => props.fontSize || "0.8rem"};
   border: none;
   padding-left: 10px;

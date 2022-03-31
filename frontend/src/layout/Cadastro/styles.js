@@ -1,24 +1,20 @@
 import { styled } from "@mui/system";
+import Background from "../../assets/fundo.svg";
 
 export const ContainerCadastro = styled("div")`
-  position: relative;
-  max-width: 1280px;
   width: 100%;
+  height: 100vh;
+  position: relative;
   padding: 0 2%;
-  margin: 0 auto;
 `;
 
-export const ContainerForm = styled("div")`
+export const ContainerBackground = styled("div")`
   width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  margin-top: 1.5rem;
-  @media (max-width: 780px) {
-    display: block;
-  } ;
+  height: 100vh;
+  position: absolute;
+  background-image: url(${Background});
+  background-size: cover;
+  z-index: 1;
 `;
 
 export const BoxText = styled("div")`
@@ -30,7 +26,6 @@ export const BoxText = styled("div")`
 
 export const Divisorio = styled("div")`
   width: ${(props) => props.width || "2px"};
-
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};

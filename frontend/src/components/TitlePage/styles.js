@@ -24,7 +24,9 @@ export const Divisorio = styled("div")`
 export const ContainerText = styled("div")`
   width: 100%;
   display: block;
+  position: relative;
   text-align: center;
+
 `;
 export const BoxText = styled("div")`
   width: 100%;
