@@ -14,7 +14,7 @@ function InputFields({ label, ...props }) {
   const [field, meta, helpers] = useField(props);
 
   return (
-    <ContainerField padding={props.padding}>
+    <ContainerField flex={props.flex} padding={props.padding}>
       {label ? (
         <BoxLabel>
           <TextLabel fontSizeLabel={props.fontSizeLabel} color={props.color}>

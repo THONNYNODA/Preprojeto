@@ -12,20 +12,18 @@ function DetalheCandidato(props) {
     props.setOpen(false);
   };
 
-  // useEffect(() => {
-  //   api.get("vaga/vagas").then((res) => {
-  //     console.log(res.data);
-  //   });
-  // }, []);
-
   const calculoIdade = (dataNascimento) => {
     var hoje = new Date();
     var nascimento = new Date(dataNascimento);
     var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
 
     if (
-      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
-      new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
+      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) >
+      new Date(
+        hoje.getFullYear(),
+        nascimento.getMonth(),
+        nascimento.getDate()
+      )
     )
       diferencaAnos--;
 
@@ -36,16 +34,18 @@ function DetalheCandidato(props) {
     <>
       <Modal
         onClick={handleClose}
-        key={props.lista[props.idAtual].id}
-        title={props.lista[props.idAtual].name}
+        key={props.idAtual.id}
+        title={props.idAtual.nome}
       >
         <BoxDetalhe>
           <TextDetalhe>Nome Completo:</TextDetalhe>
-          <TextDetalhe>{props.lista[props.idAtual].name}</TextDetalhe>
+          <TextDetalhe>{props.idAtual.nome}</TextDetalhe>
         </BoxDetalhe>
         <BoxDetalhe>
           <TextDetalhe>Idade:</TextDetalhe>
-          <TextDetalhe>22 anos</TextDetalhe>
+          <TextDetalhe>
+            {calculoIdade(props.idAtual.dataNascimento)}
+          </TextDetalhe>
         </BoxDetalhe>
         <BoxDetalhe>
           <TextDetalhe>Formação:</TextDetalhe>
@@ -62,16 +62,16 @@ function DetalheCandidato(props) {
         <BoxDetalhe>
           <TextDetalhe>Telefone: </TextDetalhe>
           <TextDetalhe>
-            <LinkDetalhe href="tel:(44) 9 9999-9999">
-              (44) 9 9999-9999
+            <LinkDetalhe href={props.idAtual.celular}>
+              {props.idAtual.celular}
             </LinkDetalhe>
           </TextDetalhe>
         </BoxDetalhe>
         <BoxDetalhe>
           <TextDetalhe>E-mail: </TextDetalhe>
           <TextDetalhe>
-            <LinkDetalhe href={`mailto:${props.lista[props.idAtual].email}`}>
-              {props.lista[props.idAtual].email}
+            <LinkDetalhe href={`mailto:${props.idAtual.emailString}`}>
+              {props.idAtual.emailString}
             </LinkDetalhe>
           </TextDetalhe>
         </BoxDetalhe>

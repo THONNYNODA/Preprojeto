@@ -3,9 +3,10 @@ import Background from "../../assets/fundo.svg";
 
 export const ContainerCadastro = styled("div")`
   width: 100%;
-  height: 100vh;
-  position: relative;
+  height:  100%;
+  position: absolute;
   padding: 0 2%;
+  background-color: rgba(31, 99, 87, 0.9);
 `;
 
 export const ContainerBackground = styled("div")`

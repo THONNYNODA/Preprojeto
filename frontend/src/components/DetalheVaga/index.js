@@ -24,32 +24,31 @@ function DetalheVagas(props) {
 
     return diferencaAnos;
   };
-
   return (
     <>
       <Modal
         onClick={handleClose}
-        key={props.lista[props.idAtual].id}
-        title={props.lista[props.idAtual].name}
+        key={props.idAtual.id}
+        title={props.idAtual.nome}
       >
         <BoxDetalhe>
-              <TextDetalhe>Período:</TextDetalhe>
-              <TextDetalhe>Noturno</TextDetalhe>
-            </BoxDetalhe>
-            <BoxDetalhe>
-              <TextDetalhe>Salário:</TextDetalhe>
-              <TextDetalhe>
-                R$ 1.200,00 + Vale Alimentação + Insalubridade
-              </TextDetalhe>
-            </BoxDetalhe>
-            <BoxDetalhe>
-              <TextDetalhe>Detalhe: </TextDetalhe>
-              <TextDetalhe>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
-                ligula blandit faucibus. Aliquam congue id velit a facilisis.
-              </TextDetalhe>
-            </BoxDetalhe>
+          <TextDetalhe>Período:</TextDetalhe>
+          <TextDetalhe>Noturno</TextDetalhe>
+        </BoxDetalhe>
+        <BoxDetalhe>
+          <TextDetalhe>Salário:</TextDetalhe>
+          <TextDetalhe>
+            R$ 1.200,00 + Vale Alimentação + Insalubridade
+          </TextDetalhe>
+        </BoxDetalhe>
+        <BoxDetalhe>
+          <TextDetalhe>Detalhe: </TextDetalhe>
+          <TextDetalhe>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            maximus ipsum nec porta viverra. Nulla non ex nec ligula blandit
+            faucibus. Aliquam congue id velit a facilisis.
+          </TextDetalhe>
+        </BoxDetalhe>
         <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
       </Modal>
     </>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../services/api";
 
 import DetalheCandidato from "../DetalheCandidato";
 import {
@@ -48,15 +48,13 @@ function ListaCandidatos(props) {
   };
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setLista(res.data));
+    api.get("candidato/candidatos").then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter(
       (person) =>
-        person.name
+        person.nome
           .toLocaleLowerCase()
           .includes(pesquisa.toLocaleLowerCase()) ||
         person.id.toString().includes(pesquisa.toLocaleLowerCase())
@@ -65,7 +63,7 @@ function ListaCandidatos(props) {
   }, [lista, pesquisa]);
 
   const handleOpen = (id) => {
-    setIdAtual(id - 1);
+    setIdAtual(id);
     setOpen(true);
   };
 
@@ -158,16 +156,18 @@ function ListaCandidatos(props) {
         </BoxTabelaTitle>
         <BoxColuna>
           {Object.keys(searchResult)
-            .sort((a, b) => (searchResult[a].id < searchResult[b].id ? -1 : 0))
+            .sort((a, b) =>
+              searchResult[a].nome < searchResult[b].nome ? -1 : 0
+            )
             .map((e) => (
               <>
                 <BoxTabela>
-                  <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                  <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                   <LinhaTabela>{searchResult[e].id}</LinhaTabela>
                   <LinhaTabela>
                     <BoxIcon
-                      onClick={() => handleOpen(searchResult[e].id)}
-                      key={searchResult[e].id}
+                      onClick={() => handleOpen(searchResult[e])}
+                      key={searchResult[e]}
                       onChange={handleOpen}
                     >
                       <PersonAddIcon />

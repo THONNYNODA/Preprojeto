@@ -1,17 +1,18 @@
 import React from "react";
-import { Formik } from "formik";
+import { Formik,useFormik } from "formik";
 
 import { Formulario } from "./styles";
 
-function Formularios(props) {
+function Formularios({...props}) {
+  const {meta} = useFormik(props)
   return (
     <Formik
       validationSchema={props.validationSchema}
       initialValues={props.initialValues}
       onSubmit={props.submit}
     >
-      {({ errors, touched, isSubmitting, values, handleSubmit }) => (
-        <Formulario onSubmit={handleSubmit}>{props.children}</Formulario>
+      {({ errors, touched, isSubmitting, values, handleSubmit,setFieldValue }) => (
+        <Formulario onSubmit={handleSubmit} >{props.children}</Formulario>
       )}
     </Formik>
   );

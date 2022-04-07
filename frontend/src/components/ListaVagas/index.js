@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../../services/api";
 import DetalheVagas from "../DetalheVaga";
 import {
   BoxIcon,
@@ -46,20 +46,19 @@ function ListaVagas(props) {
   };
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setLista(res.data));
+    api.get("vaga/vagas").then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter((person) =>
-      person.name.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+      person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
 
   const handleOpen = (id) => {
-    setIdAtual(id - 1);
+    //console.log(id)
+    setIdAtual(id);
     setOpen(true);
   };
 
@@ -148,16 +147,16 @@ function ListaVagas(props) {
         <BoxColuna>
           {Object.keys(searchResult)
             .sort((a, b) =>
-              searchResult[a].name < searchResult[b].name ? -1 : 0
+              searchResult[a].nome < searchResult[b].nome ? -1 : 0
             )
             .map((e) => (
               <>
                 <BoxTabela>
-                  <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                  <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                   <LinhaTabela>
                     <BoxIcon
-                      onClick={() => handleOpen(searchResult[e].id)}
-                      key={searchResult[e].id}
+                      onClick={() => handleOpen(searchResult[e])}
+                      key={searchResult[e]}
                       onChange={handleOpen}
                     >
                       <PersonAddIcon />

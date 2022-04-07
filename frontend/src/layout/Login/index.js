@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import Formularios from "../../components/Formulario";
 import InputFields from "../../components/Input";
@@ -22,6 +22,8 @@ import {
 } from "./styles";
 import { BoxIconShow, ContainerField } from "../../components/Input/styles";
 
+import api from '../../services/api'
+
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
   senha: yup
@@ -36,6 +38,9 @@ function Login(props) {
   const handleShowPass = () => {
     setShowPass(!showPass);
   };
+
+ 
+
   const inicial = {
     cpf: "",
     senha: "",
@@ -44,10 +49,10 @@ function Login(props) {
     <>
       <ContainerLogin>
         <ContainerImg width="60%">
-          <ContainerFilter />
           <BoxText>
+          <ContainerFilter />
             <Title color="#FD5956">Vagas ao Cemil</Title>
-            <Text color="#000000">
+            <Text color="#ffffff">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               at urna augue. Fusce et sapien in nibh interdum facilisis.
             </Text>
@@ -56,7 +61,7 @@ function Login(props) {
         <ContainerForm width="40%">
           <BoxForm>
             <TitleLogin>Login</TitleLogin>
-            <Text color="#585858" margin="0px 0 15px 0 ">
+            <Text color="#000000" margin="0px 0 15px 0 ">
               Faça o seu login para verificar as vagas disponivel
             </Text>
             <Divisorio height="1px" />

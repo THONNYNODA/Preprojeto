@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle `
         width: 100%;
         height:100%;
         position: relative;
-        background-color: #95A3A6;
+        background-color: #ffffff;
         
         
     };

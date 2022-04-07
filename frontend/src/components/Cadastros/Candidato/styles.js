@@ -13,9 +13,7 @@ export const ContainerCadastro = styled("div")`
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
-  filter: drop-shadow(2px 4px 4px rgba(15, 15, 15, 0.25));
-
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -72,11 +70,11 @@ export const Divisorio = styled("div")`
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-  background: rgb(255, 255, 255);
+  background: rgba(149, 163, 166);
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 40%,
-    rgba(149, 163, 166, 1) 15%
+    rgba(149, 163, 166, 1) 80%
   );
 `;
 
@@ -86,6 +84,7 @@ export const BoxForm = styled("div")`
   padding: 15px;
   max-height: 360px;
   overflow-x: auto;
+  filter: drop-shadow(2px 4px 4px rgba(15, 15, 15, 0.25));
   @media (max-width: 780px) {
     display: block;
     max-width: none;
@@ -95,12 +94,12 @@ export const BoxForm = styled("div")`
 export const SubBoxForm = styled("fieldset")`
   width: 100%;
   padding: 5px;
-  border: 2px solid #1f6357;
+  border: 2px solid #ffffff;
 `;
 export const SubText = styled("legend")`
   text-align: left;
   font-size: larger;
-  color: #1f6357;
+  color: #ffffff;
 `;
 
 export const Title = styled("h2")`
@@ -121,6 +120,7 @@ export const Buttons = styled("button")`
   font-size: 1.5rem;
   //margin: 30px;
   padding: 10px 30px;
+  margin-top: 10px;
   color: #fff;
   background-color: #1f6357;
   border: none;

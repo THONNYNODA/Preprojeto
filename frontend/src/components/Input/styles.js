@@ -1,11 +1,12 @@
 import { styled } from "@mui/system";
-import { Field,ErrorMessage } from "formik";
+import { Field, ErrorMessage } from "formik";
 
 export const InputField = styled(Field)`
   position: relative;
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "1.5rem"};
   font-size: ${(props) => props.fontSize || "0.8rem"};
+  
   border: none;
   padding-left: 10px;
   color: #343837;
@@ -21,11 +22,14 @@ export const InputOption = styled("option")`
 `;
 
 export const TextLabel = styled("label")`
-  color: ${(props) => props.color || "#1f6357"};
+  color: ${(props) => props.color || "#ffffff"};
   font-size: ${(props) => props.fontSizeLabel || "0.9rem"};
+  @media (max-width: 980px) {
+    color: #ffffff;
+  } ;
 `;
 export const TextErrors = styled(ErrorMessage)`
-  color: #fd5956  ;
+  color: #B33030;
   font-size: 0.9rem;
   text-align: center;
   margin: 10px;
@@ -40,6 +44,7 @@ export const ContainerField = styled("div")`
   width: 100%;
   margin: ${(props) => props.margin || null};
   padding: ${(props) => props.padding};
+  flex: ${(props) => props.flex};
 `;
 
 export const BoxLabel = styled("div")`
