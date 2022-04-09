@@ -124,25 +124,26 @@ export const ContainerRadio = styled(FormControl)`
 export const BoxRadio = styled(RadioGroup)`
   //display: block;
   position: relative;
-  color: black;
+  color: #fff;
   font-weight: lighter;
 `;
 export const SeachRadio = styled(Radio)`
   &.MuiRadio-colorPrimary {
-    color: #1f6357;
+    color: #fff;
     
   }
 `;
 export const TitleRadio = styled(FormLabel)`
   color: black;
+  color: #fff;
   font-weight: lighter;
   &.Mui-focused {
-    color: #1f6357;
+    color: #fff;
   }
 `;
 export const TextRadio = styled(FormControlLabel)`
  &.MuiFormControlLabel-root{
-  color: blue;
+  color: #fff;
   font-weight: lighter;
  }
 `;
@@ -165,8 +166,9 @@ export const ButtonAvancado = styled("button")`
   border-radius: 30px;
   border: 1px solid;
   background: none;  
+  color: #fff;
   cursor: pointer;
   &:hover {
-    color: #1f6357;
+    color: rgba(250,250,250,0.5);
   }
 `;

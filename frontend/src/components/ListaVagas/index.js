@@ -29,6 +29,7 @@ import { Box, Portal } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Card from "../Card";
 
 function ListaVagas(props) {
   const [lista, setLista] = useState([]);
@@ -79,95 +80,97 @@ function ListaVagas(props) {
   }, [valor]);
 
   return (
-    <ContainerListaVagas>
-      {open ? <DetalheVagas {...{ open, setOpen, lista, idAtual }} /> : null}
-      <BoxSeach>
-        <InputSeach
-          value={pesquisa}
-          name="pesquisa"
-          id="pesquisa"
-          onChange={(e) => setPesquisa(e.target.value)}
-          placeholder="Pesquisar..."
-        />
-        <IconSeach>
-          <SearchIcon />
-        </IconSeach>
-      </BoxSeach>
-      <ContainerAvancado>
-        <Box>
-          {show ? (
-            <Portal container={container.current}>
-              <ContainerRadio>
-                <TitleRadio>Idade</TitleRadio>
-                <BoxRadio
-                  defaultValue="todos"
-                  name={valor}
-                  onChange={(e) => {
-                    setValor(e.target.value);
-                  }}
-                >
-                  <FormControlLabel
-                    value="menor18"
-                    control={<SeachRadio />}
-                    label="Menor de 18 anos"
-                  />
-                  <FormControlLabel
-                    value="18a25"
-                    control={<SeachRadio />}
-                    label="18 a 25 anos"
-                  />
-                  <FormControlLabel
-                    value="25maior"
-                    control={<SeachRadio />}
-                    label="maior de 25"
-                  />
-                  <FormControlLabel
-                    value="todos"
-                    control={<SeachRadio />}
-                    label="Todos"
-                  />
-                </BoxRadio>
-              </ContainerRadio>
-            </Portal>
-          ) : null}
-          <BoxAvancado>
-            <ButtonAvancado type="button" onClick={handleClick}>
-              {show ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-            </ButtonAvancado>
-          </BoxAvancado>
-        </Box>
-        <Box ref={container} />
-      </ContainerAvancado>
+    <Card background="rgba(31, 99, 87,0.8)">
+      <ContainerListaVagas>
+        {open ? <DetalheVagas {...{ open, setOpen, lista, idAtual }} /> : null}
+        <BoxSeach>
+          <InputSeach
+            value={pesquisa}
+            name="pesquisa"
+            id="pesquisa"
+            onChange={(e) => setPesquisa(e.target.value)}
+            placeholder="Pesquisar..."
+          />
+          <IconSeach>
+            <SearchIcon />
+          </IconSeach>
+        </BoxSeach>
+        <ContainerAvancado>
+          <Box>
+            {show ? (
+              <Portal container={container.current}>
+                <ContainerRadio>
+                  <TitleRadio>Idade</TitleRadio>
+                  <BoxRadio
+                    defaultValue="todos"
+                    name={valor}
+                    onChange={(e) => {
+                      setValor(e.target.value);
+                    }}
+                  >
+                    <FormControlLabel
+                      value="menor18"
+                      control={<SeachRadio />}
+                      label="Menor de 18 anos"
+                    />
+                    <FormControlLabel
+                      value="18a25"
+                      control={<SeachRadio />}
+                      label="18 a 25 anos"
+                    />
+                    <FormControlLabel
+                      value="25maior"
+                      control={<SeachRadio />}
+                      label="maior de 25"
+                    />
+                    <FormControlLabel
+                      value="todos"
+                      control={<SeachRadio />}
+                      label="Todos"
+                    />
+                  </BoxRadio>
+                </ContainerRadio>
+              </Portal>
+            ) : null}
+            <BoxAvancado>
+              <ButtonAvancado type="button" onClick={handleClick}>
+                {show ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+              </ButtonAvancado>
+            </BoxAvancado>
+          </Box>
+          <Box ref={container} />
+        </ContainerAvancado>
 
-      <ContainerTabela>
-        <BoxTabelaTitle>
-          <LinhaTitle>Cargo</LinhaTitle>
-          <LinhaTitle>Inscrever</LinhaTitle>
-        </BoxTabelaTitle>
-        <BoxColuna>
-          {Object.keys(searchResult)
-            .sort((a, b) =>
-              searchResult[a].nome < searchResult[b].nome ? -1 : 0
-            )
-            .map((e) => (
-              <>
-                <BoxTabela>
-                  <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                  <LinhaTabela>
-                    <BoxIcon
-                      onClick={() => handleOpen(searchResult[e])}
-                      key={searchResult[e]}
-                      onChange={handleOpen}
-                    >
-                      <PersonAddIcon />
-                    </BoxIcon>
-                  </LinhaTabela>
-                </BoxTabela>
-              </>
-            ))}
-        </BoxColuna>
-      </ContainerTabela>
-    </ContainerListaVagas>
+        <ContainerTabela>
+          <BoxTabelaTitle>
+            <LinhaTitle>Cargo</LinhaTitle>
+            <LinhaTitle>Inscrever</LinhaTitle>
+          </BoxTabelaTitle>
+          <BoxColuna>
+            {Object.keys(searchResult)
+              .sort((a, b) =>
+                searchResult[a].nome < searchResult[b].nome ? -1 : 0
+              )
+              .map((e) => (
+                <>
+                  <BoxTabela>
+                    <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
+                    <LinhaTabela>
+                      <BoxIcon
+                        onClick={() => handleOpen(searchResult[e])}
+                        key={searchResult[e]}
+                        onChange={handleOpen}
+                      >
+                        <PersonAddIcon />
+                      </BoxIcon>
+                    </LinhaTabela>
+                  </BoxTabela>
+                </>
+              ))}
+          </BoxColuna>
+        </ContainerTabela>
+      </ContainerListaVagas>
+    </Card>
   );
 }
 

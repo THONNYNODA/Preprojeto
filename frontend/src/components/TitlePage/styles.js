@@ -13,11 +13,11 @@ export const Divisorio = styled("div")`
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
-  background: rgb(255, 255, 255);
+  background: rgba(31, 99, 87, 1);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 1) 40%,
-    rgba(149, 163, 166, 1) 100%
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(31, 99, 87, 1) 100%
   );
 `;
 

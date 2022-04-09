@@ -3,7 +3,7 @@ import { BoxCard, BoxTitleCard, ContainerCard, TitleCard } from "./styles";
 
 function Card(props) {
   return (
-    <BoxCard>
+    <BoxCard background={props.background}>
       <BoxTitleCard>
         <TitleCard>{props.title}</TitleCard>
       </BoxTitleCard>

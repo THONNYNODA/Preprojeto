@@ -62,7 +62,7 @@ export const LinhaTabela = styled("div")`
   
 `;
 export const LinhaTitle = styled(LinhaTabela)`
-  width: 10%;\
+  width: 10%;
 `;
 
 export const BoxIcon = styled("div")`
@@ -140,6 +140,7 @@ export const ContainerDetalhe = styled("div")`
 
 export const BoxDetalhe = styled("div")`
   width: 100%;
+  height: 100%;
   padding: 5px;
   display: flex;
 `;

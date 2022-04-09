@@ -1,22 +1,22 @@
 import React from "react";
-import Formularios from "../../Formulario/";
+import Formularios from "../../Formulario";
 import InputFields from "../../Input";
 import { Buttons, BoxInput } from "./styles";
 import Modal from "../../Modal";
 import api from "../../../services/api";
 
-function CadastrarVagas(props) {
+function EditarVagas(props) {
   const initialValues = {
-    name: "",
-    descricao: "",
-    horasSemanais: "",
-    diasSemana: "",
-    turnoTrabalho: "",
-    remuneracao: "",
-    endereco: "",
-    requisitos: "",
-    regime: "",
-    status: "",
+    name: props.dados.nome,
+    descricao: props.dados.descricao,
+    horasSemanais: props.dados.horasSemanais,
+    diasSemana: props.dados.diasSemana,
+    turnoTrabalho: props.dados.turnoTrabalho,
+    remuneracao: props.dados.remuneracao,
+    endereco: props.dados.endereco,
+    requisitos: props.dados.requisitos,
+    regime: props.dados.regime,
+    status: props.dados.status,
   };
   const handleClouse = () => {
     props.setOpen(false);
@@ -129,4 +129,4 @@ function CadastrarVagas(props) {
   );
 }
 
-export default CadastrarVagas;
+export default EditarVagas;

@@ -69,9 +69,8 @@ function Login(props) {
               validationSchema={validationSchema}
               initialValues={inicial}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  setSubmitting(false);
+                setTimeout(async() => {
+                  await api.post()
                 }, 400);
               }}
             >
