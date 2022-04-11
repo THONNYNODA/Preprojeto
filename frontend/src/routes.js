@@ -8,6 +8,7 @@ import Vagas from "./layout/Vagas";
 import Candidatos from "./layout/Candidatos";
 import CadastrosVagas from "./layout/CadastrosVagas";
 import PaginaPrincipal from "./layout/PaginaPrincipal";
+import EditarPerfil from "./layout/EditarPerfil";
 
 //   const PrivateRouter = ({ component: Component, ...rest }) => (
 //     <Route
@@ -32,6 +33,7 @@ const MainRoutes = () => {
         <Route path="/vagas" element={<Vagas />} />
         <Route path="/candidatos" element={<Candidatos/>} />
         <Route path="/cadastros/vagas" element={<CadastrosVagas/>} />
+        <Route path="/edtarperfil" element={<EditarPerfil/>} />
       </Routes>
     </Router>
   );

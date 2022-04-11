@@ -76,6 +76,7 @@ function Login(props) {
             >
               <ContainerField padding="30px">
                 <InputFields
+                color="#1f6357"
                   label="CPF"
                   icon={<PersonRoundedIcon fontSize="large" />}
                   name="cpf"
@@ -90,6 +91,7 @@ function Login(props) {
 
                 <InputFields
                   label="Senha"
+                  color="#1f6357"
                   type={showPass ? "password" : "text"}
                   //height="2.5rem"
                   fontSize="1.2rem"

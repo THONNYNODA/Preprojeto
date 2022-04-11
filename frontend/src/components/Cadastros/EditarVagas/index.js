@@ -1,4 +1,4 @@
-import React,{useState}from "react";
+import React, { useState } from "react";
 import Formularios from "../../Formulario";
 import InputFields from "../../Input";
 import { Buttons, BoxInput } from "./styles";
@@ -13,7 +13,7 @@ function EditarVagas(props) {
   const [status, setStatus] = useState();
   const [progresso, setProgresso] = useState(false);
   const initialValues = {
-    name: props.dados.nome,
+    name: props.dados.name,
     descricao: props.dados.descricao,
     horasSemanais: props.dados.horasSemanais,
     diasSemana: props.dados.diasSemana,
@@ -35,25 +35,25 @@ function EditarVagas(props) {
           initialValues={initialValues}
           submit={(values, { setSubmitting }) => {
             setProgresso(false);
-           try {
-            // setTimeout(async () => {
-            //   // await api
-            //   //   .put(`vaga/vaga/${props.dados.id}`, values)
-            //   //   .then((res) => {
-            //   //     setSubmitting(false);
-            //   //     return setStatus(true);
-            //   //   });
-            //   document.location.reload();
-            // }, 400);
-            return setStatus(true)
-           } catch (error) {
-             console.log(error)
-           }
+            try {
+              // setTimeout(async () => {
+              //   // await api
+              //   //   .put(`vaga/vaga/${props.dados.id}`, values)
+              //   //   .then((res) => {
+              //   //     setSubmitting(false);
+              //   //     return setStatus(true);
+              //   //   });
+              //   document.location.reload();
+              // }, 400);
+              return setStatus(true);
+            } catch (error) {
+              console.log(error);
+            }
           }}
         >
           <BoxInput>
             <InputFields
-              bgColor="#cccccc"
+              color=" rgba(31, 99, 87)"
               width="100%"
               label="Nome"
               name="name"
@@ -61,36 +61,36 @@ function EditarVagas(props) {
             />
 
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Descricao"
               name="descricao"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             />
           </BoxInput>
           <BoxInput>
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Horas Semanais"
               name="horasSemanais"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             />
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Dias Semanal"
               name="diasSemana"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             />
 
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Turno Trabalho"
               name="turnoTrabalho"
               component="select"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             >
               <option value="">Escolha</option>
               <option value="Diurno">Diurno</option>
@@ -100,35 +100,35 @@ function EditarVagas(props) {
           </BoxInput>
           <BoxInput>
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Remuneracao"
               name="remuneracao"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             />
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Endereco"
               name="endereco"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             />
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Regime"
               name="regime"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             />
           </BoxInput>
           <BoxInput>
             <InputFields
-              bgColor="#cccccc"
               width="100%"
               label="Status"
               name="status"
               component="select"
               margin="0 5px"
+              color=" rgba(31, 99, 87)"
             >
               <option value="ativo">Ativo</option>
               <option value="desativado">Desativado</option>

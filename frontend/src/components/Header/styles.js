@@ -11,7 +11,7 @@ export const ContainerHeader = styled("header")`
   justify-content: space-between;
   align-items: stretch;
   align-content: stretch;
-  z-index: 999;
+  z-index: 9997;
 `;
 
 export const BoxHeader = styled("div")`
@@ -30,7 +30,6 @@ export const BoxHeader = styled("div")`
     flex-direction: row-reverse;
   }
 `;
-
 export const ContainerPerfil = styled("div")`
   padding: 10px;
   display: flex;
@@ -95,9 +94,9 @@ export const BoxIconClouse = styled("button")`
   position: absolute;
   right: 0;
   font-size: 20px;
-  border:none;
+  border: none;
   background: none;
-  &:hover{
+  &:hover {
     color: red;
   }
 

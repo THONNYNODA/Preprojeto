@@ -10,7 +10,12 @@ function Modal(props) {
         <BoxIconClose onClick={props.onClick}>
           <CloseIcon />
         </BoxIconClose>
-        <Card padding="0px" background="" title={props.title}>
+        <Card
+          padding="0px"
+          background={props.background}
+          colorTitle={props.colorTitle}
+          title={props.title}
+        >
           {props.children}
         </Card>
       </ContainerDetalhe>

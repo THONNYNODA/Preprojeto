@@ -1,9 +1,7 @@
 import { styled } from "@mui/system";
 import { Link } from "react-router-dom";
 import { keyframes } from "@emotion/react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+
 
 export const MenuAnimation = keyframes`
   from{
@@ -18,7 +16,7 @@ export const MenuAnimationReverso = keyframes`
    left:0%;
   }
   to{
-    left:100%;
+    left:-35%;
   }
 `;
 
@@ -30,22 +28,22 @@ export const ContainerMenu = styled("div")`
   position: relative;
   margin-right: 10px;
   box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.45);
-  z-index: 1;
+  z-index: 9999;
 `;
 export const ContainerMenuMobile = styled(ContainerMenu)`
   width: 35%;
   height: 100%;
-  animation-name: ${(props) => props.animation};
-  animation-duration: 1s;
+  animation-name: ${(props) => props.animation === true ? MenuAnimation : null};
+  animation-duration: 0.6s;
   position: absolute;
-  z-index: 999;
+ 
 `;
 export const DrownMenuMobile = styled("div")`
   width: 100%;
   height: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.45);
-  z-index: 998;
+  z-index: 9998;
 `;
 
 export const BoxMenu = styled("nav")`

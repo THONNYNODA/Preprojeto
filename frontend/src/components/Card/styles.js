@@ -3,6 +3,7 @@ import { styled } from "@mui/system";
 export const BoxCard = styled("div")`
   width: 100%;
   min-width: 18.75rem;
+  max-width: ${props => props.maxWidth};
   border-radius: 0.7rem;
   margin-top: ${props => props.marginTop};
   //filter: drop-shadow(2px 4px 4px rgba(15, 15, 15, 0.25));
@@ -29,6 +30,6 @@ export const ContainerCard = styled("div")`
 `;
 
 export const TitleCard = styled("h2")`
-  color:rgba(31, 99, 87, 0.6);
+  color: ${props => props.colorTitle || "rgba(31, 99, 87, 0.6)"};
   text-decoration: underline;
 `;

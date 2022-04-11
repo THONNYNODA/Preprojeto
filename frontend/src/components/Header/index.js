@@ -27,7 +27,7 @@ import Badge from "@mui/material/Badge";
 import { BoxIcon } from "../Menu/styles";
 import { Mobile } from "../Menu";
 
-function Header() {
+function Header(props) {
   const [openMenu, setOpenMenu] = useState(false);
   const [openMenuPerfil, setOpenMenuPerfil] = useState(false);
 
@@ -90,7 +90,7 @@ function Header() {
             <MenuIcon />
           </BoxIcon>
         </BoxHeader>
-       
+
         <BoxHeader>
           <BoxPerfil
             cursor="pointer"

@@ -2,6 +2,7 @@ import { styled } from "@mui/system";
 
 export const ContainerNoticia = styled("div")`
   width: 100%;
+  position: relative;
   height: 350px;
   overflow: auto;
 `;

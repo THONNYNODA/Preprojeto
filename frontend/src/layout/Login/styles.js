@@ -70,7 +70,7 @@ export const BoxForm = styled(BoxText)`
   backdrop-filter: blur(3.5px);
   -webkit-backdrop-filter: blur(3.5px);
   border-radius: 20px;
-  filter: drop-shadow(2px 4px 8px rgba(15, 15, 15, 0.5));
+  //filter: drop-shadow(2px 4px 8px rgba(15, 15, 15, 0.5));
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;

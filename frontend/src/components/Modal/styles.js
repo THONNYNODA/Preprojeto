@@ -6,8 +6,8 @@ export const ModalDetalhe = styled("div")`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.45);
-  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
 `;
 export const BoxIconClose = styled("div")`
   color: #ff1700;
@@ -28,4 +28,5 @@ export const ContainerDetalhe = styled("div")`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 `;

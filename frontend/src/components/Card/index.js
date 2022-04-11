@@ -3,9 +3,9 @@ import { BoxCard, BoxTitleCard, ContainerCard, TitleCard } from "./styles";
 
 function Card(props) {
   return (
-    <BoxCard marginTop={props.marginTop} background={props.background}>
+    <BoxCard maxWidth={props.maxWidth} marginTop={props.marginTop} background={props.background}>
       <BoxTitleCard>
-        <TitleCard>{props.title}</TitleCard>
+        <TitleCard colorTitle={props.colorTitle}>{props.title}</TitleCard>
       </BoxTitleCard>
       <ContainerCard padding={props.padding}>{props.children}</ContainerCard>
     </BoxCard>
