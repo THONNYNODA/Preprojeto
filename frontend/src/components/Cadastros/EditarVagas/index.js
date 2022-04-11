@@ -1,11 +1,17 @@
-import React from "react";
+import React,{useState}from "react";
 import Formularios from "../../Formulario";
 import InputFields from "../../Input";
 import { Buttons, BoxInput } from "./styles";
 import Modal from "../../Modal";
 import api from "../../../services/api";
+import CheckIcon from "@mui/icons-material/Check";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+import Confirmacao from "../../Confirmacao";
+import Progresso from "../../Progresso";
 
 function EditarVagas(props) {
+  const [status, setStatus] = useState();
+  const [progresso, setProgresso] = useState(false);
   const initialValues = {
     name: props.dados.nome,
     descricao: props.dados.descricao,
@@ -28,15 +34,21 @@ function EditarVagas(props) {
         <Formularios
           initialValues={initialValues}
           submit={(values, { setSubmitting }) => {
-            setTimeout(async () => {
-              await api
-                .put(`vaga/vaga/${props.dados.id}`, values)
-                .then((res) => {
-                  setSubmitting(false);
-                  return alert("Alterado com sucesso!!");
-                });
-              document.location.reload();
-            }, 400);
+            setProgresso(false);
+           try {
+            // setTimeout(async () => {
+            //   // await api
+            //   //   .put(`vaga/vaga/${props.dados.id}`, values)
+            //   //   .then((res) => {
+            //   //     setSubmitting(false);
+            //   //     return setStatus(true);
+            //   //   });
+            //   document.location.reload();
+            // }, 400);
+            return setStatus(true)
+           } catch (error) {
+             console.log(error)
+           }
           }}
         >
           <BoxInput>
@@ -125,6 +137,21 @@ function EditarVagas(props) {
           <Buttons type="submit">Cadastrar</Buttons>
         </Formularios>
       </Modal>
+      {progresso === true ? <Progresso /> : null}
+      {status === true ? (
+        <Confirmacao
+          titleConfimar="Foi Realizado com Sucesso!!"
+          background="#1f6357"
+          icon={<CheckIcon />}
+        />
+      ) : null}
+      {status === 2 ? (
+        <Confirmacao
+          titleConfimar="Atencao!! Ocorreu um erro, volte mais tarde"
+          background="#1f6357"
+          icon={<PriorityHighIcon />}
+        />
+      ) : null}
     </>
   );
 }

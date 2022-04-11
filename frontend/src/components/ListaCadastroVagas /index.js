@@ -20,6 +20,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import CadastrarVagas from "../Cadastros/Vagas";
 import Card from "../Card";
 import EditarVagas from "../Cadastros/EditarVagas";
+import axios from "axios";
 
 function ListaCadastroVagas(props) {
   const [lista, setLista] = useState([]);
@@ -29,13 +30,26 @@ function ListaCadastroVagas(props) {
   const [idAtual, setIdAtual] = useState("");
   const [dados, setDados] = useState([]);
 
+  // useEffect(() => {
+  //   api.get("vaga/vagas").then((res) => setLista(res.data));
+  // }, []);
+
+  // useEffect(() => {
+  //   const result = lista.filter((person) =>
+  //     person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+  //   );
+  //   setSearchResult(result);
+  // }, [lista, pesquisa]);
+
   useEffect(() => {
-    api.get("vaga/vagas").then((res) => setLista(res.data));
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter((person) =>
-      person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+      person.name.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
@@ -58,61 +72,90 @@ function ListaCadastroVagas(props) {
   };
 
   return (
-    <Card background="rgba(31, 99, 87, 0.8)">
-      <ContainerListaVagas>
-        {open ? (
-          <EditarVagas {...{ open, setOpen, lista, idAtual, dados }} />
-        ) : null}
-        <BoxSeach>
-          <InputSeach
-            value={pesquisa}
-            name="pesquisa"
-            id="pesquisa"
-            onChange={(e) => setPesquisa(e.target.value)}
-            placeholder="Pesquisar..."
-          />
-          <IconSeach>
-            <SearchIcon />
-          </IconSeach>
-        </BoxSeach>
+    <>
+      <Card  background="rgba(31, 99, 87,0.8)" marginTop="40px">
+        <ContainerListaVagas>
+          <BoxSeach>
+            <InputSeach
+              value={pesquisa}
+              name="pesquisa"
+              id="pesquisa"
+              onChange={(e) => setPesquisa(e.target.value)}
+              placeholder="Pesquisar..."
+            />
+            <IconSeach>
+              <SearchIcon />
+            </IconSeach>
+          </BoxSeach>
 
-        <ContainerTabela>
-          <BoxTabelaTitle>
-            <LinhaTitle>Vagas</LinhaTitle>
-            <LinhaTitle>Ação</LinhaTitle>
-          </BoxTabelaTitle>
-          <BoxColuna>
-            {Object.keys(searchResult)
+          <ContainerTabela>
+            <BoxTabelaTitle>
+              <LinhaTitle>Vagas</LinhaTitle>
+              <LinhaTitle>Ação</LinhaTitle>
+            </BoxTabelaTitle>
+            <BoxColuna>
+              {Object.keys(searchResult)
+                .sort((a, b) =>
+                  searchResult[a].name < searchResult[b].name ? -1 : 0
+                )
+                .map((e) => (
+                  <>
+                    <BoxTabela key={searchResult[e].id}>
+                      <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                      <LinhaTabela>
+                        <BoxIcon
+                          onClick={() => handleOpen(searchResult[e])}
+                          onChange={handleOpen}
+                          color="#FEDA15"
+                        >
+                          <EditIcon />
+                        </BoxIcon>
+                        <BoxIcon
+                          onClick={() => handleDelete(searchResult[e].id)}
+                          onChange={handleOpen}
+                          color="#8f1402"
+                        >
+                          <DeleteForeverIcon />
+                        </BoxIcon>
+                      </LinhaTabela>
+                    </BoxTabela>
+                  </>
+                ))}
+              {/* {Object.keys(searchResult)
               .sort((a, b) =>
                 searchResult[a].nome < searchResult[b].nome ? -1 : 0
-              )
-              .map((e) => (
-                <>
+                )
+                .map((e) => (
+                  <>
                   <BoxTabela key={searchResult[e].id}>
                     <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                     <LinhaTabela>
-                      <BoxIcon
-                        onClick={() => handleOpen(searchResult[e])}
-                        onChange={handleOpen}
-                        color="#FEDA15"
-                      >
-                        <EditIcon />
-                      </BoxIcon>
-                      <BoxIcon
+                    <BoxIcon
+                    onClick={() => handleOpen(searchResult[e])}
+                    onChange={handleOpen}
+                    color="#FEDA15"
+                    >
+                    <EditIcon />
+                    </BoxIcon>
+                    <BoxIcon
                         onClick={() => handleDelete(searchResult[e].id)}
                         onChange={handleOpen}
                         color="#8f1402"
-                      >
+                        >
                         <DeleteForeverIcon />
-                      </BoxIcon>
-                    </LinhaTabela>
+                        </BoxIcon>
+                        </LinhaTabela>
                   </BoxTabela>
-                </>
-              ))}
-          </BoxColuna>
-        </ContainerTabela>
-      </ContainerListaVagas>
-    </Card>
+                  </>
+              ))} */}
+            </BoxColuna>
+          </ContainerTabela>
+        </ContainerListaVagas>
+      </Card>
+      {open ? (
+        <EditarVagas {...{ open, setOpen, lista, idAtual, dados }} />
+      ) : null}
+    </>
   );
 }
 

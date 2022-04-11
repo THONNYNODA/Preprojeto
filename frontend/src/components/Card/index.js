@@ -3,11 +3,11 @@ import { BoxCard, BoxTitleCard, ContainerCard, TitleCard } from "./styles";
 
 function Card(props) {
   return (
-    <BoxCard background={props.background}>
+    <BoxCard marginTop={props.marginTop} background={props.background}>
       <BoxTitleCard>
         <TitleCard>{props.title}</TitleCard>
       </BoxTitleCard>
-      <ContainerCard>{props.children}</ContainerCard>
+      <ContainerCard padding={props.padding}>{props.children}</ContainerCard>
     </BoxCard>
   );
 }

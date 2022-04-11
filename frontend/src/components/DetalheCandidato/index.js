@@ -1,15 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../../services/api";
+import Confirmacao from "../Confirmacao";
 
 import Modal from "../Modal";
-import { BoxDetalhe, LinkDetalhe, TextDetalhe } from "./styles";
-import { Buttons } from "../Cadastros/Candidato/styles";
+import Progresso from "../Progresso";
+import { BoxDetalhe, LinkDetalhe, TextDetalhe, Buttons } from "./styles";
+import CheckIcon from "@mui/icons-material/Check";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 
 function DetalheCandidato(props) {
+  const [procgresso, setProgresso] = useState(false);
+  const [status, setStatus] = useState();
+
   const handleClose = () => props.setOpen(false);
   const handleCandidatar = () => {
-    alert("Inscrito!!");
-    props.setOpen(false);
+    setProgresso(true);
+    try {
+      setTimeout(() => {
+        setProgresso(false);
+        return setStatus(true);
+      }, 2000);
+      setTimeout(() => {
+        return props.setOpen(false);
+      }, 4000);
+    } catch (error) {
+      setTimeout(() => {
+        setProgresso(false);
+        return setStatus(false);
+      }, 2000);
+      setTimeout(() => {
+        return props.setOpen(false);
+      }, 4000);
+    }
   };
 
   const calculoIdade = (dataNascimento) => {
@@ -19,11 +41,7 @@ function DetalheCandidato(props) {
 
     if (
       new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) >
-      new Date(
-        hoje.getFullYear(),
-        nascimento.getMonth(),
-        nascimento.getDate()
-      )
+      new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
     )
       diferencaAnos--;
 
@@ -35,7 +53,7 @@ function DetalheCandidato(props) {
       <Modal
         onClick={handleClose}
         key={props.idAtual.id}
-        title={props.idAtual.nome}
+        title={props.idAtual.name}
       >
         <BoxDetalhe>
           <TextDetalhe>Nome Completo:</TextDetalhe>
@@ -77,6 +95,21 @@ function DetalheCandidato(props) {
         </BoxDetalhe>
         <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
       </Modal>
+      {procgresso === true ? <Progresso /> : null}
+      {status === true ? (
+        <Confirmacao
+          titleConfimar="Foi Realizado com Sucesso!!"
+          background="#1f6357"
+          icon={<CheckIcon />}
+        />
+      ) : null}
+      {status === 2 ? (
+        <Confirmacao
+          titleConfimar="Foi Realizado com Sucesso!!"
+          background="#1f6357"
+          icon={<CheckIcon />}
+        />
+      ) : null}
     </>
   );
 }

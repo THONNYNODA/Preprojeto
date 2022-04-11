@@ -8,7 +8,7 @@ import {
   CardNoticia,
 } from "./styles";
 
-import Card from "../Card";
+import Card from '../Card'
 
 function Noticias(props) {
   const [lista, setLista] = useState([]);
@@ -33,7 +33,7 @@ function Noticias(props) {
   }
 
   return (
-    <Card title="Ultimas Notícias">
+    <Card  title="Ultimas Notíci" padding="0px " background="rgba(31, 99, 87,0.8)">
       <ContainerNoticia>
         {Object.keys(lista).map((e) => (
           <CardNoticia>

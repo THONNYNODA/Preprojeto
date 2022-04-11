@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-
+import axios from "axios";
 import DetalheCandidato from "../DetalheCandidato";
 import {
   BoxIcon,
@@ -48,14 +48,30 @@ function ListaCandidatos(props) {
     setShow(!show);
   };
 
+  // useEffect(() => {
+  //   api.get("candidato/candidatos").then((res) => setLista(res.data));
+  // }, []);
+
+  // useEffect(() => {
+  //   const result = lista.filter(
+  //     (person) =>
+  //       person.nome
+  //         .toLocaleLowerCase()
+  //         .includes(pesquisa.toLocaleLowerCase()) ||
+  //       person.id.toString().includes(pesquisa.toLocaleLowerCase())
+  //   );
+  //   setSearchResult(result);
+  // }, [lista, pesquisa]);
   useEffect(() => {
-    api.get("candidato/candidatos").then((res) => setLista(res.data));
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter(
       (person) =>
-        person.nome
+        person.name
           .toLocaleLowerCase()
           .includes(pesquisa.toLocaleLowerCase()) ||
         person.id.toString().includes(pesquisa.toLocaleLowerCase())
@@ -85,103 +101,127 @@ function ListaCandidatos(props) {
   }, [valor]);
 
   return (
-    <Card background="rgba(31, 99, 87,0.8)">
-      <ContainerListaVagas>
-        {open ? (
-          <DetalheCandidato
-            {...{ open, setOpen, lista, idAtual, searchResult }}
-          />
-        ) : null}
-        <BoxSeach>
-          <InputSeach
-            value={pesquisa}
-            name="pesquisa"
-            id="pesquisa"
-            onChange={(e) => setPesquisa(e.target.value)}
-            placeholder="Pesquisar..."
-          />
-          <IconSeach>
-            <SearchIcon />
-          </IconSeach>
-        </BoxSeach>
-        <ContainerAvancado>
-          <Box>
-            {show ? (
-              <Portal container={container.current}>
-                <ContainerRadio>
-                  <TitleRadio>Idade</TitleRadio>
-                  <BoxRadio
-                    defaultValue="todos"
-                    name={valor}
-                    onChange={(e) => {
-                      setValor(e.target.value);
-                    }}
-                  >
-                    <FormControlLabel
-                      value="menor18"
-                      control={<SeachRadio />}
-                      label="Menor de 18 anos"
-                    />
-                    <FormControlLabel
-                      value="18a25"
-                      control={<SeachRadio />}
-                      label="18 a 25 anos"
-                    />
-                    <FormControlLabel
-                      value="25maior"
-                      control={<SeachRadio />}
-                      label="maior de 25"
-                    />
-                    <FormControlLabel
-                      value="todos"
-                      control={<SeachRadio />}
-                      label="Todos"
-                    />
-                  </BoxRadio>
-                </ContainerRadio>
-              </Portal>
-            ) : null}
-            <BoxAvancado>
-              <ButtonAvancado type="button" onClick={handleClick}>
-                {show ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-              </ButtonAvancado>
-            </BoxAvancado>
-          </Box>
-          <Box ref={container} />
-        </ContainerAvancado>
+    <>
+      <Card  background="rgba(31, 99, 87,0.8)" marginTop="40px">
+        <ContainerListaVagas>
+          <BoxSeach>
+            <InputSeach
+              value={pesquisa}
+              name="pesquisa"
+              id="pesquisa"
+              onChange={(e) => setPesquisa(e.target.value)}
+              placeholder="Pesquisar..."
+            />
+            <IconSeach>
+              <SearchIcon />
+            </IconSeach>
+          </BoxSeach>
+          <ContainerAvancado>
+            <Box>
+              {show ? (
+                <Portal container={container.current}>
+                  <ContainerRadio>
+                    <TitleRadio>Idade</TitleRadio>
+                    <BoxRadio
+                      defaultValue="todos"
+                      name={valor}
+                      onChange={(e) => {
+                        setValor(e.target.value);
+                      }}
+                    >
+                      <FormControlLabel
+                        value="menor18"
+                        control={<SeachRadio />}
+                        label="Menor de 18 anos"
+                      />
+                      <FormControlLabel
+                        value="18a25"
+                        control={<SeachRadio />}
+                        label="18 a 25 anos"
+                      />
+                      <FormControlLabel
+                        value="25maior"
+                        control={<SeachRadio />}
+                        label="maior de 25"
+                      />
+                      <FormControlLabel
+                        value="todos"
+                        control={<SeachRadio />}
+                        label="Todos"
+                      />
+                    </BoxRadio>
+                  </ContainerRadio>
+                </Portal>
+              ) : null}
+              <BoxAvancado>
+                <ButtonAvancado type="button" onClick={handleClick}>
+                  {show ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                </ButtonAvancado>
+              </BoxAvancado>
+            </Box>
+            <Box ref={container} />
+          </ContainerAvancado>
 
-        <ContainerTabela>
-          <BoxTabelaTitle>
-            <LinhaTitle>Nome</LinhaTitle>
-            <LinhaTitle>Idade</LinhaTitle>
-            <LinhaTitle>Detalhe</LinhaTitle>
-          </BoxTabelaTitle>
-          <BoxColuna>
-            {Object.keys(searchResult)
+          <ContainerTabela>
+            <BoxTabelaTitle>
+              <LinhaTitle>Nome</LinhaTitle>
+              <LinhaTitle>Idade</LinhaTitle>
+              <LinhaTitle>Detalhe</LinhaTitle>
+            </BoxTabelaTitle>
+            <BoxColuna>
+              {Object.keys(searchResult)
+                .sort((a, b) =>
+                  searchResult[a].name < searchResult[b].name ? -1 : 0
+                )
+                .map((e) => (
+                  <>
+                    <BoxTabela>
+                      <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e].id}</LinhaTabela>
+                      <LinhaTabela>
+                        <BoxIcon
+                          onClick={() => handleOpen(searchResult[e])}
+                          key={searchResult[e]}
+                          onChange={handleOpen}
+                        >
+                          <PersonAddIcon />
+                        </BoxIcon>
+                      </LinhaTabela>
+                    </BoxTabela>
+                  </>
+                ))}
+              {/* {Object.keys(searchResult)
               .sort((a, b) =>
-                searchResult[a].nome < searchResult[b].nome ? -1 : 0
+              searchResult[a].nome < searchResult[b].nome ? -1 : 0
               )
               .map((e) => (
                 <>
-                  <BoxTabela>
+                <BoxTabela>
                     <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                     <LinhaTabela>{searchResult[e].id}</LinhaTabela>
                     <LinhaTabela>
-                      <BoxIcon
-                        onClick={() => handleOpen(searchResult[e])}
-                        key={searchResult[e]}
-                        onChange={handleOpen}
-                      >
-                        <PersonAddIcon />
-                      </BoxIcon>
+                    <BoxIcon
+                    onClick={() => handleOpen(searchResult[e])}
+                    key={searchResult[e]}
+                    onChange={handleOpen}
+                    >
+                    <PersonAddIcon />
+                    </BoxIcon>
                     </LinhaTabela>
-                  </BoxTabela>
-                </>
-              ))}
-          </BoxColuna>
-        </ContainerTabela>
-      </ContainerListaVagas>
-    </Card>
+                    </BoxTabela>
+                    </>
+                  ))} */}
+            </BoxColuna>
+          </ContainerTabela>
+        </ContainerListaVagas>
+      </Card>
+      {open ? (
+        <DetalheCandidato
+          {...{ open, setOpen, lista, idAtual, searchResult }}
+        />
+      ) : null}
+      
+    </>
   );
 }
 

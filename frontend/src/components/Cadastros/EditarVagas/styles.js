@@ -50,6 +50,7 @@ export const Buttons = styled("button")`
   padding: 10px;
   color: #fff;
   background-color: #1f6357;
+  border-radius: 0 0 0.6rem 0.6rem ;
   border: none;
   cursor: pointer;
   &:hover {

@@ -8,10 +8,12 @@ export const ContainerNoticia = styled("div")`
 export const CardNoticia = styled("div")`
   width: 100%;
   padding: 0.4rem;
+  border-radius: 0.35rem;
   margin-bottom: 5px;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border: 1px solid rgba(0, 0, 0, 0.16);
+  background-color: #fff;
   &:hover {
     background: #cccc;
     transition: 0.3s;

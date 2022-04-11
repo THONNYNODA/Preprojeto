@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { styled } from "@mui/system";
 
 export const ModalDetalhe = styled("div")`
@@ -6,19 +7,8 @@ export const ModalDetalhe = styled("div")`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  //background-color: rgba(0, 0, 0, 0.45);
   z-index: 999;
-`;
-export const BoxIconClose = styled("div")`
-  color: #ff1700;
-  position: fixed;
-  right: -30px;
-  top: -15px;
-  border-radius: 7rem;
-  cursor: pointer;
-  &:hover {
-    color: #fff;
-  }
 `;
 
 export const ContainerDetalhe = styled("div")`
@@ -29,3 +19,10 @@ export const ContainerDetalhe = styled("div")`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+export const CircularProgresso = styled(CircularProgress)`
+&.MuiCircularProgress-colorPrimary{
+  color: rgba(31, 99, 87, 0.8);
+}
+
+`

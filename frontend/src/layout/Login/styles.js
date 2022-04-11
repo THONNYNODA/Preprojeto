@@ -88,7 +88,7 @@ export const TitleLogin = styled("h2")`
   color: ${(props) => props.color};
   font-size: 32px;
   font-weight: lighter;
-  text-shadow: #58585858 2px 3px;
+  //text-shadow: #58585858 2px 3px;
   color: #1f6357;
   @media (max-width: 980px) {
     color: #ffffff;
@@ -99,7 +99,7 @@ export const Text = styled("p")`
   position: relative;
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
-  text-shadow: #58585858 2px 3px;
+  //text-shadow: #58585858 2px 3px;
   @media (max-width: 980px) {
     color: #ffffff;
   } ;

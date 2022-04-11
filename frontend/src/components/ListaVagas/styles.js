@@ -7,7 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const ContainerListaVagas = styled("div")`
   width: 100%;
-  padding: 25px;
+  //padding: 25px;
   position: relative;
 `;
 
@@ -46,7 +46,7 @@ export const BoxTabelaTitle = styled("div")`
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  max-height: 300px;
+  max-height: 480px;
 `;
 
 export const LinhaTabela = styled("div")`
