@@ -111,27 +111,23 @@ function EditarCandidato(props) {
         setFieldValue("estado", data.uf);
       });
   }
-  function mascaraCPF(ev, setFieldValue) {
-    const { values } = ev.target;
-    const cpf = values
-      .replace(/\D/g, " ")
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d)/, "$1.$2")
-      .replace(/(\d{3})(\d{1,2})/, "$1-$2")
-      .replace(/(-\d{2})\d+?$/, "$1");
-
-    if (cpf.length !== 8) {
-      return;
-    }
-
-    return console.log(setFieldValue("cpf", values));
-  }
 
   //api.get("candidato/candidato").then((res) => console.log(res.data));
 
+  //Config Mask
+  const MaskInput = (props) => (
+    <InputMask {...props}>
+      {(inputProps) => <InputFields {...inputProps} />}
+    </InputMask>
+  );
+  const handleMask = (ev, setFieldValue) => {
+    const { name, value } = ev.target || "";
+    setFieldValue(name, value);
+  };
+
   return (
     <>
-      <Card padding="0px">
+      <Card padding="0px" marginTop="20px" >
         <Formik
           validationSchema={validationSchema}
           initialValues={inicial}
@@ -176,32 +172,26 @@ function EditarCandidato(props) {
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
-                    <InputFields
+                  <InputMask mask="99/99/99" maskPlaceholder={null}/>
+                    <MaskInput
+                      mask="999.999.999-99"
+                      maskPlaceholder={null}
                       name="cpf"
                       label="CPF:"
                       padding=" 0 10px"
                       nameError="cpf"
                       color="#1f6357"
-                      render={({ field }) => (
-                        <InputMask {...field} mask="999.999.999-99" />
-                      )}
+                      onChange={(ev) => handleMask(ev,setFieldValue)}
                     />
-                    <InputMask mask="999.999.999-99">
-                      <InputFields
-                        name="cpf"
-                        label="CPF:"
-                        padding=" 0 10px"
-                        nameError="cpf"
-                        color="#1f6357"
-                      />
-                    </InputMask>
 
-                    <InputFields
+                    <MaskInput
+                      mask="99.999.999-9"
                       name="rg"
                       label="RG:"
                       padding=" 0 10px"
                       nameError="rg"
                       color="#1f6357"
+                      onChange={(ev) => handleMask(ev,setFieldValue)}
                     />
                     <InputFields
                       name="dataNascimento"
@@ -248,7 +238,8 @@ function EditarCandidato(props) {
                 <SubBoxForm>
                   <SubText>Endereço</SubText>
                   <BoxSingleInput>
-                    <InputFields
+                    <MaskInput
+                      mask="99999-999"
                       flex="1"
                       name="cep"
                       label="CEP:"
@@ -256,6 +247,7 @@ function EditarCandidato(props) {
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
                       color="#1f6357"
+                      onChange={(ev) => handleMask(ev,setFieldValue)}
                     />
                     <InputFields
                       flex="2"
@@ -304,12 +296,14 @@ function EditarCandidato(props) {
                 <SubBoxForm>
                   <SubText>Contato</SubText>
                   <BoxSingleInput>
-                    <InputFields
+                    <MaskInput
+                    mask="(99) 9 9999-9999"
                       name="celular"
                       label="Celular:"
                       padding=" 0 10px"
                       nameError="celular"
                       color="#1f6357"
+                      onChange={(ev) => handleMask(ev,setFieldValue)}
                     />
                     <InputFields
                       name="emailString"
