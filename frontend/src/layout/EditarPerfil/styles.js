@@ -2,10 +2,10 @@ import { styled } from "@mui/system";
 
 export const ContainerCadastros = styled("div")`
   height: 100%;
-  top: 80px;
+  //top: 80px;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   @media (max-width: 960px) {
     flex-direction: column;

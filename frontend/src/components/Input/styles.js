@@ -24,9 +24,9 @@ export const InputOption = styled("option")`
 export const TextLabel = styled("label")`
   color: ${(props) => props.color || "#ffffff"};
   font-size: ${(props) => props.fontSizeLabel || "0.9rem"};
-  @media (max-width: 980px) {
+  /* @media (max-width: 980px) {
     color: #ffffff;
-  } ;
+  } ; */
 `;
 export const TextErrors = styled(ErrorMessage)`
   color: #B33030;

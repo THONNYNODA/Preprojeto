@@ -19,11 +19,12 @@ import {
 } from "./styles";
 import { ContainerField, TextErrors } from "../../Input/styles";
 import api from "../../../services/api";
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import Card from "../../Card";
 
 import { mascCPF } from "../../../services/mascara";
 import InputMask from "react-input-mask";
+import axios from "axios";
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -117,9 +118,10 @@ function EditarCandidato(props) {
   //Config Mask
   const MaskInput = (props) => (
     <InputMask {...props}>
-      {(inputProps) => <InputFields {...inputProps} />}
+      {(inputProps) => <InputFields {...inputProps}  />}
     </InputMask>
   );
+  
   const handleMask = (ev, setFieldValue) => {
     const { name, value } = ev.target || "";
     setFieldValue(name, value);
@@ -127,7 +129,7 @@ function EditarCandidato(props) {
 
   return (
     <>
-      <Card padding="0px" marginTop="20px" >
+      <Card padding="0px" marginTop="20px" maxWidth="570px">
         <Formik
           validationSchema={validationSchema}
           initialValues={inicial}
@@ -172,8 +174,7 @@ function EditarCandidato(props) {
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
-                  <InputMask mask="99/99/99" maskPlaceholder={null}/>
-                    <MaskInput
+                    {/* <MaskInput
                       mask="999.999.999-99"
                       maskPlaceholder={null}
                       name="cpf"
@@ -182,6 +183,13 @@ function EditarCandidato(props) {
                       nameError="cpf"
                       color="#1f6357"
                       onChange={(ev) => handleMask(ev,setFieldValue)}
+                    /> */}
+                    <InputFields
+                      name="cpf"
+                      label="CPF:"
+                      padding=" 0 10px"
+                      nameError="cpf"
+                      color="#1f6357"
                     />
 
                     <MaskInput
@@ -247,7 +255,7 @@ function EditarCandidato(props) {
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
                       color="#1f6357"
-                      onChange={(ev) => handleMask(ev,setFieldValue)}
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       flex="2"
@@ -297,13 +305,13 @@ function EditarCandidato(props) {
                   <SubText>Contato</SubText>
                   <BoxSingleInput>
                     <MaskInput
-                    mask="(99) 9 9999-9999"
+                      mask="(99) 9 9999-9999"
                       name="celular"
                       label="Celular:"
                       padding=" 0 10px"
                       nameError="celular"
                       color="#1f6357"
-                      onChange={(ev) => handleMask(ev,setFieldValue)}
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       name="emailString"
