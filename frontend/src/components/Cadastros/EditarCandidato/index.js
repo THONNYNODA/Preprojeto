@@ -1,28 +1,21 @@
 import React, { useState } from "react";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
-import Formulario from "../../Formulario";
 import InputFields from "../../Input";
 import {
   BoxForm,
   BoxSingleInput,
-  BoxText,
   Buttons,
-  ContainerCadastro,
-  ContainerFilter,
-  ContainerForm,
-  Divisorio,
   SubBoxForm,
   SubText,
-  Text,
-  Title,
 } from "./styles";
-import { ContainerField, TextErrors } from "../../Input/styles";
+import {BoxIconShow } from "../../Input/styles";
 import api from "../../../services/api";
 import { Form, Formik } from "formik";
 import Card from "../../Card";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-import { mascCPF } from "../../../services/mascara";
 import InputMask from "react-input-mask";
 import axios from "axios";
 
@@ -56,6 +49,7 @@ const validationSchema = yup.object().shape({
 
 function EditarCandidato(props) {
   const [view, setView] = useState();
+  const [showPass, setShowPass] = useState(true);
 
   const Genero = ["Masculino", "Feminino", "Outros"];
   const civil = ["Solteiro(a)", "Casado(a)", "Viúvo(a)"];
@@ -66,8 +60,8 @@ function EditarCandidato(props) {
     <option value={e.gentilico}>{e.gentilico}</option>
   ));
 
-  const handleShowSenha = () => {
-    setView(!view);
+  const handleShowPass = () => {
+    setShowPass(!showPass);
   };
 
   const inicial = {
@@ -96,11 +90,9 @@ function EditarCandidato(props) {
   function BuscarCEP(ev, setFieldValue) {
     const { value } = ev.target;
     const cep = value.replace(/[^0-9]/, "");
-
     if (cep.length !== 8) {
       return;
     }
-
     //Buscando o CEP
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())
@@ -117,11 +109,11 @@ function EditarCandidato(props) {
 
   //Config Mask
   const MaskInput = (props) => (
-    <InputMask {...props}>
-      {(inputProps) => <InputFields {...inputProps}  />}
+    <InputMask maskChar={null} {...props}>
+      {(inputProps) => <InputFields {...inputProps} />}
     </InputMask>
   );
-  
+
   const handleMask = (ev, setFieldValue) => {
     const { name, value } = ev.target || "";
     setFieldValue(name, value);
@@ -174,22 +166,14 @@ function EditarCandidato(props) {
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
-                    {/* <MaskInput
+                    <MaskInput
                       mask="999.999.999-99"
-                      maskPlaceholder={null}
                       name="cpf"
                       label="CPF:"
                       padding=" 0 10px"
                       nameError="cpf"
                       color="#1f6357"
-                      onChange={(ev) => handleMask(ev,setFieldValue)}
-                    /> */}
-                    <InputFields
-                      name="cpf"
-                      label="CPF:"
-                      padding=" 0 10px"
-                      nameError="cpf"
-                      color="#1f6357"
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
 
                     <MaskInput
@@ -199,7 +183,7 @@ function EditarCandidato(props) {
                       padding=" 0 10px"
                       nameError="rg"
                       color="#1f6357"
-                      onChange={(ev) => handleMask(ev,setFieldValue)}
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       name="dataNascimento"
@@ -349,7 +333,7 @@ function EditarCandidato(props) {
                       label="Senha:"
                       padding=" 0 10px"
                       nameError="senha"
-                      type="password"
+                      type={showPass ? "password" : "text"}
                       color="#1f6357"
                     />
                     <InputFields
@@ -358,7 +342,16 @@ function EditarCandidato(props) {
                       padding=" 0 10px"
                       nameError="confirmacaoSenha"
                       color="#1f6357"
-                      type="password"
+                      type={showPass ? "password" : "text"}
+                      iconShow={
+                        <BoxIconShow
+                        right="15px"
+                          onChange={handleShowPass}
+                          onMouseDown={handleShowPass}
+                        >
+                          {showPass ?  <VisibilityOffIcon />:<VisibilityIcon /> }
+                        </BoxIconShow>
+                      }
                     />
                   </BoxSingleInput>
                 </SubBoxForm>

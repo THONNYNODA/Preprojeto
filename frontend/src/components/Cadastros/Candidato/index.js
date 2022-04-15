@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
-import Formulario from "../../Formulario";
 import InputFields from "../../Input";
 import {
   BoxForm,
@@ -9,17 +8,15 @@ import {
   BoxText,
   Buttons,
   ContainerCadastro,
-  ContainerFilter,
-  ContainerForm,
   Divisorio,
   SubBoxForm,
   SubText,
   Text,
   Title,
 } from "./styles";
-import { ContainerField, TextErrors } from "../../Input/styles";
+import { BoxIconShow } from "../../Input/styles";
 import api from "../../../services/api";
-import { Field, Form, Formik } from "formik";
+import {  Form, Formik } from "formik";
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -100,7 +97,6 @@ function Candidato(props) {
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
       .then((res) => res.json())
       .then((data) => {
-        
         setFieldValue("logradouro", data.logradouro);
         setFieldValue("complemento", data.complemento);
         setFieldValue("bairro", data.bairro);
@@ -109,14 +105,16 @@ function Candidato(props) {
       });
   }
 
-  api.get("candidato/candidato").then(res => console.log(res.data))
+  api.get("candidato/candidato").then((res) => console.log(res.data));
 
   return (
     <>
       <ContainerCadastro>
         <BoxText>
           <Title color="#ffffff">Cadastre-se</Title>
-          <Text color="#ffffff">Faça o seu cadastro para acessar o nosso sistema de vagas</Text>
+          <Text color="#ffffff">
+            Faça o seu cadastro para acessar o nosso sistema de vagas
+          </Text>
         </BoxText>
         <Divisorio height="1px" />
         <Formik
@@ -124,10 +122,10 @@ function Candidato(props) {
           initialValues={inicial}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
-             await api.post("candidato/candidato", values).then(res =>{
-                setSubmitting(false)
-                return alert("inserido")
-              })
+              await api.post("candidato/candidato", values).then((res) => {
+                setSubmitting(false);
+                return alert("inserido");
+              });
             }, 400);
           }}
         >
@@ -320,7 +318,7 @@ function Candidato(props) {
                       label="Senha:"
                       padding=" 0 10px"
                       nameError="senha"
-                      type="password"
+                      type={showPass ? "password" : "text"}
                       //color="#fff"
                     />
                     <InputFields
@@ -329,12 +327,31 @@ function Candidato(props) {
                       padding=" 0 10px"
                       nameError="confirmacaoSenha"
                       //color="#fff"
-                      type="password"
+                      type={showPass ? "password" : "text"}
+                      iconShow={
+                        <BoxIconShow
+                          right="0px"
+                          onChange={handleShowPass}
+                          onMouseDown={handleShowPass}
+                        >
+                          {showPass ? (
+                            <VisibilityIcon />
+                          ) : (
+                            <VisibilityOffIcon />
+                          )}
+                        </BoxIconShow>
+                      }
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
               </BoxForm>
-              <Buttons variant="contained" disabled={isSubmitting} type="submit">Cadastrar</Buttons>
+              <Buttons
+                variant="contained"
+                disabled={isSubmitting}
+                type="submit"
+              >
+                Cadastrar
+              </Buttons>
             </Form>
           )}
         </Formik>

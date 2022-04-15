@@ -5,8 +5,7 @@ export const InputField = styled(Field)`
   position: relative;
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "1.5rem"};
-  font-size: ${(props) => props.fontSize || "0.8rem"};
-  
+  font-size: ${(props) => props.fontSize || "0.8rem"};  
   border: none;
   padding-left: 10px;
   color: #343837;
@@ -70,11 +69,11 @@ export const BoxIconShow = styled("span")`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2rem;
+  height: ${props => props.height };
   color: #1f6357;
   cursor: pointer;
   position: absolute;
-  right: 30px;
+  right: ${props => props.right || "0 px"};
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 999;
 `;

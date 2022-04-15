@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import Formularios from "../../components/Formulario";
 import InputFields from "../../components/Input";
@@ -104,6 +104,7 @@ function Login(props) {
                   nameError="senha"
                   iconShow={
                     <BoxIconShow
+                      right="0px"
                       onChange={handleShowPass}
                       onMouseDown={handleShowPass}
                     >
