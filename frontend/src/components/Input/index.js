@@ -14,16 +14,16 @@ function InputFields({ label, ...props }) {
   const [field, meta, helpers] = useField(props);
 
   return (
-    <ContainerField flex={props.flex} margin={props.margin} padding={props.padding}>
+    <ContainerField {...props} >
       {label ? (
-        <BoxLabel>
-          <TextLabel fontSizeLabel={props.fontSizeLabel} color={props.color}>
+        <BoxLabel {...props}>
+          <TextLabel {...props} >
             {label}
           </TextLabel>
         </BoxLabel>
       ) : null}
       <BoxField>
-        {props.icon ? <BoxIcon>{props.icon}</BoxIcon> : null}
+        {props.icon ? <BoxIcon {...props}>{props.icon}</BoxIcon> : null}
         <InputField
           width={props.width}
           fontSize={props.fontSize}

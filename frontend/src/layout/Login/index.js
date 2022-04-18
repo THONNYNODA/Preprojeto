@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import * as yup from "yup";
 import Formularios from "../../components/Formulario";
 import InputFields from "../../components/Input";
@@ -22,7 +23,8 @@ import {
 } from "./styles";
 import { BoxIconShow, ContainerField } from "../../components/Input/styles";
 
-import api from '../../services/api'
+import api from "../../services/api";
+import { Form, Formik } from "formik";
 
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
@@ -35,11 +37,21 @@ const validationSchema = yup.object().shape({
 function Login(props) {
   const [showPass, setShowPass] = useState(true);
 
+  //Config Mask
+  const MaskInput = (props) => (
+    <InputMask maskChar={null} {...props}>
+      {(inputProps) => <InputFields {...inputProps} />}
+    </InputMask>
+  );
+
+  const handleMask = (ev, setFieldValue) => {
+    const { name, value } = ev.target || "";
+    setFieldValue(name, value);
+  };
+
   const handleShowPass = () => {
     setShowPass(!showPass);
   };
-
- 
 
   const inicial = {
     cpf: "",
@@ -50,7 +62,7 @@ function Login(props) {
       <ContainerLogin>
         <ContainerImg width="60%">
           <BoxText>
-          <ContainerFilter />
+            <ContainerFilter />
             <Title color="#FD5956">Vagas ao Cemil</Title>
             <Text color="#ffffff">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -65,56 +77,68 @@ function Login(props) {
               Faça o seu login para verificar as vagas disponivel
             </Text>
             <Divisorio height="1px" />
-            <Formularios
+            <Formik
               validationSchema={validationSchema}
               initialValues={inicial}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout(async() => {
-                  await api.post()
+                setTimeout(async () => {
+                  await api.post();
                 }, 400);
               }}
             >
-              <ContainerField padding="30px">
-                <InputFields
-                color="#1f6357"
-                  label="CPF"
-                  icon={<PersonRoundedIcon fontSize="large" />}
-                  name="cpf"
-                  placeholder="CPF"
-                  fontSize="1.2rem"
-                  //height="3.5rem"
-                  width="100%"
-                  height="2rem"
-                  margin="0"
-                  nameError="cpf"
-                />
+              {({
+                errors,
+                touched,
+                isSubmitting,
+                values,
+                handleSubmit,
+                handleChange,
+                setFieldValue,
+              }) => (
+                <Form onSubmit={handleSubmit}>
+                  <MaskInput
+                    padding="10px"
+                    mask="999.999.999-99"
+                    colorResponse="#ffffff"
+                    color="#1f6357"
+                    label="CPF"
+                    icon={<PersonRoundedIcon fontSize="large" />}
+                    name="cpf"
+                    placeholder="CPF"
+                    fontSize="1.2rem"
+                    width="100%"
+                    margin="0"
+                    nameError="cpf"
+                    onChange={(ev) => handleMask(ev, setFieldValue)}
+                  />
 
-                <InputFields
-                  label="Senha"
-                  color="#1f6357"
-                  type={showPass ? "password" : "text"}
-                  //height="2.5rem"
-                  fontSize="1.2rem"
-                  width="100%"
-                  height="2rem"
-                  icon={<VpnKeyIcon fontSize="large" />}
-                  name="senha"
-                  placeholder="******"
-                  margin="0"
-                  nameError="senha"
-                  iconShow={
-                    <BoxIconShow
-                      right="0px"
-                      onChange={handleShowPass}
-                      onMouseDown={handleShowPass}
-                    >
-                      {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                    </BoxIconShow>
-                  }
-                />
-              </ContainerField>
-              <Buttons type="submit">Entrar</Buttons>
-            </Formularios>
+                  <InputFields
+                    label="Senha"
+                    color="#1f6357"
+                    colorResponse="#ffffff"
+                    type={showPass ? "password" : "text"}
+                    padding="10px"
+                    fontSize="1.2rem"
+                    width="100%"
+                    icon={<VpnKeyIcon fontSize="large" />}
+                    name="senha"
+                    placeholder="******"
+                    margin="0"
+                    nameError="senha"
+                    iconShow={
+                      <BoxIconShow
+                        onChange={handleShowPass}
+                        onMouseDown={handleShowPass}
+                      >
+                        {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </BoxIconShow>
+                    } 
+                  />
+
+                  <Buttons type="submit">Entrar</Buttons>
+                </Form>
+              )}
+            </Formik>
           </BoxForm>
         </ContainerForm>
       </ContainerLogin>

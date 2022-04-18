@@ -175,7 +175,7 @@ function EditarCandidato(props) {
                       color="#1f6357"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
-
+                  
                     <MaskInput
                       mask="99.999.999-9"
                       name="rg"

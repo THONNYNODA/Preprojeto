@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
 import InputFields from "../../Input";
@@ -16,7 +17,9 @@ import {
 } from "./styles";
 import { BoxIconShow } from "../../Input/styles";
 import api from "../../../services/api";
-import {  Form, Formik } from "formik";
+import { Form, Formik } from "formik";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -48,6 +51,7 @@ const validationSchema = yup.object().shape({
 
 function Candidato(props) {
   const [view, setView] = useState();
+  const [showPass, setShowPass] = useState(false);
 
   const Genero = ["Masculino", "Feminino", "Outros"];
   const civil = ["Solteiro(a)", "Casado(a)", "Viúvo(a)"];
@@ -58,8 +62,8 @@ function Candidato(props) {
     <option value={e.gentilico}>{e.gentilico}</option>
   ));
 
-  const handleShowSenha = () => {
-    setView(!view);
+  const handleShowPass = () => {
+    setShowPass(!showPass);
   };
 
   const inicial = {
@@ -104,6 +108,18 @@ function Candidato(props) {
         setFieldValue("estado", data.uf);
       });
   }
+
+  //Config Mask
+  const MaskInput = (props) => (
+    <InputMask maskChar={null} {...props}>
+      {(inputProps) => <InputFields {...inputProps} />}
+    </InputMask>
+  );
+
+  const handleMask = (ev, setFieldValue) => {
+    const { name, value } = ev.target || "";
+    setFieldValue(name, value);
+  };
 
   api.get("candidato/candidato").then((res) => console.log(res.data));
 
@@ -160,19 +176,22 @@ function Candidato(props) {
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
-                    <InputFields
+                    <MaskInput
+                      mask="999.999.999-99"
                       name="cpf"
                       label="CPF:"
                       padding=" 0 10px"
                       nameError="cpf"
-                      //color="#fff"
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
-                    <InputFields
+
+                    <MaskInput
+                      mask="99.999.999-9"
                       name="rg"
                       label="RG:"
                       padding=" 0 10px"
                       nameError="rg"
-                      //color="#fff"
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       name="dataNascimento"
@@ -219,14 +238,15 @@ function Candidato(props) {
                 <SubBoxForm>
                   <SubText>Endereço</SubText>
                   <BoxSingleInput>
-                    <InputFields
+                    <MaskInput
+                      mask="99999-999"
                       flex="1"
                       name="cep"
                       label="CEP:"
                       padding=" 0 10px"
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
-                      //color="#fff"
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       flex="2"
@@ -275,12 +295,13 @@ function Candidato(props) {
                 <SubBoxForm>
                   <SubText>Contato</SubText>
                   <BoxSingleInput>
-                    <InputFields
+                    <MaskInput
+                      mask="(99) 9 9999-9999"
                       name="celular"
                       label="Celular:"
                       padding=" 0 10px"
                       nameError="celular"
-                      //color="#fff"
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       name="emailString"
@@ -330,7 +351,7 @@ function Candidato(props) {
                       type={showPass ? "password" : "text"}
                       iconShow={
                         <BoxIconShow
-                          right="0px"
+                          //right="0px"
                           onChange={handleShowPass}
                           onMouseDown={handleShowPass}
                         >

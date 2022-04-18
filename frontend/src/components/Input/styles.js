@@ -1,21 +1,6 @@
 import { styled } from "@mui/system";
 import { Field, ErrorMessage } from "formik";
 
-export const InputField = styled(Field)`
-  position: relative;
-  width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height || "1.5rem"};
-  font-size: ${(props) => props.fontSize || "0.8rem"};  
-  border: none;
-  padding-left: 10px;
-  color: #343837;
-  z-index: 2;
-  background-color: ${(props) => props.bgColor};
-  &:focus {
-    outline: 2px solid #1f6357;
-  }
-`;
-
 export const InputOption = styled("option")`
   color: #343837;
 `;
@@ -24,11 +9,11 @@ export const TextLabel = styled("label")`
   color: ${(props) => props.color || "#ffffff"};
   font-size: ${(props) => props.fontSizeLabel || "0.9rem"};
   /* @media (max-width: 980px) {
-    color: #ffffff;
+    color: ${(props) => props.colorResponse || "#1f6357"};
   } ; */
 `;
 export const TextErrors = styled(ErrorMessage)`
-  color: #B33030;
+  color: #b33030;
   font-size: 0.9rem;
   text-align: center;
   margin: 10px;
@@ -63,17 +48,32 @@ export const BoxIcon = styled("span")`
   background-color: #fff;
   color: #1f6357;
   z-index: 1;
+  &:hover{
+    border: 2px solid pink;
+  };
 `;
 
 export const BoxIconShow = styled("span")`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: ${props => props.height };
+  /* display: inline-block;
+  height: ${(props) => props.height}; */
   color: #1f6357;
   cursor: pointer;
   position: absolute;
-  right: ${props => props.right || "0 px"};
+  right: calc(0px + 3%);
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 999;
+`;
+export const InputField = styled(Field)`
+  position: relative;
+  width: ${(props) => props.width || "100%"};
+  font-size: ${(props) => props.fontSize || "0.8rem"};
+  border: none;
+  padding: 5px;
+  color: #343837;
+  z-index: 2;
+  background-color: ${(props) => props.bgColor};
+  &:focus {
+    border-bottom: 2px solid #1f6357;
+    outline: 0;
+  }
 `;
