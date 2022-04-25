@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-import axios from "axios";
 import DetalheCandidato from "../DetalheCandidato";
 import {
   BoxIcon,
@@ -48,30 +47,14 @@ function ListaCandidatos(props) {
     setShow(!show);
   };
 
-  // useEffect(() => {
-  //   api.get("candidato/candidatos").then((res) => setLista(res.data));
-  // }, []);
-
-  // useEffect(() => {
-  //   const result = lista.filter(
-  //     (person) =>
-  //       person.nome
-  //         .toLocaleLowerCase()
-  //         .includes(pesquisa.toLocaleLowerCase()) ||
-  //       person.id.toString().includes(pesquisa.toLocaleLowerCase())
-  //   );
-  //   setSearchResult(result);
-  // }, [lista, pesquisa]);
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setLista(res.data));
+    api.get("candidato/candidatos").then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter(
       (person) =>
-        person.name
+        person.nome
           .toLocaleLowerCase()
           .includes(pesquisa.toLocaleLowerCase()) ||
         person.id.toString().includes(pesquisa.toLocaleLowerCase())
@@ -102,7 +85,7 @@ function ListaCandidatos(props) {
 
   return (
     <>
-      <Card  background="rgba(31, 99, 87,0.8)" marginTop="40px">
+      <Card background="rgba(31, 99, 87,0.8)" marginTop="40px">
         <ContainerListaVagas>
           <BoxSeach>
             <InputSeach
@@ -171,12 +154,12 @@ function ListaCandidatos(props) {
             <BoxColuna>
               {Object.keys(searchResult)
                 .sort((a, b) =>
-                  searchResult[a].name < searchResult[b].name ? -1 : 0
+                  searchResult[a].nome < searchResult[b].nome ? -1 : 0
                 )
                 .map((e) => (
                   <>
                     <BoxTabela>
-                      <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                       <LinhaTabela>{searchResult[e].id}</LinhaTabela>
                       <LinhaTabela>
                         <BoxIcon
@@ -190,27 +173,6 @@ function ListaCandidatos(props) {
                     </BoxTabela>
                   </>
                 ))}
-              {/* {Object.keys(searchResult)
-              .sort((a, b) =>
-              searchResult[a].nome < searchResult[b].nome ? -1 : 0
-              )
-              .map((e) => (
-                <>
-                <BoxTabela>
-                    <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                    <LinhaTabela>{searchResult[e].id}</LinhaTabela>
-                    <LinhaTabela>
-                    <BoxIcon
-                    onClick={() => handleOpen(searchResult[e])}
-                    key={searchResult[e]}
-                    onChange={handleOpen}
-                    >
-                    <PersonAddIcon />
-                    </BoxIcon>
-                    </LinhaTabela>
-                    </BoxTabela>
-                    </>
-                  ))} */}
             </BoxColuna>
           </ContainerTabela>
         </ContainerListaVagas>
@@ -220,7 +182,6 @@ function ListaCandidatos(props) {
           {...{ open, setOpen, lista, idAtual, searchResult }}
         />
       ) : null}
-      
     </>
   );
 }

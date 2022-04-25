@@ -32,6 +32,7 @@ export const ContainerField = styled("div")`
   margin: ${(props) => props.margin || null};
   padding: ${(props) => props.padding};
   flex: ${(props) => props.flex};
+
 `;
 
 export const BoxLabel = styled("div")`
@@ -48,18 +49,16 @@ export const BoxIcon = styled("span")`
   background-color: #fff;
   color: #1f6357;
   z-index: 1;
-  &:hover{
-    border: 2px solid pink;
-  };
+ 
 `;
 
 export const BoxIconShow = styled("span")`
-  /* display: inline-block;
-  height: ${(props) => props.height}; */
+  display: inline-block;
+  height: ${(props) => props.height};
   color: #1f6357;
   cursor: pointer;
   position: absolute;
-  right: calc(0px + 3%);
+  right: calc(0px + 4%);
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 999;
 `;
@@ -71,8 +70,8 @@ export const InputField = styled(Field)`
   padding: 5px;
   color: #343837;
   z-index: 2;
-  background-color: ${(props) => props.bgColor};
-  &:focus {
+  background-color: ${(props) => props.bgColor || "none"};
+  &:focus{
     border-bottom: 2px solid #1f6357;
     outline: 0;
   }

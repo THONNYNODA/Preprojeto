@@ -81,8 +81,8 @@ function Login(props) {
               validationSchema={validationSchema}
               initialValues={inicial}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout(async () => {
-                  await api.post();
+                setTimeout( () => {
+                   alert("Com sucesso")
                 }, 400);
               }}
             >
@@ -113,6 +113,7 @@ function Login(props) {
                   />
 
                   <InputFields
+                  
                     label="Senha"
                     color="#1f6357"
                     colorResponse="#ffffff"

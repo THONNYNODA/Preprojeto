@@ -67,8 +67,8 @@ export const BoxText = styled("div")`
 export const BoxForm = styled(BoxText)`
   position: relative;
   background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px);
+  /* backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px); */
   border-radius: 20px;
   //filter: drop-shadow(2px 4px 8px rgba(15, 15, 15, 0.5));
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,

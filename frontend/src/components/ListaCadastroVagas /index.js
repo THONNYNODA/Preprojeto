@@ -12,44 +12,38 @@ import {
   BoxTabelaTitle,
   BoxColuna,
   LinhaTitle,
+  ButtonAdd,
+  BoxButton,
 } from "./styles";
 
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import CadastrarVagas from "../Cadastros/Vagas";
+import DetalheCadastroVagas from "../DetalheCadastroVaga";
 import Card from "../Card";
 import EditarVagas from "../Cadastros/EditarVagas";
-import axios from "axios";
+import AddIcon from "@mui/icons-material/Add";
+import NoteIcon from "@mui/icons-material/Note";
+import NotInterestedIcon from "@mui/icons-material/NotInterested";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 function ListaCadastroVagas(props) {
   const [lista, setLista] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
   const [searchResult, setSearchResult] = useState("");
   const [open, setOpen] = useState(false);
+  const [openDetahle, setOpenDetalhe] = useState(false);
   const [idAtual, setIdAtual] = useState("");
   const [dados, setDados] = useState([]);
 
-  // useEffect(() => {
-  //   api.get("vaga/vagas").then((res) => setLista(res.data));
-  // }, []);
-
-  // useEffect(() => {
-  //   const result = lista.filter((person) =>
-  //     person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
-  //   );
-  //   setSearchResult(result);
-  // }, [lista, pesquisa]);
-
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setLista(res.data));
+    api.get("vaga/vagas").then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter((person) =>
-      person.name.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+      person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
@@ -57,6 +51,10 @@ function ListaCadastroVagas(props) {
   const handleOpen = (id) => {
     setDados(id);
     setOpen(true);
+  };
+  const handleOpenDetalhe = (id) => {
+    setDados(id);
+    setOpenDetalhe(true);
   };
   const handleDelete = (id) => {
     try {
@@ -73,7 +71,13 @@ function ListaCadastroVagas(props) {
 
   return (
     <>
-      <Card  background="rgba(31, 99, 87,0.8)" marginTop="40px">
+      <Card background="rgba(31, 99, 87,0.8)" marginTop="40px">
+        <BoxButton>
+          <ButtonAdd>
+            <AddIcon />
+            Adicionar
+          </ButtonAdd>
+        </BoxButton>
         <ContainerListaVagas>
           <BoxSeach>
             <InputSeach
@@ -90,19 +94,40 @@ function ListaCadastroVagas(props) {
 
           <ContainerTabela>
             <BoxTabelaTitle>
+              <LinhaTitle>Status</LinhaTitle>
               <LinhaTitle>Vagas</LinhaTitle>
+              <LinhaTitle>Descricao</LinhaTitle>
               <LinhaTitle>Ação</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
               {Object.keys(searchResult)
                 .sort((a, b) =>
-                  searchResult[a].name < searchResult[b].name ? -1 : 0
+                  searchResult[a].nome < searchResult[b].nome ? -1 : 0
                 )
                 .map((e) => (
                   <>
                     <BoxTabela key={searchResult[e].id}>
-                      <LinhaTabela>{searchResult[e].name}</LinhaTabela>
                       <LinhaTabela>
+                        {searchResult[e].status === "Ativo" ? (
+                          <BoxIcon>
+                            <CheckCircleOutlineIcon />
+                          </BoxIcon>
+                        ) : (
+                          <BoxIcon>
+                            <NotInterestedIcon />
+                          </BoxIcon>
+                        )}
+                      </LinhaTabela>
+                      <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e].descricao}</LinhaTabela>
+                      <LinhaTabela>
+                        <BoxIcon
+                          onClick={() => handleOpenDetalhe(searchResult[e])}
+                          onChange={handleOpenDetalhe}
+                          color="#1f6357"
+                        >
+                          <NoteIcon />
+                        </BoxIcon>
                         <BoxIcon
                           onClick={() => handleOpen(searchResult[e])}
                           onChange={handleOpen}
@@ -121,39 +146,15 @@ function ListaCadastroVagas(props) {
                     </BoxTabela>
                   </>
                 ))}
-              {/* {Object.keys(searchResult)
-              .sort((a, b) =>
-                searchResult[a].nome < searchResult[b].nome ? -1 : 0
-                )
-                .map((e) => (
-                  <>
-                  <BoxTabela key={searchResult[e].id}>
-                    <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                    <LinhaTabela>
-                    <BoxIcon
-                    onClick={() => handleOpen(searchResult[e])}
-                    onChange={handleOpen}
-                    color="#FEDA15"
-                    >
-                    <EditIcon />
-                    </BoxIcon>
-                    <BoxIcon
-                        onClick={() => handleDelete(searchResult[e].id)}
-                        onChange={handleOpen}
-                        color="#8f1402"
-                        >
-                        <DeleteForeverIcon />
-                        </BoxIcon>
-                        </LinhaTabela>
-                  </BoxTabela>
-                  </>
-              ))} */}
             </BoxColuna>
           </ContainerTabela>
         </ContainerListaVagas>
       </Card>
       {open ? (
         <EditarVagas {...{ open, setOpen, lista, idAtual, dados }} />
+      ) : null}
+      {openDetahle ? (
+        <DetalheCadastroVagas {...{ open, setOpen, lista, idAtual, dados }} />
       ) : null}
     </>
   );

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-import axios from "axios";
 import DetalheVagas from "../DetalheVaga";
 import {
   BoxIcon,
-  BoxIconClose,
   BoxTabela,
   ContainerTabela,
   LinhaTabela,
@@ -35,7 +33,7 @@ import Card from "../Card";
 function ListaVagas(props) {
   const [lista, setLista] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
-  const [searchResult, setSearchResult] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
   const [open, setOpen] = useState(false);
   const [idAtual, setIdAtual] = useState("");
   const [valor, setValor] = useState();
@@ -47,35 +45,19 @@ function ListaVagas(props) {
     setShow(!show);
   };
 
+  //Codigo para a producao
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setLista(res.data));
+    api.get("vaga/vagas").then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
     const result = lista.filter((person) =>
-      person.name.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
+      person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
     );
     setSearchResult(result);
   }, [lista, pesquisa]);
 
-  //Codigo para a producao
-  // useEffect(() => {
-  //   api
-  //     .get("vaga/vagas")
-  //     .then((res) => setLista(res.data));
-  // }, []);
-
-  // useEffect(() => {
-  //   const result = lista.filter((person) =>
-  //     person.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())
-  //   );
-  //   setSearchResult(result);
-  // }, [lista, pesquisa]);
-
   const handleOpen = (id) => {
-    //console.log(id)
     setIdAtual(id);
     setOpen(true);
   };
@@ -98,7 +80,7 @@ function ListaVagas(props) {
 
   return (
     <>
-      <Card background="rgba(31, 99, 87,0.8)" marginTop="40px" >
+      <Card background="rgba(31, 99, 87,0.8)" marginTop="40px">
         <ContainerListaVagas>
           <BoxSeach>
             <InputSeach
@@ -166,12 +148,12 @@ function ListaVagas(props) {
             <BoxColuna>
               {Object.keys(searchResult)
                 .sort((a, b) =>
-                  searchResult[a].name < searchResult[b].name ? -1 : 0
+                  searchResult[a].nome < searchResult[b].nome ? -1 : 0
                 )
                 .map((e) => (
                   <>
                     <BoxTabela>
-                      <LinhaTabela>{searchResult[e].name}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                       <LinhaTabela>
                         <BoxIcon
                           onClick={() => handleOpen(searchResult[e])}
@@ -184,26 +166,6 @@ function ListaVagas(props) {
                     </BoxTabela>
                   </>
                 ))}
-              {/* {Object.keys(searchResult)
-              .sort((a, b) =>
-              searchResult[a].nome < searchResult[b].nome ? -1 : 0
-              )
-              .map((e) => (
-                <>
-                <BoxTabela>
-                <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                <LinhaTabela>
-                      <BoxIcon
-                      onClick={() => handleOpen(searchResult[e])}
-                      key={searchResult[e]}
-                        onChange={handleOpen}
-                        >
-                        <PersonAddIcon />
-                        </BoxIcon>
-                        </LinhaTabela>
-                        </BoxTabela>
-                        </>
-                      ))} */}
             </BoxColuna>
           </ContainerTabela>
         </ContainerListaVagas>

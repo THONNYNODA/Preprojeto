@@ -15,14 +15,13 @@ export const BoxTabela = styled("div")`
   width: 100%;
   display: flex;
   position: relative;
-  cursor: pointer;
   border-bottom: 1px solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
   &:hover {
-    background: rgba(31, 99, 87, 0.8);
-    color: #fff !important;
+    background: rgba(31, 99, 87, 0.2);
+    
   }
 `;
 export const BoxTabelaTitle = styled("div")`
@@ -47,13 +46,20 @@ export const BoxColuna = styled("div")`
 export const LinhaTabela = styled("div")`
   display: flex;
   align-items: center;
+  flex-grow: 1;
   padding: 10px;
   width: 10%;
+  border-right: 1px solid #ccc;
   &:nth-of-type(1) {
-    flex-grow: 1;
+    flex-grow: 0;
+    justify-content: center;
+  }
+  &:nth-of-type(3) {
+    flex-grow: 4;
     border-right: 1px solid #ccc;
   }
-  &:nth-of-type(2) {
+  &:nth-last-child(1) {
+    flex-grow: 0;
     justify-content: center;
   }
 `;
@@ -68,11 +74,11 @@ export const BoxIcon = styled("div")`
   align-items: center;
   padding: 5px;
   cursor: pointer;
-  &:hover {
+  /* &:hover {
     color: ${(props) => props.color || "rgba(31, 99, 87,0.6)"};
     background-color: rgba(200, 200, 200, 0.6);
     border-radius: 30px;
-  }
+  } */
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;
@@ -113,6 +119,29 @@ export const IconSeach = styled("span")`
   top: 5px;
   right: 15px;
   color: #1f6357;
+`;
+
+export const BoxButton = styled("div")`
+  width: 100%;
+  display: flex;
+  justify-content: end;
+`;
+
+export const ButtonAdd = styled("button")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  cursor: pointer;
+  color: #fff;
+  background: none;
+  padding: 0.4rem;
+  margin-bottom: 1rem;
+  &:hover {
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
 `;
 
 //Detalhe Stylo
