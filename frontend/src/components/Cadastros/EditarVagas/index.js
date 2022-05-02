@@ -25,6 +25,7 @@ function EditarVagas(props) {
     status: props.dados.status,
   };
   const handleClouse = () => {
+    
     props.setOpen(false);
   };
 

@@ -58,7 +58,7 @@ export const BoxIconShow = styled("span")`
   color: #1f6357;
   cursor: pointer;
   position: absolute;
-  right: calc(0px + 4%);
+  right: ${props => props.right};
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 999;
 `;
@@ -67,7 +67,7 @@ export const InputField = styled(Field)`
   width: ${(props) => props.width || "100%"};
   font-size: ${(props) => props.fontSize || "0.8rem"};
   border: none;
-  padding: 5px;
+  padding: 7px;
   color: #343837;
   z-index: 2;
   background-color: ${(props) => props.bgColor || "none"};

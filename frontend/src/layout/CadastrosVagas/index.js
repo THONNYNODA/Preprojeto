@@ -6,7 +6,7 @@ import TitlePage from "../../components/TitlePage";
 import Dashbord from "../Dashbord";
 import { BoxCadastros, ContainerCadastros, IconCadastro } from "./styles";
 import IconVagas from "../../assets/vagas.png";
-import ListaCadastroVagas from "../../components/ListaCadastroVagas ";
+import ListaCadastroVagas from "../../components/ListaCadastroVagas";
 
 function CadastrosVagas() {
   const [open, setOpen] = useState(false);

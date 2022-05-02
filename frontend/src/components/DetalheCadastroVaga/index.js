@@ -7,15 +7,19 @@ import {
   ContainerDetalheVaga,
   TextDetalhe,
   Buttons,
+  BoxPerfil,
 } from "./styles";
 import CheckIcon from "@mui/icons-material/Check";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+import Perfil from '../../assets/PerfilMan.svg'
 
 function DetalheCadastroVagas(props) {
   const [progresso, setProgresso] = useState(false);
   const [status, setStatus] = useState();
 
-  const handleClose = () => props.setOpen(false);
+  const handleClouse = () => {
+    props.setOpenDetalhe(false);
+  };
 
   const handleCandidatar = () => {
     setProgresso(true);
@@ -54,44 +58,32 @@ function DetalheCadastroVagas(props) {
   return (
     <>
       <Modal
-        onClick={handleClose}
+        onClick={handleClouse}
         key={props.dados.id}
         title={props.dados.nome}
+        background="#fff"
       >
         <ContainerDetalheVaga>
+          <BoxDetalhe>
+              <BoxPerfil img={Perfil}/>
+          </BoxDetalhe>
           <BoxDetalhe>
             <TextDetalhe>
               Carga horaria semanal: {props.dados.horasSemanais}
             </TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>
               Período de dias por semana: {props.dados.diasSemana}
             </TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>
               Turno no cargo: {props.dados.turnoTrabalho}
             </TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>Local do trabalho: {props.dados.endereco}</TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>
               Requisito para o cargo: {props.dados.requisitos}
             </TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>Regime: {props.dados.regime}</TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>Status do cargo: {props.dados.status}</TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>Salário: {props.dados.remuneracao}</TextDetalhe>
-          </BoxDetalhe>
-          <BoxDetalhe>
             <TextDetalhe>Descricao do cargo:</TextDetalhe>
             <TextDetalhe>{props.dados.descricao}</TextDetalhe>
           </BoxDetalhe>

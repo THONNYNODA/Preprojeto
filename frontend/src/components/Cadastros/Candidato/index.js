@@ -351,7 +351,7 @@ function Candidato(props) {
                       type={showPass ? "password" : "text"}
                       iconShow={
                         <BoxIconShow
-                          //right="0px"
+                          right="15px"
                           onChange={handleShowPass}
                           onMouseDown={handleShowPass}
                         >

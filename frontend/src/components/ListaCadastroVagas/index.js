@@ -113,7 +113,7 @@ function ListaCadastroVagas(props) {
                             <CheckCircleOutlineIcon />
                           </BoxIcon>
                         ) : (
-                          <BoxIcon>
+                          <BoxIcon color="#8f1402">
                             <NotInterestedIcon />
                           </BoxIcon>
                         )}
@@ -154,7 +154,7 @@ function ListaCadastroVagas(props) {
         <EditarVagas {...{ open, setOpen, lista, idAtual, dados }} />
       ) : null}
       {openDetahle ? (
-        <DetalheCadastroVagas {...{ open, setOpen, lista, idAtual, dados }} />
+        <DetalheCadastroVagas {...{ open, setOpenDetalhe, lista, idAtual, dados }} />
       ) : null}
     </>
   );
