@@ -51,6 +51,7 @@ export const Buttons = styled("button")`
   color: #fff;
   background-color: #1f6357;
   border: none;
+  border-radius: 0px 0px 10px 10px ;
   cursor: pointer;
   &:hover {
     background-color: rgba(31, 99, 87, 0.9);

@@ -1,5 +1,5 @@
 import React from "react";
-import Formularios from "../../Formulario/";
+import Formularios from "../../Formulario";
 import InputFields from "../../Input";
 import { Buttons, BoxInput } from "./styles";
 import Modal from "../../Modal";
@@ -18,13 +18,14 @@ function CadastrarVagas(props) {
     regime: "",
     status: "",
   };
-  const handleClouse = () => {
-    props.setOpen(false);
+
+  const handleClose = () => {
+    props.setCadastrar(false);
   };
 
   return (
     <>
-      <Modal title="Vagas" onClick={handleClouse}>
+      <Modal title="Vagas" onClick={handleClose}>
         <Formularios
           initialValues={initialValues}
           submit={(values, { setSubmitting }) => {
@@ -46,6 +47,7 @@ function CadastrarVagas(props) {
               label="Nome"
               name="name"
               margin="0 5px"
+              color="#1f6357"
             />
 
             <InputFields
@@ -54,6 +56,7 @@ function CadastrarVagas(props) {
               label="Descricao"
               name="descricao"
               margin="0 5px"
+              color="#1f6357"
             />
           </BoxInput>
           <BoxInput>
@@ -63,6 +66,7 @@ function CadastrarVagas(props) {
               label="Horas Semanais"
               name="horasSemanais"
               margin="0 5px"
+              color="#1f6357"
             />
             <InputFields
               bgColor="#cccccc"
@@ -70,6 +74,7 @@ function CadastrarVagas(props) {
               label="Dias Semanal"
               name="diasSemana"
               margin="0 5px"
+              color="#1f6357"
             />
 
             <InputFields
@@ -79,6 +84,7 @@ function CadastrarVagas(props) {
               name="turnoTrabalho"
               component="select"
               margin="0 5px"
+              color="#1f6357"
             >
               <option value="">Escolha</option>
               <option value="Diurno">Diurno</option>
@@ -93,6 +99,7 @@ function CadastrarVagas(props) {
               label="Remuneracao"
               name="remuneracao"
               margin="0 5px"
+              color="#1f6357"
             />
             <InputFields
               bgColor="#cccccc"
@@ -100,6 +107,7 @@ function CadastrarVagas(props) {
               label="Endereco"
               name="endereco"
               margin="0 5px"
+              color="#1f6357"
             />
             <InputFields
               bgColor="#cccccc"
@@ -107,6 +115,7 @@ function CadastrarVagas(props) {
               label="Regime"
               name="regime"
               margin="0 5px"
+              color="#1f6357"
             />
           </BoxInput>
           <BoxInput>
@@ -117,6 +126,7 @@ function CadastrarVagas(props) {
               name="status"
               component="select"
               margin="0 5px"
+              color="#1f6357"
             >
               <option value="ativo">Ativo</option>
               <option value="desativado">Desativado</option>

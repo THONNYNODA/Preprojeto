@@ -16,10 +16,10 @@ import {
   BoxButton,
 } from "./styles";
 
+import CadastrarVagas from '../Cadastros/CadastrarVagas'
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
-import CadastrarVagas from "../Cadastros/Vagas";
 import DetalheCadastroVagas from "../DetalheCadastroVaga";
 import Card from "../Card";
 import EditarVagas from "../Cadastros/EditarVagas";
@@ -36,6 +36,7 @@ function ListaCadastroVagas(props) {
   const [openDetahle, setOpenDetalhe] = useState(false);
   const [idAtual, setIdAtual] = useState("");
   const [dados, setDados] = useState([]);
+  const [cadastrar, setCadastrar] = useState(false);
 
   useEffect(() => {
     api.get("vaga/vagas").then((res) => setLista(res.data));
@@ -51,6 +52,9 @@ function ListaCadastroVagas(props) {
   const handleOpen = (id) => {
     setDados(id);
     setOpen(true);
+  };
+  const handleCadastrarVaga = () => {
+    setCadastrar(true);
   };
   const handleOpenDetalhe = (id) => {
     setDados(id);
@@ -73,7 +77,7 @@ function ListaCadastroVagas(props) {
     <>
       <Card background="rgba(31, 99, 87,0.8)" marginTop="40px">
         <BoxButton>
-          <ButtonAdd>
+          <ButtonAdd onClick={handleCadastrarVaga}>
             <AddIcon />
             Adicionar
           </ButtonAdd>
@@ -156,6 +160,7 @@ function ListaCadastroVagas(props) {
       {openDetahle ? (
         <DetalheCadastroVagas {...{ open, setOpen, lista, idAtual, dados }} />
       ) : null}
+      {cadastrar ? <CadastrarVagas {...{cadastrar,setCadastrar}}/> : null}
     </>
   );
 }

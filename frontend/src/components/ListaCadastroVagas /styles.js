@@ -3,7 +3,6 @@ import { styled } from "@mui/system";
 export const ContainerListaVagas = styled("div")`
   width: 100%;
   position: relative;
-  //padding: 25px;
 `;
 
 export const ContainerTabela = styled("div")`
@@ -106,8 +105,6 @@ export const InputSeach = styled("input")`
   height: 35px;
   padding-left: 20px;
   border: none;
-  //border-radius: 20px;
-  //border: 2px solid #1f6357;
   background-color: #fff;
   &:focus {
     outline: none;
@@ -131,16 +128,14 @@ export const ButtonAdd = styled("button")`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid;
+  border: none;
   cursor: pointer;
   color: #fff;
   background: none;
   padding: 0.4rem;
   margin-bottom: 1rem;
   &:hover {
-    color: rgba(255, 255, 255, 0.6);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    color: rgba(230, 230, 230, 1);
   }
 `;
 

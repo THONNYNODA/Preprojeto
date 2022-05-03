@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Card from "../../components/Card";
-import CadastrarVagas from "../../components/Cadastros/Vagas";
 
 import TitlePage from "../../components/TitlePage";
 import Dashbord from "../Dashbord";

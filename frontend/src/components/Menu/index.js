@@ -40,10 +40,10 @@ export function Mobile(props) {
                   <LinkMenuMobile to="/cadastros/vagas">Vagas</LinkMenuMobile>
                 </ItemsSubMenu>
                 <ItemsSubMenu>
-                  <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
+                  <LinkMenuMobile to="/cadastros/escolaridade">Escolaridade</LinkMenuMobile>
                 </ItemsSubMenu>
                 <ItemsSubMenu>
-                  <LinkMenuMobile to="/cadastrosvagas">Vagas</LinkMenuMobile>
+                  <LinkMenuMobile to="/cadastros/experiencia">Experiência</LinkMenuMobile>
                 </ItemsSubMenu>
               </BoxSubMenu>
             </ContainerSubMenu>

@@ -17,8 +17,7 @@ export const BoxTitleCard = styled("div")`
   padding: 10px;
   position: relative;
   text-align: center;
-  border-top-left-radius: 0.7rem;
-  border-top-right-radius: 0.7rem;
+  border-radius: 0.7rem;
   //background-color: rgba(31, 99, 87, 0.6);
 `;
 export const ContainerCard = styled("div")`

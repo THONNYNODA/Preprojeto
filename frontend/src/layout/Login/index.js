@@ -128,6 +128,7 @@ function Login(props) {
                     nameError="senha"
                     iconShow={
                       <BoxIconShow
+                      right="15px"
                         onChange={handleShowPass}
                         onMouseDown={handleShowPass}
                       >
