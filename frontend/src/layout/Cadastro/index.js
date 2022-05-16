@@ -13,7 +13,7 @@ function Cadastro() {
   return (
     <>
       <ContainerCadastro>
-        <Candidato />
+        <Candidato/>
       </ContainerCadastro>
     </>
   );

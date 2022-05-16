@@ -99,14 +99,14 @@ function DetalheCandidato(props) {
       {status === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          background="#1f6357"
+          background="var(--primary-color)"
           icon={<CheckIcon />}
         />
       ) : null}
       {status === 2 ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          background="#1f6357"
+          background="var(--primary-color)"
           icon={<CheckIcon />}
         />
       ) : null}

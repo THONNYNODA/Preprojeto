@@ -153,7 +153,7 @@ function EditarCandidato(props) {
                       label="Nome:"
                       padding=" 0 10px"
                       nameError="nome"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -162,7 +162,7 @@ function EditarCandidato(props) {
                       label="Nome Social:"
                       padding=" 0 10px"
                       nameError="nomeSocial"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -172,7 +172,7 @@ function EditarCandidato(props) {
                       label="CPF:"
                       padding=" 0 10px"
                       nameError="cpf"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                   
@@ -182,7 +182,7 @@ function EditarCandidato(props) {
                       label="RG:"
                       padding=" 0 10px"
                       nameError="rg"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
@@ -190,7 +190,7 @@ function EditarCandidato(props) {
                       label="Data Nascimento:"
                       padding=" 0 10px"
                       nameError="dataNascimento"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       type="date"
                     />
                   </BoxSingleInput>
@@ -200,7 +200,7 @@ function EditarCandidato(props) {
                       label="Genero:"
                       padding=" 0 10px"
                       nameError="genero"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       component="select"
                     >
                       {listaGenero}
@@ -209,7 +209,7 @@ function EditarCandidato(props) {
                       name="estadoCivil"
                       label="Estado Civil:"
                       padding=" 0 10px"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       nameError="estadoCivil"
                       component="select"
                     >
@@ -219,7 +219,7 @@ function EditarCandidato(props) {
                       name="nacionalidade"
                       label="Nacionalidade:"
                       padding=" 0 10px"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       component="select"
                       nameError="nacionalidade"
                     >
@@ -238,7 +238,7 @@ function EditarCandidato(props) {
                       padding=" 0 10px"
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
@@ -247,7 +247,7 @@ function EditarCandidato(props) {
                       label="Endereço:"
                       padding=" 0 10px"
                       nameError="logradouro"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -257,7 +257,7 @@ function EditarCandidato(props) {
                       label="Bairro:"
                       padding=" 0 10px"
                       nameError="bairro"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                     <InputFields
                       flex="2"
@@ -265,7 +265,7 @@ function EditarCandidato(props) {
                       label="Complemento:"
                       padding=" 0 10px"
                       nameError="complemento"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -274,14 +274,14 @@ function EditarCandidato(props) {
                       label="Cidade:"
                       padding=" 0 10px"
                       nameError="cidade"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                     <InputFields
                       name="estado"
                       label="Estado:"
                       padding=" 0 10px"
                       nameError="estado"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
@@ -294,7 +294,7 @@ function EditarCandidato(props) {
                       label="Celular:"
                       padding=" 0 10px"
                       nameError="celular"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
@@ -302,7 +302,7 @@ function EditarCandidato(props) {
                       label="E-mail:"
                       padding=" 0 10px"
                       nameError="emailString"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
@@ -314,14 +314,14 @@ function EditarCandidato(props) {
                       label="Facebook:"
                       padding=" 0 10px"
                       nameError="facebook"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                     <InputFields
                       name="instagram"
                       label="Instagram:"
                       padding=" 0 10px"
                       nameError="instagram"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
@@ -334,14 +334,14 @@ function EditarCandidato(props) {
                       padding=" 0 10px"
                       nameError="senha"
                       type={showPass ? "password" : "text"}
-                      color="#1f6357"
+                      color="var(--primary-color)"
                     />
                     <InputFields
                       name="confirmacaoSenha"
                       label="Confirma a Senha:"
                       padding=" 0 10px"
                       nameError="confirmacaoSenha"
-                      color="#1f6357"
+                      color="var(--primary-color)"
                       type={showPass ? "password" : "text"}
                       iconShow={
                         <BoxIconShow

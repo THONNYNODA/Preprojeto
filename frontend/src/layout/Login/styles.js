@@ -46,7 +46,7 @@ export const ContainerForm = styled("div")`
   width: ${(props) => props.width};
   position: relative;
   padding: 2rem;
-  //background-color: #1f6357;
+  //background-color: var(--primary-color);
   @media (max-width: 980px) {
     width: 100%;
     background-color: rgba(31, 99, 87, 0.8);
@@ -89,7 +89,7 @@ export const TitleLogin = styled("h2")`
   font-size: 32px;
   font-weight: lighter;
   //text-shadow: #58585858 2px 3px;
-  color: #1f6357;
+  color: var(--primary-color);
   @media (max-width: 980px) {
     color: #ffffff;
   } ;
@@ -109,15 +109,15 @@ export const Buttons = styled("button")`
   font-size: 1.5rem;
   padding: 10px;
   color: #fff;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
   border-radius: 0px 0px 15px 15px;
   border: none;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
     background-color: #fff;
-    color: #1f6357;
-    border: 2px solid #1f6357;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     transition: 0.2s;
   }
 `;

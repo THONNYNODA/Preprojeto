@@ -28,7 +28,7 @@ export const BoxTabelaTitle = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
-  background: #1f6357;
+  background: var(--primary-color);
   color: #fff;
   border-bottom: 1px solid #ccc;
   position: -webkit-sticky;
@@ -67,7 +67,7 @@ export const LinhaTitle = styled(LinhaTabela)`
 `;
 
 export const BoxIcon = styled("div")`
-  color: ${(props) => props.color || "#1f6357"};
+  color: ${(props) => props.color || "var(--primary-color)"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,6 +98,7 @@ export const BoxSeach = styled("div")`
   width: 100%;
   margin-bottom: 10px;
   position: relative;
+  
 `;
 export const InputSeach = styled("input")`
   width: 100%;
@@ -115,11 +116,12 @@ export const IconSeach = styled("span")`
   position: absolute;
   top: 5px;
   right: 15px;
-  color: #1f6357;
+  color:var(--primary-color)
 `;
 
 export const BoxButton = styled("div")`
   width: 100%;
+  flex:1;
   display: flex;
   justify-content: end;
 `;

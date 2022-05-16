@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const ContainerHeader = styled("header")`
   width: 100%;
   max-height: 3.5rem;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
   position: sticky;
   display: flex;
   padding: 0.5rem;
@@ -36,7 +36,7 @@ export const ContainerPerfil = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
 `;
 
 export const BoxPerfil = styled("div")`
@@ -70,7 +70,7 @@ export const ItemMenuPerfil = styled("li")`
   position: relative;
   border-bottom: 1px outset rgba(255, 255, 255, 1);
   &:hover {
-    background-color: #1f6357;
+    background-color: var(--primary-color);
     transition: 0.5s;
   }
 `;

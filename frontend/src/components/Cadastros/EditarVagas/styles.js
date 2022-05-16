@@ -49,7 +49,7 @@ export const Buttons = styled("button")`
   font-size: 1.5rem;
   padding: 10px;
   color: #fff;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
   border-radius: 0 0 0.6rem 0.6rem ;
   border: none;
   cursor: pointer;

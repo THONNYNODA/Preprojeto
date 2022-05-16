@@ -81,8 +81,8 @@ function Login(props) {
               validationSchema={validationSchema}
               initialValues={inicial}
               onSubmit={(values, { setSubmitting }) => {
-                setTimeout( () => {
-                   alert("Com sucesso")
+                setTimeout(() => {
+                  alert("Com sucesso");
                 }, 400);
               }}
             >
@@ -100,9 +100,9 @@ function Login(props) {
                     padding="10px"
                     mask="999.999.999-99"
                     colorResponse="#ffffff"
-                    color="#1f6357"
+                    color="var(--primary-color)"
                     label="CPF"
-                    icon={<PersonRoundedIcon fontSize="large" />}
+                    icon={<PersonRoundedIcon  />}
                     name="cpf"
                     placeholder="CPF"
                     fontSize="1.2rem"
@@ -113,28 +113,27 @@ function Login(props) {
                   />
 
                   <InputFields
-                  
                     label="Senha"
-                    color="#1f6357"
+                    color="var(--primary-color)"
                     colorResponse="#ffffff"
                     type={showPass ? "password" : "text"}
                     padding="10px"
                     fontSize="1.2rem"
                     width="100%"
-                    icon={<VpnKeyIcon fontSize="large" />}
+                    icon={<VpnKeyIcon />}
                     name="senha"
                     placeholder="******"
                     margin="0"
                     nameError="senha"
                     iconShow={
                       <BoxIconShow
-                      right="15px"
+                        right="15px"
                         onChange={handleShowPass}
                         onMouseDown={handleShowPass}
                       >
                         {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
                       </BoxIconShow>
-                    } 
+                    }
                   />
 
                   <Buttons type="submit">Entrar</Buttons>

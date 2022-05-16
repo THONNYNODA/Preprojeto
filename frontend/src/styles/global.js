@@ -2,7 +2,8 @@ import { createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle `
     :root{
-        --primary-color:#1f6357;
+        --hue:169;
+        --primary-color:hsl(var(--hue), 52%, 25%);
     }
     *{
         margin: 0;
@@ -15,7 +16,7 @@ export const GlobalStyle = createGlobalStyle `
         //     color:blue;
         // };
         ::-webkit-scrollbar-thumb{
-            background:#1f6357;
+            background:var(--primary-color);
         }
     };
 

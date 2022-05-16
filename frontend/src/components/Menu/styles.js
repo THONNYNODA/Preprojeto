@@ -86,7 +86,7 @@ export const LinkMenuMobile = styled(Link)`
 `;
 
 export const BoxIcon = styled("div")`
-  color: ${(props) => props.color || "#1f6357"};
+  color: ${(props) => props.color || "var(--primary-color)"};
   cursor: ${(props) => props.cursor || null};
   display: flex;
   justify-content: center;

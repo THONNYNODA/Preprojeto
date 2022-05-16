@@ -10,7 +10,7 @@ export const BoxCard = styled("div")`
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  background: ${(props) => props.background || "rgba(255, 255, 255, 0.7)"};
+  background: ${(props) => props.background || "rgba(255, 255, 255, 1)"};
 `;
 export const BoxTitleCard = styled("div")`
   width: 100%;

@@ -30,7 +30,7 @@ export const LinkDetalhe = styled("a")`
   text-decoration:none;
   margin-right: 10px;
   &:hover{
-    color:#1f6357;
+    color:var(--primary-color);
   }
 `;
 
@@ -41,7 +41,7 @@ export const Buttons = styled("button")`
   padding: 10px 30px;
   margin-top: 10px;
   color: #fff;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 0px 0px 0.6rem 0.6rem;
   cursor: pointer;
@@ -53,7 +53,7 @@ export const Buttons = styled("button")`
   }
   &:hover {
     background-color: #fff;
-    color: #1f6357;
+    color: var(--primary-color);
     transition: 0.2s;
   }
 `;

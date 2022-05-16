@@ -94,12 +94,12 @@ export const BoxForm = styled("div")`
 export const SubBoxForm = styled("fieldset")`
   width: 100%;
   padding: 5px;
-  border: 2px solid #1f6357;
+  border: 2px solid var(--primary-color);
 `;
 export const SubText = styled("legend")`
   text-align: left;
   font-size: larger;
-  color: #1f6357;
+  color: var(--primary-color);
 `;
 
 export const Title = styled("h2")`
@@ -122,7 +122,7 @@ export const Buttons = styled("button")`
   padding: 10px 30px;
   margin-top: 10px;
   color: #fff;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 0px 0px 15px 15px;
   cursor: pointer;
@@ -134,7 +134,7 @@ export const Buttons = styled("button")`
   }
   &:hover {
     background-color: #fff;
-    color: #1f6357;
+    color: var(--primary-color);
     transition: 0.2s;
   }
 `;

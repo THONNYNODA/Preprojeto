@@ -14,9 +14,10 @@ import {
   LinhaTitle,
   ButtonAdd,
   BoxButton,
+  BoxDetalhe,
 } from "./styles";
 
-import CadastrarVagas from '../Cadastros/CadastrarVagas'
+import CadastrarVagas from "../Cadastros/CadastrarVagas";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
@@ -76,31 +77,33 @@ function ListaCadastroVagas(props) {
   return (
     <>
       <Card background="rgba(31, 99, 87,0.8)" marginTop="40px">
-        <BoxButton>
-          <ButtonAdd onClick={handleCadastrarVaga}>
-            <AddIcon />
-            Adicionar
-          </ButtonAdd>
-        </BoxButton>
         <ContainerListaVagas>
-          <BoxSeach>
-            <InputSeach
-              value={pesquisa}
-              name="pesquisa"
-              id="pesquisa"
-              onChange={(e) => setPesquisa(e.target.value)}
-              placeholder="Pesquisar..."
-            />
-            <IconSeach>
-              <SearchIcon />
-            </IconSeach>
-          </BoxSeach>
+          <BoxDetalhe>
+            <BoxSeach>
+              <InputSeach
+                value={pesquisa}
+                name="pesquisa"
+                id="pesquisa"
+                onChange={(e) => setPesquisa(e.target.value)}
+                placeholder="Pesquisar..."
+              />
+              <IconSeach>
+                <SearchIcon />
+              </IconSeach>
+            </BoxSeach>
+            <BoxButton>
+              <ButtonAdd onClick={handleCadastrarVaga}>
+                <AddIcon />
+                Adicionar
+              </ButtonAdd>
+            </BoxButton>
+          </BoxDetalhe>
 
           <ContainerTabela>
             <BoxTabelaTitle>
               <LinhaTitle>Status</LinhaTitle>
               <LinhaTitle>Vagas</LinhaTitle>
-              <LinhaTitle>Descricao</LinhaTitle>
+              <LinhaTitle>Descrição</LinhaTitle>
               <LinhaTitle>Ação</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
@@ -117,7 +120,7 @@ function ListaCadastroVagas(props) {
                             <CheckCircleOutlineIcon />
                           </BoxIcon>
                         ) : (
-                          <BoxIcon>
+                          <BoxIcon color="#8f1402">
                             <NotInterestedIcon />
                           </BoxIcon>
                         )}
@@ -128,7 +131,7 @@ function ListaCadastroVagas(props) {
                         <BoxIcon
                           onClick={() => handleOpenDetalhe(searchResult[e])}
                           onChange={handleOpenDetalhe}
-                          color="#1f6357"
+                          color="var(--primary-color)"
                         >
                           <NoteIcon />
                         </BoxIcon>
@@ -158,9 +161,11 @@ function ListaCadastroVagas(props) {
         <EditarVagas {...{ open, setOpen, lista, idAtual, dados }} />
       ) : null}
       {openDetahle ? (
-        <DetalheCadastroVagas {...{ open, setOpen, lista, idAtual, dados }} />
+        <DetalheCadastroVagas
+          {...{ open, setOpenDetalhe, lista, idAtual, dados }}
+        />
       ) : null}
-      {cadastrar ? <CadastrarVagas {...{cadastrar,setCadastrar}}/> : null}
+      {cadastrar ? <CadastrarVagas {...{ cadastrar, setCadastrar }} /> : null}
     </>
   );
 }

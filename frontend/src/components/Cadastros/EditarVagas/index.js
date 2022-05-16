@@ -25,6 +25,7 @@ function EditarVagas(props) {
     status: props.dados.status,
   };
   const handleClouse = () => {
+    
     props.setOpen(false);
   };
 
@@ -141,14 +142,14 @@ function EditarVagas(props) {
       {status === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          background="#1f6357"
+          background="var(--primary-color)"
           icon={<CheckIcon />}
         />
       ) : null}
       {status === 2 ? (
         <Confirmacao
           titleConfimar="Atencao!! Ocorreu um erro, volte mais tarde"
-          background="#1f6357"
+          background="var(--primary-color)"
           icon={<PriorityHighIcon />}
         />
       ) : null}

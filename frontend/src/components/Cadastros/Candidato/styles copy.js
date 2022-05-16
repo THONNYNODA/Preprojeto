@@ -94,7 +94,7 @@ export const Buttons = styled("button")`
   margin-top: 30px;
   padding: 10px;
   color: #fff;
-  background-color: #1f6357;
+  background-color: var(--primary-color);
   border: none;
   cursor: pointer;
   transition: 0.2s;
@@ -103,8 +103,8 @@ export const Buttons = styled("button")`
   }
   &:hover {
     background-color: #fff;
-    color: #1f6357;
-    border: 2px solid #1f6357;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     transition: 0.2s;
   }
 `;

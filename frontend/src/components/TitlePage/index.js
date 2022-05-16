@@ -7,7 +7,7 @@ function TitlePage(props) {
   return (
     <ContainerText>
       <BoxText>
-        <Title fontSize="32px" color="#1f6357">
+        <Title fontSize="32px" color="var(--primary-color)">
           {props.title}
         </Title>
         <Divisorio width="100%" minHeight="2px" margin="0" />

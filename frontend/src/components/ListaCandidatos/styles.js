@@ -35,7 +35,7 @@ export const BoxTabelaTitle = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
-  background: #1f6357;
+  background: var(--primary-color);
   color: #fff;
   border-bottom: 1px solid #ccc;
   position: -webkit-sticky;
@@ -67,7 +67,7 @@ export const LinhaTitle = styled(LinhaTabela)`
 `;
 
 export const BoxIcon = styled("div")`
-  //color: ${(props) => props.color || "#1f6357"};
+  //color: ${(props) => props.color || "var(--primary-color)"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +104,7 @@ export const InputSeach = styled("input")`
   padding-left: 20px;
   border: none;
   //border-radius: 20px;
-  //border: 2px solid #1f6357;
+  //border: 2px solid var(--primary-color);
   background-color: #fff;
   &:focus {
     outline: none;
@@ -115,7 +115,7 @@ export const IconSeach = styled("span")`
   position: absolute;
   top: 5px;
   right: 15px;
-  color: #1f6357;
+  color: var(--primary-color);
 `;
 export const ContainerRadio = styled(FormControl)`
   position: relative;
