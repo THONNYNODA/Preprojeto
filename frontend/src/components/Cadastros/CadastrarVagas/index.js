@@ -46,7 +46,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Nome"
               name="name"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
 
@@ -55,7 +55,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Descricao"
               name="descricao"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
           </BoxInput>
@@ -65,7 +65,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Horas Semanais"
               name="horasSemanais"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
             <InputFields
@@ -73,7 +73,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Dias Semanal"
               name="diasSemana"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
 
@@ -83,7 +83,7 @@ function CadastrarVagas(props) {
               label="Turno Trabalho"
               name="turnoTrabalho"
               component="select"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             >
               <option value="">Escolha</option>
@@ -98,7 +98,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Remuneracao"
               name="remuneracao"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
             <InputFields
@@ -106,7 +106,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Endereco"
               name="endereco"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
             <InputFields
@@ -114,7 +114,7 @@ function CadastrarVagas(props) {
               width="100%"
               label="Regime"
               name="regime"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             />
           </BoxInput>
@@ -125,7 +125,7 @@ function CadastrarVagas(props) {
               label="Status"
               name="status"
               component="select"
-              margin="0 5px"
+              margin="0 0.5rem"
               color="var(--primary-color)"
             >
               <option value="ativo">Ativo</option>

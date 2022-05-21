@@ -4,20 +4,20 @@ export const Title = styled("h2")`
   position: relative;
   font-size: ${(props) => props.fontSize};
   font-weight: lighter;
-  padding: 15px 0;
+  padding: 1.5rem 0;
   color: ${(props) => props.color};
 `;
 
 export const Divisorio = styled("div")`
-  width: ${(props) => props.width || "2px"};
+  width: ${(props) => props.width || "0.2rem"};
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
-  background: rgba(31, 99, 87, 1);
+  background: rgb(31, 99, 87);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.8) 20%,
-    rgba(31, 99, 87, 1) 100%
+    rgba(31, 99, 87, 1) 57%,
+    rgba(249, 249, 249, 1) 100%
   );
 `;
 
@@ -26,13 +26,11 @@ export const ContainerText = styled("div")`
   display: block;
   position: relative;
   text-align: center;
-
 `;
 export const BoxText = styled("div")`
   width: 100%;
-  max-width: 480px;
+  max-width: 48rem;
   display: block;
   margin: 0 auto;
-  //position: relative;
   text-align: center;
 `;

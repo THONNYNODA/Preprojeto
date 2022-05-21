@@ -2,7 +2,7 @@ import { styled } from "@mui/system";
 
 export const ContainerCadastros = styled("div")`
   height: 100%;
-  top: 80px;
+  top: 0.5rem;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,6 @@ export const BoxCadastros = styled("div")`
   width: 100%;
   display: flex;
   flex-direction: column;
-  //justify-content: center;
   align-items: center;
   &:hover h2 {
     cursor: pointer;
@@ -28,8 +27,8 @@ export const BoxCadastros = styled("div")`
 `;
 
 export const IconCadastro = styled("div")`
-  width: 150px;
-  height: 150px;
+  width: 15rem;
+  height: 15rem;
   background-image: url(${(props) => props.img});
   background-size: 100% 100%;
 `;

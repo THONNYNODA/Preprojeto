@@ -8,7 +8,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 export const ContainerListaVagas = styled("div")`
   width: 100%;
   height: 100%;
-  max-height: 500px;
+  max-height: 50rem;
   margin-top: 2rem;
   position: relative;
 `;
@@ -16,7 +16,6 @@ export const ContainerListaVagas = styled("div")`
 export const ContainerTabela = styled("div")`
   width: 100%;
   position: relative;
-  //padding: 5px;
   background: #fff;
 `;
 export const BoxTabela = styled("div")`
@@ -24,7 +23,7 @@ export const BoxTabela = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
@@ -40,28 +39,27 @@ export const BoxTabelaTitle = styled("div")`
   cursor: pointer;
   background: var(--primary-color);
   color: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.1rem solid #ccc;
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 2;
 `;
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  //max-height: 400px;
 `;
 
 export const LinhaTabela = styled("div")`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   width: 10%;
   flex-grow: 1;
-  border-right: 1px solid #ccc;
+  border-right: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     flex-grow: 0;
-    border-left: 2px solid #ccc;
+    border-left: 0.2rem solid #ccc;
     justify-content: center;
   }
 `;
@@ -70,44 +68,38 @@ export const LinhaTitle = styled(LinhaTabela)`
 `;
 
 export const BoxIcon = styled("div")`
-  //color: ${(props) => props.color || "var(--primary-color)"};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 0.5rem;
   cursor: pointer;
-  /* &:hover {
-    color: ${(props) => props.color || "rgba(31, 99, 87,0.6)"};
-  } */
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;
   position: absolute;
-  right: -30px;
-  top: -15px;
-  border: 2px solid #8f1402;
-  border-radius: 5px;
+  right: -3rem;
+  top: -1.5rem;
+  border: 0.2rem solid #8f1402;
+  border-radius: 0.5rem;
   background-color: #fff;
   cursor: pointer;
   &:hover {
     color: #fff;
     background-color: #8f1402;
-    border: 2px solid #fff;
+    border: 0.2rem solid #fff;
   }
 `;
 export const BoxSeach = styled("div")`
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   position: relative;
 `;
 export const InputSeach = styled("input")`
   width: 100%;
   position: relative;
-  height: 35px;
-  padding-left: 20px;
+  height: 3.5rem;
+  padding-left: 2rem;
   border: none;
-  //border-radius: 20px;
-  //border: 2px solid var(--primary-color);
   background-color: #fff;
   &:focus {
     outline: none;
@@ -116,8 +108,8 @@ export const InputSeach = styled("input")`
 export const IconSeach = styled("span")`
   display: inline-block;
   position: absolute;
-  top: 5px;
-  right: 15px;
+  top: 0.5rem;
+  right: 1.5rem;
   color: var(--primary-color);
 `;
 export const ContainerRadio = styled(FormControl)`
@@ -125,7 +117,6 @@ export const ContainerRadio = styled(FormControl)`
 `;
 
 export const BoxRadio = styled(RadioGroup)`
-  //display: block;
   position: relative;
   color: black;
   font-weight: lighter;
@@ -154,7 +145,7 @@ export const TextRadio = styled(FormControlLabel)`
 
 export const ContainerAvancado = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
 `;
 
 export const BoxAvancado = styled("div")`
@@ -163,10 +154,10 @@ export const BoxAvancado = styled("div")`
 `;
 
 export const ButtonAvancado = styled("button")`
-  height: 27px;
-  font-size: 18px;
-  border-radius: 30px;
-  border: 1px solid;
+  height: 2.7rem;
+  font-size: 1.8rem;
+  border-radius: 3rem;
+  border: 0.1rem solid;
   background: none;  
   cursor: pointer;
   &:hover {

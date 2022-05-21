@@ -14,7 +14,7 @@ export const BoxTabela = styled("div")`
   width: 100%;
   display: flex;
   position: relative;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
@@ -30,32 +30,32 @@ export const BoxTabelaTitle = styled("div")`
   cursor: pointer;
   background: var(--primary-color);
   color: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.1rem solid #ccc;
   position: -webkit-sticky;
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 2;
 `;
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  max-height: 480px;
+  max-height: 48rem;
 `;
 
 export const LinhaTabela = styled("div")`
   display: flex;
   align-items: center;
   flex-grow: 1;
-  padding: 10px;
+  padding: 1rem;
   width: 10%;
-  border-right: 1px solid #ccc;
+  border-right: 0.1rem solid #ccc;
   &:nth-of-type(1) {
     flex-grow: 0;
     justify-content: center;
   }
   &:nth-of-type(3) {
     flex-grow: 4;
-    border-right: 1px solid #ccc;
+    border-right: 0.1rem solid #ccc;
   }
   &:nth-last-child(1) {
     flex-grow: 0;
@@ -71,40 +71,35 @@ export const BoxIcon = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 0.5rem;
   cursor: pointer;
-  /* &:hover {
-    color: ${(props) => props.color || "rgba(31, 99, 87,0.6)"};
-    background-color: rgba(200, 200, 200, 0.6);
-    border-radius: 30px;
-  } */
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;
   position: absolute;
-  right: -30px;
-  top: -15px;
-  border: 2px solid #8f1402;
-  border-radius: 5px;
+  right: -3rem;
+  top: -1.5rem;
+  border: 0.2rem solid #8f1402;
+  border-radius: 0.5rem;
   background-color: #fff;
   cursor: pointer;
   &:hover {
     color: #fff;
     background-color: #8f1402;
-    border: 2px solid #fff;
+    border: 0.2rem solid #fff;
   }
 `;
 export const BoxSeach = styled("div")`
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   position: relative;
   
 `;
 export const InputSeach = styled("input")`
   width: 100%;
   position: relative;
-  height: 35px;
-  padding-left: 20px;
+  height: 3.5rem;
+  padding-left: 2rem;
   border: none;
   background-color: #fff;
   &:focus {
@@ -114,8 +109,8 @@ export const InputSeach = styled("input")`
 export const IconSeach = styled("span")`
   display: inline-block;
   position: absolute;
-  top: 5px;
-  right: 15px;
+  top: 0.5rem;
+  right: 1.5rem;
   color:var(--primary-color)
 `;
 
@@ -154,7 +149,7 @@ export const ModalDetalhe = styled("div")`
 `;
 
 export const ContainerDetalhe = styled("div")`
-  max-width: 480px;
+  max-width: 48rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -164,7 +159,7 @@ export const ContainerDetalhe = styled("div")`
 
 export const BoxDetalhe = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   display: flex;
 `;
 
@@ -173,6 +168,6 @@ export const TitleDetalhe = styled("h2")`
 `;
 export const TextDetalhe = styled("p")`
   &:nth-of-type(1) {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `;

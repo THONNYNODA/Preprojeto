@@ -3,19 +3,17 @@ import Background from "../../assets/fundo.svg";
 
 export const ContainerCadastro = styled("div")`
   width: 100%;
-  height:  100%;
+  height: 100%;
   position: absolute;
   padding: 0 2%;
-  background-color: rgba(31, 99, 87, 0.9);
 `;
 
 export const ContainerBackground = styled("div")`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
-  background-image: url(${Background});
-  background-size: cover;
-  z-index: 1;
+  padding: 0 2%;
+  background-color: rgba(31, 99, 87, 0.9);
 `;
 
 export const BoxText = styled("div")`
@@ -26,7 +24,7 @@ export const BoxText = styled("div")`
 `;
 
 export const Divisorio = styled("div")`
-  width: ${(props) => props.width || "2px"};
+  width: ${(props) => props.width || "0.2rem"};
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
@@ -40,7 +38,7 @@ export const Divisorio = styled("div")`
 
 export const BoxForm = styled("div")`
   width: 100%;
-  max-width: 560px;
+  max-width: 56rem;
   display: flex;
   @media (max-width: 780px) {
     max-width: none;
@@ -51,7 +49,7 @@ export const Title = styled("h2")`
   position: relative;
   font-size: ${(props) => props.fontSize};
   font-weight: lighter;
-  padding: 15px 0;
+  padding: 1.5rem 0;
   color: ${(props) => props.color};
 `;
 
@@ -62,13 +60,12 @@ export const Text = styled("p")`
 export const Buttons = styled("button")`
   width: 50%;
   font-size: 1.5rem;
-  padding: 10px;
+  padding: 1rem;
   color: #fff;
   background-color: var(--primary-color);
   border: none;
   cursor: pointer;
   &:hover {
     background-color: rgba(31, 99, 87, 0.9);
-    //color: blue;
   }
 `;

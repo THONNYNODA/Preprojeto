@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 export const ContainerDetalheVaga = styled("div")`
   height: 100%;
   min-height: 100%;
-  padding: 10px 25px;
+  padding: 1rem 2.5rem;
   position: relative;
   display: flex;
   //flex-direction: column;
@@ -14,14 +14,14 @@ export const ContainerDetalheVaga = styled("div")`
 export const BoxDetalhe = styled("div")`
   //width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 1rem;
   display: flex;
 
   flex-direction: column;
   &:nth-of-type(1) {
-    border-right: 2px solid;
+    border-right: 0.2rem solid;
     border-image-slice: 1;
-    border-width: 2px;
+    border-width: 0.2rem;
     border-image-source: radial-gradient(
       circle,
       rgba(31, 99, 87, 1) 0%,
@@ -35,20 +35,20 @@ export const TitleDetalhe = styled("h2")`
 `;
 export const TextDetalhe = styled("p")`
   text-decoration: none;
-  padding: 3px;
+  padding: 0.3rem;
 `;
 export const LinkDetalhe = styled("a")`
   color: black;
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 1rem;
   &:hover {
     color: var(--primary-color);
   }
 `;
 
 export const BoxPerfil = styled("div")`
-  width: 200px;
-  height: 300px;
+  width: 20rem;
+  height: 30rem;
   position: relative;
   background-size: 100% 100%;
   background-image: url("${(props) => props.img}");
@@ -57,19 +57,18 @@ export const BoxPerfil = styled("div")`
 export const Buttons = styled("button")`
   width: ${(props) => props.width || "100%"};
   font-size: 1.5rem;
-  //margin: 30px;
-  padding: 10px 30px;
-  margin-top: 10px;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
   color: #fff;
   background-color: var(--primary-color);
   border: none;
-  border-radius: 0px 0px 0.6rem 0.6rem;
+  border-radius: 0 0 0.6rem 0.6rem;
   cursor: pointer;
   transition: 0.2s;
   @media (max-width: 780px) {
     width: 100%;
     margin: 0;
-    padding: 10px;
+    padding: 1rem;
   }
   &:hover {
     background-color: #fff;

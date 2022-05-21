@@ -121,7 +121,7 @@ function EditarCandidato(props) {
 
   return (
     <>
-      <Card padding="0px" marginTop="20px" maxWidth="570px">
+      <Card padding="0" marginTop="2rem" maxWidth="57rem">
         <Formik
           validationSchema={validationSchema}
           initialValues={inicial}
@@ -151,7 +151,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="nome"
                       label="Nome:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="nome"
                       color="var(--primary-color)"
                     />
@@ -160,7 +160,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="nomeSocial"
                       label="Nome Social:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="nomeSocial"
                       color="var(--primary-color)"
                     />
@@ -170,7 +170,7 @@ function EditarCandidato(props) {
                       mask="999.999.999-99"
                       name="cpf"
                       label="CPF:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="cpf"
                       color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
@@ -180,7 +180,7 @@ function EditarCandidato(props) {
                       mask="99.999.999-9"
                       name="rg"
                       label="RG:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="rg"
                       color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
@@ -188,7 +188,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="dataNascimento"
                       label="Data Nascimento:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="dataNascimento"
                       color="var(--primary-color)"
                       type="date"
@@ -198,7 +198,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="genero"
                       label="Genero:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="genero"
                       color="var(--primary-color)"
                       component="select"
@@ -208,7 +208,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="estadoCivil"
                       label="Estado Civil:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       color="var(--primary-color)"
                       nameError="estadoCivil"
                       component="select"
@@ -218,7 +218,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="nacionalidade"
                       label="Nacionalidade:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       color="var(--primary-color)"
                       component="select"
                       nameError="nacionalidade"
@@ -235,7 +235,7 @@ function EditarCandidato(props) {
                       flex="1"
                       name="cep"
                       label="CEP:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
                       color="var(--primary-color)"
@@ -245,7 +245,7 @@ function EditarCandidato(props) {
                       flex="2"
                       name="logradouro"
                       label="Endereço:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="logradouro"
                       color="var(--primary-color)"
                     />
@@ -255,7 +255,7 @@ function EditarCandidato(props) {
                       flex="1"
                       name="bairro"
                       label="Bairro:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="bairro"
                       color="var(--primary-color)"
                     />
@@ -263,7 +263,7 @@ function EditarCandidato(props) {
                       flex="2"
                       name="complemento"
                       label="Complemento:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="complemento"
                       color="var(--primary-color)"
                     />
@@ -272,14 +272,14 @@ function EditarCandidato(props) {
                     <InputFields
                       name="cidade"
                       label="Cidade:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="cidade"
                       color="var(--primary-color)"
                     />
                     <InputFields
                       name="estado"
                       label="Estado:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="estado"
                       color="var(--primary-color)"
                     />
@@ -292,7 +292,7 @@ function EditarCandidato(props) {
                       mask="(99) 9 9999-9999"
                       name="celular"
                       label="Celular:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="celular"
                       color="var(--primary-color)"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
@@ -300,7 +300,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="emailString"
                       label="E-mail:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="emailString"
                       color="var(--primary-color)"
                     />
@@ -312,14 +312,14 @@ function EditarCandidato(props) {
                     <InputFields
                       name="facebook"
                       label="Facebook:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="facebook"
                       color="var(--primary-color)"
                     />
                     <InputFields
                       name="instagram"
                       label="Instagram:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="instagram"
                       color="var(--primary-color)"
                     />
@@ -331,7 +331,7 @@ function EditarCandidato(props) {
                     <InputFields
                       name="senha"
                       label="Senha:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="senha"
                       type={showPass ? "password" : "text"}
                       color="var(--primary-color)"
@@ -339,13 +339,13 @@ function EditarCandidato(props) {
                     <InputFields
                       name="confirmacaoSenha"
                       label="Confirma a Senha:"
-                      padding=" 0 10px"
+                      padding=" 0 1rem"
                       nameError="confirmacaoSenha"
                       color="var(--primary-color)"
                       type={showPass ? "password" : "text"}
                       iconShow={
                         <BoxIconShow
-                        right="15px"
+                        right="1.5rem"
                           onChange={handleShowPass}
                           onMouseDown={handleShowPass}
                         >

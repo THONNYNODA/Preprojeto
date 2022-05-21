@@ -64,7 +64,7 @@ function Header(props) {
           <Title>Tony Takeharo Noda</Title>
           <Text>Aux TI</Text>
         </ContainerPerfil>
-        <Divisorio width="100%" minHeight="2px" />
+        <Divisorio width="100%" minHeight="0.2rem" />
         <MenuPerfil>
           <ItemMenuPerfil>
             <LinkMenu to="/edtarperfil">Perfil</LinkMenu>

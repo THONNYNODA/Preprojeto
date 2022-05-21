@@ -15,8 +15,7 @@ export const BoxFilter = styled("div")`
   width: 100%;
   height: 100vh;
   position: absolute;
-  //background-color:rgba(50, 191, 132,0.1);
-  filter: blur(4px);
+  filter: blur(0.4rem);
 `;
 
 export const ContainerImg = styled(Box)`
@@ -24,30 +23,27 @@ export const ContainerImg = styled(Box)`
   height: 100%;
   position: relative;
   z-index: 2;
-  box-shadow: rgba(0, 0, 0, 0.4) 5px 2px 6px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0.5rem 0.2rem 0.6rem;
   background-color: rgba(31, 99, 87, 0.8);
-  @media (max-width: 980px) {
+  @media (max-width: 960px) {
     display: none;
   } ;
 `;
 
 export const ContainerFilter = styled("div")`
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
   background-image: url(${Logo});
   background-size: 100% 100%;
   position: relative;
   margin: 0 auto;
-
-  // filter: drop-shadow(2px 4px 8px rgba(15, 15, 15, 0.25));
 `;
 
 export const ContainerForm = styled("div")`
   width: ${(props) => props.width};
   position: relative;
-  padding: 2rem;
-  //background-color: var(--primary-color);
-  @media (max-width: 980px) {
+  padding: 2.4rem;
+  @media (max-width: 960px) {
     width: 100%;
     background-color: rgba(31, 99, 87, 0.8);
   } ;
@@ -55,22 +51,18 @@ export const ContainerForm = styled("div")`
 
 export const BoxText = styled("div")`
   width: 100%;
-  max-width: 350px;
+  max-width: 35rem;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  //z-index: 9;
   text-align: center;
 `;
 
 export const BoxForm = styled(BoxText)`
   position: relative;
   background-color: rgba(255, 255, 255, 0.25);
-  /* backdrop-filter: blur(3.5px);
-  -webkit-backdrop-filter: blur(3.5px); */
-  border-radius: 20px;
-  //filter: drop-shadow(2px 4px 8px rgba(15, 15, 15, 0.5));
+  border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
     rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -79,45 +71,45 @@ export const BoxForm = styled(BoxText)`
 export const Title = styled("h2")`
   position: relative;
   padding: 0;
+  font-size: 1.4rem;
   color: ${(props) => props.color};
-  text-shadow: #58585858 2px 3px;
+  text-shadow: #58585858 0.2rem 0.3rem;
 `;
 export const TitleLogin = styled("h2")`
   position: relative;
-  padding: 15px 0;
+  padding: 1.5rem 0;
   color: ${(props) => props.color};
-  font-size: 32px;
+  font-size: 2.4rem;
   font-weight: lighter;
-  //text-shadow: #58585858 2px 3px;
   color: var(--primary-color);
-  @media (max-width: 980px) {
+  @media (max-width: 960px) {
     color: #ffffff;
   } ;
 `;
 
 export const Text = styled("p")`
   position: relative;
+  font-size: 1.2rem;
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
-  //text-shadow: #58585858 2px 3px;
-  @media (max-width: 980px) {
+  @media (max-width: 960px) {
     color: #ffffff;
   } ;
 `;
 export const Buttons = styled("button")`
   width: 100%;
   font-size: 1.5rem;
-  padding: 10px;
+  padding: 1rem;
   color: #fff;
   background-color: var(--primary-color);
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 0 0 1.5rem 1.5rem;
   border: none;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
     background-color: #fff;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    border: 0.2rem solid var(--primary-color);
     transition: 0.2s;
   }
 `;

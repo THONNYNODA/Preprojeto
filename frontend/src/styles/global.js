@@ -1,6 +1,6 @@
-import { createGlobalStyle} from "styled-components";
-
-export const GlobalStyle = createGlobalStyle `
+import { createGlobalStyle } from "styled-components";
+//hue default 169
+export const GlobalStyle = createGlobalStyle`
     :root{
         --hue:169;
         --primary-color:hsl(var(--hue), 52%, 25%);
@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle `
         padding: 0;
         box-sizing: border-box;
         ::-webkit-scrollbar{
-            width:0px;
+            width:0;
         };
         // ::-webkit-scrollbar-track{
         //     color:blue;
@@ -19,10 +19,17 @@ export const GlobalStyle = createGlobalStyle `
             background:var(--primary-color);
         }
     };
+    body,html {
+  width: 100%;
+  height: 100%;
+}
 
-    html,body{
-        width: 100%;
-        height:100%;
+    html {
+        scroll-behavior: smooth;
+      };
+
+body{
+        font-size: 1.6rem;
         position: relative;
         background-color: #ffffff;
         
@@ -31,7 +38,4 @@ export const GlobalStyle = createGlobalStyle `
 
 
 
-`
-
-
-
+`;

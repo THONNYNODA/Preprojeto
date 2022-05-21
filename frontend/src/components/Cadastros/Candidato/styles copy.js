@@ -5,27 +5,26 @@ export const ContainerCadastro = styled("div")`
   width: 100%;
   
   //padding: 2.5rem;
-  border: 2px solid;
+  border: 0.2rem solid;
 `;
 
 export const ContainerFilter = styled("div")`
   width: 100%;
   
-  height: 400px;
+  height: 40rem;
   background-color: #cccc;
   position: relative;
-  filter: blur(1px);
+  filter: blur(0.1rem);
 `;
 
 export const ContainerForm = styled("div")`
   width: 100%;
   height: 100%;
   position: relative;
-  max-width: 480px;
-  //display: flex;
+  max-width: 48rem;
   justify-content: space-between;
   align-items: stretch;
-  border: 2px solid;
+  border: 0.2rem solid;
   margin-top: 1.5rem;
   @media (max-width: 780px) {
     display: block;
@@ -33,13 +32,11 @@ export const ContainerForm = styled("div")`
 `;
 export const BoxSingleInput = styled("div")`
   width: 100%;
-  //max-width:580px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  //margin-top: 1.5rem;
   @media (max-width: 780px) {
     display: block;
   } ;
@@ -47,7 +44,6 @@ export const BoxSingleInput = styled("div")`
 
 export const BoxText = styled("div")`
   width: 100%;
-  //max-width: 450px;
   display: inline-block;
   position: relative;
   text-align: center;
@@ -55,7 +51,7 @@ export const BoxText = styled("div")`
 
 export const Divisorio = styled("div")`
   position: relative;
-  width: ${(props) => props.width || "2px"};
+  width: ${(props) => props.width || "0.2rem"};
   height: ${(props) => props.height};
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
@@ -80,7 +76,7 @@ export const Title = styled("h2")`
   position: relative;
   font-size: ${(props) => props.fontSize};
   font-weight: lighter;
-  padding: 15px 0;
+  padding: 1.5rem 0;
   color: ${(props) => props.color};
 `;
 
@@ -91,8 +87,8 @@ export const Text = styled("p")`
 export const Buttons = styled("button")`
   width: ${(props) => props.width || "100%"};
   font-size: 1.5rem;
-  margin-top: 30px;
-  padding: 10px;
+  margin-top: 3rem;
+  padding: 1rem;
   color: #fff;
   background-color: var(--primary-color);
   border: none;
@@ -104,7 +100,7 @@ export const Buttons = styled("button")`
   &:hover {
     background-color: #fff;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    border: 0.2rem solid var(--primary-color);
     transition: 0.2s;
   }
 `;

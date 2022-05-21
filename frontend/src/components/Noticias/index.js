@@ -33,7 +33,7 @@ function Noticias(props) {
   }
 
   return (
-    <Card  title="Ultimas Notícia" maxWidth="400px" padding="5px " colorTitle="#fff" background="rgba(31, 99, 87,0.8)">
+    <Card  title="Ultimas Notícia" maxWidth="40rem" padding="0.5rem " colorTitle="#fff" background="rgba(31, 99, 87,0.8)">
       <ContainerNoticia>
         {Object.keys(lista).map((e) => (
           <CardNoticia>

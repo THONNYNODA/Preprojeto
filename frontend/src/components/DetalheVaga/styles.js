@@ -14,7 +14,7 @@ export const ContainerDetalheVaga = styled("div")`
 export const BoxDetalhe = styled("div")`
   width: 100%;
   height: 100%;
-  padding: 5px;  
+  padding: 0.5rem;  
   display: flex;
 `;
 
@@ -23,12 +23,12 @@ export const TitleDetalhe = styled("h2")`
 `;
 export const TextDetalhe = styled("p")`
   text-decoration:none;
-  margin-right: 10px;
+  margin-right: 1rem;
 `;
 export const LinkDetalhe = styled("a")`
   color: black ;
   text-decoration:none;
-  margin-right: 10px;
+  margin-right: 1rem;
   &:hover{
     color:var(--primary-color);
   }
@@ -37,19 +37,18 @@ export const LinkDetalhe = styled("a")`
 export const Buttons = styled("button")`
   width: ${(props) => props.width || "100%"};
   font-size: 1.5rem;
-  //margin: 30px;
-  padding: 10px 30px;
-  margin-top: 10px;
+  padding: 1rem 3rem;
+  margin-top: 1rem;
   color: #fff;
   background-color: var(--primary-color);
   border: none;
-  border-radius: 0px 0px 0.6rem 0.6rem;
+  border-radius: 0 0 0.6rem 0.6rem;
   cursor: pointer;
   transition: 0.2s;
   @media (max-width: 780px) {
     width: 100%;
     margin: 0;
-    padding: 10px;
+    padding: 1rem;
   }
   &:hover {
     background-color: #fff;

@@ -7,7 +7,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const ContainerListaVagas = styled("div")`
   width: 100%;
-  //padding: 25px;
   position: relative;
 `;
 
@@ -21,7 +20,7 @@ export const BoxTabela = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
@@ -33,88 +32,79 @@ export const BoxTabela = styled("div")`
 export const BoxTabelaTitle = styled("div")`
   width: 100%;
   display: flex;
-  position: relative;
-  cursor: pointer;
   background: var(--primary-color);
   color: #fff;
-  border-bottom: 1px solid #ccc;
-  position: -webkit-sticky;
   position: sticky;
-  top: 0px;
+  top: 0;
   z-index: 2;
 `;
 
 export const BoxColuna = styled("div")`
   overflow-x: auto;
-  max-height: 480px;
+  max-height: 48rem;
 `;
 
 export const LinhaTabela = styled("div")`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 1rem;
   width: 10%;
-  flex-grow: 1;
-  border-right: 1px solid #ccc;
+  flex: 3;
+  border-right: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
-    flex-grow: 0;
-    border-left: 2px solid #ccc;
+    flex: 1;
+    border-right: none;
     justify-content: center;
   }
 `;
 export const LinhaTitle = styled(LinhaTabela)`
-  width: 10%;
+  font-size: 1rem;
 `;
 
 export const BoxIcon = styled("div")`
-  //color: ${(props) => props.color || "var(--primary-color)"};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 0.5rem;
   cursor: pointer;
-  /* &:hover {
-    color: ${(props) => props.color || "rgba(31, 99, 87,0.6)"};
-  } */
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;
   position: absolute;
-  right: -30px;
-  top: -15px;
-  border: 2px solid #8f1402;
-  border-radius: 5px;
+  right: -3rem;
+  top: -1.5rem;
+  border: 0.2rem solid #8f1402;
+  border-radius: 0.5rem;
   background-color: #fff;
   cursor: pointer;
   &:hover {
     color: #fff;
     background-color: #8f1402;
-    border: 2px solid #fff;
+    border: 0.2rem solid #fff;
   }
 `;
 export const BoxSeach = styled("div")`
   width: 100%;
-  margin-bottom: 10px;
+  display: flex;
+  align-self: center;
+  background-color: #ffff;
   position: relative;
 `;
 export const InputSeach = styled("input")`
   width: 100%;
   position: relative;
-  height: 35px;
-  padding-left: 20px;
+  padding: 0.5rem;
+
   border: none;
-  //border-radius: 20px;
-  //border: 2px solid var(--primary-color);
   background-color: #fff;
   &:focus {
     outline: none;
   }
 `;
 export const IconSeach = styled("span")`
-  display: inline-block;
-  position: absolute;
-  top: 5px;
-  right: 15px;
+  display: flex;
+  align-self: center;
+  padding-inline: 1rem;
   color: var(--primary-color);
 `;
 export const ContainerRadio = styled(FormControl)`
@@ -122,7 +112,6 @@ export const ContainerRadio = styled(FormControl)`
 `;
 
 export const BoxRadio = styled(RadioGroup)`
-  //display: block;
   position: relative;
   color: #fff;
   font-weight: lighter;
@@ -130,7 +119,6 @@ export const BoxRadio = styled(RadioGroup)`
 export const SeachRadio = styled(Radio)`
   &.MuiRadio-colorPrimary {
     color: #fff;
-    
   }
 `;
 export const TitleRadio = styled(FormLabel)`
@@ -142,17 +130,17 @@ export const TitleRadio = styled(FormLabel)`
   }
 `;
 export const TextRadio = styled(FormControlLabel)`
- &.MuiFormControlLabel-root{
-  color: #fff;
-  font-weight: lighter;
- }
+  &.MuiFormControlLabel-root {
+    color: #fff;
+    font-weight: lighter;
+  }
 `;
 
 // pesquisa avançado
 
 export const ContainerAvancado = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 0.5rem;
 `;
 
 export const BoxAvancado = styled("div")`
@@ -161,14 +149,13 @@ export const BoxAvancado = styled("div")`
 `;
 
 export const ButtonAvancado = styled("button")`
-  height: 27px;
-  font-size: 18px;
-  border-radius: 30px;
-  border: 1px solid;
-  background: none;  
+  height: 1.7rem;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
   color: #fff;
   cursor: pointer;
   &:hover {
-    color: rgba(250,250,250,0.5);
+    color: rgba(250, 250, 250, 0.5);
   }
 `;

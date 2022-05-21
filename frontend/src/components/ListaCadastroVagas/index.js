@@ -76,7 +76,7 @@ function ListaCadastroVagas(props) {
 
   return (
     <>
-      <Card background="rgba(31, 99, 87,0.8)" marginTop="40px">
+      <Card background="rgba(31, 99, 87,0.8)" marginTop="4rem">
         <ContainerListaVagas>
           <BoxDetalhe>
             <BoxSeach>

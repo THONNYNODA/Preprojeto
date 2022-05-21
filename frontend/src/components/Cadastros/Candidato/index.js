@@ -90,6 +90,8 @@ function Candidato(props) {
   };
 
   function BuscarCEP(ev, setFieldValue) {
+   
+
     const { value } = ev.target;
     const cep = value.replace(/[^0-9]/, "");
 
@@ -132,7 +134,7 @@ function Candidato(props) {
             Faça o seu cadastro para acessar o nosso sistema de vagas
           </Text>
         </BoxText>
-        <Divisorio height="1px" />
+        <Divisorio height="0.1rem" />
         <Formik
           validationSchema={validationSchema}
           initialValues={inicial}
@@ -161,7 +163,7 @@ function Candidato(props) {
                     <InputFields
                       name="nome"
                       label="Nome:"
-                      padding=" 0 10px"
+                      
                       nameError="nome"
                       //color="#fff"
                     />
@@ -169,8 +171,7 @@ function Candidato(props) {
                   <BoxSingleInput>
                     <InputFields
                       name="nomeSocial"
-                      label="Nome Social:"
-                      padding=" 0 10px"
+                      label="Nome Social:"                      
                       nameError="nomeSocial"
                       //color="#fff"
                     />
@@ -180,7 +181,7 @@ function Candidato(props) {
                       mask="999.999.999-99"
                       name="cpf"
                       label="CPF:"
-                      padding=" 0 10px"
+                      
                       nameError="cpf"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
@@ -189,14 +190,14 @@ function Candidato(props) {
                       mask="99.999.999-9"
                       name="rg"
                       label="RG:"
-                      padding=" 0 10px"
+                      
                       nameError="rg"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       name="dataNascimento"
                       label="Data Nascimento:"
-                      padding=" 0 10px"
+                
                       nameError="dataNascimento"
                       //color="#fff"
                       type="date"
@@ -206,7 +207,7 @@ function Candidato(props) {
                     <InputFields
                       name="genero"
                       label="Genero:"
-                      padding=" 0 10px"
+                     
                       nameError="genero"
                       //color="#fff"
                       component="select"
@@ -216,7 +217,7 @@ function Candidato(props) {
                     <InputFields
                       name="estadoCivil"
                       label="Estado Civil:"
-                      padding=" 0 10px"
+                   
                       //color="#fff"
                       nameError="estadoCivil"
                       component="select"
@@ -226,7 +227,7 @@ function Candidato(props) {
                     <InputFields
                       name="nacionalidade"
                       label="Nacionalidade:"
-                      padding=" 0 10px"
+                       
                       //color="#fff"
                       component="select"
                       nameError="nacionalidade"
@@ -243,7 +244,7 @@ function Candidato(props) {
                       flex="1"
                       name="cep"
                       label="CEP:"
-                      padding=" 0 10px"
+                       
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
                       onChange={(ev) => handleMask(ev, setFieldValue)}
@@ -252,7 +253,7 @@ function Candidato(props) {
                       flex="2"
                       name="logradouro"
                       label="Endereço:"
-                      padding=" 0 10px"
+                       
                       nameError="logradouro"
                       //color="#fff"
                     />
@@ -262,7 +263,7 @@ function Candidato(props) {
                       flex="1"
                       name="bairro"
                       label="Bairro:"
-                      padding=" 0 10px"
+                       
                       nameError="bairro"
                       //color="#fff"
                     />
@@ -270,7 +271,7 @@ function Candidato(props) {
                       flex="2"
                       name="complemento"
                       label="Complemento:"
-                      padding=" 0 10px"
+                       
                       nameError="complemento"
                       //color="#fff"
                     />
@@ -279,14 +280,14 @@ function Candidato(props) {
                     <InputFields
                       name="cidade"
                       label="Cidade:"
-                      padding=" 0 10px"
+                       
                       nameError="cidade"
                       //color="#fff"
                     />
                     <InputFields
                       name="estado"
                       label="Estado:"
-                      padding=" 0 10px"
+                       
                       nameError="estado"
                       //color="#fff"
                     />
@@ -299,14 +300,14 @@ function Candidato(props) {
                       mask="(99) 9 9999-9999"
                       name="celular"
                       label="Celular:"
-                      padding=" 0 10px"
+                       
                       nameError="celular"
                       onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
                     <InputFields
                       name="emailString"
                       label="E-mail:"
-                      padding=" 0 10px"
+                       
                       nameError="emailString"
                       //color="#fff"
                     />
@@ -318,14 +319,14 @@ function Candidato(props) {
                     <InputFields
                       name="facebook"
                       label="Facebook:"
-                      padding=" 0 10px"
+                       
                       nameError="facebook"
                       //color="#fff"
                     />
                     <InputFields
                       name="instagram"
                       label="Instagram:"
-                      padding=" 0 10px"
+                       
                       nameError="instagram"
                       //color="#fff"
                     />
@@ -337,7 +338,7 @@ function Candidato(props) {
                     <InputFields
                       name="senha"
                       label="Senha:"
-                      padding=" 0 10px"
+                       
                       nameError="senha"
                       type={showPass ? "password" : "text"}
                       //color="#fff"
@@ -345,13 +346,13 @@ function Candidato(props) {
                     <InputFields
                       name="confirmacaoSenha"
                       label="Confirma a Senha:"
-                      padding=" 0 10px"
+                       
                       nameError="confirmacaoSenha"
                       //color="#fff"
                       type={showPass ? "password" : "text"}
                       iconShow={
                         <BoxIconShow
-                          right="15px"
+                          right="1.5rem"
                           onChange={handleShowPass}
                           onMouseDown={handleShowPass}
                         >

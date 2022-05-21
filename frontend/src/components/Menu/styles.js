@@ -21,21 +21,23 @@ export const MenuAnimationReverso = keyframes`
 `;
 
 export const ContainerMenu = styled("div")`
-  width: 100%;
-  max-width: 200px;
-  height: calc(100vh - 3.5rem);
-  background-color: #fff;
-  position: relative;
-  margin-right: 10px;
-  box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.45);
-  z-index: 9999;
+
 `;
 export const ContainerMenuMobile = styled(ContainerMenu)`
-  width: 35%;
+  width: 100%;
+  max-width: 15%;
+  background-color: #fff;
+  position: relative;
+  margin-right: 1rem;
+  box-shadow: 0.5rem 0 0.5rem 0 rgba(0, 0, 0, 0.45);
+  z-index: 9999;
   height: 100%;
   animation-name: ${(props) => props.animation === true ? MenuAnimation : null};
   animation-duration: 0.6s;
   position: absolute;
+  @media (max-width: 780px) {
+    max-width: none;
+  } ;
  
 `;
 export const DrownMenuMobile = styled("div")`
@@ -61,7 +63,6 @@ export const ItemsMenu = styled("li")`
   display: flex;
   align-items: stretch;
   position: relative;
-  //border-bottom: 1px outset rgba(255, 255, 255, 1);
   &:hover {
     background-color: rgba(31, 99, 87, 0.35);
     transition: 0.5s;
@@ -71,7 +72,7 @@ export const ItemsMenu = styled("li")`
 
 export const LinkMenu = styled(Link)`
   width: 100%;
-  padding: 15px 0;
+  padding: 1.5rem 0;
   text-decoration: none;
   font-weight: bold;
   color: #646e70;
@@ -79,7 +80,8 @@ export const LinkMenu = styled(Link)`
 
 export const LinkMenuMobile = styled(Link)`
   width: 100%;
-  padding: 15px;
+  padding: 1.2rem;
+  font-size: 1.2rem;
   text-decoration: none;
   font-weight: bold;
   color: #646e70;
@@ -91,7 +93,7 @@ export const BoxIcon = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  width: 5rem;
 `;
 export const BoxSubMenu = styled("div")`
   display: none;
@@ -103,5 +105,5 @@ export const ContainerSubMenu = styled("div")`
   }
 `;
 export const ItemsSubMenu = styled(ItemsMenu)`
-  padding-left: 15px;
+  padding-left: 1.5rem;
 `;

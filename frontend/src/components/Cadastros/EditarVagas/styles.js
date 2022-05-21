@@ -15,7 +15,7 @@ export const ModalDetalhe = styled("div")`
 
 export const ContainerDetalhe = styled("div")`
   width: 100%;
-  max-width: 680px;
+  max-width: 68rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -25,7 +25,7 @@ export const ContainerDetalhe = styled("div")`
 
 export const BoxDetalhe = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   display: flex;
 `;
 
@@ -41,13 +41,13 @@ export const TitleDetalhe = styled("h2")`
 `;
 export const TextDetalhe = styled("p")`
   &:nth-of-type(1) {
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 `;
 export const Buttons = styled("button")`
   width: 100%;
   font-size: 1.5rem;
-  padding: 10px;
+  padding: 1rem;
   color: #fff;
   background-color: var(--primary-color);
   border-radius: 0 0 0.6rem 0.6rem ;

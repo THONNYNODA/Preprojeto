@@ -14,7 +14,7 @@ export const BoxCard = styled("div")`
 `;
 export const BoxTitleCard = styled("div")`
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   position: relative;
   text-align: center;
   border-radius: 0.7rem;
@@ -25,7 +25,7 @@ export const ContainerCard = styled("div")`
   height: 100%;
   z-index: 999;
   position: relative;
-  padding: ${(props) => props.padding || "20px"};
+  padding: ${(props) => props.padding || "2rem"};
 `;
 
 export const TitleCard = styled("h2")`

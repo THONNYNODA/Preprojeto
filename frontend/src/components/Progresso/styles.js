@@ -12,8 +12,8 @@ export const ModalDetalhe = styled("div")`
 `;
 
 export const ContainerDetalhe = styled("div")`
-  max-width: 560px;
-  max-height: 480px;
+  max-width: 56rem;
+  max-height: 48rem;
   position: absolute;
   top: 50%;
   left: 50%;

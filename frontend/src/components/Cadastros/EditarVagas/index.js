@@ -58,14 +58,14 @@ function EditarVagas(props) {
               width="100%"
               label="Nome"
               name="name"
-              margin="0 5px"
+              margin="0 0.5rem"
             />
 
             <InputFields
               width="100%"
               label="Descricao"
               name="descricao"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             />
           </BoxInput>
@@ -74,14 +74,14 @@ function EditarVagas(props) {
               width="100%"
               label="Horas Semanais"
               name="horasSemanais"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             />
             <InputFields
               width="100%"
               label="Dias Semanal"
               name="diasSemana"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             />
 
@@ -90,7 +90,7 @@ function EditarVagas(props) {
               label="Turno Trabalho"
               name="turnoTrabalho"
               component="select"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             >
               <option value="">Escolha</option>
@@ -104,21 +104,21 @@ function EditarVagas(props) {
               width="100%"
               label="Remuneracao"
               name="remuneracao"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             />
             <InputFields
               width="100%"
               label="Endereco"
               name="endereco"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             />
             <InputFields
               width="100%"
               label="Regime"
               name="regime"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             />
           </BoxInput>
@@ -128,7 +128,7 @@ function EditarVagas(props) {
               label="Status"
               name="status"
               component="select"
-              margin="0 5px"
+              margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             >
               <option value="ativo">Ativo</option>

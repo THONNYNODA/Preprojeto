@@ -332,7 +332,7 @@ function Candidato(props) {
                       </ContainerField>
                     </BoxForm>
                   </div>
-                  <Divisorio width="100%" minHeight="2px" margin=" 20px 0" />
+                  <Divisorio width="100%" minHeight="0.2rem" margin=" 2rem 0" />
                   <BoxForm>
                     <ContainerField>
                       <InputFields

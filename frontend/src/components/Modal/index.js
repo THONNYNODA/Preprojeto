@@ -11,7 +11,7 @@ function Modal(props) {
           <CloseIcon />
         </BoxIconClose>
         <Card
-          padding="0px"
+          padding="0"
           background={props.background}
           colorTitle={props.colorTitle}
           title={props.title}

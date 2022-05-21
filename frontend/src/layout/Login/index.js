@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import InputMask from "react-input-mask";
 import * as yup from "yup";
-import Formularios from "../../components/Formulario";
 import InputFields from "../../components/Input";
 import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
@@ -18,12 +17,10 @@ import {
   Buttons,
   BoxForm,
   TitleLogin,
-  BoxFilter,
   Divisorio,
 } from "./styles";
-import { BoxIconShow, ContainerField } from "../../components/Input/styles";
+import { BoxIconShow } from "../../components/Input/styles";
 
-import api from "../../services/api";
 import { Form, Formik } from "formik";
 
 const validationSchema = yup.object().shape({
@@ -73,10 +70,10 @@ function Login(props) {
         <ContainerForm width="40%">
           <BoxForm>
             <TitleLogin>Login</TitleLogin>
-            <Text color="#000000" margin="0px 0 15px 0 ">
+            <Text color="#000000" margin="0 0 1.5rem 0 ">
               Faça o seu login para verificar as vagas disponivel
             </Text>
-            <Divisorio height="1px" />
+            <Divisorio height="0.1rem" />
             <Formik
               validationSchema={validationSchema}
               initialValues={inicial}
@@ -97,12 +94,12 @@ function Login(props) {
               }) => (
                 <Form onSubmit={handleSubmit}>
                   <MaskInput
-                    padding="10px"
+                    padding="1rem"
                     mask="999.999.999-99"
                     colorResponse="#ffffff"
                     color="var(--primary-color)"
                     label="CPF"
-                    icon={<PersonRoundedIcon  />}
+                    icon={<PersonRoundedIcon />}
                     name="cpf"
                     placeholder="CPF"
                     fontSize="1.2rem"
@@ -117,7 +114,7 @@ function Login(props) {
                     color="var(--primary-color)"
                     colorResponse="#ffffff"
                     type={showPass ? "password" : "text"}
-                    padding="10px"
+                    padding="1rem"
                     fontSize="1.2rem"
                     width="100%"
                     icon={<VpnKeyIcon />}
@@ -127,7 +124,6 @@ function Login(props) {
                     nameError="senha"
                     iconShow={
                       <BoxIconShow
-                        right="15px"
                         onChange={handleShowPass}
                         onMouseDown={handleShowPass}
                       >

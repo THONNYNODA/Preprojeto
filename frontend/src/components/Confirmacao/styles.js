@@ -20,13 +20,13 @@ export const ModalDetalhe = styled("div")`
 `;
 export const BoxIcon = styled("div")`
   color: #fff;
-  padding: 5px;
+  padding: 0.5rem;
   position: relative;
 `;
 
 export const TitleConfirmacao = styled("h2")`
   color: #fff;
-  padding: 0px;
+  padding: 0;
 `;
 
 export const ContainerDetalhe = styled("div")`
