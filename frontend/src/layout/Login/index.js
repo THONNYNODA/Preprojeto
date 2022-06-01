@@ -70,10 +70,10 @@ function Login(props) {
         <ContainerForm width="40%">
           <BoxForm>
             <TitleLogin>Login</TitleLogin>
-            <Text color="#000000" margin="0 0 1.5rem 0 ">
+            <Text color="#000000"  >
               Faça o seu login para verificar as vagas disponivel
             </Text>
-            <Divisorio height="0.1rem" />
+            <Divisorio height="0.1rem" margin="1.5rem 0"/>
             <Formik
               validationSchema={validationSchema}
               initialValues={inicial}

@@ -5,114 +5,6 @@ import { Radio } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-export const ContainerListaVagas = styled("div")`
-  width: 100%;
-  position: relative;
-`;
-
-export const ContainerTabela = styled("div")`
-  width: 100%;
-  position: relative;
-  background: #fff;
-`;
-export const BoxTabela = styled("div")`
-  width: 100%;
-  display: flex;
-  position: relative;
-  cursor: pointer;
-  border-bottom: 0.1rem solid #ccc;
-  &:nth-last-of-type(1) {
-    border-bottom: none;
-  }
-  &:hover {
-    background: rgba(31, 99, 87, 0.9);
-    color: #fff !important;
-  }
-`;
-export const BoxTabelaTitle = styled("div")`
-  width: 100%;
-  display: flex;
-  position: relative;
-  cursor: pointer;
-  background: var(--primary-color);
-  color: #fff;
-  border-bottom: 0.1rem solid #ccc;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-`;
-
-export const BoxColuna = styled("div")`
-  overflow-x: auto;
-  max-height: 48rem;
-`;
-
-export const LinhaTabela = styled("div")`
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  width: 10%;
-
-  &:nth-of-type(1) {
-    flex-grow: 1;
-    border-right: 0.1rem solid #ccc;
-  }
-  &:nth-of-type(2) {
-    justify-content: center;
-  }
-`;
-export const LinhaTitle = styled(LinhaTabela)`
-  width: 10%;
-`;
-
-export const BoxIcon = styled("div")`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
-  cursor: pointer;
-  
-`;
-export const BoxIconClose = styled("div")`
-  color: #8f1402;
-  position: absolute;
-  right: -3rem;
-  top: -1.5rem;
-  border: 0.2rem solid #8f1402;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  cursor: pointer;
-  &:hover {
-    color: #fff;
-    background-color: #8f1402;
-    border: 0.2rem solid #fff;
-  }
-`;
-export const BoxSeach = styled("div")`
-  width: 100%;
-  margin-bottom: 1rem;
-  position: relative;
-`;
-export const InputSeach = styled("input")`
-  width: 100%;
-  position: relative;
-  height: 3.5rem;
-  padding-left: 2rem;
-  border: none;
-  background-color: #fff;
-  &:focus {
-    outline: none;
-  }
-`;
-export const IconSeach = styled("span")`
-  display: inline-block;
-  position: absolute;
-  top: 0.5rem;
-  right: 1.5rem;
-  color: var(--primary-color);
-`;
-
 //Detalhe Stylo
 
 export const ModalDetalhe = styled("div")`
@@ -149,6 +41,108 @@ export const TextDetalhe = styled("p")`
   }
 `;
 
+export const ContainerListaVagas = styled("div")`
+  width: 100%;
+  position: relative;
+`;
+
+export const ContainerTabela = styled("div")`
+  width: 100%;
+  position: relative;
+  background: #fff;
+`;
+export const BoxTabela = styled("div")`
+  width: 100%;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  border-bottom: 0.1rem solid #ccc;
+  &:nth-last-of-type(1) {
+    border-bottom: none;
+  }
+  &:hover {
+    background: rgba(31, 99, 87, 0.9);
+    color: #fff !important;
+  }
+`;
+export const BoxTabelaTitle = styled("div")`
+  width: 100%;
+  display: flex;
+  background: var(--primary-color);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+`;
+
+export const BoxColuna = styled("div")`
+  overflow-x: auto;
+  max-height: 48rem;
+`;
+
+export const LinhaTabela = styled("div")`
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  flex: 5;
+  font-size: 1.2rem;
+  border-right: 0.1rem solid #ccc;
+  &:nth-last-of-type(1) {
+    flex: 1;
+    border-right: none;
+    justify-content: center;
+  }
+`;
+export const LinhaTitle = styled(LinhaTabela)`
+  font-size: 1rem;
+`;
+
+export const BoxIcon = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+`;
+export const BoxIconClose = styled("div")`
+  color: #8f1402;
+  position: absolute;
+  right: -3rem;
+  top: -1.5rem;
+  border: 0.2rem solid #8f1402;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+    background-color: #8f1402;
+    border: 0.2rem solid #fff;
+  }
+`;
+export const BoxSeach = styled("div")`
+  width: 100%;
+  display: flex;
+  align-self: center;
+  background-color: #ffff;
+  position: relative;
+`;
+export const InputSeach = styled("input")`
+  width: 100%;
+  position: relative;
+  padding: 0.5rem;
+
+  border: none;
+  background-color: #fff;
+  &:focus {
+    outline: none;
+  }
+`;
+export const IconSeach = styled("span")`
+  display: flex;
+  align-self: center;
+  padding-inline: 1rem;
+  color: var(--primary-color);
+`;
 export const ContainerRadio = styled(FormControl)`
   position: relative;
 `;
@@ -157,7 +151,6 @@ export const BoxRadio = styled(RadioGroup)`
   position: relative;
   color: #fff;
   font-weight: lighter;
-  
 `;
 export const SeachRadio = styled(Radio)`
   &.MuiRadio-colorPrimary {
@@ -165,15 +158,16 @@ export const SeachRadio = styled(Radio)`
   }
 `;
 export const TitleRadio = styled(FormLabel)`
+  color: black;
   color: #fff;
   font-weight: lighter;
   &.Mui-focused {
-    color: rgba(255, 255, 255, 1);
+    color: #fff;
   }
 `;
 export const TextRadio = styled(FormControlLabel)`
   &.MuiFormControlLabel-root {
-    color: blue;
+    color: #fff;
     font-weight: lighter;
   }
 `;
@@ -182,7 +176,7 @@ export const TextRadio = styled(FormControlLabel)`
 
 export const ContainerAvancado = styled("div")`
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
 `;
 
 export const BoxAvancado = styled("div")`
@@ -191,14 +185,13 @@ export const BoxAvancado = styled("div")`
 `;
 
 export const ButtonAvancado = styled("button")`
-  height: 2.7rem;
+  height: 1.7rem;
   font-size: 1.8rem;
-  border-radius: 3rem;
-  border: 0.1rem solid #fff;
-  color: #ffffff;
   background: none;
+  border: none;
+  color: #fff;
   cursor: pointer;
   &:hover {
-    opacity: 0.6;
+    color: rgba(250, 250, 250, 0.5);
   }
 `;

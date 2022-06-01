@@ -11,7 +11,7 @@ function PaginaPrincipal(props) {
     <Dashbord>
       <TitlePage title="Pagina Principal" />
       <ContainerPrincipal>
-        <Noticias />
+        
       </ContainerPrincipal>
     </Dashbord>
   );

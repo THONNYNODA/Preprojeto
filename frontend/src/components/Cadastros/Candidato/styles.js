@@ -44,7 +44,6 @@ export const BoxSingleInput = styled("div")`
   width: 100%;
   position: relative;
   display: flex;
-  gap: 1.2rem;
   justify-content: space-between;
   align-items: stretch;
   &:first-child {
@@ -93,7 +92,7 @@ export const BoxForm = styled("div")`
 
 export const SubBoxForm = styled("fieldset")`
   width: 100%;
-  padding: 1rem;
+  //padding: 1rem;
   border: 0.1rem solid #ffffff;
 `;
 export const SubText = styled("legend")`

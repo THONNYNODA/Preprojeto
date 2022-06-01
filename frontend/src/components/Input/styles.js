@@ -21,7 +21,8 @@ export const TextErrors = styled(ErrorMessage)`
 
 export const BoxField = styled("div")`
   display: flex;
-  position: relative;
+  position: relative; 
+  height: ${props => props.BoxFieldHeight || "2.5rem"};
   justify-content: space-around;
   align-items: stretch;
   align-content: center;
@@ -34,9 +35,10 @@ export const BoxField = styled("div")`
 
 export const ContainerField = styled("div")`
   display: inline-block;
-  width: 100%;
+  width: 100%;  
+  padding-inline: 0.5rem ;
   margin: ${(props) => props.margin || null};
-  padding: ${(props) => props.padding};
+  //padding: ${(props) => props.padding};
   flex: ${(props) => props.flex};
 `;
 
@@ -71,7 +73,7 @@ export const InputField = styled(Field)`
   width: ${(props) => props.width || "100%"};
   font-size: ${(props) => props.fontSize || "0.8rem"};
   border: none;
-  padding: 0.5rem;
+  padding-inline: 1rem;
   color: #343837;
   z-index: 2;
   background-color: ${(props) => props.bgColor || "none"};

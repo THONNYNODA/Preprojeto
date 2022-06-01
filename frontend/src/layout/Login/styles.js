@@ -51,7 +51,7 @@ export const ContainerForm = styled("div")`
 
 export const BoxText = styled("div")`
   width: 100%;
-  max-width: 35rem;
+  max-width: 25rem;
   position: relative;
   top: 50%;
   left: 50%;
@@ -89,7 +89,7 @@ export const TitleLogin = styled("h2")`
 
 export const Text = styled("p")`
   position: relative;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
   @media (max-width: 960px) {
@@ -121,10 +121,10 @@ export const Divisorio = styled("div")`
   min-height: ${(props) => props.minHeight || "100%"};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-  background: rgb(255, 255, 255);
+  background: rgb(31, 99, 87);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 1) 40%,
-    rgba(149, 163, 166, 1) 15%
+    rgba(31, 99, 87, 1) 57%,
+    rgba(249, 249, 249, 1) 100%
   );
 `;
