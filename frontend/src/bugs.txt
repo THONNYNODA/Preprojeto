@@ -1,0 +1,2 @@
+resolver o bug do formulario cadastro canditado ---> erro nas mascara e faze com que ocorra erro no hora de ver a senha
+

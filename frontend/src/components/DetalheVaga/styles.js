@@ -9,6 +9,10 @@ export const ContainerDetalheVaga = styled("div")`
   flex-direction: column;
   align-items:center;
   justify-content: center;
+
+  div{
+    padding: 1rem 1.5rem;
+  }
 `;
 
 export const BoxDetalhe = styled("div")`
@@ -22,6 +26,7 @@ export const TitleDetalhe = styled("h2")`
   font-weight: lighter;
 `;
 export const TextDetalhe = styled("p")`
+font-size: 1.2rem;
   text-decoration:none;
   margin-right: 1rem;
 `;

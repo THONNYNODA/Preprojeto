@@ -51,7 +51,7 @@ const validationSchema = yup.object().shape({
 
 function Candidato(props) {
   const [view, setView] = useState();
-  const [showPass, setShowPass] = useState(false);
+  const [showPass, setShowPass] = useState(true);
 
   const Genero = ["Masculino", "Feminino", "Outros"];
   const civil = ["Solteiro(a)", "Casado(a)", "Viúvo(a)"];
@@ -63,7 +63,7 @@ function Candidato(props) {
   ));
 
   const handleShowPass = () => {
-    setShowPass(!showPass);
+    setShowPass(!showPass)
   };
 
   const inicial = {
@@ -90,8 +90,6 @@ function Candidato(props) {
   };
 
   function BuscarCEP(ev, setFieldValue) {
-   
-
     const { value } = ev.target;
     const cep = value.replace(/[^0-9]/, "");
 
@@ -113,17 +111,15 @@ function Candidato(props) {
 
   //Config Mask
   const MaskInput = (props) => (
-    <InputMask maskChar={null} {...props}>
-      {(inputProps) => <InputFields {...inputProps} />}
+    <InputMask maskChar={null} onChange={props.Chenge} {...props}>
+      {(inputFields) => <InputFields {...inputFields} />}
     </InputMask>
   );
 
   const handleMask = (ev, setFieldValue) => {
-    const { name, value } = ev.target || "";
+    const { name, value } = ev.target || " ";
     setFieldValue(name, value);
   };
-
-  api.get("candidato/candidato").then((res) => console.log(res.data));
 
   return (
     <>
@@ -163,7 +159,7 @@ function Candidato(props) {
                     <InputFields
                       name="nome"
                       label="Nome:"
-                      padding=" 0.5rem 1rem" 
+                      padding=" 0.5rem 1rem"
                       nameError="nome"
                       //color="#fff"
                     />
@@ -171,31 +167,30 @@ function Candidato(props) {
                   <BoxSingleInput>
                     <InputFields
                       name="nomeSocial"
-                      label="Nome Social:"                      
+                      label="Nome Social:"
                       nameError="nomeSocial"
-                      
+
                       //color="#fff"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
                     <MaskInput
                       mask="999.999.999-99"
+                      onChange={(ev) => handleMask(ev, setFieldValue)}
                       padding=" 0.5rem 1rem"
                       name="cpf"
                       label="CPF:"
-                      
                       nameError="cpf"
-                      onChange={(ev) => handleMask(ev, setFieldValue)}
                     />
-
                     <MaskInput
                       mask="99.999.999-9"
                       name="rg"
                       label="RG:"
                       padding=" 0.5rem 1rem"
                       nameError="rg"
-                      onChange={(ev) => handleMask(ev, setFieldValue)}
+                      onChange={(data) => setFieldValue("rg", data.rg)}
                     />
+                 
                     <InputFields
                       name="dataNascimento"
                       label="Data Nascimento:"
@@ -249,7 +244,7 @@ function Candidato(props) {
                       padding=" 0.5rem 1rem"
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
-                      onChange={(ev) => handleMask(ev, setFieldValue)}
+                      onChange={(data) => setFieldValue("cep", data.cep)}
                     />
                     <InputFields
                       flex="2"
@@ -302,9 +297,9 @@ function Candidato(props) {
                       mask="(99) 9 9999-9999"
                       name="celular"
                       label="Celular:"
-                      padding=" 0.5rem 1rem"  
+                      padding=" 0.5rem 1rem"
                       nameError="celular"
-                      onChange={(ev) => handleMask(ev, setFieldValue)}
+                      onChange={(data) => setFieldValue("celular", data.celular)}
                     />
                     <InputFields
                       name="emailString"
@@ -323,7 +318,7 @@ function Candidato(props) {
                       label="Facebook:"
                       padding=" 0.5rem 1rem"
                       nameError="facebook"
-                      
+
                       //color="#fff"
                     />
                     <InputFields
@@ -370,6 +365,7 @@ function Candidato(props) {
                   </BoxSingleInput>
                 </SubBoxForm>
               </BoxForm>
+              {JSON.stringify(values, null, 2)}
               <Buttons
                 variant="contained"
                 disabled={isSubmitting}

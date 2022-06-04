@@ -59,6 +59,7 @@ function DetalheVagas(props) {
         title={props.idAtual.name}
       >
         <ContainerDetalheVaga>
+        <div>
           <BoxDetalhe>
             <TextDetalhe>Período:</TextDetalhe>
             <TextDetalhe>Noturno</TextDetalhe>
@@ -77,6 +78,7 @@ function DetalheVagas(props) {
               ligula blandit faucibus. Aliquam congue id velit a facilisis.
             </TextDetalhe>
           </BoxDetalhe>
+        </div>
           <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
         </ContainerDetalheVaga>
       </Modal>

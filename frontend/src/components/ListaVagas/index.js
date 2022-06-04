@@ -146,21 +146,7 @@ function ListaVagas(props) {
               <LinhaTitle>Inscrever</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
-            <>
-                    <BoxTabela>
-                      <LinhaTabela>Maria Aparecida da Silva</LinhaTabela>
-                      <LinhaTabela>
-                        <BoxIcon
-                          onClick={() => handleOpen(searchResult)}
-                          key={searchResult}
-                          onChange={handleOpen}
-                        >
-                          <PersonAddIcon />
-                        </BoxIcon>
-                      </LinhaTabela>
-                    </BoxTabela>
-                  </>
-              {/* {Object.keys(searchResult)
+              {Object.keys(searchResult)
                 .sort((a, b) =>
                   searchResult[a].nome < searchResult[b].nome ? -1 : 0
                 )
@@ -179,7 +165,7 @@ function ListaVagas(props) {
                       </LinhaTabela>
                     </BoxTabela>
                   </>
-                ))} */}
+                ))}
             </BoxColuna>
           </ContainerTabela>
         </ContainerListaVagas>

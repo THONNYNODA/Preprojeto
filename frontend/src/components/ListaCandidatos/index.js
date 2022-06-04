@@ -98,7 +98,7 @@ function ListaCandidatos(props) {
             <IconSeach>
               <SearchIcon />
             </IconSeach>
-          </BoxSeach  >
+          </BoxSeach>
           <ContainerAvancado>
             <Box>
               {show ? (
