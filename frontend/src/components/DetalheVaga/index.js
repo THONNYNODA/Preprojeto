@@ -7,6 +7,7 @@ import {
   ContainerDetalheVaga,
   TextDetalhe,
   Buttons,
+  TitleDetalhe
 } from "./styles";
 import CheckIcon from "@mui/icons-material/Check";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
@@ -56,26 +57,38 @@ function DetalheVagas(props) {
       <Modal
         onClick={handleClose}
         key={props.idAtual.id}
-        title={props.idAtual.name}
+        title={props.idAtual.nome}
       >
         <ContainerDetalheVaga>
+        
+          <BoxDetalhe>
+          <TextDetalhe>Vaga: </TextDetalhe>
+            <TextDetalhe color={props.idAtual.status ? 'var(--primary-color)' : 'red'}>{props.idAtual.status ? 'Disponivel' : 'Não Disponivel' }</TextDetalhe>
+          </BoxDetalhe>
           <BoxDetalhe>
             <TextDetalhe>Período:</TextDetalhe>
-            <TextDetalhe>Noturno</TextDetalhe>
+            <TextDetalhe>{props.idAtual.turno}</TextDetalhe>
+          </BoxDetalhe>
+          <BoxDetalhe>
+            <TextDetalhe>Horas Semanais:</TextDetalhe>
+            <TextDetalhe>{props.idAtual.horasSemanais}</TextDetalhe>
+          </BoxDetalhe>
+          <BoxDetalhe>
+            <TextDetalhe>Dias da Semana:</TextDetalhe>
+            <TextDetalhe>{props.idAtual.diasSemanais}</TextDetalhe>
           </BoxDetalhe>
           <BoxDetalhe>
             <TextDetalhe>Salário:</TextDetalhe>
             <TextDetalhe>
-              R$ 1.200,00 + Vale Alimentação + Insalubridade
+              {`${new Intl.NumberFormat("br-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(props.idAtual.remuneracao)}`}
             </TextDetalhe>
           </BoxDetalhe>
           <BoxDetalhe>
             <TextDetalhe>Detalhe: </TextDetalhe>
-            <TextDetalhe>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse maximus ipsum nec porta viverra. Nulla non ex nec
-              ligula blandit faucibus. Aliquam congue id velit a facilisis.
-            </TextDetalhe>
+            <TextDetalhe>{props.idAtual.descricao}</TextDetalhe>
           </BoxDetalhe>
           <Buttons onClick={handleCandidatar}>Candidatar - se</Buttons>
         </ContainerDetalheVaga>

@@ -41,6 +41,12 @@ function ListaVagas(props) {
 
   const container = React.useRef(null);
 
+useEffect(() => {
+  api.get('/vagas').then(res => {
+    setLista(res.data.vagas)
+  })
+}, [])
+
   const handleClick = () => {
     setShow(!show);
   };
@@ -64,14 +70,12 @@ function ListaVagas(props) {
 
   useEffect(() => {
     var resultado = [];
-    if (valor === "menor18") {
-      resultado = lista.filter((e) => e.id.toString() <= 5);
-    } else if (valor === "18a25") {
+    if (valor === "disponivel") {
+      resultado = lista.filter((e) => e.status === true);
+    } else if (valor === "preenchido") {
       resultado = lista.filter(
-        (e) => e.id.toString() > 5 && e.id.toString() <= 8
+        (e) => e.status === false
       );
-    } else if (valor === "25maior") {
-      resultado = lista.filter((e) => e.id.toString() > 8);
     } else if (valor === "todos") {
       resultado = lista;
     }
@@ -99,7 +103,7 @@ function ListaVagas(props) {
               {show ? (
                 <Portal container={container.current}>
                   <ContainerRadio>
-                    <TitleRadio>Idade</TitleRadio>
+                    <TitleRadio>Status</TitleRadio>
                     <BoxRadio
                       defaultValue="todos"
                       name={valor}
@@ -108,19 +112,14 @@ function ListaVagas(props) {
                       }}
                     >
                       <FormControlLabel
-                        value="menor18"
+                        value="disponivel"
                         control={<SeachRadio />}
-                        label="Menor de 18 anos"
+                        label="Disponivel"
                       />
                       <FormControlLabel
-                        value="18a25"
+                        value="preenchido"
                         control={<SeachRadio />}
-                        label="18 a 25 anos"
-                      />
-                      <FormControlLabel
-                        value="25maior"
-                        control={<SeachRadio />}
-                        label="maior de 25"
+                        label="Preenchido"
                       />
                       <FormControlLabel
                         value="todos"
@@ -146,21 +145,8 @@ function ListaVagas(props) {
               <LinhaTitle>Inscrever</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
-            <>
-                    <BoxTabela>
-                      <LinhaTabela>Maria Aparecida da Silva</LinhaTabela>
-                      <LinhaTabela>
-                        <BoxIcon
-                          onClick={() => handleOpen(searchResult)}
-                          key={searchResult}
-                          onChange={handleOpen}
-                        >
-                          <PersonAddIcon />
-                        </BoxIcon>
-                      </LinhaTabela>
-                    </BoxTabela>
-                  </>
-              {/* {Object.keys(searchResult)
+           
+              {Object.keys(searchResult)
                 .sort((a, b) =>
                   searchResult[a].nome < searchResult[b].nome ? -1 : 0
                 )
@@ -179,7 +165,7 @@ function ListaVagas(props) {
                       </LinhaTabela>
                     </BoxTabela>
                   </>
-                ))} */}
+                ))}
             </BoxColuna>
           </ContainerTabela>
         </ContainerListaVagas>

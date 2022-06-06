@@ -56,6 +56,7 @@ export const BoxTabela = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
+  color: var(--text);
   border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
@@ -78,9 +79,11 @@ export const BoxTabelaTitle = styled("div")`
 export const BoxColuna = styled("div")`
   overflow-x: auto;
   max-height: 48rem;
+  
 `;
 
 export const LinhaTabela = styled("div")`
+  
   display: flex;
   align-items: center;
   padding: 0.5rem;

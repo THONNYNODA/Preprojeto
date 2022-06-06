@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         --hue:169;
         --primary-color:hsl(var(--hue), 52%, 25%);
+        --text:#212529
     }
     *{
         margin: 0;
@@ -34,7 +35,11 @@ body{
         background-color: #ffffff;
         
         
+        
     };
+    p{
+        color: var(--text);
+    }
 
 
 

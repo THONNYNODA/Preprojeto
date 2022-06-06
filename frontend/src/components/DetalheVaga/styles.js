@@ -22,7 +22,9 @@ export const TitleDetalhe = styled("h2")`
   font-weight: lighter;
 `;
 export const TextDetalhe = styled("p")`
+color: ${props => props.color};
   text-decoration:none;
+  font-size: 1.2rem;
   margin-right: 1rem;
 `;
 export const LinkDetalhe = styled("a")`
@@ -44,15 +46,15 @@ export const Buttons = styled("button")`
   border: none;
   border-radius: 0 0 0.6rem 0.6rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   @media (max-width: 780px) {
     width: 100%;
     margin: 0;
     padding: 1rem;
   }
   &:hover {
-    background-color: #fff;
-    color: var(--primary-color);
+    filter: brightness(0.7);
+    
     transition: 0.2s;
   }
 `;

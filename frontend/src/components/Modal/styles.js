@@ -13,12 +13,12 @@ export const ModalDetalhe = styled("div")`
 export const BoxIconClose = styled("div")`
   color: #ff1700;
   position: fixed;
-  right: -3rem;
-  top: -1.5rem;
+  right: 0.3rem;
   border-radius: 7rem;
   cursor: pointer;
+  z-index: 999;
   &:hover {
-    color: #fff;
+    filter:brightness(0.7)
   }
 `;
 
