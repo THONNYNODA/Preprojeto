@@ -8,19 +8,17 @@ export const ModalDetalhe = styled("div")`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
-  
 `;
 export const BoxIconClose = styled("div")`
-  color: #ff1700;
+  color: var(--error-color);
   position: fixed;
   display: flex;
-  right: -3rem;
-  top: -1.5rem;
-  border: 2px solid ;
+  right: 0;
   border-radius: 2.5rem;
   cursor: pointer;
+  z-index: 999;
   &:hover {
-    color: #fff;
+    filter: brightness(0.7);
   }
 `;
 
@@ -32,5 +30,5 @@ export const ContainerDetalhe = styled("div")`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
+  z-index: 9999;
 `;

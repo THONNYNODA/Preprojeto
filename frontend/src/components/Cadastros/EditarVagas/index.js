@@ -13,7 +13,7 @@ function EditarVagas(props) {
   const [status, setStatus] = useState();
   const [progresso, setProgresso] = useState(false);
   const initialValues = {
-    name: props.dados.name,
+    nome: props.dados.nome,
     descricao: props.dados.descricao,
     horasSemanais: props.dados.horasSemanais,
     diasSemana: props.dados.diasSemana,
@@ -57,7 +57,7 @@ function EditarVagas(props) {
               color=" rgba(31, 99, 87)"
               width="100%"
               label="Nome"
-              name="name"
+              name="nome"
               margin="0 0.5rem"
             />
 

@@ -26,6 +26,8 @@ export const BoxIcon = styled("div")`
 
 export const TitleConfirmacao = styled("h2")`
   color: #fff;
+  font-weight: 400;
+  font-size: 1.2rem;
   padding: 0;
 `;
 

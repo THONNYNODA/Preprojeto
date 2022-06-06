@@ -29,6 +29,7 @@ export const ContainerCard = styled("div")`
 `;
 
 export const TitleCard = styled("h2")`
-  color: ${props => props.colorTitle || "rgba(31, 99, 87, 0.6)"};
+  color: ${props => props.colorTitle || "var(--title-light)"};
+  font-size: 1.6rem;
   text-decoration: underline;
 `;
