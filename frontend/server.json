@@ -1,0 +1,69 @@
+{
+  "vagas": [
+    {
+      "id": "19",
+      "descricao": "A funcao da delefonista e atender os telefonemas",
+      "dias_semana": "6 vezes",
+      "endereco": "Residentes",
+      "horas_semanais": "44 horas",
+      "nome": "Telefonista",
+      "regime": "Residentes",
+      "remuneracao": "Residentes",
+      "requisitos": "Residentes",
+      "status": "Desativado",
+      "turno_trabalho": "Residentes"
+    },
+    {
+      "id": "20",
+      "descricao": "trabalha na area da saude",
+      "dias_semana": "segunda a sexta",
+      "endereco": null,
+      "horas_semanais": "44",
+      "nome": "Tecnica de Enfermagem",
+      "regime": null,
+      "remuneracao": "2000",
+      "requisitos": null,
+      "status": "1",
+      "turno_trabalho": null
+    },
+    {
+      "id": "22",
+      "descricao": "A funcao da delefonista e atender os telefonemas",
+      "dias_semana": "Segunda a sexta",
+      "endereco": "Av Angelo moreira da Fonsceca",
+      "horas_semanais": "44 horas",
+      "nome": "Tecnica de Enfgermagem",
+      "regime": "nao tem",
+      "remuneracao": "2000",
+      "requisitos": "Curso de Enfermagem Completa",
+      "status": "Ativo",
+      "turno_trabalho": "Diurno"
+    }
+  ],
+
+  "candidatos": [
+    {
+      "id": "1",
+      "bairro": "Zona I",
+      "celular": "(44) 9 8800-2045",
+      "cep": "87501-030",
+      "cidade": "Umuarama",
+      "complemento": "até 4567/4568",
+      "confirmacao_senha": "12345678",
+      "cpf": "111.111.111-11",
+      "data_nascimento": "2022-06-01 21:00:00.000000",
+      "email_string": "tonr@noda",
+      "estado": "PR",
+      "estado_civil": "Casado(a)",
+      "facebook": "@noda",
+      "genero": "Masculino",
+      "instagram": "@noda.thonny",
+      "logradouro": "Avenida Paraná",
+      "nacionalidade": "alemã",
+      "nome": "Tony Takeharo Noda",
+      "nome_social": "",
+      "rg": "99.945.456-4",
+      "senha": "12345678"
+    }
+  ]
+}
