@@ -41,20 +41,20 @@ function ListaVagas(props) {
 
   const container = React.useRef(null);
 
-  // useEffect(() => {
-  //   api.get('/vagas').then(res => {
-  //     setLista(res.data.vagas)
-  //   })
-  // }, [])
+  useEffect(() => {
+    api.get('/vagas').then(res => {
+      setLista(res.data.vagas)
+    })
+  }, [])
 
   const handleClick = () => {
     setShow(!show);
   };
 
   //Codigo para a producao
-  useEffect(() => {
-    api.get("vaga/vagas").then((res) => setLista(res.data));
-  }, []);
+  // useEffect(() => {
+  //   api.get("vaga/vagas").then((res) => setLista(res.data));
+  // }, []);
 
   useEffect(() => {
     const result = lista.filter((person) =>

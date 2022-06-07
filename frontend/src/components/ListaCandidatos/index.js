@@ -47,8 +47,11 @@ function ListaCandidatos(props) {
     setShow(!show);
   };
 
+  // useEffect(() => {
+  //   api.get("candidato/candidatos").then((res) => setLista(res.data));
+  // }, []);
   useEffect(() => {
-    api.get("candidato/candidatos").then((res) => setLista(res.data));
+    api.get("/candidatos").then((res) => setLista(res.data.candidatos));
   }, []);
 
   useEffect(() => {

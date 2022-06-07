@@ -20,6 +20,7 @@ export const BoxTabela = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
+  color: var(--text);
   border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
@@ -42,14 +43,16 @@ export const BoxTabelaTitle = styled("div")`
 export const BoxColuna = styled("div")`
   overflow-x: auto;
   max-height: 48rem;
+  
 `;
 
 export const LinhaTabela = styled("div")`
+  color:var(--text);
   display: flex;
   align-items: center;
-  padding: 1rem;
-  width: 10%;
-  flex: 3;
+  padding: 0.5rem;
+  flex: 5;
+  font-size: 1.2rem;
   border-right: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     flex: 1;
@@ -59,6 +62,7 @@ export const LinhaTabela = styled("div")`
 `;
 export const LinhaTitle = styled(LinhaTabela)`
   font-size: 1rem;
+  color: #fff;
 `;
 
 export const BoxIcon = styled("div")`
