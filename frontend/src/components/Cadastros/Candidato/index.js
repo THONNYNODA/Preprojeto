@@ -3,6 +3,7 @@ import InputMask from "react-input-mask";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
 import InputFields from "../../Input";
+import axios from "axios";
 import {
   BoxForm,
   BoxSingleInput,
@@ -63,7 +64,7 @@ function Candidato(props) {
   ));
 
   const handleShowPass = () => {
-    setShowPass(!showPass)
+    setShowPass(!showPass);
   };
 
   const inicial = {
@@ -98,14 +99,14 @@ function Candidato(props) {
     }
 
     //Buscando o CEP
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((res) => res.json())
+    axios.get(`https://viacep.com.br/ws/${cep}/json/`)
       .then((data) => {
         setFieldValue("logradouro", data.logradouro);
         setFieldValue("complemento", data.complemento);
         setFieldValue("bairro", data.bairro);
         setFieldValue("cidade", data.localidade);
         setFieldValue("estado", data.uf);
+
       });
   }
 
@@ -161,7 +162,6 @@ function Candidato(props) {
                       label="Nome:"
                       padding=" 0.5rem 1rem"
                       nameError="nome"
-                      //color="#fff"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -169,8 +169,6 @@ function Candidato(props) {
                       name="nomeSocial"
                       label="Nome Social:"
                       nameError="nomeSocial"
-
-                      //color="#fff"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -190,13 +188,12 @@ function Candidato(props) {
                       nameError="rg"
                       onChange={(data) => setFieldValue("rg", data.rg)}
                     />
-                 
+
                     <InputFields
                       name="dataNascimento"
                       label="Data Nascimento:"
                       padding=" 0.5rem 1rem"
                       nameError="dataNascimento"
-                      //color="#fff"
                       type="date"
                     />
                   </BoxSingleInput>
@@ -206,7 +203,6 @@ function Candidato(props) {
                       label="Genero:"
                       padding=" 0.5rem 1rem"
                       nameError="genero"
-                      //color="#fff"
                       component="select"
                     >
                       {listaGenero}
@@ -215,7 +211,6 @@ function Candidato(props) {
                       name="estadoCivil"
                       label="Estado Civil:"
                       padding=" 0.5rem 1rem"
-                      //color="#fff"
                       nameError="estadoCivil"
                       component="select"
                     >
@@ -225,7 +220,6 @@ function Candidato(props) {
                       name="nacionalidade"
                       label="Nacionalidade:"
                       padding=" 0.5rem 1rem"
-                      //color="#fff"
                       component="select"
                       nameError="nacionalidade"
                     >
@@ -236,6 +230,7 @@ function Candidato(props) {
                 <SubBoxForm>
                   <SubText>Endereço</SubText>
                   <BoxSingleInput>
+                  
                     <MaskInput
                       mask="99999-999"
                       flex="1"
@@ -252,7 +247,6 @@ function Candidato(props) {
                       label="Endereço:"
                       padding=" 0.5rem 1rem"
                       nameError="logradouro"
-                      //color="#fff"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -262,7 +256,6 @@ function Candidato(props) {
                       label="Bairro:"
                       padding=" 0.5rem 1rem"
                       nameError="bairro"
-                      //color="#fff"
                     />
                     <InputFields
                       flex="2"
@@ -270,7 +263,6 @@ function Candidato(props) {
                       label="Complemento:"
                       padding=" 0.5rem 1rem"
                       nameError="complemento"
-                      //color="#fff"
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
@@ -279,14 +271,12 @@ function Candidato(props) {
                       label="Cidade:"
                       padding=" 0.5rem 1rem"
                       nameError="cidade"
-                      //color="#fff"
                     />
                     <InputFields
                       name="estado"
                       label="Estado:"
                       padding=" 0.5rem 1rem"
                       nameError="estado"
-                      //color="#fff"
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
@@ -299,14 +289,16 @@ function Candidato(props) {
                       label="Celular:"
                       padding=" 0.5rem 1rem"
                       nameError="celular"
-                      onChange={(data) => setFieldValue("celular", data.celular)}
+                      onChange={(data) =>
+                        setFieldValue("celular", data.celular)
+                      }
                     />
                     <InputFields
                       name="emailString"
                       label="E-mail:"
                       padding=" 0.5rem 1rem"
                       nameError="emailString"
-                      //color="#fff"
+                      //
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
@@ -318,15 +310,12 @@ function Candidato(props) {
                       label="Facebook:"
                       padding=" 0.5rem 1rem"
                       nameError="facebook"
-
-                      //color="#fff"
                     />
                     <InputFields
                       name="instagram"
                       label="Instagram:"
                       padding=" 0.5rem 1rem"
                       nameError="instagram"
-                      //color="#fff"
                     />
                   </BoxSingleInput>
                 </SubBoxForm>
@@ -339,33 +328,25 @@ function Candidato(props) {
                       padding=" 0.5rem 1rem"
                       nameError="senha"
                       type={showPass ? "password" : "text"}
-                      //color="#fff"
                     />
                     <InputFields
                       name="confirmacaoSenha"
                       label="Confirma a Senha:"
                       padding=" 0.5rem 1rem"
                       nameError="confirmacaoSenha"
-                      //color="#fff"
                       type={showPass ? "password" : "text"}
-                      iconShow={
-                        <BoxIconShow
-                          right="1.5rem"
-                          onChange={handleShowPass}
-                          onMouseDown={handleShowPass}
-                        >
-                          {showPass ? (
-                            <VisibilityIcon />
-                          ) : (
-                            <VisibilityOffIcon />
-                          )}
-                        </BoxIconShow>
-                      }
                     />
+                    <BoxIconShow
+                      right="1.5rem"
+                      onChange={handleShowPass}
+                      onMouseDown={handleShowPass}
+                    >
+                      {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                    </BoxIconShow>
                   </BoxSingleInput>
                 </SubBoxForm>
               </BoxForm>
-              {JSON.stringify(values, null, 2)}
+
               <Buttons
                 variant="contained"
                 disabled={isSubmitting}

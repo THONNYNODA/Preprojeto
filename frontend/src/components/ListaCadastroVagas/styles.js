@@ -5,10 +5,9 @@ import { Radio } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-
 export const BoxButton = styled("div")`
   width: 100%;
-  flex:1;
+  flex: 1;
   display: flex;
   justify-content: end;
 `;
@@ -78,6 +77,7 @@ export const BoxTabela = styled("div")`
   display: flex;
   position: relative;
   cursor: pointer;
+  color: var(--text);
   border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
@@ -103,23 +103,29 @@ export const BoxColuna = styled("div")`
 `;
 
 export const LinhaTabela = styled("div")`
+  color: var(--text);
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 1rem;
-  width: 10%;
-  flex: 3;
+  padding: 0.5rem;
+  flex: 1;
+  font-size: 1.2rem;
   border-right: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
-    flex: 1;
     border-right: none;
-    justify-content: center;
+  }
+  &:nth-of-type(3) {
+    flex: 5;
+    justify-content: left;
   }
 `;
 export const LinhaTitle = styled(LinhaTabela)`
   font-size: 1rem;
+  color: #fff;
 `;
 
 export const BoxIcon = styled("div")`
+  color: ${(props) => props.color};
   display: flex;
   justify-content: center;
   align-items: center;

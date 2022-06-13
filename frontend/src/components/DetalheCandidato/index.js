@@ -40,25 +40,22 @@ function DetalheCandidato(props) {
     var nascimento = new Date(dataNascimento);
     var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
 
-    console.log( new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate()))
-
     if (
-      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) >
+      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
       new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
     )
       diferencaAnos--;
 
     return diferencaAnos;
   };
-
   return (
     <>
       <Modal
         onClick={handleClose}
-        key={props.idAtual.id}
+        
         title={props.idAtual.nome}
       >
-        <ContainerDetalheCandidato>
+        <ContainerDetalheCandidato key={props.idAtual.id}>
           <div>
             <p>Estado Civil: {props.idAtual.estado_civil}</p>
             <p>Nascionalidade: {props.idAtual.nacionalidade}</p>

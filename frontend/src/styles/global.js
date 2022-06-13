@@ -6,7 +6,8 @@ export const GlobalStyle = createGlobalStyle`
         --primary-color:hsl(var(--hue), 52%, 25%);
         --text:#212529;
         --title-light: rgba(31, 99, 87, 0.6);
-        --error-color: #ff1700
+        --error-color: #ff1700;
+        --alert-color: #FEDA15;
     }
     *{
         margin: 0;

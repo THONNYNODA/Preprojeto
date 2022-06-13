@@ -2,27 +2,19 @@ import React, { useState } from "react";
 import Confirmacao from "../Confirmacao";
 import Modal from "../Modal";
 import Progresso from "../Progresso";
-import {
-  BoxDetalhe,
-  ContainerDetalheVaga,
-  TextDetalhe,
-  Buttons,
-  BoxPerfil,
-} from "./styles";
+import { ContainerDetalheVaga } from "./styles";
 import CheckIcon from "@mui/icons-material/Check";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
-import Perfil from '../../assets/PerfilMan.svg'
+
 
 function DetalheCadastroVagas(props) {
   const [progresso, setProgresso] = useState(false);
   const [status, setStatus] = useState();
 
-  const handleClouse = () => {
-    props.setOpenDetalhe(false);
-  };
+  const handleClose = () => props.setOpenDetalhe(false);
+
 
   const handleCandidatar = () => {
-    setProgresso(true);
     try {
       setTimeout(() => {
         setProgresso(false);
@@ -41,52 +33,34 @@ function DetalheCadastroVagas(props) {
       }, 4000);
     }
   };
-
-  const calculoIdade = (dataNascimento) => {
-    var hoje = new Date();
-    var nascimento = new Date(dataNascimento);
-    var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
-
-    if (
-      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
-      new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
-    )
-      diferencaAnos--;
-
-    return diferencaAnos;
-  };
+  
   return (
     <>
       <Modal
-        onClick={handleClouse}
+        onClick={handleClose}
         key={props.dados.id}
         title={props.dados.nome}
-        background="#fff"
       >
         <ContainerDetalheVaga>
-          <BoxDetalhe>
-              <BoxPerfil img={Perfil}/>
-          </BoxDetalhe>
-          <BoxDetalhe>
-            <TextDetalhe>
-              Carga horaria semanal: {props.dados.horasSemanais}
-            </TextDetalhe>
-            <TextDetalhe>
-              Período de dias por semana: {props.dados.diasSemana}
-            </TextDetalhe>
-            <TextDetalhe>
-              Turno no cargo: {props.dados.turnoTrabalho}
-            </TextDetalhe>
-            <TextDetalhe>Local do trabalho: {props.dados.endereco}</TextDetalhe>
-            <TextDetalhe>
-              Requisito para o cargo: {props.dados.requisitos}
-            </TextDetalhe>
-            <TextDetalhe>Regime: {props.dados.regime}</TextDetalhe>
-            <TextDetalhe>Status do cargo: {props.dados.status}</TextDetalhe>
-            <TextDetalhe>Salário: {props.dados.remuneracao}</TextDetalhe>
-            <TextDetalhe>Descricao do cargo:</TextDetalhe>
-            <TextDetalhe>{props.dados.descricao}</TextDetalhe>
-          </BoxDetalhe>
+          <div>
+            <p>
+              Vagas:{" "}
+              <strong className={props.dados.status ? "active" : "desable"}>
+                {props.dados.status ? "Disponivel" : "Não Disponivel"}
+              </strong>
+            </p>
+            <p>Horas Semanais: {props.dados.horasSemanais} horas</p>
+            <p>Dias da Semana: {props.dados.diasSemanais}</p>
+            <p>
+              Salário:{" "}
+              {new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(props.dados.remuneracao)}
+            </p>
+            <p>Detalhe: {props.dados.descricao}</p>
+          </div>
+          <button onClick={handleCandidatar}>Cadastrar - se </button>
         </ContainerDetalheVaga>
       </Modal>
       {progresso === true ? <Progresso /> : null}

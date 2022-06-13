@@ -34,13 +34,12 @@ function ListaCadastroVagas(props) {
   const [pesquisa, setPesquisa] = useState("");
   const [searchResult, setSearchResult] = useState("");
   const [open, setOpen] = useState(false);
-  const [openDetahle, setOpenDetalhe] = useState(false);
-  const [idAtual, setIdAtual] = useState("");
+  const [openDetalhe, setOpenDetalhe] = useState(false);
   const [dados, setDados] = useState([]);
   const [cadastrar, setCadastrar] = useState(false);
 
   useEffect(() => {
-    api.get("vaga/vagas").then((res) => setLista(res.data));
+    api.get("/vagas").then((res) => setLista(res.data.vagas));
   }, []);
 
   useEffect(() => {
@@ -116,11 +115,11 @@ function ListaCadastroVagas(props) {
                     <BoxTabela key={searchResult[e].id}>
                       <LinhaTabela>
                         {searchResult[e].status === "Ativo" ? (
-                          <BoxIcon>
+                          <BoxIcon color="var(--primary-color)">
                             <CheckCircleOutlineIcon />
                           </BoxIcon>
                         ) : (
-                          <BoxIcon color="#8f1402">
+                          <BoxIcon color="var(--error-color)">
                             <NotInterestedIcon />
                           </BoxIcon>
                         )}
@@ -138,14 +137,14 @@ function ListaCadastroVagas(props) {
                         <BoxIcon
                           onClick={() => handleOpen(searchResult[e])}
                           onChange={handleOpen}
-                          color="#FEDA15"
+                          color="var(--alert-color)"
                         >
                           <EditIcon />
                         </BoxIcon>
                         <BoxIcon
                           onClick={() => handleDelete(searchResult[e].id)}
                           onChange={handleOpen}
-                          color="#8f1402"
+                          color="var(--error-color)"
                         >
                           <DeleteForeverIcon />
                         </BoxIcon>
@@ -158,11 +157,11 @@ function ListaCadastroVagas(props) {
         </ContainerListaVagas>
       </Card>
       {open ? (
-        <EditarVagas {...{ open, setOpen, lista, idAtual, dados }} />
+        <EditarVagas {...{ setOpen, lista, dados }} />
       ) : null}
-      {openDetahle ? (
+      {openDetalhe ? (
         <DetalheCadastroVagas
-          {...{ open, setOpenDetalhe, lista, idAtual, dados }}
+          {...{  setOpenDetalhe, lista, dados }}
         />
       ) : null}
       {cadastrar ? <CadastrarVagas {...{ cadastrar, setCadastrar }} /> : null}

@@ -49,15 +49,18 @@ export const BoxColuna = styled("div")`
 export const LinhaTabela = styled("div")`
   color:var(--text);
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  flex: 5;
+  flex: 1;
   font-size: 1.2rem;
   border-right: 0.1rem solid #ccc;
-  &:nth-last-of-type(1) {
-    flex: 1;
+  &:nth-last-of-type(1) {    
     border-right: none;
-    justify-content: center;
+  };
+  &:nth-of-type(1){
+    flex:5;
+    justify-content: left;
   }
 `;
 export const LinhaTitle = styled(LinhaTabela)`
@@ -111,7 +114,14 @@ export const IconSeach = styled("span")`
   padding-inline: 1rem;
   color: var(--primary-color);
 `;
+export const Countain = styled("div")`
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+
+`;
 export const ContainerRadio = styled(FormControl)`
+
   position: relative;
 `;
 

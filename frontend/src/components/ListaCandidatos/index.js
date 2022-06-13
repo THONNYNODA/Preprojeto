@@ -20,6 +20,7 @@ import {
   BoxAvancado,
   ButtonAvancado,
   ContainerRadio,
+  Countain,
 } from "./styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
@@ -37,7 +38,9 @@ function ListaCandidatos(props) {
   const [searchResult, setSearchResult] = useState([]);
   const [open, setOpen] = useState(false);
   const [idAtual, setIdAtual] = useState("");
-  const [valor, setValor] = useState();
+  const [idade, setIdade] = useState();
+  const [genero, setGenero] = useState();
+  const [cidade, setCidade] = useState();
 
   const [show, setShow] = React.useState(false);
 
@@ -70,21 +73,65 @@ function ListaCandidatos(props) {
     setOpen(true);
   };
 
+  const calculoIdade = (dataNascimento) => {
+    var hoje = new Date();
+    var nascimento = new Date(dataNascimento);
+    var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
+
+    if (
+      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
+      new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
+    )
+      diferencaAnos--;
+
+    return diferencaAnos;
+  };
+
   useEffect(() => {
     var resultado = [];
-    if (valor === "menor18") {
-      resultado = lista.filter((e) => e.id.toString() <= 5);
-    } else if (valor === "18a25") {
+
+    if (idade === "menor18") {
       resultado = lista.filter(
-        (e) => e.id.toString() > 5 && e.id.toString() <= 8
+        (e) => calculoIdade(e.data_nascimento.toString()) <= 18
       );
-    } else if (valor === "25maior") {
-      resultado = lista.filter((e) => e.id.toString() > 8);
-    } else if (valor === "todos") {
+    } else if (idade === "18a25") {
+      resultado = lista.filter(
+        (e) =>
+          calculoIdade(e.data_nascimento.toString()) > 18 &&
+          calculoIdade(e.data_nascimento.toString()) <= 25
+      );
+    } else if (idade === "25maior") {
+      resultado = lista.filter(
+        (e) => calculoIdade(e.data_nascimento.toString()) > 25
+      );
+    } else if (idade === "todos") {
       resultado = lista;
     }
     setSearchResult(resultado);
-  }, [valor]);
+  }, [idade]);
+
+  useEffect(() => {
+    var resultado = [];
+    if (genero === "feminino") {
+      resultado = lista.filter((e) => e.genero.includes("Feminino"));
+    } else if (genero === "masculino") {
+      resultado = lista.filter((e) => e.genero.includes("Masculino"));
+    } else if (genero === "todos") {
+      resultado = lista;
+    }
+    setSearchResult(resultado);
+  }, [genero]);
+
+  useEffect(() => {
+    var resultado = [];
+    if (cidade === "umuarama") {
+      resultado = lista.filter((e) => e.cidade.includes("Umuarama"));
+    } else if (cidade === "todos") {
+      resultado = lista;
+    }
+    setSearchResult(resultado);
+  }, [cidade]);
+
 
   return (
     <>
@@ -106,37 +153,86 @@ function ListaCandidatos(props) {
             <Box>
               {show ? (
                 <Portal container={container.current}>
-                  <ContainerRadio>
-                    <TitleRadio>Idade</TitleRadio>
-                    <BoxRadio
-                      defaultValue="todos"
-                      name={valor}
-                      onChange={(e) => {
-                        setValor(e.target.value);
-                      }}
-                    >
-                      <FormControlLabel
-                        value="menor18"
-                        control={<SeachRadio />}
-                        label="Menor de 18 anos"
-                      />
-                      <FormControlLabel
-                        value="18a25"
-                        control={<SeachRadio />}
-                        label="18 a 25 anos"
-                      />
-                      <FormControlLabel
-                        value="25maior"
-                        control={<SeachRadio />}
-                        label="maior de 25"
-                      />
-                      <FormControlLabel
-                        value="todos"
-                        control={<SeachRadio />}
-                        label="Todos"
-                      />
-                    </BoxRadio>
-                  </ContainerRadio>
+                  <Countain>
+                    <ContainerRadio>
+                      <TitleRadio>Idade</TitleRadio>
+                      <BoxRadio
+                        defaultValue="todos"
+                        name={idade}
+                        onChange={(e) => {
+                          setIdade(e.target.value);
+                        }}
+                      >
+                        <FormControlLabel
+                          value="menor18"
+                          control={<SeachRadio />}
+                          label="Menor de 18 anos"
+                        />
+                        <FormControlLabel
+                          value="18a25"
+                          control={<SeachRadio />}
+                          label="18 a 25 anos"
+                        />
+                        <FormControlLabel
+                          value="25maior"
+                          control={<SeachRadio />}
+                          label="maior de 25"
+                        />
+                        <FormControlLabel
+                          value="todos"
+                          control={<SeachRadio />}
+                          label="Todos"
+                        />
+                      </BoxRadio>
+                    </ContainerRadio>
+                    <ContainerRadio>
+                      <TitleRadio>Genero</TitleRadio>
+                      <BoxRadio
+                        defaultValue="todos"
+                        name={genero}
+                        onChange={(e) => {
+                          setGenero(e.target.value);
+                        }}
+                      >
+                        <FormControlLabel
+                          value="feminino"
+                          control={<SeachRadio />}
+                          label="Feminino"
+                        />
+                        <FormControlLabel
+                          value="masculino"
+                          control={<SeachRadio />}
+                          label="Masculino"
+                        />
+                        <FormControlLabel
+                          value="todos"
+                          control={<SeachRadio />}
+                          label="Todos"
+                        />
+                      </BoxRadio>
+                    </ContainerRadio>
+                    <ContainerRadio>
+                      <TitleRadio>Cidade</TitleRadio>
+                      <BoxRadio
+                        defaultValue="todos"
+                        name={cidade}
+                        onChange={(e) => {
+                          setCidade(e.target.value);
+                        }}
+                      >
+                        <FormControlLabel
+                          value="umuarama"
+                          control={<SeachRadio />}
+                          label="Umuarama"
+                        />
+                        <FormControlLabel
+                          value="todos"
+                          control={<SeachRadio />}
+                          label="Todos"
+                        />
+                      </BoxRadio>
+                    </ContainerRadio>
+                  </Countain>
                 </Portal>
               ) : null}
               <BoxAvancado>
@@ -151,6 +247,8 @@ function ListaCandidatos(props) {
           <ContainerTabela>
             <BoxTabelaTitle>
               <LinhaTitle>Nome</LinhaTitle>
+              <LinhaTitle>Genero</LinhaTitle>
+              <LinhaTitle>Cidade</LinhaTitle>
               <LinhaTitle>Idade</LinhaTitle>
               <LinhaTitle>Detalhe</LinhaTitle>
             </BoxTabelaTitle>
@@ -163,7 +261,11 @@ function ListaCandidatos(props) {
                   <>
                     <BoxTabela>
                       <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                      <LinhaTabela>{searchResult[e].id}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e].genero}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e].cidade}</LinhaTabela>
+                      <LinhaTabela>
+                        {calculoIdade(searchResult[e].data_nascimento)}
+                      </LinhaTabela>
                       <LinhaTabela>
                         <BoxIcon
                           onClick={() => handleOpen(searchResult[e])}
