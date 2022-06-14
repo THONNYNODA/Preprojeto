@@ -52,7 +52,7 @@ const validationSchema = yup.object().shape({
 
 function Candidato(props) {
   const [view, setView] = useState();
-  const [showPass, setShowPass] = useState(true);
+  const [showPass, setShowPass] = useState(false);
 
   const Genero = ["Masculino", "Feminino", "Outros"];
   const civil = ["Solteiro(a)", "Casado(a)", "Viúvo(a)"];
@@ -99,15 +99,13 @@ function Candidato(props) {
     }
 
     //Buscando o CEP
-    axios.get(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((data) => {
-        setFieldValue("logradouro", data.logradouro);
-        setFieldValue("complemento", data.complemento);
-        setFieldValue("bairro", data.bairro);
-        setFieldValue("cidade", data.localidade);
-        setFieldValue("estado", data.uf);
-
-      });
+    axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((data) => {
+      setFieldValue("logradouro", data.logradouro);
+      setFieldValue("complemento", data.complemento);
+      setFieldValue("bairro", data.bairro);
+      setFieldValue("cidade", data.localidade);
+      setFieldValue("estado", data.uf);
+    });
   }
 
   //Config Mask
@@ -119,7 +117,7 @@ function Candidato(props) {
 
   const handleMask = (ev, setFieldValue) => {
     const { name, value } = ev.target || " ";
-    setFieldValue(name, value);
+    console.log(setFieldValue(name, value));
   };
 
   return (
@@ -174,7 +172,10 @@ function Candidato(props) {
                   <BoxSingleInput>
                     <MaskInput
                       mask="999.999.999-99"
-                      onChange={(ev) => handleMask(ev, setFieldValue)}
+                      onChange={(e) => {
+                        const value = e.target.value || "";
+                        setFieldValue("cpf", value);
+                      }}
                       padding=" 0.5rem 1rem"
                       name="cpf"
                       label="CPF:"
@@ -186,7 +187,10 @@ function Candidato(props) {
                       label="RG:"
                       padding=" 0.5rem 1rem"
                       nameError="rg"
-                      onChange={(data) => setFieldValue("rg", data.rg)}
+                      onChange={(e) => {
+                        const value = e.target.value || "";
+                        setFieldValue("rg", value);
+                      }}
                     />
 
                     <InputFields
@@ -230,7 +234,6 @@ function Candidato(props) {
                 <SubBoxForm>
                   <SubText>Endereço</SubText>
                   <BoxSingleInput>
-                  
                     <MaskInput
                       mask="99999-999"
                       flex="1"
@@ -239,7 +242,10 @@ function Candidato(props) {
                       padding=" 0.5rem 1rem"
                       nameError="cep"
                       onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
-                      onChange={(data) => setFieldValue("cep", data.cep)}
+                      onChange={(e) => {
+                        const value = e.target.value || "";
+                        setFieldValue("cep", value);
+                      }}
                     />
                     <InputFields
                       flex="2"
@@ -289,9 +295,10 @@ function Candidato(props) {
                       label="Celular:"
                       padding=" 0.5rem 1rem"
                       nameError="celular"
-                      onChange={(data) =>
-                        setFieldValue("celular", data.celular)
-                      }
+                      onChange={(e) => {
+                        const value = e.target.value || "";
+                        setFieldValue("celular", value);
+                      }}
                     />
                     <InputFields
                       name="emailString"
@@ -327,7 +334,7 @@ function Candidato(props) {
                       label="Senha:"
                       padding=" 0.5rem 1rem"
                       nameError="senha"
-                      type={showPass ? "password" : "text"}
+                      // type={showPass ? "password" : "text"}
                     />
                     <InputFields
                       name="confirmacaoSenha"
@@ -338,8 +345,7 @@ function Candidato(props) {
                     />
                     <BoxIconShow
                       right="1.5rem"
-                      onChange={handleShowPass}
-                      onMouseDown={handleShowPass}
+                      onClick={handleShowPass}
                     >
                       {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
                     </BoxIconShow>

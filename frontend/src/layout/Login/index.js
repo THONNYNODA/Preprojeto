@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import * as yup from "yup";
 import InputFields from "../../components/Input";
@@ -34,10 +34,9 @@ const validationSchema = yup.object().shape({
 function Login(props) {
   const [showPass, setShowPass] = useState(true);
 
-  //Config Mask
   const MaskInput = (props) => (
-    <InputMask maskChar={null} {...props}>
-      {(inputProps) => <InputFields {...inputProps} />}
+    <InputMask maskChar={null}  {...props}>
+      {(inputProps) => <InputFields {...inputProps} disableUnderline   />}
     </InputMask>
   );
 
@@ -49,6 +48,7 @@ function Login(props) {
   const handleShowPass = () => {
     setShowPass(!showPass);
   };
+  console.log(MaskInput)
 
   const inicial = {
     cpf: "",
@@ -70,10 +70,10 @@ function Login(props) {
         <ContainerForm width="40%">
           <BoxForm>
             <TitleLogin>Login</TitleLogin>
-            <Text color="#000000"  >
+            <Text color="#000000">
               Faça o seu login para verificar as vagas disponivel
             </Text>
-            <Divisorio height="0.1rem" margin="1.5rem 0"/>
+            <Divisorio height="0.1rem" margin="1.5rem 0" />
             <Formik
               validationSchema={validationSchema}
               initialValues={inicial}
@@ -93,22 +93,34 @@ function Login(props) {
                 setFieldValue,
               }) => (
                 <Form onSubmit={handleSubmit}>
-                  <MaskInput
-                    padding="1rem"
-                    mask="999.999.999-99"
-                    colorResponse="#ffffff"
-                    color="var(--primary-color)"
+                <MaskInput
+                      mask="999.999.999-99"
+                      onChange={(e) => {
+                        const value = e.target.value || "";
+                        setFieldValue("cpf", value);
+                      }}
+                      padding=" 0.5rem 1rem"
+                      name="cpf"
+                      label="CPF:"
+                      nameError="cpf"
+                      
+                    />
+                 
+
+                  <InputFields
                     label="CPF"
-                    icon={<PersonRoundedIcon />}
-                    name="cpf"
-                    placeholder="CPF"
+                    color="var(--primary-color)"
+                    colorResponse="#ffffff"
+                    type="text"
+                    padding="1rem"
                     fontSize="1.2rem"
                     width="100%"
+                    
+                    name="cpf"
+                    placeholder="cpf"
                     margin="0"
                     nameError="cpf"
-                    onChange={(ev) => handleMask(ev, setFieldValue)}
                   />
-
                   <InputFields
                     label="Senha"
                     color="var(--primary-color)"
@@ -122,16 +134,10 @@ function Login(props) {
                     placeholder="******"
                     margin="0"
                     nameError="senha"
-                    iconShow={
-                      <BoxIconShow
-                        onChange={handleShowPass}
-                        onMouseDown={handleShowPass}
-                      >
-                        {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                      </BoxIconShow>
-                    }
                   />
-
+                  <BoxIconShow onClick={handleShowPass}>
+                    {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                  </BoxIconShow>
                   <Buttons type="submit">Entrar</Buttons>
                 </Form>
               )}

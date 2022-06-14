@@ -57,7 +57,7 @@ export const BoxIcon = styled("span")`
 
 `;
 
-export const BoxIconShow = styled("span")`
+export const BoxIconShow = styled('span')`
   color: var(--primary-color);
   cursor: pointer;
   display: flex;

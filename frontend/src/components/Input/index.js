@@ -25,15 +25,11 @@ function InputFields({ label, ...props }) {
       <BoxField>
         {props.icon ? <BoxIcon {...props}>{props.icon}</BoxIcon> : null}
         <InputField
-          width={props.width}
-          fontSize={props.fontSize}
-          height={props.height}
-          label={props.label}
-          bgColor={props.bgColor}
+          
           {...field}
           {...props}
         >
-          {props.children}
+           {props.children}
         </InputField>
         {props.iconShow ? props.iconShow : null}
       </BoxField>
