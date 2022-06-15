@@ -15,11 +15,7 @@ function InputFields({ label, ...props }) {
 
   return (
     <ContainerField {...props}>
-      {label ? (
-        <BoxLabel {...props}>
-          <TextLabel {...props}>{label}</TextLabel>
-        </BoxLabel>
-      ) : null}
+      {label ? <label>{label}</label> : null}
       <BoxField>
         {props.icon ? <BoxIcon {...props}>{props.icon}</BoxIcon> : null}
         <InputField {...field} {...props}>

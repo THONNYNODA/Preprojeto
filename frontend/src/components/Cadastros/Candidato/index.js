@@ -99,7 +99,7 @@ function Candidato(props) {
     }
 
     //Buscando o CEP
-    axios.get(`https://viacep.com.br/ws/${cep}/json/`).then((data) => {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res=> res.json()).then((data) => {
       setFieldValue("logradouro", data.logradouro);
       setFieldValue("complemento", data.complemento);
       setFieldValue("bairro", data.bairro);
@@ -208,10 +208,11 @@ function Candidato(props) {
                       padding=" 0.5rem 1rem"
                       nameError="genero"
                       component="select"
+                      
                     >
-                      {listaGenero}
+                    {listaGenero}
                     </InputFields>
-                    <InputFields
+                    {/* <InputFields
                       name="estadoCivil"
                       label="Estado Civil:"
                       padding=" 0.5rem 1rem"
@@ -228,7 +229,7 @@ function Candidato(props) {
                       nameError="nacionalidade"
                     >
                       {listaNacionalidade}
-                    </InputFields>
+                    </InputFields> */}
                   </BoxSingleInput>
                 </SubBoxForm>
                 <SubBoxForm>
@@ -334,7 +335,7 @@ function Candidato(props) {
                       label="Senha:"
                       padding=" 0.5rem 1rem"
                       nameError="senha"
-                      // type={showPass ? "password" : "text"}
+                      type={showPass ? "password" : "text"}
                     />
                     <InputFields
                       name="confirmacaoSenha"

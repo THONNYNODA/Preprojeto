@@ -42,7 +42,8 @@ body{
     };
     p{
         color: var(--text);
-    }
+    };
+
 
 
 

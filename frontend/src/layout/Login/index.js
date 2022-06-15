@@ -6,6 +6,7 @@ import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 import {
   BoxText,
   ContainerFilter,
@@ -21,7 +22,7 @@ import {
 } from "./styles";
 import { BoxIconShow } from "../../components/Input/styles";
 
-import { Form, Formik } from "formik";
+import { Form, Formik,Field } from "formik";
 
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
@@ -35,8 +36,8 @@ function Login(props) {
   const [showPass, setShowPass] = useState(true);
 
   const MaskInput = (props) => (
-    <InputMask maskChar={null}  {...props}>
-      {(inputProps) => <InputFields {...inputProps} disableUnderline   />}
+    <InputMask maskChar={null} onChange={props.Chenge} {...props}>
+      {(inputFields) => <InputFields {...inputFields} />}
     </InputMask>
   );
 
@@ -48,7 +49,7 @@ function Login(props) {
   const handleShowPass = () => {
     setShowPass(!showPass);
   };
-  console.log(MaskInput)
+  
 
   const inicial = {
     cpf: "",
@@ -103,24 +104,10 @@ function Login(props) {
                       name="cpf"
                       label="CPF:"
                       nameError="cpf"
+                      color="var(--primary-color)"
+                      icon={<PersonRoundedIcon />}
                       
-                    />
-                 
-
-                  <InputFields
-                    label="CPF"
-                    color="var(--primary-color)"
-                    colorResponse="#ffffff"
-                    type="text"
-                    padding="1rem"
-                    fontSize="1.2rem"
-                    width="100%"
-                    
-                    name="cpf"
-                    placeholder="cpf"
-                    margin="0"
-                    nameError="cpf"
-                  />
+                    />                 
                   <InputFields
                     label="Senha"
                     color="var(--primary-color)"
@@ -134,10 +121,11 @@ function Login(props) {
                     placeholder="******"
                     margin="0"
                     nameError="senha"
-                  />
-                  <BoxIconShow onClick={handleShowPass}>
+                    iconShow={<BoxIconShow onClick={handleShowPass}>
                     {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                  </BoxIconShow>
+                  </BoxIconShow>}
+                  />
+                  
                   <Buttons type="submit">Entrar</Buttons>
                 </Form>
               )}
