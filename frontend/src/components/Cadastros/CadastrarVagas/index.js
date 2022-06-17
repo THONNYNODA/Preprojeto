@@ -49,15 +49,19 @@ function CadastrarVagas(props) {
               margin="0 0.5rem"
               color="var(--primary-color)"
             />
-
-            <InputFields
+ <InputFields
               bgColor="#cccccc"
               width="100%"
-              label="Descricao"
-              name="descricao"
+              label="Status"
+              name="status"
+              component="select"
               margin="0 0.5rem"
               color="var(--primary-color)"
-            />
+            >
+              <option value="ativo">Ativo</option>
+              <option value="desativado">Desativado</option>
+            </InputFields>
+           
           </BoxInput>
           <BoxInput>
             <InputFields
@@ -119,18 +123,15 @@ function CadastrarVagas(props) {
             />
           </BoxInput>
           <BoxInput>
-            <InputFields
+          <InputFields
               bgColor="#cccccc"
               width="100%"
-              label="Status"
-              name="status"
-              component="select"
+              type="textarea"
+              label="Descricao"
+              name="descricao"
               margin="0 0.5rem"
               color="var(--primary-color)"
-            >
-              <option value="ativo">Ativo</option>
-              <option value="desativado">Desativado</option>
-            </InputFields>
+            />
           </BoxInput>
           <Buttons type="submit">Cadastrar</Buttons>
         </Formularios>

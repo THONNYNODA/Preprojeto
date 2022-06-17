@@ -14,14 +14,15 @@ export const BoxButton = styled("div")`
 
 export const ButtonAdd = styled("button")`
   display: flex;
+  border: 0;
+  padding: 0 0.5rem;
   justify-content: center;
   align-items: center;
-  border: none;
   cursor: pointer;
   color: #fff;
   background: none;
-  padding: 0.4rem;
-  margin-bottom: 1rem;
+  
+
   &:hover {
     color: rgba(230, 230, 230, 1);
   }
@@ -49,8 +50,10 @@ export const ContainerDetalhe = styled("div")`
 `;
 
 export const BoxDetalhe = styled("div")`
-  width: 100%;
   display: flex;
+  padding: 0.5rem  0;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const TitleDetalhe = styled("h2")`
@@ -76,15 +79,10 @@ export const BoxTabela = styled("div")`
   width: 100%;
   display: flex;
   position: relative;
-  cursor: pointer;
   color: var(--text);
   border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
-  }
-  &:hover {
-    background: rgba(31, 99, 87, 0.9);
-    color: #fff !important;
   }
 `;
 export const BoxTabelaTitle = styled("div")`
@@ -131,6 +129,17 @@ export const BoxIcon = styled("div")`
   align-items: center;
   padding: 0.5rem;
   cursor: pointer;
+  &:hover {
+    filter: brightness(0.7);
+    border-radius: 30px;
+  }
+`;
+export const BoxIconStatus = styled("div")`
+  color: ${(props) => props.color};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;
@@ -148,11 +157,10 @@ export const BoxIconClose = styled("div")`
   }
 `;
 export const BoxSeach = styled("div")`
-  width: 100%;
   display: flex;
-  align-self: center;
+  flex:1;
   background-color: #ffff;
-  position: relative;
+
 `;
 export const InputSeach = styled("input")`
   width: 100%;

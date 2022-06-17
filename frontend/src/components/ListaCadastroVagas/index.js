@@ -15,6 +15,7 @@ import {
   ButtonAdd,
   BoxButton,
   BoxDetalhe,
+  BoxIconStatus,
 } from "./styles";
 
 import CadastrarVagas from "../Cadastros/CadastrarVagas";
@@ -90,12 +91,10 @@ function ListaCadastroVagas(props) {
                 <SearchIcon />
               </IconSeach>
             </BoxSeach>
-            <BoxButton>
-              <ButtonAdd onClick={handleCadastrarVaga}>
-                <AddIcon />
-                Adicionar
-              </ButtonAdd>
-            </BoxButton>
+            <ButtonAdd onClick={handleCadastrarVaga}>
+            <AddIcon />
+              Adicionar
+            </ButtonAdd>
           </BoxDetalhe>
 
           <ContainerTabela>
@@ -115,9 +114,9 @@ function ListaCadastroVagas(props) {
                     <BoxTabela key={searchResult[e].id}>
                       <LinhaTabela>
                         {searchResult[e].status === "Ativo" ? (
-                          <BoxIcon color="var(--primary-color)">
+                          <BoxIconStatus color="var(--primary-color)">
                             <CheckCircleOutlineIcon />
-                          </BoxIcon>
+                          </BoxIconStatus>
                         ) : (
                           <BoxIcon color="var(--error-color)">
                             <NotInterestedIcon />
@@ -156,13 +155,9 @@ function ListaCadastroVagas(props) {
           </ContainerTabela>
         </ContainerListaVagas>
       </Card>
-      {open ? (
-        <EditarVagas {...{ setOpen, lista, dados }} />
-      ) : null}
+      {open ? <EditarVagas {...{ setOpen, lista, dados }} /> : null}
       {openDetalhe ? (
-        <DetalheCadastroVagas
-          {...{  setOpenDetalhe, lista, dados }}
-        />
+        <DetalheCadastroVagas {...{ setOpenDetalhe, lista, dados }} />
       ) : null}
       {cadastrar ? <CadastrarVagas {...{ cadastrar, setCadastrar }} /> : null}
     </>

@@ -22,7 +22,7 @@ import {
 } from "./styles";
 import { BoxIconShow } from "../../components/Input/styles";
 
-import { Form, Formik,Field } from "formik";
+import { Form, Formik, Field } from "formik";
 
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
@@ -35,12 +35,6 @@ const validationSchema = yup.object().shape({
 function Login(props) {
   const [showPass, setShowPass] = useState(true);
 
-  const MaskInput = (props) => (
-    <InputMask maskChar={null} onChange={props.Chenge} {...props}>
-      {(inputFields) => <InputFields {...inputFields} />}
-    </InputMask>
-  );
-
   const handleMask = (ev, setFieldValue) => {
     const { name, value } = ev.target || "";
     setFieldValue(name, value);
@@ -49,7 +43,6 @@ function Login(props) {
   const handleShowPass = () => {
     setShowPass(!showPass);
   };
-  
 
   const inicial = {
     cpf: "",
@@ -94,20 +87,26 @@ function Login(props) {
                 setFieldValue,
               }) => (
                 <Form onSubmit={handleSubmit}>
-                <MaskInput
-                      mask="999.999.999-99"
-                      onChange={(e) => {
-                        const value = e.target.value || "";
-                        setFieldValue("cpf", value);
-                      }}
-                      padding=" 0.5rem 1rem"
-                      name="cpf"
-                      label="CPF:"
-                      nameError="cpf"
-                      color="var(--primary-color)"
-                      icon={<PersonRoundedIcon />}
-                      
-                    />                 
+                  <InputMask
+                    mask="999.999.999-99"
+                    maskChar=" "
+                    onChange={(e) => {
+                      const value = e.target.value || "";
+                      setFieldValue("cpf", value);
+                    }}
+                  >
+                    {(inputProps) => (
+                      <InputFields
+                        {...inputProps}
+                        padding=" 0.5rem 1rem"
+                        name="cpf"
+                        label="CPF:"
+                        nameError="cpf"
+                        color="var(--primary-color)"
+                        icon={<PersonRoundedIcon />}
+                      />
+                    )}
+                  </InputMask>
                   <InputFields
                     label="Senha"
                     color="var(--primary-color)"
@@ -121,12 +120,15 @@ function Login(props) {
                     placeholder="******"
                     margin="0"
                     nameError="senha"
-                    iconShow={<BoxIconShow onClick={handleShowPass}>
-                    {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                  </BoxIconShow>}
+                    iconShow={
+                      <BoxIconShow onClick={handleShowPass}>
+                        {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                      </BoxIconShow>
+                    }
                   />
-                  
+
                   <Buttons type="submit">Entrar</Buttons>
+
                 </Form>
               )}
             </Formik>

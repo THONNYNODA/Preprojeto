@@ -92,6 +92,7 @@ function Candidato(props) {
 
   function BuscarCEP(ev, setFieldValue) {
     const { value } = ev.target;
+    setFieldValue("cep", value);
     const cep = value.replace(/[^0-9]/, "");
 
     if (cep.length !== 8) {
@@ -99,26 +100,18 @@ function Candidato(props) {
     }
 
     //Buscando o CEP
-    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res=> res.json()).then((data) => {
-      setFieldValue("logradouro", data.logradouro);
-      setFieldValue("complemento", data.complemento);
-      setFieldValue("bairro", data.bairro);
-      setFieldValue("cidade", data.localidade);
-      setFieldValue("estado", data.uf);
-    });
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFieldValue("logradouro", data.logradouro);
+        setFieldValue("complemento", data.complemento);
+        setFieldValue("bairro", data.bairro);
+        setFieldValue("cidade", data.localidade);
+        setFieldValue("estado", data.uf);
+      });
   }
 
   //Config Mask
-  const MaskInput = (props) => (
-    <InputMask maskChar={null} onChange={props.Chenge} {...props}>
-      {(inputFields) => <InputFields {...inputFields} />}
-    </InputMask>
-  );
-
-  const handleMask = (ev, setFieldValue) => {
-    const { name, value } = ev.target || " ";
-    console.log(setFieldValue(name, value));
-  };
 
   return (
     <>
@@ -147,6 +140,7 @@ function Candidato(props) {
             touched,
             isSubmitting,
             values,
+            onBlur,
             handleSubmit,
             setFieldValue,
           }) => (
@@ -170,28 +164,42 @@ function Candidato(props) {
                     />
                   </BoxSingleInput>
                   <BoxSingleInput>
-                    <MaskInput
+                    <InputMask
                       mask="999.999.999-99"
+                      maskChar=" "
                       onChange={(e) => {
                         const value = e.target.value || "";
                         setFieldValue("cpf", value);
                       }}
-                      padding=" 0.5rem 1rem"
-                      name="cpf"
-                      label="CPF:"
-                      nameError="cpf"
-                    />
-                    <MaskInput
+                    >
+                      {(inputProps) => (
+                        <InputFields
+                          {...inputProps}
+                          padding=" 0.5rem 1rem"
+                          name="cpf"
+                          label="CPF:"
+                          nameError="cpf"
+                        />
+                      )}
+                    </InputMask>
+                    <InputMask
                       mask="99.999.999-9"
-                      name="rg"
-                      label="RG:"
-                      padding=" 0.5rem 1rem"
-                      nameError="rg"
+                      maskChar=" "
                       onChange={(e) => {
                         const value = e.target.value || "";
                         setFieldValue("rg", value);
                       }}
-                    />
+                    >
+                      {(inputProps) => (
+                        <InputFields
+                          {...inputProps}
+                          padding=" 0.5rem 1rem"
+                          name="rg"
+                          label="RG:"
+                          nameError="rg"
+                        />
+                      )}
+                    </InputMask>
 
                     <InputFields
                       name="dataNascimento"
@@ -208,17 +216,18 @@ function Candidato(props) {
                       padding=" 0.5rem 1rem"
                       nameError="genero"
                       component="select"
-                      
                     >
-                    {listaGenero}
+                      <option selected>Selecione</option>
+                      {listaGenero}
                     </InputFields>
-                    {/* <InputFields
+                    <InputFields
                       name="estadoCivil"
                       label="Estado Civil:"
                       padding=" 0.5rem 1rem"
                       nameError="estadoCivil"
                       component="select"
                     >
+                      <option selected>Selecione</option>
                       {listaCivil}
                     </InputFields>
                     <InputFields
@@ -228,26 +237,33 @@ function Candidato(props) {
                       component="select"
                       nameError="nacionalidade"
                     >
+                      <option selected>Selecione</option>
                       {listaNacionalidade}
-                    </InputFields> */}
+                    </InputFields>
                   </BoxSingleInput>
                 </SubBoxForm>
                 <SubBoxForm>
                   <SubText>Endereço</SubText>
                   <BoxSingleInput>
-                    <MaskInput
+                    <InputMask
                       mask="99999-999"
-                      flex="1"
-                      name="cep"
-                      label="CEP:"
-                      padding=" 0.5rem 1rem"
-                      nameError="cep"
-                      onBlur={(ev) => BuscarCEP(ev, setFieldValue)}
+                      maskChar=" "
                       onChange={(e) => {
-                        const value = e.target.value || "";
-                        setFieldValue("cep", value);
+                        BuscarCEP(e, setFieldValue);
                       }}
-                    />
+                    >
+                      {(inputProps) => (
+                        <InputFields
+                          {...inputProps}
+                          flex="1 "
+                          padding=" 0.5rem 1rem"
+                          name="cep"
+                          label="CEP:"
+                          nameError="cep"
+                        />
+                      )}
+                    </InputMask>
+
                     <InputFields
                       flex="2"
                       name="logradouro"
@@ -290,17 +306,25 @@ function Candidato(props) {
                 <SubBoxForm>
                   <SubText>Contato</SubText>
                   <BoxSingleInput>
-                    <MaskInput
+                    <InputMask
                       mask="(99) 9 9999-9999"
-                      name="celular"
-                      label="Celular:"
-                      padding=" 0.5rem 1rem"
-                      nameError="celular"
+                      maskChar=" "
                       onChange={(e) => {
                         const value = e.target.value || "";
                         setFieldValue("celular", value);
                       }}
-                    />
+                    >
+                      {(inputProps) => (
+                        <InputFields
+                          {...inputProps}
+                          padding=" 0.5rem 1rem"
+                          name="celular"
+                          label="Celular:"
+                          nameError="celular"
+                        />
+                      )}
+                    </InputMask>
+
                     <InputFields
                       name="emailString"
                       label="E-mail:"
@@ -335,21 +359,24 @@ function Candidato(props) {
                       label="Senha:"
                       padding=" 0.5rem 1rem"
                       nameError="senha"
-                      type={showPass ? "password" : "text"}
+                      type={showPass ? "text" : "password"}
                     />
                     <InputFields
                       name="confirmacaoSenha"
                       label="Confirma a Senha:"
                       padding=" 0.5rem 1rem"
                       nameError="confirmacaoSenha"
-                      type={showPass ? "password" : "text"}
+                      type={showPass ? "text" : "password"}
+                      iconShow={
+                        <BoxIconShow right="1.5rem" onClick={handleShowPass}>
+                          {showPass ? (
+                            <VisibilityIcon />
+                          ) : (
+                            <VisibilityOffIcon />
+                          )}
+                        </BoxIconShow>
+                      }
                     />
-                    <BoxIconShow
-                      right="1.5rem"
-                      onClick={handleShowPass}
-                    >
-                      {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                    </BoxIconShow>
                   </BoxSingleInput>
                 </SubBoxForm>
               </BoxForm>
