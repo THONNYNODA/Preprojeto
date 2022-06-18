@@ -129,9 +129,11 @@ export const BoxIcon = styled("div")`
   align-items: center;
   padding: 0.5rem;
   cursor: pointer;
+  transition: 0.2s;
   &:hover {
-    filter: brightness(0.7);
-    border-radius: 30px;
+    border-radius: 20px ;
+    background: rgba(255,255,255,0.3);
+    filter: brightness(0.8);
   }
 `;
 export const BoxIconStatus = styled("div")`

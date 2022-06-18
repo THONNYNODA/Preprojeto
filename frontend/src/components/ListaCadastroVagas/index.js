@@ -118,9 +118,9 @@ function ListaCadastroVagas(props) {
                             <CheckCircleOutlineIcon />
                           </BoxIconStatus>
                         ) : (
-                          <BoxIcon color="var(--error-color)">
+                          <BoxIconStatus color="var(--error-color)">
                             <NotInterestedIcon />
-                          </BoxIcon>
+                          </BoxIconStatus>
                         )}
                       </LinhaTabela>
                       <LinhaTabela>{searchResult[e].nome}</LinhaTabela>

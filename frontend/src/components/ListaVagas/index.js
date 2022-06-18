@@ -20,6 +20,7 @@ import {
   BoxRadio,
   SeachRadio,
   TitleRadio,
+  BoxIconStatus,
 } from "./styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
@@ -28,6 +29,8 @@ import { Box, Portal } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import NotInterestedIcon from "@mui/icons-material/NotInterested";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Card from "../Card";
 
 function ListaVagas(props) {
@@ -42,10 +45,10 @@ function ListaVagas(props) {
   const container = React.useRef(null);
 
   useEffect(() => {
-    api.get('/vagas').then(res => {
-      setLista(res.data.vagas)
-    })
-  }, [])
+    api.get("/vagas").then((res) => {
+      setLista(res.data.vagas);
+    });
+  }, []);
 
   const handleClick = () => {
     setShow(!show);
@@ -55,6 +58,8 @@ function ListaVagas(props) {
   // useEffect(() => {
   //   api.get("vaga/vagas").then((res) => setLista(res.data));
   // }, []);
+
+  console.log(lista);
 
   useEffect(() => {
     const result = lista.filter((person) =>
@@ -139,8 +144,9 @@ function ListaVagas(props) {
 
           <ContainerTabela>
             <BoxTabelaTitle>
+              <LinhaTitle>Status</LinhaTitle>
               <LinhaTitle>Cargo</LinhaTitle>
-              <LinhaTitle>Inscrever</LinhaTitle>
+              <LinhaTitle>Detalhe</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
               {Object.keys(searchResult)
@@ -150,6 +156,17 @@ function ListaVagas(props) {
                 .map((e) => (
                   <>
                     <BoxTabela>
+                      <LinhaTabela>
+                        {searchResult[e].status === "Ativo" ? (
+                          <BoxIconStatus color="var(--primary-color)">
+                            <CheckCircleOutlineIcon />
+                          </BoxIconStatus>
+                        ) : (
+                          <BoxIconStatus color="var(--error-color)">
+                            <NotInterestedIcon />
+                          </BoxIconStatus>
+                        )}
+                      </LinhaTabela>
                       <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
                       <LinhaTabela>
                         <BoxIcon

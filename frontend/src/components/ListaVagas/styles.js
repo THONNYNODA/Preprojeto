@@ -31,6 +31,14 @@ export const BoxDetalhe = styled("div")`
   padding: 1rem;
   display: flex;
 `;
+export const BoxIconStatus = styled("div")`
+  color: ${(props) => props.color};
+  display: flex;
+  flex:1;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+`;
 
 export const TitleDetalhe = styled("h2")`
   font-weight: lighter;
@@ -55,20 +63,19 @@ export const BoxTabela = styled("div")`
   width: 100%;
   display: flex;
   position: relative;
-  cursor: pointer;
+
   color: var(--text);
   border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
-  &:hover {
-    background: rgba(31, 99, 87, 0.9);
-    color: #fff !important;
-  }
+  
 `;
 export const BoxTabelaTitle = styled("div")`
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--primary-color);
   color: #fff;
   position: sticky;
@@ -86,14 +93,18 @@ export const LinhaTabela = styled("div")`
   color:var(--text);
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.5rem;
-  flex: 5;
+  flex:1;
   font-size: 1.2rem;
   border-right: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
-    flex: 1;
     border-right: none;
     justify-content: center;
+  };
+  &:nth-of-type(2){
+    flex:6;
+    justify-content: start;
   }
 `;
 export const LinhaTitle = styled(LinhaTabela)`
@@ -103,10 +114,18 @@ export const LinhaTitle = styled(LinhaTabela)`
 
 export const BoxIcon = styled("div")`
   display: flex;
+  color:var(--primary-color);
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  
   cursor: pointer;
+  transition:  0.2s;
+  &:hover{
+    border-radius: 20px ;
+    background: rgba(255,255,255,0.3);
+    filter: brightness(0.8);
+  }
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;

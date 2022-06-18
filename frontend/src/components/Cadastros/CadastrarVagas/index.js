@@ -126,7 +126,7 @@ function CadastrarVagas(props) {
           <InputFields
               bgColor="#cccccc"
               width="100%"
-              type="textarea"
+              
               label="Descricao"
               name="descricao"
               margin="0 0.5rem"

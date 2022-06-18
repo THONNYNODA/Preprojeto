@@ -25,7 +25,6 @@ function EditarVagas(props) {
     status: props.dados.status,
   };
   const handleClouse = () => {
-    
     props.setOpen(false);
   };
 
@@ -60,14 +59,17 @@ function EditarVagas(props) {
               name="nome"
               margin="0 0.5rem"
             />
-
             <InputFields
               width="100%"
-              label="Descricao"
-              name="descricao"
+              label="Status"
+              name="status"
+              component="select"
               margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
-            />
+            >
+              <option value="ativo">Ativo</option>
+              <option value="desativado">Desativado</option>
+            </InputFields>
           </BoxInput>
           <BoxInput>
             <InputFields
@@ -93,7 +95,7 @@ function EditarVagas(props) {
               margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
             >
-              <option value="">Escolha</option>
+              <option value="">Selecionar</option>
               <option value="Diurno">Diurno</option>
               <option value="Matiturno">Matiturno</option>
               <option value="Noturno">Noturno</option>
@@ -125,15 +127,11 @@ function EditarVagas(props) {
           <BoxInput>
             <InputFields
               width="100%"
-              label="Status"
-              name="status"
-              component="select"
+              label="Descricao"
+              name="descricao"
               margin="0 0.5rem"
               color=" rgba(31, 99, 87)"
-            >
-              <option value="ativo">Ativo</option>
-              <option value="desativado">Desativado</option>
-            </InputFields>
+            />
           </BoxInput>
           <Buttons type="submit">Cadastrar</Buttons>
         </Formularios>
