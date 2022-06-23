@@ -39,12 +39,6 @@ export function Mobile(props) {
                 <ItemsSubMenu>
                   <LinkMenuMobile to="/cadastros/vagas">Vagas</LinkMenuMobile>
                 </ItemsSubMenu>
-                <ItemsSubMenu>
-                  <LinkMenuMobile to="/cadastros/escolaridade">Escolaridade</LinkMenuMobile>
-                </ItemsSubMenu>
-                <ItemsSubMenu>
-                  <LinkMenuMobile to="/cadastros/experiencia">Experiência</LinkMenuMobile>
-                </ItemsSubMenu>
               </BoxSubMenu>
             </ContainerSubMenu>
           </ListaMenu>

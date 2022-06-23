@@ -7,7 +7,7 @@ import { createServer, Model } from "miragejs";
 createServer({
   models: {
     vagas: Model,
-    candidatos:Model,
+    candidatos: Model,
   },
 
   seeds(server) {
@@ -53,7 +53,7 @@ createServer({
           status: "Ativo",
         },
       ],
-      candidatos:[
+      candidatos: [
         {
           id: 1,
           bairro: "Zona I",
@@ -75,7 +75,7 @@ createServer({
           nome: "Tony Takeharo Noda",
           nome_social: "",
           rg: "99.945.456-4",
-          senha: "12345678"
+          senha: "12345678",
         },
         {
           id: 2,
@@ -98,7 +98,7 @@ createServer({
           nome: "Maria Clara",
           nome_social: "",
           rg: "99.945.456-4",
-          senha: "12345678"
+          senha: "12345678",
         },
         {
           id: 3,
@@ -121,7 +121,7 @@ createServer({
           nome: "Jeferson da Silva",
           nome_social: "",
           rg: "99.945.456-4",
-          senha: "12345678"
+          senha: "12345678",
         },
         {
           id: 4,
@@ -144,78 +144,9 @@ createServer({
           nome: "Jeferson da Silva",
           nome_social: "",
           rg: "99.945.456-4",
-          senha: "12345678"
+          senha: "12345678",
         },
-        {
-          id: 5,
-          bairro: "Zona I",
-          celular: "(44) 9 8800-2045",
-          cep: "87501-030",
-          cidade: "Cianorte",
-          complemento: "até 4567/4568",
-          confirmacao_senha: "12345678",
-          cpf: "111.111.111-11",
-          data_nascimento: "2010-05-01 21:00:00.000000",
-          email_string: "tonr@noda",
-          estado: "PR",
-          estado_civil: "Casado(a)",
-          facebook: "@noda",
-          genero: "Masculino",
-          instagram: "@noda.thonny",
-          logradouro: "Avenida Paraná",
-          nacionalidade: "alemã",
-          nome: "Jeferson da Silva",
-          nome_social: "",
-          rg: "99.945.456-4",
-          senha: "12345678"
-        },
-        {
-          id: 6,
-          bairro: "Zona I",
-          celular: "(44) 9 8800-2045",
-          cep: "87501-030",
-          cidade: "Cianorte",
-          complemento: "até 4567/4568",
-          confirmacao_senha: "12345678",
-          cpf: "111.111.111-11",
-          data_nascimento: "2010-05-01 21:00:00.000000",
-          email_string: "tonr@noda",
-          estado: "PR",
-          estado_civil: "Casado(a)",
-          facebook: "@noda",
-          genero: "Masculino",
-          instagram: "@noda.thonny",
-          logradouro: "Avenida Paraná",
-          nacionalidade: "alemã",
-          nome: "Jeferson da Silva",
-          nome_social: "",
-          rg: "99.945.456-4",
-          senha: "12345678"
-        },
-        {
-          id: 7,
-          bairro: "Zona I",
-          celular: "(44) 9 8800-2045",
-          cep: "87501-030",
-          cidade: "Cianorte",
-          complemento: "até 4567/4568",
-          confirmacao_senha: "12345678",
-          cpf: "111.111.111-11",
-          data_nascimento: "2010-05-01 21:00:00.000000",
-          email_string: "tonr@noda",
-          estado: "PR",
-          estado_civil: "Casado(a)",
-          facebook: "@noda",
-          genero: "Masculino",
-          instagram: "@noda.thonny",
-          logradouro: "Avenida Paraná",
-          nacionalidade: "alemã",
-          nome: "Jeferson da Silva",
-          nome_social: "",
-          rg: "99.945.456-4",
-          senha: "12345678"
-        },
-      ]
+      ],
     });
   },
 
@@ -224,9 +155,13 @@ createServer({
     this.get("/vagas", () => {
       return this.schema.all("vagas");
     });
-    this.get('/candidatos', () => {
-      return this.schema.all('candidatos')
-    })
+    this.get("/candidatos", () => {
+      return this.schema.all("candidatos");
+    });
+    this.get("/candidatos/:id", (schema, request) => {
+      const id = request.params.id;      
+      return schema.candidatos.find(id); ;
+    });
   },
 });
 

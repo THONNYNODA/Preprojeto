@@ -19,15 +19,10 @@ export const BoxTabela = styled("div")`
   width: 100%;
   display: flex;
   position: relative;
-  cursor: pointer;
   color: var(--text);
   border-bottom: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-bottom: none;
-  }
-  &:hover {
-    background: rgba(31, 99, 87, 0.9);
-    color: #fff !important;
   }
 `;
 export const BoxTabelaTitle = styled("div")`
@@ -70,10 +65,18 @@ export const LinhaTitle = styled(LinhaTabela)`
 
 export const BoxIcon = styled("div")`
   display: flex;
+  color:var(--primary-color);
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
   cursor: pointer;
+  
+  transition: filter 0.2s;
+  &:hover {
+    filter: brightness(0.8);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+  }
 `;
 export const BoxIconClose = styled("div")`
   color: #8f1402;
