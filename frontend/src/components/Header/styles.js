@@ -5,7 +5,7 @@ export const ContainerHeader = styled("header")`
   width: 100%;
   //max-height: 3.5rem;
   background-color: var(--primary-color);
-  position: sticky;
+  position: fixed;
   display: flex;
   padding: 0.5rem;
   justify-content: space-between;

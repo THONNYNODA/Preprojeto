@@ -5,6 +5,8 @@ import Dashbord from "../Dashbord";
 import { ContainerCadastros, Divisorio } from "./styles";
 import PerfilMan from "../../assets/PerfilMan.svg";
 import api from "../../services/api";
+import AddIcon from "@mui/icons-material/Add";
+import { BoxIcon } from "../../components/Input/styles";
 
 function EditarPerfil() {
   const [user, setUser] = useState([]);
@@ -13,7 +15,7 @@ function EditarPerfil() {
     api.get("/candidatos/3").then((res) => setUser(res.data.candidatos));
   }, []);
 
-console.log(user)
+  console.log(user);
 
   return (
     <Dashbord>
@@ -50,7 +52,9 @@ console.log(user)
                 proident ex. Elit nisi id eu qui eiusmod elit. Esse occaecat
                 dolor irure id ea est.
               </p>
-              <button>Adicionar</button>
+              <button color="var(--primary-color)">
+                <AddIcon />
+              </button>
             </div>
             <div className="contain">
               <h2 className="subtitle">Profissão</h2>

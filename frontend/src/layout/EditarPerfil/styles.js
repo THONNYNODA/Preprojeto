@@ -64,12 +64,12 @@ export const ContainerCadastros = styled("section")`
         background-color: transparent;
         font-size: 1.2rem;
         padding: 0.5rem;
-        color: var(--title-light);
+        color: ${(props) => props.color};
         transition: 0.2s;
         cursor: pointer;
         position: absolute;
-
         right: 0;
+        
         &:hover {
           background-color: rgba(255, 255, 255, 0.3);
           filter: brightness(0.8);

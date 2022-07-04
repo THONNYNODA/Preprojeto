@@ -133,7 +133,7 @@ function EditarVagas(props) {
               color=" rgba(31, 99, 87)"
             />
           </BoxInput>
-          <Buttons type="submit">Cadastrar</Buttons>
+          <Buttons type="submit">Editar</Buttons>
         </Formularios>
       </Modal>
       {progresso === true ? <Progresso /> : null}
