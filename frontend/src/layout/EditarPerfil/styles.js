@@ -59,28 +59,32 @@ export const ContainerCadastros = styled("section")`
         color: var(--title-light);
         font-size: 1.6rem;
       }
+
       button {
         border: none;
         background-color: transparent;
         font-size: 1.2rem;
         padding: 0.5rem;
-        color: ${(props) => props.color};
         transition: 0.2s;
         cursor: pointer;
-        position: absolute;
-        right: 0;
-        
+
         &:hover {
           background-color: rgba(255, 255, 255, 0.3);
           filter: brightness(0.8);
           transition: 0.2s;
         }
       }
+
       .contain {
         width: 100%;
         padding: 1.5rem;
         position: relative;
         gap: 2px;
+
+        .boxIcon {
+          display: flex;
+          justify-content: flex-end;
+        }
 
         div {
           display: flex;
@@ -116,4 +120,20 @@ export const Divisorio = styled("div")`
     rgba(31, 99, 87, 1) 57%,
     rgba(249, 249, 249, 1) 100%
   );
+`;
+
+export const ButtonIcon = styled("button")`
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  color: ${(props) => props.color};
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    filter: brightness(0.8);
+    transition: 0.2s;
+  }
 `;

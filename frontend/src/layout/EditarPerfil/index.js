@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import TitlePage from "../../components/TitlePage";
 import Dashbord from "../Dashbord";
-import { ContainerCadastros, Divisorio } from "./styles";
+import { ContainerCadastros, Divisorio, BoxIcon, ButtonIcon } from "./styles";
 import PerfilMan from "../../assets/PerfilMan.svg";
 import api from "../../services/api";
 import AddIcon from "@mui/icons-material/Add";
-import { BoxIcon } from "../../components/Input/styles";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 function EditarPerfil() {
   const [user, setUser] = useState([]);
@@ -14,8 +15,6 @@ function EditarPerfil() {
   useEffect(() => {
     api.get("/candidatos/3").then((res) => setUser(res.data.candidatos));
   }, []);
-
-  console.log(user);
 
   return (
     <Dashbord>
@@ -52,9 +51,17 @@ function EditarPerfil() {
                 proident ex. Elit nisi id eu qui eiusmod elit. Esse occaecat
                 dolor irure id ea est.
               </p>
-              <button color="var(--primary-color)">
-                <AddIcon />
-              </button>
+              <div className="boxIcon">
+                <ButtonIcon color="var(--primary-color)">
+                  <AddIcon />
+                </ButtonIcon>
+                <ButtonIcon color="var(--alert-color)">
+                  <EditIcon />
+                </ButtonIcon>
+                <ButtonIcon color="var(--error-color)">
+                  <DeleteForeverIcon />
+                </ButtonIcon>
+              </div>
             </div>
             <div className="contain">
               <h2 className="subtitle">Profissão</h2>
@@ -67,7 +74,17 @@ function EditarPerfil() {
                 proident ex. Elit nisi id eu qui eiusmod elit. Esse occaecat
                 dolor irure id ea est.
               </p>
-              <button>Adicionar</button>
+              <div className="boxIcon">
+                <ButtonIcon color="var(--primary-color)">
+                  <AddIcon />
+                </ButtonIcon>
+                <ButtonIcon color="var(--alert-color)">
+                  <EditIcon />
+                </ButtonIcon>
+                <ButtonIcon color="var(--error-color)">
+                  <DeleteForeverIcon />
+                </ButtonIcon>
+              </div>
             </div>
           </div>
         </main>
