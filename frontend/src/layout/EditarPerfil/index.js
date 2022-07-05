@@ -11,10 +11,21 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 function EditarPerfil() {
   const [user, setUser] = useState([]);
+  const [openAdd, setOpenAdd] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [openDelite, setOpenDelite] = useState(false);
 
   useEffect(() => {
     api.get("/candidatos/3").then((res) => setUser(res.data.candidatos));
   }, []);
+
+  function handleOpenAdd(){
+    return setOpenAdd(!openAdd);
+  }
+  function handleOpenEdit(){
+    return setOpenEdit(!openEdit);
+  }
+
 
   return (
     <Dashbord>
@@ -52,10 +63,10 @@ function EditarPerfil() {
                 dolor irure id ea est.
               </p>
               <div className="boxIcon">
-                <ButtonIcon color="var(--primary-color)">
+                <ButtonIcon onClick={() => handleOpenAdd()} color="var(--primary-color)">
                   <AddIcon />
                 </ButtonIcon>
-                <ButtonIcon color="var(--alert-color)">
+                <ButtonIcon onClick={() => handleOpenEdit()} color="var(--alert-color)">
                   <EditIcon />
                 </ButtonIcon>
                 <ButtonIcon color="var(--error-color)">
@@ -89,6 +100,8 @@ function EditarPerfil() {
           </div>
         </main>
       </ContainerCadastros>
+      {openAdd ? <h2>testee</h2> : null}
+      {openEdit ? <h2>testee</h2> : null}
     </Dashbord>
   );
 }
