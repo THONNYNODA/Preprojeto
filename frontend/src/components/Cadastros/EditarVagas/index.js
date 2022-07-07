@@ -28,24 +28,26 @@ function EditarVagas(props) {
     props.setOpen(false);
   };
 
+  console.log(props.dados.id);
+
   return (
     <>
       <Modal title="Vagas" onClick={handleClouse}>
         <Formularios
           initialValues={initialValues}
           submit={(values, { setSubmitting }) => {
-            setProgresso(false);
+            setProgresso(true);
             try {
-              // setTimeout(async () => {
-              //   // await api
-              //   //   .put(`vaga/vaga/${props.dados.id}`, values)
-              //   //   .then((res) => {
-              //   //     setSubmitting(false);
-              //   //     return setStatus(true);
-              //   //   });
-              //   document.location.reload();
-              // }, 400);
-              return setStatus(true);
+              setTimeout(async () => {
+                await api
+                  .put(`vaga/vaga/${props.dados.id}`, values)
+                  .then((res) => {
+                    setSubmitting(false);
+                    return setStatus(true);
+                  });
+                setProgresso(false);
+              }, 400);
+              console.log(values);
             } catch (error) {
               console.log(error);
             }
@@ -140,14 +142,16 @@ function EditarVagas(props) {
       {status === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          background="var(--primary-color)"
+          colorTitle="var(--primary-color)"
+          colorIcon="var(--primary-color)"
           icon={<CheckIcon />}
         />
       ) : null}
       {status === 2 ? (
         <Confirmacao
-          titleConfimar="Atencao!! Ocorreu um erro, volte mais tarde"
-          background="var(--primary-color)"
+          titleConfimar="Atencao!! Ocorreu um erro"
+          colorTitle="var(--error-color)"
+          colorIcon="var(--error-color)"
           icon={<PriorityHighIcon />}
         />
       ) : null}

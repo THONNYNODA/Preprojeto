@@ -23,6 +23,7 @@ import {
 import { BoxIconShow } from "../../components/Input/styles";
 
 import { Form, Formik, Field } from "formik";
+import { Link } from "react-router-dom";
 
 const validationSchema = yup.object().shape({
   cpf: yup.string().required("Campo e obrigatorio"),
@@ -127,8 +128,10 @@ function Login(props) {
                     }
                   />
 
+                  <Link to="/cadastro">
+                    <a>Nao sou cadastrado</a>
+                  </Link>
                   <Buttons type="submit">Entrar</Buttons>
-
                 </Form>
               )}
             </Formik>

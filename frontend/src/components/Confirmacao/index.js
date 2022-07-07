@@ -10,7 +10,7 @@ function Confirmacao(props) {
       <ContainerDetalhe>
         <Card padding="0 0.5rem" background={props.background} title={props.title}>
           <TitleConfirmacao color={props.colorTitle} >{props.titleConfimar}</TitleConfirmacao>
-          <BoxIcon color={props.colorIcon}>{props.icon}</BoxIcon>
+          <BoxIcon colorIcon={props.colorIcon}>{props.icon}</BoxIcon>
         </Card>
       </ContainerDetalhe>
     </ModalDetalhe>

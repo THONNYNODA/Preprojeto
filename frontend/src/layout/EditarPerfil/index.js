@@ -8,6 +8,7 @@ import api from "../../services/api";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import axios from "axios";
 
 function EditarPerfil() {
   const [user, setUser] = useState([]);
@@ -18,14 +19,35 @@ function EditarPerfil() {
   useEffect(() => {
     api.get("/candidatos/3").then((res) => setUser(res.data.candidatos));
   }, []);
+  useEffect(() => {
+    axios.get("https://api.github.com/users/THONNYNODA").then(res => console.log(res))
+  }, []);
 
-  function handleOpenAdd(){
+  function handleOpenAdd() {
     return setOpenAdd(!openAdd);
   }
-  function handleOpenEdit(){
+  function handleOpenEdit() {
+    return setOpenEdit(!openEdit);
+  }
+  function handleOpenDelete() {
     return setOpenEdit(!openEdit);
   }
 
+  const calculoIdade = (dataNascimento) => {
+    var hoje = new Date();
+    var nascimento = new Date(dataNascimento);
+    var diferencaAnos = hoje.getFullYear() - nascimento.getFullYear();
+
+    if (
+      new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate()) <
+      new Date(hoje.getFullYear(), nascimento.getMonth(), nascimento.getDate())
+    )
+      diferencaAnos--;
+
+    return diferencaAnos;
+  };
+
+  console.log(user);
 
   return (
     <Dashbord>
@@ -35,9 +57,9 @@ function EditarPerfil() {
           <div className="containA">
             <img src={PerfilMan} alt="perfil man" />
             <ul>
-              <li>{`Data de Nascimento: 01/05/1992`}</li>
-              <li>{`Nacionalidae: Brasileiro`}</li>
-              <li>{`Sexo: Masculino`}</li>
+              <li>Nascionalidade: {user.nacionalidade}</li>
+              <li>Idade: {calculoIdade(user.data_nascimento)} anos </li>
+              <li>Sexo: {user.genero}</li>
             </ul>
           </div>
           <div className="containB">
@@ -45,9 +67,12 @@ function EditarPerfil() {
             <Divisorio />
             <div className="contain">
               <h2 className="subtitle">Perfil</h2>
-              <div>
-                <span>{user.email_string}</span>
-                <span>{user.email_string}</span>
+              <div className="perfil">
+                <span>Nascionalidade: {user.nacionalidade}</span>
+                <span>Idade: {calculoIdade(user.data_nascimento)} anos</span>
+              </div>
+              <div className="perfil">
+                <span>Sexo: {user.genero}</span>
                 <span>Email: {user.email_string}</span>
               </div>
             </div>
@@ -63,13 +88,22 @@ function EditarPerfil() {
                 dolor irure id ea est.
               </p>
               <div className="boxIcon">
-                <ButtonIcon onClick={() => handleOpenAdd()} color="var(--primary-color)">
+                <ButtonIcon
+                  onClick={() => handleOpenAdd()}
+                  color="var(--primary-color)"
+                >
                   <AddIcon />
                 </ButtonIcon>
-                <ButtonIcon onClick={() => handleOpenEdit()} color="var(--alert-color)">
+                <ButtonIcon
+                  onClick={() => handleOpenEdit()}
+                  color="var(--alert-color)"
+                >
                   <EditIcon />
                 </ButtonIcon>
-                <ButtonIcon color="var(--error-color)">
+                <ButtonIcon
+                  onClick={() => handleOpenDelete()}
+                  color="var(--error-color)"
+                >
                   <DeleteForeverIcon />
                 </ButtonIcon>
               </div>
@@ -86,13 +120,22 @@ function EditarPerfil() {
                 dolor irure id ea est.
               </p>
               <div className="boxIcon">
-                <ButtonIcon color="var(--primary-color)">
+                <ButtonIcon
+                  onClick={() => handleOpenAdd()}
+                  color="var(--primary-color)"
+                >
                   <AddIcon />
                 </ButtonIcon>
-                <ButtonIcon color="var(--alert-color)">
+                <ButtonIcon
+                  onClick={() => handleOpenEdit()}
+                  color="var(--alert-color)"
+                >
                   <EditIcon />
                 </ButtonIcon>
-                <ButtonIcon color="var(--error-color)">
+                <ButtonIcon
+                  onClick={() => handleOpenDelete()}
+                  color="var(--error-color)"
+                >
                   <DeleteForeverIcon />
                 </ButtonIcon>
               </div>
@@ -100,8 +143,8 @@ function EditarPerfil() {
           </div>
         </main>
       </ContainerCadastros>
-      {openAdd ? <h2>testee</h2> : null}
-      {openEdit ? <h2>testee</h2> : null}
+      {openAdd ? <h2>Adicionar</h2> : null}
+      {openEdit ? <h2>Editar</h2> : null}
     </Dashbord>
   );
 }

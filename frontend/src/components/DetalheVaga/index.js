@@ -6,30 +6,31 @@ import { ContainerDetalheVaga } from "./styles";
 import CheckIcon from "@mui/icons-material/Check";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import { toast } from "react-toastify";
+import api from "../../services/api";
 
 function DetalheVagas(props) {
   const [progresso, setProgresso] = useState(false);
   const [status, setStatus] = useState();
+  const [values, setValues] = useState({
+    date: new Date(),
+    vaga_id: props.idAtual.id,
+    candidato_id: 1,
+  });
 
   const handleClose = () => props.setOpen(false);
 
   const handleCandidatar = () => {
     try {
+      setProgresso(true);
       setTimeout(() => {
+        api
+          .post(`/candidatar/candidatar`, values)
+          .then((res) => console.log(values));
         setProgresso(false);
         return setStatus(true);
       }, 2000);
-      setTimeout(() => {
-        return props.setOpen(false);
-      }, 4000);
     } catch (error) {
-      setTimeout(() => {
-        setProgresso(false);
-        return setStatus(false);
-      }, 2000);
-      setTimeout(() => {
-        return props.setOpen(false);
-      }, 4000);
+      console.log(error);
     }
   };
 
@@ -59,21 +60,23 @@ function DetalheVagas(props) {
             </p>
             <p>Detalhe: {props.idAtual.descricao}</p>
           </div>
-          <button onClick={handleCandidatar}>Cadastrar - se </button>
+          <button onClick={handleCandidatar}>Cadastrar - se</button>
         </ContainerDetalheVaga>
       </Modal>
       {progresso === true ? <Progresso /> : null}
       {status === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          background="var(--primary-color)"
+          colorTitle="var(--primary-color)"
+          colorIcon="var(--primary-color)"
           icon={<CheckIcon />}
         />
       ) : null}
       {status === 2 ? (
         <Confirmacao
-          titleConfimar="Atencao!! Ocorreu um erro, volte mais tarde"
-          background="var(--primary-color)"
+          titleConfimar="Atencao!! Ocorreu um erro"
+          colorTitle="var(--error-color)"
+          colorIcon="var(--error-color)"
           icon={<PriorityHighIcon />}
         />
       ) : null}

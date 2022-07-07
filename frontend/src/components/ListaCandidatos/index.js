@@ -50,12 +50,11 @@ function ListaCandidatos(props) {
     setShow(!show);
   };
 
-  // useEffect(() => {
-  //   api.get("candidato/candidatos").then((res) => setLista(res.data));
-  // }, []);
   useEffect(() => {
-    api.get("/candidatos").then((res) => setLista(res.data.candidatos));
+    api.get("candidato/candidatos").then((res) => setLista(res.data));
   }, []);
+
+  console.log(lista)
 
   useEffect(() => {
     const result = lista.filter(
@@ -264,7 +263,7 @@ function ListaCandidatos(props) {
                       <LinhaTabela>{searchResult[e].genero}</LinhaTabela>
                       <LinhaTabela>{searchResult[e].cidade}</LinhaTabela>
                       <LinhaTabela>
-                        {calculoIdade(searchResult[e].data_nascimento)}
+                        {calculoIdade(searchResult[e].dataNascimento)}
                       </LinhaTabela>
                       <LinhaTabela>
                         <BoxIcon

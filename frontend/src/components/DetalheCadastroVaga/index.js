@@ -60,7 +60,6 @@ function DetalheCadastroVagas(props) {
             </p>
             <p>Detalhe: {props.dados.descricao}</p>
           </div>
-          <button onClick={handleCandidatar}>Cadastrar - se </button>
         </ContainerDetalheVaga>
       </Modal>
       {progresso === true ? <Progresso /> : null}

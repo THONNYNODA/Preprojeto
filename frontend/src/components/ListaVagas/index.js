@@ -44,20 +44,14 @@ function ListaVagas(props) {
 
   const container = React.useRef(null);
 
-  useEffect(() => {
-    api.get("/vagas").then((res) => {
-      setLista(res.data.vagas);
-    });
-  }, []);
 
   const handleClick = () => {
     setShow(!show);
   };
 
-  //Codigo para a producao
-  // useEffect(() => {
-  //   api.get("vaga/vagas").then((res) => setLista(res.data));
-  // }, []);
+  useEffect(() => {
+    api.get("vaga/vagas").then((res) => setLista(res.data));
+  }, []);
 
   console.log(lista);
 
@@ -76,7 +70,7 @@ function ListaVagas(props) {
   useEffect(() => {
     var resultado = [];
     if (valor === "disponivel") {
-      resultado = lista.filter((e) => e.status === "Ativo");
+      resultado = lista.filter((e) => e.status === "ativo");
     } else if (valor === "preenchido") {
       resultado = lista.filter((e) => e.status === "Desativado");
     } else if (valor === "todos") {
@@ -157,7 +151,7 @@ function ListaVagas(props) {
                   <>
                     <BoxTabela>
                       <LinhaTabela>
-                        {searchResult[e].status === "Ativo" ? (
+                        {searchResult[e].status === "ativo" ? (
                           <BoxIconStatus color="var(--primary-color)">
                             <CheckCircleOutlineIcon />
                           </BoxIconStatus>

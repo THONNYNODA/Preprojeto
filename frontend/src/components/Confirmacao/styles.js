@@ -19,13 +19,13 @@ export const ModalDetalhe = styled("div")`
   z-index: 9999;
 `;
 export const BoxIcon = styled("div")`
-  color: #fff;
+  color: ${(props) => props.colorIcon};
   padding: 0.5rem;
   position: relative;
 `;
 
 export const TitleConfirmacao = styled("h2")`
-  color: #fff;
+  color: ${(props) => props.color};
   font-weight: 400;
   font-size: 1.2rem;
   padding: 0;

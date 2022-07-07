@@ -75,6 +75,19 @@ export const ContainerCadastros = styled("section")`
         }
       }
 
+      .perfil {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+          flex: 1;
+          padding-left: 1.5rem;
+          font-size: 1.2rem;
+          color: var(--text);
+        }
+      }
+
       .contain {
         width: 100%;
         padding: 1.5rem;
@@ -86,20 +99,10 @@ export const ContainerCadastros = styled("section")`
           justify-content: flex-end;
         }
 
-        div {
-          display: flex;
-          justify-content: space-between;
-        }
         p {
           font-size: 1.2rem;
-          padding: 1.5rem;
+          padding-left: 1.5rem;
           line-height: 2rem;
-          color: var(--text);
-        }
-        span {
-          flex: 1;
-          font-size: 1.2rem;
-          padding: 1.5rem;
           color: var(--text);
         }
       }

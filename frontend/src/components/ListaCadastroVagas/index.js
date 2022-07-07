@@ -17,7 +17,10 @@ import {
   BoxDetalhe,
   BoxIconStatus,
 } from "./styles";
-
+import CheckIcon from "@mui/icons-material/Check";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
+import Progresso from "../Progresso";
+import Confirmacao from "../Confirmacao";
 import CadastrarVagas from "../Cadastros/CadastrarVagas";
 import SearchIcon from "@mui/icons-material/Search";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
@@ -38,9 +41,12 @@ function ListaCadastroVagas(props) {
   const [openDetalhe, setOpenDetalhe] = useState(false);
   const [dados, setDados] = useState([]);
   const [cadastrar, setCadastrar] = useState(false);
+  const [progresso, setProgresso] = useState(false);
+  const [confirmacao, setConfirmacao] = useState(false);
+
 
   useEffect(() => {
-    api.get("/vagas").then((res) => setLista(res.data.vagas));
+    api.get("/vaga/vagas").then((res) => setLista(res.data));
   }, []);
 
   useEffect(() => {
@@ -63,12 +69,15 @@ function ListaCadastroVagas(props) {
   };
   const handleDelete = (id) => {
     try {
+      setProgresso(true);
       setTimeout(async () => {
-        await api.delete(`vaga/vaga/${id}`).then((res) => {
-          return alert("Deletado com sucesso!!");
+        await api.delete(`vaga/vaga/${id}`).then((res) => {          
+          return setConfirmacao(true);
         });
+        setProgresso(false);
         document.location.reload();
-      }, 400);
+      }, 800);
+      
     } catch (error) {
       console.log(error);
     }
@@ -113,7 +122,7 @@ function ListaCadastroVagas(props) {
                   <>
                     <BoxTabela key={searchResult[e].id}>
                       <LinhaTabela>
-                        {searchResult[e].status === "Ativo" ? (
+                        {searchResult[e].status === "ativo" ? (
                           <BoxIconStatus color="var(--primary-color)">
                             <CheckCircleOutlineIcon />
                           </BoxIconStatus>
@@ -123,8 +132,8 @@ function ListaCadastroVagas(props) {
                           </BoxIconStatus>
                         )}
                       </LinhaTabela>
-                      <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                      <LinhaTabela>{searchResult[e].descricao}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e]?.nome}</LinhaTabela>
+                      <LinhaTabela>{searchResult[e]?.descricao}</LinhaTabela>
                       <LinhaTabela>
                         <BoxIcon
                           onClick={() => handleOpenDetalhe(searchResult[e])}
@@ -160,6 +169,23 @@ function ListaCadastroVagas(props) {
         <DetalheCadastroVagas {...{ setOpenDetalhe, lista, dados }} />
       ) : null}
       {cadastrar ? <CadastrarVagas {...{ cadastrar, setCadastrar }} /> : null}
+      {progresso === true ? <Progresso /> : null}
+      {confirmacao === true ? (
+        <Confirmacao
+          titleConfimar="Deletado com sucesso"
+          colorTitle="var(--primary-color)"
+          colorIcon="var(--primary-color)"
+          icon={<CheckIcon />}
+        />
+      ) : null}
+      {confirmacao === 2 ? (
+        <Confirmacao
+          titleConfimar="Atencao!! Ocorreu um erro"
+          colorTitle="var(--error-color)"
+          colorIcon="var(--error-color)"
+          icon={<PriorityHighIcon />}
+        />
+      ) : null}
     </>
   );
 }

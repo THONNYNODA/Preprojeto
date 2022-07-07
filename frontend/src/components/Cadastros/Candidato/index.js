@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import InputMask from "react-input-mask";
 import { listasPaises } from "../../../services/listaPaises";
 import * as yup from "yup";
+import CheckIcon from "@mui/icons-material/Check";
+import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import InputFields from "../../Input";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   BoxForm,
   BoxSingleInput,
@@ -21,6 +24,8 @@ import api from "../../../services/api";
 import { Form, Formik } from "formik";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Progresso from "../../Progresso";
+import Confirmacao from "../../Confirmacao";
 
 const validationSchema = yup.object().shape({
   nome: yup.string().required("Campo e obrigatorio"),
@@ -53,6 +58,8 @@ const validationSchema = yup.object().shape({
 function Candidato(props) {
   const [view, setView] = useState();
   const [showPass, setShowPass] = useState(false);
+  const [progresso, setProgresso] = useState(false);
+  const [status, setStatus] = useState(false);
 
   const Genero = ["Masculino", "Feminino", "Outros"];
   const civil = ["Solteiro(a)", "Casado(a)", "Viúvo(a)"];
@@ -110,7 +117,7 @@ function Candidato(props) {
         setFieldValue("estado", data.uf);
       });
   }
-
+  const navegacao = useNavigate();
   //Config Mask
 
   return (
@@ -128,11 +135,14 @@ function Candidato(props) {
           initialValues={inicial}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(async () => {
+              setProgresso(true);
               await api.post("candidato/candidato", values).then((res) => {
                 setSubmitting(false);
-                return alert("inserido");
+                return setStatus(true);
               });
+              setProgresso(false);
             }, 400);
+            navegacao("/", { replace: true });
           }}
         >
           {({
@@ -392,6 +402,21 @@ function Candidato(props) {
           )}
         </Formik>
       </ContainerCadastro>
+      {progresso === true ? <Progresso /> : null}
+      {status === true ? (
+        <Confirmacao
+          titleConfimar="Foi Realizado com Sucesso!!"
+          background="var(--primary-color)"
+          icon={<CheckIcon />}
+        />
+      ) : null}
+      {status === 2 ? (
+        <Confirmacao
+          titleConfimar="Atencao!! Ocorreu um erro, volte mais tarde"
+          background="var(--primary-color)"
+          icon={<PriorityHighIcon />}
+        />
+      ) : null}
     </>
   );
 }
