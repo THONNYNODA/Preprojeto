@@ -63,7 +63,7 @@ export const Divisorio = styled("div")`
   position: relative;
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height};
-  min-height: ${(props) => props.minHeight || "100%"};
+  min-height: ${(props) => props.minheight || "100%"};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
   background: rgba(149, 163, 166);

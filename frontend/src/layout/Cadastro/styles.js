@@ -26,7 +26,7 @@ export const BoxText = styled("div")`
 export const Divisorio = styled("div")`
   width: ${(props) => props.width || "0.2rem"};
   height: ${(props) => props.height};
-  min-height: ${(props) => props.minHeight || "100%"};
+  min-height: ${(props) => props.minheight || "100%"};
   margin: ${(props) => props.margin};
   background: rgb(255, 255, 255);
   background: radial-gradient(

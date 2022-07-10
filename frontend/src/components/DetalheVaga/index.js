@@ -22,13 +22,12 @@ function DetalheVagas(props) {
   const handleCandidatar = () => {
     try {
       setProgresso(true);
-      setTimeout(() => {
-        api
-          .post(`/candidatar/candidatar`, values)
-          .then((res) => console.log(values));
-        setProgresso(false);
-        return setStatus(true);
-      }, 2000);
+      setTimeout(async () => {
+        await api.post(`/candidatar/candidatar`, values).then((res) => {
+          setProgresso(false);
+          return setStatus(true);
+        });
+      }, 500);
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +66,7 @@ function DetalheVagas(props) {
       {status === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          colorTitle="var(--primary-color)"
+          colortitle="var(--primary-color)"
           colorIcon="var(--primary-color)"
           icon={<CheckIcon />}
         />
@@ -75,7 +74,7 @@ function DetalheVagas(props) {
       {status === 2 ? (
         <Confirmacao
           titleConfimar="Atencao!! Ocorreu um erro"
-          colorTitle="var(--error-color)"
+          colortitle="var(--error-color)"
           colorIcon="var(--error-color)"
           icon={<PriorityHighIcon />}
         />

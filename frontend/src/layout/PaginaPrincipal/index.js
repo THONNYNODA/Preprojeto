@@ -1,6 +1,5 @@
 import React from "react";
-import Card from "../../components/Card";
-import Noticias from "../../components/Noticias";
+import CardVagas from "../../components/CardVagas";
 import TitlePage from "../../components/TitlePage";
 import Dashbord from "../Dashbord";
 
@@ -11,7 +10,7 @@ function PaginaPrincipal(props) {
     <Dashbord>
       <TitlePage title="Pagina Principal" />
       <ContainerPrincipal>
-        
+        <CardVagas />
       </ContainerPrincipal>
     </Dashbord>
   );

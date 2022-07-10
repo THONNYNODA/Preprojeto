@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         --hue:169;
         --primary-color:hsl(var(--hue), 52%, 25%);
         --text:#212529;
+        --text-gray:#384633;
         --title-light: rgba(31, 99, 87, 0.6);
         --error-color: #ff1700;
         --alert-color: #FEDA15;

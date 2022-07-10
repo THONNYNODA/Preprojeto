@@ -34,7 +34,7 @@ export const BoxDetalhe = styled("div")`
 export const BoxIconStatus = styled("div")`
   color: ${(props) => props.color};
   display: flex;
-  flex:1;
+  flex: 1;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
@@ -69,7 +69,6 @@ export const BoxTabela = styled("div")`
   &:nth-last-of-type(1) {
     border-bottom: none;
   }
-  
 `;
 export const BoxTabelaTitle = styled("div")`
   width: 100%;
@@ -86,24 +85,23 @@ export const BoxTabelaTitle = styled("div")`
 export const BoxColuna = styled("div")`
   overflow-x: auto;
   max-height: 48rem;
-  
 `;
 
 export const LinhaTabela = styled("div")`
-  color:var(--text);
+  color: var(--text);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  flex:1;
+  flex: 1;
   font-size: 1.2rem;
   border-right: 0.1rem solid #ccc;
   &:nth-last-of-type(1) {
     border-right: none;
     justify-content: center;
-  };
-  &:nth-of-type(2){
-    flex:6;
+  }
+  &:nth-of-type(2) {
+    flex: 6;
     justify-content: start;
   }
 `;
@@ -114,16 +112,16 @@ export const LinhaTitle = styled(LinhaTabela)`
 
 export const BoxIcon = styled("div")`
   display: flex;
-  color:var(--primary-color);
+  color: var(--primary-color);
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  
+
   cursor: pointer;
-  transition:  0.2s;
-  &:hover{
-    border-radius: 20px ;
-    background: rgba(255,255,255,0.3);
+  transition: 0.2s;
+  &:hover {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
     filter: brightness(0.8);
   }
 `;
@@ -168,6 +166,10 @@ export const IconSeach = styled("span")`
 `;
 export const ContainerRadio = styled(FormControl)`
   position: relative;
+`;
+export const ContainerPortal = styled("div")`
+  display: flex;
+  justify-content: center;
 `;
 
 export const BoxRadio = styled(RadioGroup)`

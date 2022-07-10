@@ -18,6 +18,7 @@ import {
   BoxIconClouse,
 } from "./styles";
 import PerfilMan from "../../assets/PerfilMan.svg";
+import Logo from "../../assets/logo-footer.png";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -26,6 +27,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Badge from "@mui/material/Badge";
 import { BoxIcon } from "../Menu/styles";
 import { Mobile } from "../Menu";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   const [openMenu, setOpenMenu] = useState(false);
@@ -59,20 +61,26 @@ function Header(props) {
         <BoxIconClouse onClick={handleCloseMenu} onClose={handleCloseMenu}>
           <CloseIcon />
         </BoxIconClouse>
-        <ContainerPerfil>
-          <BoxPerfil img={PerfilMan} />
-          <Title>Tony Takeharo Noda</Title>
-          <Text>Aux TI</Text>
-        </ContainerPerfil>
-        <Divisorio width="100%" minHeight="0.2rem" />
-        <MenuPerfil>
-          <ItemMenuPerfil>
-            <LinkMenu to="/edtarperfil">Perfil</LinkMenu>
-          </ItemMenuPerfil>
-          <ItemMenuPerfil>
-            <LinkMenu to="/">Sair</LinkMenu>
-          </ItemMenuPerfil>
-        </MenuPerfil>
+        <header>
+          <img src={PerfilMan} />
+          <h4>Tony Takeharo Noda</h4>
+          <p>Aux TI</p>
+        </header>
+        <Divisorio width="100%" minheight="0.2rem" />
+        <nav>
+          <ul>
+            <li>
+              <Link to="/edtarperfil">
+                <a>Perfil</a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/">
+                <a>Sair</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </BoxMenuPerfil>
     );
   }
@@ -89,6 +97,9 @@ function Header(props) {
           >
             <MenuIcon />
           </BoxIcon>
+        </BoxHeader>
+        <BoxHeader>
+          <img src={Logo} />
         </BoxHeader>
 
         <BoxHeader>

@@ -142,7 +142,7 @@ function EditarVagas(props) {
       {status === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          colorTitle="var(--primary-color)"
+          colortitle="var(--primary-color)"
           colorIcon="var(--primary-color)"
           icon={<CheckIcon />}
         />
@@ -150,7 +150,7 @@ function EditarVagas(props) {
       {status === 2 ? (
         <Confirmacao
           titleConfimar="Atencao!! Ocorreu um erro"
-          colorTitle="var(--error-color)"
+          colortitle="var(--error-color)"
           colorIcon="var(--error-color)"
           icon={<PriorityHighIcon />}
         />

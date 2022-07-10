@@ -121,7 +121,7 @@ function EditarCandidato(props) {
 
   return (
     <>
-      <Card padding="0" marginTop="2rem" maxWidth="57rem">
+      <Card padding="0" margintop="2rem" maxwidth="57rem">
         <Formik
           validationSchema={validationSchema}
           initialValues={inicial}

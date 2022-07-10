@@ -131,10 +131,18 @@ function ListaCandidatos(props) {
     setSearchResult(resultado);
   }, [cidade]);
 
+  
+  function Frases(data) {
+    const frase = data.replace(/(^\w{1})|(\s+\w{1})/g, (letra) =>
+      letra.toUpperCase()
+    );
+    return frase;
+  }
+
 
   return (
     <>
-      <Card background="rgba(31, 99, 87,0.8)" marginTop="4rem">
+      <Card background="rgba(31, 99, 87,0.8)" margintop="4rem">
         <ContainerListaVagas>
           <BoxSeach>
             <InputSeach
@@ -258,10 +266,11 @@ function ListaCandidatos(props) {
                 )
                 .map((e) => (
                   <>
-                    <BoxTabela>
-                      <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
+                    {searchResult[e] ? (
+                      <BoxTabela>
+                      <LinhaTabela>{Frases(searchResult[e].nome)}</LinhaTabela>
                       <LinhaTabela>{searchResult[e].genero}</LinhaTabela>
-                      <LinhaTabela>{searchResult[e].cidade}</LinhaTabela>
+                      <LinhaTabela>{Frases(searchResult[e].cidade)}</LinhaTabela>
                       <LinhaTabela>
                         {calculoIdade(searchResult[e].dataNascimento)}
                       </LinhaTabela>
@@ -275,6 +284,7 @@ function ListaCandidatos(props) {
                         </BoxIcon>
                       </LinhaTabela>
                     </BoxTabela>
+                    ) : null}
                   </>
                 ))}
             </BoxColuna>

@@ -21,6 +21,7 @@ import {
   SeachRadio,
   TitleRadio,
   BoxIconStatus,
+  ContainerPortal
 } from "./styles";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import SearchIcon from "@mui/icons-material/Search";
@@ -40,10 +41,10 @@ function ListaVagas(props) {
   const [open, setOpen] = useState(false);
   const [idAtual, setIdAtual] = useState("");
   const [valor, setValor] = useState();
+  const [periodo, setPeriodo] = useState();
   const [show, setShow] = React.useState(false);
 
   const container = React.useRef(null);
-
 
   const handleClick = () => {
     setShow(!show);
@@ -52,8 +53,6 @@ function ListaVagas(props) {
   useEffect(() => {
     api.get("vaga/vagas").then((res) => setLista(res.data));
   }, []);
-
-  console.log(lista);
 
   useEffect(() => {
     const result = lista.filter((person) =>
@@ -67,21 +66,41 @@ function ListaVagas(props) {
     setOpen(true);
   };
 
+  function Frases(data) {
+    const frase = data.replace(/(^\w{1})|(\s+\w{1})/g, (letra) =>
+      letra.toUpperCase()
+    );
+    return frase;
+  }
+
   useEffect(() => {
     var resultado = [];
     if (valor === "disponivel") {
       resultado = lista.filter((e) => e.status === "ativo");
     } else if (valor === "preenchido") {
-      resultado = lista.filter((e) => e.status === "Desativado");
+      resultado = lista.filter((e) => e.status === "desativado");
     } else if (valor === "todos") {
       resultado = lista;
     }
     setSearchResult(resultado);
   }, [valor]);
+  useEffect(() => {
+    var resultado = [];
+    if (periodo === "diurno") {
+      resultado = lista.filter((e) => e.turnoTrabalho === "diurno");
+    } else if (periodo === "matiturno") {
+      resultado = lista.filter((e) => e.turnoTrabalho === "matiturno");
+    } else if (periodo === "noturno") {
+      resultado = lista.filter((e) => e.turnoTrabalho === "noturno");
+    } else if (periodo === "todos") {
+      resultado = lista;
+    }
+    setSearchResult(resultado);
+  }, [periodo]);
 
   return (
     <>
-      <Card background="rgba(31, 99, 87,0.8)" marginTop="4rem">
+      <Card background="rgba(31, 99, 87,0.8)" margintop="4rem">
         <ContainerListaVagas>
           <BoxSeach>
             <InputSeach
@@ -99,6 +118,9 @@ function ListaVagas(props) {
             <Box>
               {show ? (
                 <Portal container={container.current}>
+                <ContainerPortal>
+
+                
                   <ContainerRadio>
                     <TitleRadio>Status</TitleRadio>
                     <BoxRadio
@@ -125,6 +147,38 @@ function ListaVagas(props) {
                       />
                     </BoxRadio>
                   </ContainerRadio>
+                  <ContainerRadio>
+                    <TitleRadio>Periodo</TitleRadio>
+                    <BoxRadio
+                      defaultValue="todos"
+                      name={periodo}
+                      onChange={(e) => {
+                        setPeriodo(e.target.value);
+                      }}
+                    >
+                      <FormControlLabel
+                        value="diurno"
+                        control={<SeachRadio />}
+                        label="Diurno"
+                      />
+                      <FormControlLabel
+                        value="matiturno"
+                        control={<SeachRadio />}
+                        label="Matiturno"
+                      />
+                      <FormControlLabel
+                        value="noturno"
+                        control={<SeachRadio />}
+                        label="Noturno"
+                      />
+                      <FormControlLabel
+                        value="todos"
+                        control={<SeachRadio />}
+                        label="Todos"
+                      />
+                    </BoxRadio>
+                  </ContainerRadio>
+                  </ContainerPortal>
                 </Portal>
               ) : null}
               <BoxAvancado>
@@ -140,6 +194,7 @@ function ListaVagas(props) {
             <BoxTabelaTitle>
               <LinhaTitle>Status</LinhaTitle>
               <LinhaTitle>Cargo</LinhaTitle>
+              <LinhaTitle>Periodo</LinhaTitle>
               <LinhaTitle>Detalhe</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
@@ -149,29 +204,36 @@ function ListaVagas(props) {
                 )
                 .map((e) => (
                   <>
-                    <BoxTabela>
-                      <LinhaTabela>
-                        {searchResult[e].status === "ativo" ? (
-                          <BoxIconStatus color="var(--primary-color)">
-                            <CheckCircleOutlineIcon />
-                          </BoxIconStatus>
-                        ) : (
-                          <BoxIconStatus color="var(--error-color)">
-                            <NotInterestedIcon />
-                          </BoxIconStatus>
-                        )}
-                      </LinhaTabela>
-                      <LinhaTabela>{searchResult[e].nome}</LinhaTabela>
-                      <LinhaTabela>
-                        <BoxIcon
-                          onClick={() => handleOpen(searchResult[e])}
-                          key={searchResult[e]}
-                          onChange={handleOpen}
-                        >
-                          <PersonAddIcon />
-                        </BoxIcon>
-                      </LinhaTabela>
-                    </BoxTabela>
+                    {searchResult[e] ? (
+                      <BoxTabela key={String(searchResult[e].id)}>
+                        <LinhaTabela>
+                          {searchResult[e].status === "ativo" ? (
+                            <BoxIconStatus color="var(--primary-color)">
+                              <CheckCircleOutlineIcon />
+                            </BoxIconStatus>
+                          ) : (
+                            <BoxIconStatus color="var(--error-color)">
+                              <NotInterestedIcon />
+                            </BoxIconStatus>
+                          )}
+                        </LinhaTabela>
+                        <LinhaTabela>
+                          {Frases(searchResult[e].nome)}
+                        </LinhaTabela>
+                        <LinhaTabela>
+                          {Frases(searchResult[e].turnoTrabalho)}
+                        </LinhaTabela>
+                        <LinhaTabela>
+                          <BoxIcon
+                            onClick={() => handleOpen(searchResult[e])}
+                            key={searchResult[e]}
+                            onChange={handleOpen}
+                          >
+                            <PersonAddIcon />
+                          </BoxIcon>
+                        </LinhaTabela>
+                      </BoxTabela>
+                    ) : null}
                   </>
                 ))}
             </BoxColuna>

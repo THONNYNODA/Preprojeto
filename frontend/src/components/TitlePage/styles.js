@@ -11,7 +11,7 @@ export const Title = styled("h2")`
 export const Divisorio = styled("div")`
   width: ${(props) => props.width || "0.2rem"};
   height: ${(props) => props.height};
-  min-height: ${(props) => props.minHeight || "100%"};
+  min-height: ${(props) => props.minheight || "100%"};
   margin: ${(props) => props.margin};
   background: rgb(31, 99, 87);
   background: radial-gradient(

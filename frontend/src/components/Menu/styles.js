@@ -20,10 +20,7 @@ export const MenuAnimationReverso = keyframes`
   }
 `;
 
-export const ContainerMenu = styled("div")`
-
-`;
-export const ContainerMenuMobile = styled(ContainerMenu)`
+export const ContainerMenuMobile = styled('div')`
   width: 100%;
   max-width: 15%;
   background-color: #fff;
@@ -34,7 +31,7 @@ export const ContainerMenuMobile = styled(ContainerMenu)`
   height: 100%;
   animation-name: ${(props) => props.animation === true ? MenuAnimation : null};
   animation-duration: 0.6s;
-  position: absolute;
+  position: fixed;
   @media (max-width: 780px) {
     max-width: none;
   } ;
@@ -43,7 +40,7 @@ export const ContainerMenuMobile = styled(ContainerMenu)`
 export const DrownMenuMobile = styled("div")`
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.45);
   z-index: 9998;
 `;

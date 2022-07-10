@@ -12,7 +12,6 @@ export const ContainerHeader = styled("header")`
   align-items: stretch;
   align-content: stretch;
   z-index: 9997;
-  
 `;
 
 export const BoxHeader = styled("div")`
@@ -20,21 +19,24 @@ export const BoxHeader = styled("div")`
   align-items: center;
   padding-inline: 0.5rem;
   flex: 1;
-  gap:2rem;
-  &:nth-of-type(1) {
-    align-items: center;
-  }
+  gap: 2rem;
+
   &:nth-of-type(2) {
     flex-grow: 3;
+    justify-content: center;
     flex-direction: row-reverse;
   }
   &:nth-of-type(3) {
     flex-direction: row-reverse;
   }
+
+  img {
+    width: 50px;
+  }
 `;
 export const ContainerPerfil = styled("div")`
   padding: 1rem;
-  display: flex;  
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -53,11 +55,57 @@ export const BoxMenuPerfil = styled("menu")`
   width: 100%;
   max-width: 15rem;
   position: absolute;
-  top: 4rem;
+  top: 5rem;
   right: 4rem;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  background: #95a3a6;
+  background: rgba(31, 99, 87, 1);
   z-index: 999;
+
+  header {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+
+    img {
+      width: 75px;
+    }
+
+    h4 {
+      font-weight: lighter;
+      font-size: 21px;
+      color: #fff;
+    }
+    p {
+      font-size: 18px;
+      color: #fff;
+      font-weight: lighter;
+    }
+  }
+
+  nav {
+    display: block;
+
+    ul {
+      list-style-type: none;
+
+      li {
+        padding: 0.5rem;
+        font-size: 1.4rem;
+        font-weight: lighter;
+        text-align: center;
+        display: block;
+        transition: background 0.2s;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+          cursor: pointer;
+        }
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
 `;
 
 export const MenuPerfil = styled("ul")`
@@ -85,7 +133,6 @@ export const BoxIconPerfil = styled("div")`
   color: #fff;
   display: flex;
   cursor: pointer;
-  
 `;
 export const BoxIconClouse = styled("button")`
   color: #fff;
@@ -133,7 +180,6 @@ export const Title = styled("h2")`
   color: #fff;
 `;
 
-
 export const Text = styled("p")`
   position: relative;
   font-size: 1rem;
@@ -144,7 +190,7 @@ export const Divisorio = styled("div")`
   position: relative;
   width: ${(props) => props.width || "0.2rem"};
   height: ${(props) => props.height};
-  min-height: ${(props) => props.minHeight || "100%"};
+  min-height: ${(props) => props.minheight || "100%"};
   margin: ${(props) => props.margin};
   background: rgb(255, 255, 255);
   background: radial-gradient(

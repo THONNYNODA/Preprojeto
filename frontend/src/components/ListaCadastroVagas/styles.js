@@ -21,7 +21,6 @@ export const ButtonAdd = styled("button")`
   cursor: pointer;
   color: #fff;
   background: none;
-  
 
   &:hover {
     color: rgba(230, 230, 230, 1);
@@ -103,6 +102,7 @@ export const BoxColuna = styled("div")`
 export const LinhaTabela = styled("div")`
   color: var(--text);
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
@@ -112,7 +112,7 @@ export const LinhaTabela = styled("div")`
   &:nth-last-of-type(1) {
     border-right: none;
   }
-  &:nth-of-type(3) {
+  &:nth-of-type(2) {
     flex: 5;
     justify-content: left;
   }

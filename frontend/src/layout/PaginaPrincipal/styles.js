@@ -2,9 +2,15 @@ import { styled } from "@mui/system";
 
 export const ContainerPrincipal = styled("div")`
   width: 100%;
-  //height: 100%;
   margin-top: 3rem;
-  display:flex;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 1rem;
+  padding:1rem;
+  div{
+    flex: 1;
+  }
 `;
-

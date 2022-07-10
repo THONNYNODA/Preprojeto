@@ -13,7 +13,7 @@ function Modal(props) {
         <Card
           padding="0"
           background={props.background}
-          colorTitle={props.colorTitle}
+          colortitle={props.colortitle}
           title={props.title}
         >
           {props.children}

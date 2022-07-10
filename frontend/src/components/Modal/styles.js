@@ -7,7 +7,7 @@ export const ModalDetalhe = styled("div")`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
+  z-index: 9997;
 `;
 export const BoxIconClose = styled("div")`
   color: var(--error-color);

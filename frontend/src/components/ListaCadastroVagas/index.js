@@ -44,7 +44,6 @@ function ListaCadastroVagas(props) {
   const [progresso, setProgresso] = useState(false);
   const [confirmacao, setConfirmacao] = useState(false);
 
-
   useEffect(() => {
     api.get("/vaga/vagas").then((res) => setLista(res.data));
   }, []);
@@ -67,25 +66,34 @@ function ListaCadastroVagas(props) {
     setDados(id);
     setOpenDetalhe(true);
   };
+
+  function Frases(data) {
+    const frase = data.replace(/(^\w{1})|(\s+\w{1})/g, (letra) =>
+      letra.toUpperCase()
+    );
+    return frase;
+  }
+
   const handleDelete = (id) => {
     try {
       setProgresso(true);
       setTimeout(async () => {
-        await api.delete(`vaga/vaga/${id}`).then((res) => {          
+        await api.delete(`vaga/vaga/${id}`).then((res) => {
           return setConfirmacao(true);
         });
         setProgresso(false);
         document.location.reload();
       }, 800);
-      
     } catch (error) {
       console.log(error);
     }
   };
 
+  console.log(lista);
+
   return (
     <>
-      <Card background="rgba(31, 99, 87,0.8)" marginTop="4rem">
+      <Card background="rgba(31, 99, 87,0.8)" margintop="4rem">
         <ContainerListaVagas>
           <BoxDetalhe>
             <BoxSeach>
@@ -101,7 +109,7 @@ function ListaCadastroVagas(props) {
               </IconSeach>
             </BoxSeach>
             <ButtonAdd onClick={handleCadastrarVaga}>
-            <AddIcon />
+              <AddIcon />
               Adicionar
             </ButtonAdd>
           </BoxDetalhe>
@@ -110,54 +118,65 @@ function ListaCadastroVagas(props) {
             <BoxTabelaTitle>
               <LinhaTitle>Status</LinhaTitle>
               <LinhaTitle>Vagas</LinhaTitle>
-              <LinhaTitle>Descrição</LinhaTitle>
+              <LinhaTitle>Turno</LinhaTitle>
+              <LinhaTitle>Salario</LinhaTitle>
               <LinhaTitle>Ação</LinhaTitle>
             </BoxTabelaTitle>
             <BoxColuna>
               {Object.keys(searchResult)
                 .sort((a, b) =>
-                  searchResult[a].nome < searchResult[b].nome ? -1 : 0
+                  searchResult[a]?.nome < searchResult[b]?.nome ? -1 : 0
                 )
                 .map((e) => (
                   <>
-                    <BoxTabela key={searchResult[e].id}>
-                      <LinhaTabela>
-                        {searchResult[e].status === "ativo" ? (
-                          <BoxIconStatus color="var(--primary-color)">
-                            <CheckCircleOutlineIcon />
-                          </BoxIconStatus>
-                        ) : (
-                          <BoxIconStatus color="var(--error-color)">
-                            <NotInterestedIcon />
-                          </BoxIconStatus>
-                        )}
-                      </LinhaTabela>
-                      <LinhaTabela>{searchResult[e]?.nome}</LinhaTabela>
-                      <LinhaTabela>{searchResult[e]?.descricao}</LinhaTabela>
-                      <LinhaTabela>
-                        <BoxIcon
-                          onClick={() => handleOpenDetalhe(searchResult[e])}
-                          onChange={handleOpenDetalhe}
-                          color="var(--primary-color)"
-                        >
-                          <NoteIcon />
-                        </BoxIcon>
-                        <BoxIcon
-                          onClick={() => handleOpen(searchResult[e])}
-                          onChange={handleOpen}
-                          color="var(--alert-color)"
-                        >
-                          <EditIcon />
-                        </BoxIcon>
-                        <BoxIcon
-                          onClick={() => handleDelete(searchResult[e].id)}
-                          onChange={handleOpen}
-                          color="var(--error-color)"
-                        >
-                          <DeleteForeverIcon />
-                        </BoxIcon>
-                      </LinhaTabela>
-                    </BoxTabela>
+                    {searchResult[e] !== null ? (
+                      <BoxTabela key={searchResult[e]?.id}>
+                        <LinhaTabela>
+                          {searchResult[e]?.status === "ativo" ? (
+                            <BoxIconStatus color="var(--primary-color)">
+                              <CheckCircleOutlineIcon />
+                            </BoxIconStatus>
+                          ) : (
+                            <BoxIconStatus color="var(--error-color)">
+                              <NotInterestedIcon />
+                            </BoxIconStatus>
+                          )}
+                        </LinhaTabela>
+                        <LinhaTabela>{searchResult[e]?.nome}</LinhaTabela>
+                        <LinhaTabela>
+                          {Frases(searchResult[e]?.turnoTrabalho)}
+                        </LinhaTabela>
+                        <LinhaTabela>
+                          {new Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          }).format(searchResult[e]?.remuneracao)}
+                        </LinhaTabela>
+                        <LinhaTabela>
+                          <BoxIcon
+                            onClick={() => handleOpenDetalhe(searchResult[e])}
+                            onChange={handleOpenDetalhe}
+                            color="var(--primary-color)"
+                          >
+                            <NoteIcon />
+                          </BoxIcon>
+                          <BoxIcon
+                            onClick={() => handleOpen(searchResult[e])}
+                            onChange={handleOpen}
+                            color="var(--alert-color)"
+                          >
+                            <EditIcon />
+                          </BoxIcon>
+                          <BoxIcon
+                            onClick={() => handleDelete(searchResult[e]?.id)}
+                            onChange={handleOpen}
+                            color="var(--error-color)"
+                          >
+                            <DeleteForeverIcon />
+                          </BoxIcon>
+                        </LinhaTabela>
+                      </BoxTabela>
+                    ) : null}
                   </>
                 ))}
             </BoxColuna>
@@ -173,7 +192,7 @@ function ListaCadastroVagas(props) {
       {confirmacao === true ? (
         <Confirmacao
           titleConfimar="Deletado com sucesso"
-          colorTitle="var(--primary-color)"
+          colortitle="var(--primary-color)"
           colorIcon="var(--primary-color)"
           icon={<CheckIcon />}
         />
@@ -181,7 +200,7 @@ function ListaCadastroVagas(props) {
       {confirmacao === 2 ? (
         <Confirmacao
           titleConfimar="Atencao!! Ocorreu um erro"
-          colorTitle="var(--error-color)"
+          colortitle="var(--error-color)"
           colorIcon="var(--error-color)"
           icon={<PriorityHighIcon />}
         />

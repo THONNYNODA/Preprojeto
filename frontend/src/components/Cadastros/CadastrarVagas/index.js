@@ -98,9 +98,9 @@ function CadastrarVagas(props) {
               color="var(--primary-color)"
             >
               <option value="">Escolha</option>
-              <option value="Diurno">Diurno</option>
-              <option value="Matiturno">Matiturno</option>
-              <option value="Noturno">Noturno</option>
+              <option value="diurno">Diurno</option>
+              <option value="matiturno">Matiturno</option>
+              <option value="noturno">Noturno</option>
             </InputFields>
           </BoxInput>
           <BoxInput>
@@ -146,7 +146,7 @@ function CadastrarVagas(props) {
       {confirmacao === true ? (
         <Confirmacao
           titleConfimar="Foi Realizado com Sucesso!!"
-          colorTitle="var(--primary-color)"
+          colortitle="var(--primary-color)"
           colorIcon="var(--primary-color)"
           icon={<CheckIcon />}
         />
@@ -154,7 +154,7 @@ function CadastrarVagas(props) {
       {confirmacao === 2 ? (
         <Confirmacao
           titleConfimar="Atencao!! Ocorreu um erro"
-          colorTitle="var(--error-color)"
+          colortitle="var(--error-color)"
           colorIcon="var(--error-color)"
           icon={<PriorityHighIcon />}
         />
