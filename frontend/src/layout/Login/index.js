@@ -7,22 +7,12 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
-import {
-  BoxText,
-  ContainerFilter,
-  ContainerLogin,
-  ContainerImg,
-  Text,
-  Title,
-  ContainerForm,
-  Buttons,
-  BoxForm,
-  TitleLogin,
-  Divisorio,
-} from "./styles";
+import { ContainerLogin, Buttons } from "./styles";
 import { BoxIconShow } from "../../components/Input/styles";
+import Logo from "../../assets/logo.svg";
+import Perfil from "../../assets/logo-login.svg"
 
-import { Form, Formik, Field } from "formik";
+import { Form, Formik } from "formik";
 import { Link } from "react-router-dom";
 
 const validationSchema = yup.object().shape({
@@ -50,95 +40,84 @@ function Login(props) {
     senha: "",
   };
   return (
-    <>
-      <ContainerLogin>
-        <ContainerImg width="60%">
-          <BoxText>
-            <ContainerFilter />
-            <Title color="#FD5956">Vagas ao Cemil</Title>
-            <Text color="#ffffff">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              at urna augue. Fusce et sapien in nibh interdum facilisis.
-            </Text>
-          </BoxText>
-        </ContainerImg>
-        <ContainerForm width="40%">
-          <BoxForm>
-            <TitleLogin>Login</TitleLogin>
-            <Text color="#000000">
-              Faça o seu login para verificar as vagas disponivel
-            </Text>
-            <Divisorio height="0.1rem" margin="1.5rem 0" />
-            <Formik
-              validationSchema={validationSchema}
-              initialValues={inicial}
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert("Com sucesso");
-                }, 400);
-              }}
-            >
-              {({
-                errors,
-                touched,
-                isSubmitting,
-                values,
-                handleSubmit,
-                handleChange,
-                setFieldValue,
-              }) => (
-                <Form onSubmit={handleSubmit}>
-                  <InputMask
-                    mask="999.999.999-99"
-                    maskChar=" "
-                    onChange={(e) => {
-                      const value = e.target.value || "";
-                      setFieldValue("cpf", value);
-                    }}
-                  >
-                    {(inputProps) => (
-                      <InputFields
-                        {...inputProps}
-                        padding=" 0.5rem 1rem"
-                        name="cpf"
-                        label="CPF:"
-                        nameError="cpf"
-                        color="var(--primary-color)"
-                        icon={<PersonRoundedIcon />}
-                      />
-                    )}
-                  </InputMask>
+    <ContainerLogin>
+      <img src={Logo} alt="logo" />
+      <div className="boxForm">
+        <img src={Perfil} alt="logo" />
+        <h2>Recrutamento RH</h2>
+        <p>Login</p>
+        <Formik
+          validationSchema={validationSchema}
+          initialValues={inicial}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert("Com sucesso");
+            }, 400);
+          }}
+        >
+          {({
+            errors,
+            touched,
+            isSubmitting,
+            values,
+            handleSubmit,
+            handleChange,
+            setFieldValue,
+          }) => (
+            <Form onSubmit={handleSubmit}>
+              <InputMask
+                mask="999.999.999-99"
+                maskChar=" "
+                onChange={(e) => {
+                  const value = e.target.value || "";
+                  setFieldValue("cpf", value);
+                }}
+              >
+                {(inputProps) => (
                   <InputFields
-                    label="Senha"
+                    {...inputProps}
+                    padding=" 0.5rem 1rem"
+                    name="cpf"
+                    label="CPF:"
+                    nameError="cpf"
                     color="var(--primary-color)"
-                    colorResponse="#ffffff"
-                    type={showPass ? "password" : "text"}
-                    padding="1rem"
-                    fontSize="1.2rem"
-                    width="100%"
-                    icon={<VpnKeyIcon />}
-                    name="senha"
-                    placeholder="******"
-                    margin="0"
-                    nameError="senha"
-                    iconShow={
-                      <BoxIconShow onClick={handleShowPass}>
-                        {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                      </BoxIconShow>
-                    }
+                    icon={<PersonRoundedIcon />}
                   />
-
-                  <Link to="/cadastro">
-                    <a>Nao sou cadastrado</a>
-                  </Link>
-                  <Buttons type="submit">Entrar</Buttons>
-                </Form>
-              )}
-            </Formik>
-          </BoxForm>
-        </ContainerForm>
-      </ContainerLogin>
-    </>
+                )}
+              </InputMask>
+              <InputFields
+                label="Senha"
+                color="var(--primary-color)"
+                colorResponse="#ffffff"
+                type={showPass ? "password" : "text"}
+                padding="1rem"
+                fontSize="1.2rem"
+                width="100%"
+                icon={<VpnKeyIcon />}
+                name="senha"
+                placeholder="******"
+                margin="0"
+                nameError="senha"
+                iconShow={
+                  <BoxIconShow onClick={handleShowPass}>
+                    {showPass ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                  </BoxIconShow>
+                }
+              />
+              <div className="boxLinks">
+                <Link to="/cadastro">
+                  <a>Nao sou cadastrado</a>
+                </Link>
+                <Link to="/cadastro">
+                  <a>Esqueci a senha</a>
+                </Link>
+              </div>
+              <Buttons type="submit">Entrar</Buttons>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </ContainerLogin>
   );
 }
 
