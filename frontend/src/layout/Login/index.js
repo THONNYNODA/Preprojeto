@@ -106,10 +106,10 @@ function Login(props) {
               />
               <div className="boxLinks">
                 <Link to="/cadastro">
-                  <a>Nao sou cadastrado</a>
+                  <a href="" >Nao sou cadastrado</a>
                 </Link>
                 <Link to="/cadastro">
-                  <a>Esqueci a senha</a>
+                  <a href="">Esqueci a senha</a>
                 </Link>
               </div>
               <Buttons type="submit">Entrar</Buttons>

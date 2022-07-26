@@ -6,7 +6,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
 import InputFields from "../../Input";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   BoxForm,
   BoxSingleInput,
@@ -390,6 +390,9 @@ function Candidato(props) {
                   </BoxSingleInput>
                 </SubBoxForm>
               </BoxForm>
+              <Link to="/">
+                <a>Voltar ao Login</a>
+              </Link>
 
               <Buttons
                 variant="contained"

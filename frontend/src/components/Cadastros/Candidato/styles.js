@@ -17,6 +17,19 @@ export const ContainerCadastro = styled("div")`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
+
+  a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    &:hover{
+      
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const ContainerFilter = styled("div")`

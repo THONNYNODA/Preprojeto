@@ -36,8 +36,7 @@ export const GlobalStyle = createGlobalStyle`
 body{
         font-size: 1.6rem;
         position: relative;
-        background-color: #ffffff;
-        
+        background-color: #ffffff;    
         
         
     };

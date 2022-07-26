@@ -27,38 +27,38 @@ export const ContainerLogin = styled("main")`
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
       rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
       rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-      img {
-        position: relative;
-        width: 100px;
-        height: 100px;
-        opacity: 1;
-       
-      }
+    img {
+      margin-top: 10px;
+      position: relative;
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+    }
 
     h2 {
       position: relative;
-      padding-top: 0.5em;
       color: var(--primary-color);
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: lighter;
     }
     p {
       font-size: 1rem;
       padding-bottom: 1rem;
-      color: var(--text);
+      color: var(--text-gray);
     }
     .boxLinks {
       width: 100%;
       display: flex;
       justify-content: space-evenly;
       padding-inline: 1rem;
-     
+
       a {
         text-decoration: none;
         color: #2c3333;
         font-size: 1rem;
         &:hover {
           color: var(--primary-color);
+          text-decoration:underline;
         }
       }
     }
@@ -83,17 +83,4 @@ export const Buttons = styled("button")`
   }
 `;
 
-export const Divisorio = styled("div")`
-  position: relative;
-  width: ${(props) => props.width || "100%"};
-  height: ${(props) => props.height};
-  min-height: ${(props) => props.minheight || "100%"};
-  margin: ${(props) => props.margin};
-  padding: ${(props) => props.padding};
-  background: rgb(31, 99, 87);
-  background: radial-gradient(
-    circle,
-    rgba(31, 99, 87, 1) 57%,
-    rgba(249, 249, 249, 1) 100%
-  );
-`;
+
