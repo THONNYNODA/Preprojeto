@@ -12,6 +12,7 @@ function Modal(props) {
         </BoxIconClose>
         <Card
           padding="0"
+          maxwidth={props.maxwidth}
           background={props.background}
           colortitle={props.colortitle}
           title={props.title}

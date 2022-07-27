@@ -2,6 +2,7 @@ import { styled } from "@mui/system";
 
 export const BoxCard = styled("div")`
   width: 100%;
+  height: 100%;
   min-width: 18.75rem;
   max-width: ${props => props.maxwidth};
   border-radius: 0.7rem;
@@ -25,8 +26,7 @@ export const ContainerCard = styled("div")`
   height: 100%;
   z-index: 999;
   position: relative;
-  padding: ${(props) => props.padding || "2rem"};
-`;
+  padding: ${(props) => props.padding || "2rem"};`;
 
 export const TitleCard = styled("h2")`
   color: ${props => props.colortitle || "var(--title-light)"};

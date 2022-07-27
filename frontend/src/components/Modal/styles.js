@@ -23,8 +23,8 @@ export const BoxIconClose = styled("div")`
 `;
 
 export const ContainerDetalhe = styled("div")`
-  max-width: 56rem;
-  max-height: 48rem;
+  max-width: 100%;
+  max-height: 100%;
   position: absolute;
   border-radius: 1.5rem;
   top: 50%;
